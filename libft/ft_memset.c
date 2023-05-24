@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_file.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/21 19:34:36 by ggosse            #+#    #+#             */
-/*   Updated: 2023/05/21 19:40:24 by ggosse           ###   ########.fr       */
+/*   Created: 2022/05/04 17:02:09 by ggosse            #+#    #+#             */
+/*   Updated: 2022/06/14 19:17:25 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/cub3.h"
+#include "libft.h" 
 
-int	ft_check_ext(char *filename)
+void	*ft_memset(void	*str, int value, size_t len)
 {
-	int	len;
+	unsigned char	*p;
+	int				i;
 
-	len = (ft_strlen(filename) - 1);
-	if (filename[len] == 'b'
-		&& filename[len - 1] == 'u'
-		&& filename[len - 2] == 'c'
-		&& filename[len - 3] == '.')
-		return (SUCCESS);
-	return (FAIL);
+	p = str;
+	i = 0;
+	while (len--)
+	{
+		*(p + i) = (unsigned char)value;
+		i++;
+	}
+	return (p);
 }

@@ -1,41 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str.c                                           :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/21 19:24:19 by ggosse            #+#    #+#             */
-/*   Updated: 2023/05/22 11:03:19 by mael             ###   ########.fr       */
+/*   Created: 2022/05/18 13:11:07 by ggosse            #+#    #+#             */
+/*   Updated: 2022/06/15 16:42:00 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../incs/cub3.h"
+#include "libft.h"
 
-int	ft_strlen(char *str)
-{
-	int	ite;
-
-	ite = 0;
-	if (!str)
-		return (0);
-	while (str[ite])
-		ite++;
-	return (ite);
-}
-
-char	*ft_strdup(char *str)
+char	*ft_strmapi(const char *str, char (*f)(unsigned int, char))
 {
 	char	*res;
 	int		i;
 
-	res = malloc(sizeof (char) * (ft_strlen(str) + 1));
-	if (!res)
-		return (NULL);
 	i = 0;
-	while (str[i])
+	res = NULL;
+	res = ft_strdup(str);
+	while (res[i])
 	{
-		res[i] = str[i];
+		res[i] = (*f)(i, res[i]);
 		i++;
 	}
 	res[i] = '\0';

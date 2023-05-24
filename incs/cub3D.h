@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   incs/cub3D.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/21 19:24:19 by ggosse            #+#    #+#             */
-/*   Updated: 2023/05/22 11:22:13 by mael             ###   ########.fr       */
+/*   Created: 2023/05/24 15:45:40 by ggosse            #+#    #+#             */
+/*   Updated: 2023/05/24 23:35:08 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,45 +37,62 @@
 # include <readline/history.h>
 
 // ------------------------------ include ----------------------------------- //
+#include "../libft.h"
+#include "color.h"
 // ---------------------------- end include --------------------------------- //
 
 // ------------------------------ define ------------------------------------ //
 # define SUCCESS 1
 # define FAIL -1
-# define BUFFER_SIZE 1
 // ---------------------------- end define ---------------------------------- //
 
 // ------------------------------ struct ------------------------------------ //
+
 typedef struct s_map
 {
-	char		*map_build;
-	char		**map_org;
-	char		**map_chck;
-	int			h;
-	int			w;
-	int			p_y;
-	int			p_x;
-	int			count_step;
-	int			fd_map;
+	char	*file_content;
+	char	**tab_file;
+	char	**map_chck;
+	char	*wall_no;
+	char	*wall_ea;
+	char	*wall_so;
+	char	*wall_we;
+	int		h;
+	int		w;
+	int		p_y;
+	int		p_x;
+	int		count_step;
+	int		fd_map;
 }				t_map;
 
 typedef struct s_game
 {
+	int		img_size;
 	void	*mlibx;
 	void	*window;
-	int		img_size;
-	void	*img_0;
-	void	*img_1;
-	void	*img_p;
-	void	*img_c;
-	void	*img_e;
 	t_map	*map;
 }			t_game;
 // ---------------------------- end struct ---------------------------------- //
 
-//srcs/main.c
-void	abc(void);
-
-je tai envoye linvite github pour les droits
+./srcs/main.c
+int		ft_parsing(t_game *game, char **argv);
+void	init_struct_game(t_game *game);
+void	init_struct_map(t_game *game);
+./srcs/texture_part.c
+int		is_empty_line(char *line);
+int		texture_part(char *line);
+./srcs/valid_wall.c
+int		ft_propagation(t_game *game);
+int		ft_replace_around(t_game *game, int ite_big, int ite_lil);
+int		ft_valid_wall(t_game *game);
+./srcs/check_file.c
+int		ft_check_env(char **envp);
+int		ft_check_ext(char *filename);
+./srcs/read_file.c
+int		ft_buf_read(int fd, t_game *game);
+int		ft_read_file(t_game *game, char *filename);
+./srcs/free_parsing.c
+void	ft_free_parsing(t_game *game, char *err);
+void	ft_free_tab_str(char **tab_str);
 
 #endif
