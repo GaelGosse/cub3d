@@ -37,6 +37,7 @@ _SRCS	=	check_file.c \
 			main.c \
 			read_file.c \
 			texture_part.c \
+			texture_part_utils.c \
 			valid_wall.c
 # --------------------------------- end srcs --------------------------------- #
 

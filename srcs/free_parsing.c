@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:27:05 by ggosse            #+#    #+#             */
-/*   Updated: 2023/05/24 18:07:47 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/05/25 22:53:20 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,30 @@ void	ft_free_tab_str(char **tab_str)
 // 	exit (1);
 // }
 
+void	free_img(t_game *game)
+{
+	if (game->map->wall_no)
+	{
+		free(game->map->wall_no);
+		game->map->wall_no = NULL;
+	}
+	if (game->map->wall_ea)
+	{
+		free(game->map->wall_ea);
+		game->map->wall_ea = NULL;
+	}
+	if (game->map->wall_so)
+	{
+		free(game->map->wall_so);
+		game->map->wall_so = NULL;
+	}
+	if (game->map->wall_we)
+	{
+		free(game->map->wall_we);
+		game->map->wall_we = NULL;
+	}
+}
+
 void	ft_free_parsing(t_game *game, char *err)
 {
 	if (err)
@@ -66,6 +90,7 @@ void	ft_free_parsing(t_game *game, char *err)
 		free(game->map->file_content);
 		game->map->file_content = NULL;
 	}
+	free_img(game);
 	if (game->map->tab_file)
 		ft_free_tab_str(game->map->tab_file);
 	if (game->map->map_chck)

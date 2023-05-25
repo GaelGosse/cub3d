@@ -6,20 +6,20 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 19:34:36 by ggosse            #+#    #+#             */
-/*   Updated: 2023/05/25 18:21:50 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/05/25 21:38:32 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-int	ft_check_ext(char *filename)
+int	ft_check_ext(char *filename, char one, char two, char three)
 {
 	int	len;
 
 	len = (ft_strlen(filename) - 1);
-	if (filename[len] == 'b'
-		&& filename[len - 1] == 'u'
-		&& filename[len - 2] == 'c'
+	if (filename[len] == three
+		&& filename[len - 1] == two
+		&& filename[len - 2] == one
 		&& filename[len - 3] == '.')
 		return (SUCCESS);
 	return (FAIL);

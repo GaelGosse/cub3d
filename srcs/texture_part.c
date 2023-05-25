@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 17:52:47 by ggosse            #+#    #+#             */
-/*   Updated: 2023/05/25 18:29:26 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/05/25 22:52:51 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ int	texture_part(t_game *game, char *line)
 		return (FAIL);
 	if (check_we(game, line) == FAIL)
 		return (FAIL);
-	if (check_tx(game, line) == FAIL)
-		return (FAIL);
+	if (game->map->wall_no != NULL &&  game->map->wall_ea != NULL && \
+	game->map->wall_so != NULL &&  game->map->wall_we != NULL)
+		return (check_tx(game));
 	return (SUCCESS);
 }
 
@@ -37,7 +38,7 @@ int	check_no(t_game *game, char *line)
 		FAIL);
 	if (line[0] == 'N' && line[0 + 1] == 'O' \
 	&& line[0 + 2] == ' ' && game->map->wall_no == NULL)
-		game->map->wall_no = ft_strdup_len(line, 2, ft_strlen(line));
+		game->map->wall_no = ft_strdup_len(line, 3, ft_strlen(line));
 	return (SUCCESS);
 }
 
@@ -49,7 +50,7 @@ int	check_ea(t_game *game, char *line)
 		FAIL);
 	if (line[0] == 'E' && line[0 + 1] == 'A' \
 	&& line[0 + 2] == ' ' && game->map->wall_ea == NULL)
-		game->map->wall_ea = ft_strdup_len(line, 2, ft_strlen(line));
+		game->map->wall_ea = ft_strdup_len(line, 3, ft_strlen(line));
 	return (SUCCESS);
 }
 
@@ -61,7 +62,7 @@ int	check_so(t_game *game, char *line)
 		FAIL);
 	if (line[0] == 'S' && line[0 + 1] == 'O' \
 	&& line[0 + 2] == ' ' && game->map->wall_so == NULL)
-		game->map->wall_so = ft_strdup_len(line, 2, ft_strlen(line));
+		game->map->wall_so = ft_strdup_len(line, 3, ft_strlen(line));
 	return (SUCCESS);
 }
 
@@ -73,7 +74,7 @@ int	check_we(t_game *game, char *line)
 		FAIL);
 	if (line[0] == 'W' && line[0 + 1] == 'E' \
 	&& line[0 + 2] == ' ' && game->map->wall_we == NULL)
-		game->map->wall_we = ft_strdup_len(line, 2, ft_strlen(line));
+		game->map->wall_we = ft_strdup_len(line, 3, ft_strlen(line));
 	return (SUCCESS);
 }
 

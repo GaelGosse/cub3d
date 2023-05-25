@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:15:08 by ggosse            #+#    #+#             */
-/*   Updated: 2023/05/25 18:20:03 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/05/25 22:55:57 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	init_struct(t_game *game)
 	game->map->wall_ea = NULL;
 	game->map->wall_so = NULL;
 	game->map->wall_we = NULL;
+	game->map->ceil = NULL;
+	game->map->floor = NULL;
 	game->map->h = FAIL;
 	game->map->w = FAIL;
 	game->map->p_y = FAIL;
@@ -58,7 +60,7 @@ int	ft_parsing(t_game *game, char **argv)
 	if (!game->map)
 		return (FAIL);
 	init_struct(game);
-	if (ft_check_ext(argv[1]) == FAIL)
+	if (ft_check_ext(argv[1], 'c', 'u', 'b') == FAIL)
 		return (ft_free_parsing(game, "wrong filename extension\n"), FAIL);
 	if (ft_read_file(game, argv[1]) == FAIL)
 		return (FAIL);
