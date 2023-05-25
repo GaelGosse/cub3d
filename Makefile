@@ -32,6 +32,7 @@ LIBDIR	= libft
 
 # ----------------------------------- srcs ----------------------------------- #
 _SRCS	=	check_file.c \
+			floor_ceil_part.c \
 			free_parsing.c \
 			main.c \
 			read_file.c \

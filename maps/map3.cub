@@ -1,7 +1,7 @@
-WE tx/48/wallw.xpm
-EA tx/48/walle.xpm
-NO tx/48/walln.xpm
-SO tx/48/walls.xpm
+WE sprites/water.xpm
+EA sprites/crystal.xpm
+NO sprites/rock.xpm
+SO sprites/ship_left.xpm
 
 
 C 255,255,0

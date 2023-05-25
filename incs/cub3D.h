@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:45:40 by ggosse            #+#    #+#             */
-/*   Updated: 2023/05/24 23:35:08 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/05/25 18:28:27 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
 # include <readline/history.h>
 
 // ------------------------------ include ----------------------------------- //
-#include "../libft.h"
+#include "../libft/libft.h"
 #include "color.h"
 // ---------------------------- end include --------------------------------- //
 
@@ -57,6 +57,8 @@ typedef struct s_map
 	char	*wall_ea;
 	char	*wall_so;
 	char	*wall_we;
+	char	*floor;
+	char	*ceil;
 	int		h;
 	int		w;
 	int		p_y;
@@ -74,24 +76,32 @@ typedef struct s_game
 }			t_game;
 // ---------------------------- end struct ---------------------------------- //
 
-./srcs/main.c
+//srcs/main.c
 int		ft_parsing(t_game *game, char **argv);
-void	init_struct_game(t_game *game);
-void	init_struct_map(t_game *game);
-./srcs/texture_part.c
+void	init_struct(t_game *game);
 int		is_empty_line(char *line);
-int		texture_part(char *line);
-./srcs/valid_wall.c
+//srcs/texture_part.c
+int		check_ea(t_game *game, char *line);
+int		check_no(t_game *game, char *line);
+int		check_so(t_game *game, char *line);
+int		check_we(t_game *game, char *line);
+int		texture_part(t_game *game, char *line);
+//srcs/valid_wall.c
 int		ft_propagation(t_game *game);
 int		ft_replace_around(t_game *game, int ite_big, int ite_lil);
 int		ft_valid_wall(t_game *game);
-./srcs/check_file.c
+//srcs/check_file.c
 int		ft_check_env(char **envp);
 int		ft_check_ext(char *filename);
-./srcs/read_file.c
+int		wrong_letter_tx(char *line);
+//srcs/read_file.c
 int		ft_buf_read(int fd, t_game *game);
 int		ft_read_file(t_game *game, char *filename);
-./srcs/free_parsing.c
+//srcs/floor_ceil_part.c
+int		check_ceil(t_game *game, char *line);
+int		check_floor(t_game *game, char *line);
+int		floor_ceil_part(t_game *game, char *line);
+//srcs/free_parsing.c
 void	ft_free_parsing(t_game *game, char *err);
 void	ft_free_tab_str(char **tab_str);
 

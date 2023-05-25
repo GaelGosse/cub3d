@@ -6,14 +6,17 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:15:08 by ggosse            #+#    #+#             */
-/*   Updated: 2023/05/24 23:01:01 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/05/25 18:20:03 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-void	init_struct_map(t_game *game)
+void	init_struct(t_game *game)
 {
+	game->img_size = FAIL;
+	game->mlibx = NULL;
+	game->window = NULL;
 	game->map->file_content = NULL;
 	game->map->tab_file = NULL;
 	game->map->map_chck = NULL;
@@ -29,12 +32,19 @@ void	init_struct_map(t_game *game)
 	game->map->fd_map = FAIL;
 }
 
-void	init_struct_game(t_game *game)
+
+int	is_empty_line(char *line)
 {
-	game->img_size = FAIL;
-	game->mlibx = NULL;
-	game->window = NULL;
-	init_struct_map(game);
+	int	ite_empty;
+
+	ite_empty = 0;
+	while (line[ite_empty])
+	{
+		if ((int)line[ite_empty] != 32 && (int)line[ite_empty] != 9)
+			return (FAIL);
+		ite_empty++;
+	}
+	return (SUCCESS);
 }
 
 int	ft_parsing(t_game *game, char **argv)
@@ -47,7 +57,7 @@ int	ft_parsing(t_game *game, char **argv)
 	game->map = malloc(sizeof(t_map));
 	if (!game->map)
 		return (FAIL);
-	init_struct_game(game);
+	init_struct(game);
 	if (ft_check_ext(argv[1]) == FAIL)
 		return (ft_free_parsing(game, "wrong filename extension\n"), FAIL);
 	if (ft_read_file(game, argv[1]) == FAIL)
@@ -57,10 +67,19 @@ int	ft_parsing(t_game *game, char **argv)
 		if (is_empty_line(game->map->tab_file[ite_each_line]) == FAIL && count < 4)
 		{
 			printf(GREEN"%s"RESET"\n", game->map->tab_file[ite_each_line]);
-			if (texture_part(game->map->tab_file[ite_each_line]) == FAIL)
+			if (texture_part(game, game->map->tab_file[ite_each_line]) == FAIL)
 				return (FAIL);
 			count++;
 		}
+		else if (is_empty_line(game->map->tab_file[ite_each_line]) == FAIL && count < 6)
+		{
+			printf(BLUE"%s"RESET"\n", game->map->tab_file[ite_each_line]);
+			if (floor_ceil_part(game, game->map->tab_file[ite_each_line]) == FAIL)
+				return (FAIL);
+			count++;
+		}
+		else
+			printf(BACK_RED" "RESET"\n");
 		// if (floor_ceil_part(game) == FAIL)
 		// 	return (FAIL);
 		// if (build_map_part(game) == FAIL)

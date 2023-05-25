@@ -6,46 +6,74 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 17:52:47 by ggosse            #+#    #+#             */
-/*   Updated: 2023/05/24 23:08:52 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/05/25 18:29:26 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-int	is_empty_line(char *line)
+int	texture_part(t_game *game, char *line)
 {
-	int	ite_empty;
-
-	ite_empty = 0;
-	while (line[ite_empty])
-	{
-		if ((int)line[ite_empty] != 32 && (int)line[ite_empty] != 9)
-			return (FAIL);
-		ite_empty++;
-	}
+	if (wrong_letter_tx(line) == FAIL)
+		return (FAIL);
+	if (check_no(game, line) == FAIL)
+		return (FAIL);
+	if (check_ea(game, line) == FAIL)
+		return (FAIL);
+	if (check_so(game, line) == FAIL)
+		return (FAIL);
+	if (check_we(game, line) == FAIL)
+		return (FAIL);
+	if (check_tx(game, line) == FAIL)
+		return (FAIL);
 	return (SUCCESS);
 }
 
-int	texture_part(char *line)
+int	check_no(t_game *game, char *line)
 {
-	int	ite_check;
-
-	ite_check = -1;
-	while (line[++ite_check])
-	{
-		printf("ft_strdup_len(line, 2, ft_strlen(line) - 1): %s\n", ft_strdup_len(line, 2, ft_strlen(line) - 1));
-		if (line[ite_check] == 'N' && line[ite_check + 1] == 'O' \
-		&& line[ite_check] == ' ' && game->map->wall_no == NULL)
-			game->map->wall_no = ft_strdup_len(line, 2, ft_strlen(line) - 1);
-		if (line[ite_check] == 'E' && line[ite_check + 1] == 'A' \
-		&& line[ite_check] == ' ' && game->map->wall_ea == NULL)
-			game->map->wall_ea = ft_strdup_len(line, 2, ft_strlen(line) - 1);
-		if (line[ite_check] == 'S' && line[ite_check + 1] == 'O' \
-		&& line[ite_check] == ' ' && game->map->wall_so == NULL)
-			game->map->wall_so = ft_strdup_len(line, 2, ft_strlen(line) - 1);
-		if (line[ite_check] == 'W' && line[ite_check + 1] == 'E' \
-		&& line[ite_check] == ' ' && game->map->wall_we == NULL)
-			game->map->wall_we = ft_strdup_len(line, 2, ft_strlen(line) - 1);
-	}
+	if (line[0] == 'N' && line[0 + 1] == 'O' \
+	&& line[0 + 2] == ' ' && game->map->wall_no != NULL)
+		return (printf(RED"Err: NO already set %s\n"RST, game->map->wall_no), \
+		FAIL);
+	if (line[0] == 'N' && line[0 + 1] == 'O' \
+	&& line[0 + 2] == ' ' && game->map->wall_no == NULL)
+		game->map->wall_no = ft_strdup_len(line, 2, ft_strlen(line));
 	return (SUCCESS);
 }
+
+int	check_ea(t_game *game, char *line)
+{
+	if (line[0] == 'E' && line[0 + 1] == 'A' \
+	&& line[0 + 2] == ' ' && game->map->wall_ea != NULL)
+		return (printf(RED"Err: EA already set %s\n"RST, game->map->wall_ea), \
+		FAIL);
+	if (line[0] == 'E' && line[0 + 1] == 'A' \
+	&& line[0 + 2] == ' ' && game->map->wall_ea == NULL)
+		game->map->wall_ea = ft_strdup_len(line, 2, ft_strlen(line));
+	return (SUCCESS);
+}
+
+int	check_so(t_game *game, char *line)
+{
+	if (line[0] == 'S' && line[0 + 1] == 'O' \
+	&& line[0 + 2] == ' ' && game->map->wall_so != NULL)
+		return (printf(RED"Err: SO already set %s\n"RST, game->map->wall_so), \
+		FAIL);
+	if (line[0] == 'S' && line[0 + 1] == 'O' \
+	&& line[0 + 2] == ' ' && game->map->wall_so == NULL)
+		game->map->wall_so = ft_strdup_len(line, 2, ft_strlen(line));
+	return (SUCCESS);
+}
+
+int	check_we(t_game *game, char *line)
+{
+	if (line[0] == 'W' && line[0 + 1] == 'E' \
+	&& line[0 + 2] == ' ' && game->map->wall_we != NULL)
+		return (printf(RED"Err: WE already set %s\n"RST, game->map->wall_we), \
+		FAIL);
+	if (line[0] == 'W' && line[0 + 1] == 'E' \
+	&& line[0 + 2] == ' ' && game->map->wall_we == NULL)
+		game->map->wall_we = ft_strdup_len(line, 2, ft_strlen(line));
+	return (SUCCESS);
+}
+

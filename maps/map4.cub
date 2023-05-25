@@ -1,7 +1,7 @@
-WE tx/64/wallw.xpm
-EA tx/64/walle.xpm
-NO tx/64/walln.xpm
-SO tx/64/walls.xpm
+WE tx/64/water.xpm
+EA tx/64/crystal.xpm
+NO tx/64/rock.xpm
+SO tx/64/ship_left.xpm
 F 122,200,122
 C 122,122,122
 

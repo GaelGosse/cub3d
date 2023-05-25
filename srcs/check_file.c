@@ -6,7 +6,7 @@
 /*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 19:34:36 by ggosse            #+#    #+#             */
-/*   Updated: 2023/05/24 18:07:52 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/05/25 18:21:50 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,18 @@ int	ft_check_env(char **envp)
 	if (is_path)
 		return (SUCCESS);
 	return (FAIL);
+}
+
+int	wrong_letter_tx(char *line)
+{
+	if (line[0] == 'N' && line[0 + 1] == 'O')
+		return (SUCCESS);
+	if (line[0] == 'E' && line[0 + 1] == 'A')
+		return (SUCCESS);
+	if (line[0] == 'S' && line[0 + 1] == 'O')
+		return (SUCCESS);
+	if (line[0] == 'W' && line[0 + 1] == 'E')
+		return (SUCCESS);
+	return (printf(RED"Err: %c wrong letter for textures \n"RST, \
+	line[0]), FAIL);
 }
