@@ -51,24 +51,24 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c $(HEADER)
 	@$(CC) -c $(CFLAGS) -I$(LIBDIR) -I$(INCDIR) $< -o $@
 all: $(NAME)
 $(NAME): $(OBJ) $(HEADER)
-	@echo "Baking $(LIBDIR)..."
+	@echo -e "Baking $(LIBDIR)..."
 	@make -s -C $(LIBDIR)
-	@echo "$(GREEN)OK!$(END)"
-	@echo "Baking $(NAME)..."
+	@echo -e "$(GREEN)OK!$(END)"
+	@echo -e "Baking $(NAME)..."
 	@$(CC) -I$(INCDIR) -I$(LIBDIR) -o $@ $^ $(LIBDIR)/$(LIBNAME) $(CFLAGS)
-	@echo "$(GREEN)OK!$(END)"
-	@echo "$(BOLD_GREEN)$(NAME) READY !$(END)"
+	@echo -e "$(GREEN)OK!$(END)"
+	@echo -e "$(BOLD_GREEN)$(NAME) READY !$(END)"
 clean:
-	@echo "Removing objects..."
+	@echo -e "Removing objects..."
 	@make clean -s -C $(LIBDIR)
 	@rm -rf $(OBJDIR)
-	@echo "$(GREEN)Done!$(END)"
+	@echo -e "$(GREEN)Done!$(END)"
 fclean: clean
-	@echo "Cleaning everything..."
+	@echo -e "Cleaning everything..."
 	@make fclean -s -C $(LIBDIR)
 	@rm -f $(NAME)
-	@echo "$(GREEN)Done!$(END)"
-	@echo "$(BOLD_GREEN)Everything is clean!$(END)"
+	@echo -e "$(GREEN)Done!$(END)"
+	@echo -e "$(BOLD_GREEN)Everything is clean!$(END)"
 re: fclean all
 -include ${DEPS}
 

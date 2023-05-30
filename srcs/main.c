@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:15:08 by ggosse            #+#    #+#             */
-/*   Updated: 2023/05/25 22:55:57 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/05/26 07:57:23 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ int	is_empty_line(char *line)
 
 int	ft_parsing(t_game *game, char **argv)
 {
-	int	ite_each_line;
+	int	ite_each_line;color = ft_strdup_len
+color = ft_strdup_len
 	int	count;
 
 	count = 0;
