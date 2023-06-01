@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:15:08 by ggosse            #+#    #+#             */
-/*   Updated: 2023/05/26 07:57:23 by gael             ###   ########.fr       */
+/*   Updated: 2023/06/01 11:50:41 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,42 @@ int	is_empty_line(char *line)
 	return (SUCCESS);
 }
 
+int	check_valid_chr_map(char *line)
+{
+	int	ite_chck_chr;
+
+	ite_chck_chr = 0;
+	while (line[ite_chck_chr])
+	{
+		if (line[ite_chck_chr] != ' ' && line[ite_chck_chr] != '0' \
+		&& line[ite_chck_chr] != '1')
+			return (FAIL);
+	}
+	return (SUCCESS);
+}
+
+int	malloc_map(t_game *game, int ite_start)
+{
+	
+}
+
+int	build_map(t_game *game, int ite_start)
+{
+	int	ite_build_map;
+
+	ite_build_map = -1;
+	malloc_map(game, ite_start);
+	while (game->map->tab_file[++ite_build_map])
+	{
+		if (check_valid_chr_map(game->map->tab_file[ite_build_map]) == FAIL)
+			return (FAIL);
+	}
+	return (SUCCESS);
+}
+
 int	ft_parsing(t_game *game, char **argv)
 {
-	int	ite_each_line;color = ft_strdup_len
-color = ft_strdup_len
+	int	ite_each_line;
 	int	count;
 
 	count = 0;
@@ -78,6 +110,13 @@ color = ft_strdup_len
 		{
 			printf(BLUE"%s"RESET"\n", game->map->tab_file[ite_each_line]);
 			if (floor_ceil_part(game, game->map->tab_file[ite_each_line]) == FAIL)
+				return (FAIL);
+			count++;
+		}
+		else if (is_empty_line(game->map->tab_file[ite_each_line]) == FAIL)
+		{
+			printf(CYAN"%s"RESET"\n", game->map->tab_file[ite_each_line]);
+			if (build_map(game) == FAIL)
 				return (FAIL);
 			count++;
 		}
