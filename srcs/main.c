@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:15:08 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/01 11:50:41 by gael             ###   ########.fr       */
+/*   Updated: 2023/06/01 17:09:42 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,33 +51,70 @@ int	is_empty_line(char *line)
 
 int	check_valid_chr_map(char *line)
 {
-	int	ite_chck_chr;
+	int	i_chck_chr;
 
-	ite_chck_chr = 0;
-	while (line[ite_chck_chr])
+	i_chck_chr = -1;
+	while (line[++i_chck_chr])
 	{
-		if (line[ite_chck_chr] != ' ' && line[ite_chck_chr] != '0' \
-		&& line[ite_chck_chr] != '1')
+		if (line[i_chck_chr] != ' ' && line[i_chck_chr] != '0' \
+		&& line[i_chck_chr] != '1' && line[i_chck_chr] != 'W' \
+		&& line[i_chck_chr] != 'E' && line[i_chck_chr] != 'N' \
+		&& line[i_chck_chr] != 'S')
+		{
+			if (line[i_chck_chr - 1])
+				printf("%i %c\n", line[i_chck_chr - 1], line[i_chck_chr - 1]);
+			printf("%i %c\n", line[i_chck_chr], line[i_chck_chr]);
+			if (line[i_chck_chr + 1])
+				printf("%i %c\n", line[i_chck_chr + 1], line[i_chck_chr + 1]);
 			return (FAIL);
+		}
 	}
 	return (SUCCESS);
 }
 
+int	end_of_map(t_game *game)
+{
+	int	i_end_map;
+
+	i_end_map = -1;
+	while (game->map->tab_file[++i_end_map])
+	{
+
+	}
+}
+
+int	tab_len(t_game *game, int ite_start)
+{
+	int	i_tablen;
+
+	i_tablen = 0;
+	while (game->map->tab_file[ite_start])
+	{
+		i_tablen++;
+		ite_start++;
+	}
+	return (i_tablen);
+}
+
 int	malloc_map(t_game *game, int ite_start)
 {
-	
+	// game->map->map_org = malloc(sizeof(char *) * ft_tablen());
+	(void)game;
+	(void)ite_start;
+	return (SUCCESS);
 }
 
 int	build_map(t_game *game, int ite_start)
 {
-	int	ite_build_map;
+	// int	ite_build_map;
 
-	ite_build_map = -1;
+	// ite_build_map = -1;
 	malloc_map(game, ite_start);
-	while (game->map->tab_file[++ite_build_map])
+	while (game->map->tab_file[ite_start])
 	{
-		if (check_valid_chr_map(game->map->tab_file[ite_build_map]) == FAIL)
+		if (check_valid_chr_map(game->map->tab_file[ite_start]) == FAIL)
 			return (FAIL);
+		ite_start++;
 	}
 	return (SUCCESS);
 }
@@ -116,7 +153,7 @@ int	ft_parsing(t_game *game, char **argv)
 		else if (is_empty_line(game->map->tab_file[ite_each_line]) == FAIL)
 		{
 			printf(CYAN"%s"RESET"\n", game->map->tab_file[ite_each_line]);
-			if (build_map(game) == FAIL)
+			if (build_map(game, ite_each_line) == FAIL)
 				return (FAIL);
 			count++;
 		}
