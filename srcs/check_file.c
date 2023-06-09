@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_file.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 19:34:36 by ggosse            #+#    #+#             */
-/*   Updated: 2023/05/25 21:38:32 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/06/04 17:34:35 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,5 @@ int	wrong_letter_tx(char *line)
 		return (SUCCESS);
 	if (line[0] == 'W' && line[0 + 1] == 'E')
 		return (SUCCESS);
-	return (printf(RED"Err: %c wrong letter for textures \n"RST, \
-	line[0]), FAIL);
+	return (printf(RED"Err: %c (%i) wrong letter for textures \n"RST, line[0], line[0]), FAIL);
 }

@@ -5,7 +5,6 @@
 WE sprites/water.xpm
 EA sprites/crystal.xpm
 NO sprites/rock.xpm
-
 SO sprites/ship_left.xpm
 
 
@@ -27,6 +26,7 @@ F 255,20,147
             100000000000000101    0000
             1111111111111111S1
                             10
+
 
 
 

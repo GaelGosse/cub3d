@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:15:08 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/01 17:09:42 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/06/09 16:19:35 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,157 +19,193 @@ void	init_struct(t_game *game)
 	game->window = NULL;
 	game->map->file_content = NULL;
 	game->map->tab_file = NULL;
-	game->map->map_chck = NULL;
+	game->map->map_tmp = NULL;
+	game->map->map_org = NULL;
 	game->map->wall_no = NULL;
 	game->map->wall_ea = NULL;
 	game->map->wall_so = NULL;
 	game->map->wall_we = NULL;
 	game->map->ceil = NULL;
 	game->map->floor = NULL;
-	game->map->h = FAIL;
-	game->map->w = FAIL;
-	game->map->p_y = FAIL;
-	game->map->p_x = FAIL;
+	game->map->height = FAIL;
+	game->map->width = FAIL;
+	game->map->pos_y = FAIL;
+	game->map->pos_x = FAIL;
 	game->map->count_step = FAIL;
 	game->map->fd_map = FAIL;
 }
 
-
 int	is_empty_line(char *line)
 {
-	int	ite_empty;
+	int	i_empty;
 
-	ite_empty = 0;
-	while (line[ite_empty])
+	i_empty = 0;
+	while (line[i_empty])
 	{
-		if ((int)line[ite_empty] != 32 && (int)line[ite_empty] != 9)
+		if (line[i_empty] != 32 && line[i_empty] != 9 && line[i_empty] != 10)
 			return (FAIL);
-		ite_empty++;
+		i_empty++;
 	}
 	return (SUCCESS);
 }
 
-int	check_valid_chr_map(char *line)
-{
-	int	i_chck_chr;
+// void	copy_arr(char ***arr_src, char ***arr_dest)
+// {
+// 	int	i_src;
 
-	i_chck_chr = -1;
-	while (line[++i_chck_chr])
+// 	i_src = 0;
+// 	while ((*arr_src[i_src]))
+// 	{
+// 		(*arr_src[i_src]) = (*arr_dest[i_src]);
+// 		i_src++;
+// 	}
+// }
+
+void	copy_arr(t_game *game, char *line)
+{
+	int	i_src;
+
+	i_src = 0;
+	while (game->map->map_org[i_src])
 	{
-		if (line[i_chck_chr] != ' ' && line[i_chck_chr] != '0' \
-		&& line[i_chck_chr] != '1' && line[i_chck_chr] != 'W' \
-		&& line[i_chck_chr] != 'E' && line[i_chck_chr] != 'N' \
-		&& line[i_chck_chr] != 'S')
-		{
-			if (line[i_chck_chr - 1])
-				printf("%i %c\n", line[i_chck_chr - 1], line[i_chck_chr - 1]);
-			printf("%i %c\n", line[i_chck_chr], line[i_chck_chr]);
-			if (line[i_chck_chr + 1])
-				printf("%i %c\n", line[i_chck_chr + 1], line[i_chck_chr + 1]);
-			return (FAIL);
-		}
+		game->map->map_tmp[i_src] = game->map->map_org[i_src];
+		i_src++;
 	}
-	return (SUCCESS);
-}
-
-int	end_of_map(t_game *game)
-{
-	int	i_end_map;
-
-	i_end_map = -1;
-	while (game->map->tab_file[++i_end_map])
+	game->map->map_tmp[i_src] = ft_strdup(line);
+	game->map->map_tmp[i_src + 1] = NULL;
+	i_src = 0;
+	// ft_free_tab_str(game->map->map_org);
+	while (game->map->map_tmp[i_src])
 	{
-
+		game->map->map_org[i_src] = game->map->map_tmp[i_src];
+		i_src++;
 	}
 }
 
-int	tab_len(t_game *game, int ite_start)
-{
-	int	i_tablen;
-
-	i_tablen = 0;
-	while (game->map->tab_file[ite_start])
-	{
-		i_tablen++;
-		ite_start++;
-	}
-	return (i_tablen);
-}
-
-int	malloc_map(t_game *game, int ite_start)
-{
-	// game->map->map_org = malloc(sizeof(char *) * ft_tablen());
-	(void)game;
-	(void)ite_start;
-	return (SUCCESS);
-}
-
-int	build_map(t_game *game, int ite_start)
-{
-	// int	ite_build_map;
-
-	// ite_build_map = -1;
-	malloc_map(game, ite_start);
-	while (game->map->tab_file[ite_start])
-	{
-		if (check_valid_chr_map(game->map->tab_file[ite_start]) == FAIL)
-			return (FAIL);
-		ite_start++;
-	}
-	return (SUCCESS);
-}
 
 int	ft_parsing(t_game *game, char **argv)
 {
-	int	ite_each_line;
 	int	count;
+	int		fd;
+	char	*line;
+	// int	ite_each_line;
 
 	count = 0;
-	ite_each_line = -1;
-	game->map = malloc(sizeof(t_map));
-	if (!game->map)
-		return (FAIL);
-	init_struct(game);
+	fd = -1;
+	line = NULL;
+	// ite_each_line = -1;
 	if (ft_check_ext(argv[1], 'c', 'u', 'b') == FAIL)
 		return (ft_free_parsing(game, "wrong filename extension\n"), FAIL);
 	if (ft_read_file(game, argv[1]) == FAIL)
 		return (FAIL);
-	while (game->map->tab_file[++ite_each_line])
+
+	fd = open("maps/map2.cub", O_RDONLY);
+	if (fd == -1)
+		return (ft_free_parsing(game, "file does not exist\n"), FAIL);
+	if (access("maps/map2.cub", F_OK) != 0)
+		return (ft_free_parsing(game, \
+			"you must use a file to contain the map\n"), FAIL);
+
+
+	line = gnl(fd);
+	printf(RED"%s"RESET, line);
+
+	while (line && line[0] != '\0')
 	{
-		if (is_empty_line(game->map->tab_file[ite_each_line]) == FAIL && count < 4)
+		if (is_empty_line(line) == FAIL && count < 4)
 		{
-			printf(GREEN"%s"RESET"\n", game->map->tab_file[ite_each_line]);
-			if (texture_part(game, game->map->tab_file[ite_each_line]) == FAIL)
+			printf(GREEN"%s"RESET"\n", line);
+			if (texture_part(game, line) == FAIL)
 				return (FAIL);
 			count++;
 		}
-		else if (is_empty_line(game->map->tab_file[ite_each_line]) == FAIL && count < 6)
+		else if (is_empty_line(line) == FAIL && count < 6)
 		{
-			printf(BLUE"%s"RESET"\n", game->map->tab_file[ite_each_line]);
-			if (floor_ceil_part(game, game->map->tab_file[ite_each_line]) == FAIL)
+			printf(BLUE"%s"RESET"\n", line);
+			if (floor_ceil_part(game, line) == FAIL)
 				return (FAIL);
 			count++;
 		}
-		else if (is_empty_line(game->map->tab_file[ite_each_line]) == FAIL)
+		else if (count >= 6)
 		{
-			printf(CYAN"%s"RESET"\n", game->map->tab_file[ite_each_line]);
-			if (build_map(game, ite_each_line) == FAIL)
-				return (FAIL);
+			if (game->map->map_org == NULL)
+			{
+				while (line && line[0] != '\0' && is_empty_line(line) == SUCCESS)
+				{
+					free(line);
+					line = gnl(fd);
+				}
+				game->map->map_org = (char **)malloc((sizeof(char *) * 2));
+				game->map->map_org[0] = ft_strdup(line);
+				game->map->map_org[1] = NULL;
+				game->map->height = 1;
+			}
+			else if (is_empty_line(line) == FAIL)
+			{
+				if (game->map->map_tmp != NULL)
+					free(game->map->map_tmp);
+				game->map->map_tmp = malloc(sizeof(char *) * (tab_len(game->map->map_org) + 2));
+				// copy_arr((&game->map->map_org), (&game->map->map_tmp));
+				copy_arr(game, line);
+			}
 			count++;
 		}
-		else
-			printf(BACK_RED" "RESET"\n");
-		// if (floor_ceil_part(game) == FAIL)
-		// 	return (FAIL);
-		// if (build_map_part(game) == FAIL)
-		// 	return (FAIL);
+		free(line);
+		line = gnl(fd);
 	}
+
+	int	abc;
+
+	abc = -1;
+	while(game->map->map_org[++abc])
+	{
+		printf(RED"%s"RESET"\n", game->map->map_org[abc]);
+	}
+
+
+	if (close(fd) == -1)
+		return (ft_free_parsing(game, "close err\n"), FAIL);
+
+
+
+	// while (game->map->tab_file[++ite_each_line])
+	// {
+	// 	if (is_empty_line(game->map->tab_file[ite_each_line]) == FAIL && count < 4)
+	// 	{
+	// 		printf(GREEN"%s"RESET"\n", game->map->tab_file[ite_each_line]);
+	// 		if (texture_part(game, game->map->tab_file[ite_each_line]) == FAIL)
+	// 			return (FAIL);
+	// 		count++;
+	// 	}
+	// 	else if (is_empty_line(game->map->tab_file[ite_each_line]) == FAIL && count < 6)
+	// 	{
+	// 		printf(BLUE"%s"RESET"\n", game->map->tab_file[ite_each_line]);
+	// 		if (floor_ceil_part(game, game->map->tab_file[ite_each_line]) == FAIL)
+	// 			return (FAIL);
+	// 		count++;
+	// 	}
+	// 	else if (is_empty_line(game->map->tab_file[ite_each_line]) == FAIL)
+	// 	{
+	// 		// printf(CYAN"%s"RESET"\n", game->map->tab_file[ite_each_line]);
+	// 		if (build_map(game, ite_each_line) == FAIL)
+	// 			return (FAIL);
+	// 		count++;
+	// 	}
+	// 	else
+	// 		printf(BACK_RED" "RESET"\n");
+	// 	// if (floor_ceil_part(game) == FAIL)
+	// 	// 	return (FAIL);
+	// 	// if (build_map_part(game) == FAIL)
+	// 	// 	return (FAIL);
+	// }
 	// if (ft_create_map(game, argv[1]) == FAIL)
 	// 	return (FAIL);
 	// if (ft_single_player(game) == FAIL)
 	// 	return (ft_free_parsing(game, "wrong filename extension\n"), FAIL);
 	// if (ft_valid_path(game) == FAIL)
 	// 	return (FAIL);
+	printf("\n");
+	printf("------------------------------\n");
 	return (SUCCESS);
 }
 
@@ -181,8 +217,14 @@ int	main(int argc, char **argv, char **envp)
 		return (ft_putstr_fd("Error\nyou must have env. variables\n", 2), 1);
 	if (argc != 2)
 		return (ft_putstr_fd("Error\nyou must called one arg\n", 2), 1);
+
+	game.map = malloc(sizeof(t_map));
+	if (!game.map)
+		return (FAIL);
+	init_struct(&game);
 	if (ft_parsing(&game, argv) == FAIL)
 		return (1);
+
 	// ft_create_game(&game);
 	ft_free_parsing(&game, NULL);
 	(void)game;

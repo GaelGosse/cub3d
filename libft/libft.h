@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:28:51 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/01 11:47:41 by gael             ###   ########.fr       */
+/*   Updated: 2023/06/09 15:40:07 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@
 # include <readline/history.h>
 
 // ------------------------------ include ----------------------------------- //
+#include "../incs/color.h"
 // ---------------------------- end include --------------------------------- //
 
 // ------------------------------ define ------------------------------------ //
@@ -74,6 +75,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len);
 int		ft_atoi(const char *str);
 //ft_lstadd_front_bonus.c
 void	ft_lstadd_front(t_list **lst, t_list *new);
+//ft_gnl.c
+char	*gnl(int fd);
 //ft_memchr.c
 void	*ft_memchr(const void *s, int c, size_t len);
 //ft_lstmap_bonus.c

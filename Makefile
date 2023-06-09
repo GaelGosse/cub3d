@@ -31,7 +31,8 @@ INCDIR	= incs
 LIBDIR	= libft
 
 # ----------------------------------- srcs ----------------------------------- #
-_SRCS	=	check_file.c \
+_SRCS	=	build_map.c \
+			check_file.c \
 			floor_ceil_part.c \
 			free_parsing.c \
 			main.c \

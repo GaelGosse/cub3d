@@ -1,10 +1,11 @@
 NAME = libft.a
 
-CC = gcc -Wall -Wextra -Werror
+CC = gcc -Wall -Wextra -Werror -g3 -MMD -MP
 
-SRC = ft_atoi.c \
+_SRCS = ft_atoi.c \
     ft_bzero.c \
     ft_calloc.c \
+    ft_gnl.c \
     ft_isalnum.c \
     ft_isalpha.c \
     ft_isascii.c \
@@ -58,8 +59,8 @@ all : $(NAME)
 $(NAME) : $(OBJ)
 	ar rc $(NAME) $^
 
-$(OBJ) : $(SRC)
-	$(CC) -c $(SRC)
+$(OBJ) : $(_SRCS)
+	$(CC) -c $(_SRCS)
 
 clean :
 	rm -f $(OBJ)
@@ -70,3 +71,4 @@ fclean : clean
 re : fclean all
 
 .PHONY : all bonus clean fclean re
+-include ${DEPS}

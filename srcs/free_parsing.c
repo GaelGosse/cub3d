@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_parsing.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:27:05 by ggosse            #+#    #+#             */
-/*   Updated: 2023/05/25 22:53:20 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/06/09 16:17:58 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@ void	ft_free_tab_str(char **tab_str)
 	ite_free_two = -1;
 	while (tab_str[++ite_free_two])
 	{
+		// printf("tab_str[ite_free_two]: %p\n", tab_str[ite_free_two]);
 		free(tab_str[ite_free_two]);
 		tab_str[ite_free_two] = NULL;
 	}
+	// printf("tab_str: %p\n", tab_str);
 	free(tab_str);
 	tab_str = NULL;
 }
@@ -35,7 +37,7 @@ void	ft_free_tab_str(char **tab_str)
 // 	if (game->window)
 // 		mlx_destroy_display(game->mlibx);
 // 	free(game->mlibx);
-// 	ft_free_tab_str(game->map->map_chck);
+// 	ft_free_tab_str(game->map->map_tmp);
 // 	ft_free_tab_str(game->map->tab_file);
 // 	free(game->map);
 // 	exit (1);
@@ -48,7 +50,7 @@ void	ft_free_tab_str(char **tab_str)
 // 	if (game->window)
 // 		mlx_destroy_display(game->mlibx);
 // 	free(game->mlibx);
-// 	ft_free_tab_str(game->map->map_chck);
+// 	ft_free_tab_str(game->map->map_tmp);
 // 	ft_free_tab_str(game->map->tab_file);
 // 	free(game->map);
 // 	exit (1);
@@ -93,8 +95,9 @@ void	ft_free_parsing(t_game *game, char *err)
 	free_img(game);
 	if (game->map->tab_file)
 		ft_free_tab_str(game->map->tab_file);
-	if (game->map->map_chck)
-		ft_free_tab_str(game->map->map_chck);
+	// printf("------------------------------\n");
+	// if (game->map->map_tmp)
+	// 	ft_free_tab_str(game->map->map_tmp);
 	if (game->map)
 	{
 		free(game->map);
