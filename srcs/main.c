@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:15:08 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/09 16:19:35 by gael             ###   ########.fr       */
+/*   Updated: 2023/06/11 15:48:08 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	init_struct(t_game *game)
 	game->mlibx = NULL;
 	game->window = NULL;
 	game->map->file_content = NULL;
+	game->map->file_map = NULL;
 	game->map->tab_file = NULL;
 	game->map->map_tmp = NULL;
 	game->map->map_org = NULL;
@@ -60,27 +61,6 @@ int	is_empty_line(char *line)
 // 		i_src++;
 // 	}
 // }
-
-void	copy_arr(t_game *game, char *line)
-{
-	int	i_src;
-
-	i_src = 0;
-	while (game->map->map_org[i_src])
-	{
-		game->map->map_tmp[i_src] = game->map->map_org[i_src];
-		i_src++;
-	}
-	game->map->map_tmp[i_src] = ft_strdup(line);
-	game->map->map_tmp[i_src + 1] = NULL;
-	i_src = 0;
-	// ft_free_tab_str(game->map->map_org);
-	while (game->map->map_tmp[i_src])
-	{
-		game->map->map_org[i_src] = game->map->map_tmp[i_src];
-		i_src++;
-	}
-}
 
 
 int	ft_parsing(t_game *game, char **argv)
@@ -130,23 +110,8 @@ int	ft_parsing(t_game *game, char **argv)
 		{
 			if (game->map->map_org == NULL)
 			{
-				while (line && line[0] != '\0' && is_empty_line(line) == SUCCESS)
-				{
-					free(line);
-					line = gnl(fd);
-				}
-				game->map->map_org = (char **)malloc((sizeof(char *) * 2));
-				game->map->map_org[0] = ft_strdup(line);
-				game->map->map_org[1] = NULL;
-				game->map->height = 1;
-			}
-			else if (is_empty_line(line) == FAIL)
-			{
-				if (game->map->map_tmp != NULL)
-					free(game->map->map_tmp);
-				game->map->map_tmp = malloc(sizeof(char *) * (tab_len(game->map->map_org) + 2));
-				// copy_arr((&game->map->map_org), (&game->map->map_tmp));
-				copy_arr(game, line);
+				if (create_map(game, line, fd) < 0)
+					return (FAIL);
 			}
 			count++;
 		}
@@ -161,11 +126,6 @@ int	ft_parsing(t_game *game, char **argv)
 	{
 		printf(RED"%s"RESET"\n", game->map->map_org[abc]);
 	}
-
-
-	if (close(fd) == -1)
-		return (ft_free_parsing(game, "close err\n"), FAIL);
-
 
 
 	// while (game->map->tab_file[++ite_each_line])
@@ -204,8 +164,6 @@ int	ft_parsing(t_game *game, char **argv)
 	// 	return (ft_free_parsing(game, "wrong filename extension\n"), FAIL);
 	// if (ft_valid_path(game) == FAIL)
 	// 	return (FAIL);
-	printf("\n");
-	printf("------------------------------\n");
 	return (SUCCESS);
 }
 

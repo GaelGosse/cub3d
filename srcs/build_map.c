@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 09:38:48 by gael              #+#    #+#             */
-/*   Updated: 2023/06/08 10:56:12 by gael             ###   ########.fr       */
+/*   Updated: 2023/06/11 14:54:22 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,8 @@ int	tab_len(char **arr)
 	return (i_tablen);
 }
 
-/*
 int	create_map(t_game *game, char *line, int fd)
 {
-	printf("create map\n");
 	int	i_init_map;
 
 	game->map->height = 0;
@@ -37,7 +35,10 @@ int	create_map(t_game *game, char *line, int fd)
 	}
 	while (line && line[0] != '\0' && is_empty_line(line) == FAIL)
 	{
-		printf(CYAN"->"RED"%s"RESET, line);
+		if (game->map->file_map == NULL)
+			game->map->file_map = ft_strdup(line);
+		else
+			game->map->file_map = ft_strjoin(game->map->file_map, line);
 		free(line);
 		line = gnl(fd);
 		game->map->height++;
@@ -52,11 +53,13 @@ int	create_map(t_game *game, char *line, int fd)
 		game->map->map_org = malloc((sizeof (char *)) * (game->map->height + 1));
 		while (++i_init_map < game->map->height)
 			game->map->map_org[i_init_map] = NULL;
+		game->map->map_org = ft_split(game->map->file_map, '\n');
+		close(fd);
 		return (SUCCESS);
 	}
 	return (FAIL);
 }
-
+/*
 int	fill_map(t_game *game, char *line, int fd)
 {
 	printf("fill map\n");
@@ -120,7 +123,6 @@ int	end_of_map(t_game *game, int ite_start)
 	}
 	return (SUCCESS);
 }
-
 
 int	malloc_map(t_game *game, int ite_start)
 {

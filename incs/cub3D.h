@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   incs/cub3D.h                                       :+:      :+:    :+:   */
+/*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:45:40 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/09 16:17:12 by gael             ###   ########.fr       */
+/*   Updated: 2023/06/11 15:30:00 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@
 typedef struct s_map
 {
 	char	*file_content;
+	char	*file_map;
 	char	**tab_file;
 	char	**map_tmp;
 	char	**map_org;
@@ -58,8 +59,8 @@ typedef struct s_map
 	char	*wall_ea;
 	char	*wall_so;
 	char	*wall_we;
-	char	*floor;
-	char	*ceil;
+	int		*floor;
+	int		*ceil;
 	int		height;
 	int		width;
 	int		pos_y;
@@ -78,7 +79,6 @@ typedef struct s_game
 // ---------------------------- end struct ---------------------------------- //
 
 //srcs/main.c
-void	copy_arr(t_game *game, char *line);
 int		ft_parsing(t_game *game, char **argv);
 void	init_struct(t_game *game);
 int		is_empty_line(char *line);
@@ -94,6 +94,7 @@ int		ft_propagation(t_game *game);
 int		ft_replace_around(t_game *game, int ite_big, int ite_lil);
 int		ft_valid_wall(t_game *game);
 //srcs/build_map.c
+int		create_map(t_game *game, char *line, int fd);
 int		tab_len(char **arr);
 //srcs/read_file.c
 int		ft_buf_read(int fd, t_game *game);

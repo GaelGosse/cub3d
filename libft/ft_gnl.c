@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 16:55:47 by gael              #+#    #+#             */
-/*   Updated: 2023/06/04 17:16:48 by gael             ###   ########.fr       */
+/*   Updated: 2023/06/11 14:30:37 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ char	*gnl(int fd)
 	buf[0] = 'X';
 	buf[1] = '\0';
 	if (fd < 0 || fd > 1024 || read(fd, 0, 0) < 0)
-		return (printf("Something wrong with args"), NULL);
+		return (printf("GNL: something wrong with args\n"), NULL);
 	while (buf[0] && buf[0] != '\0' && buf[0] != '\n')
 	{
 		ret = read(fd, buf, 1);
 		if (ret < 0)
-			return (printf("Something wrong with args"), NULL);
+			return (printf("GNL: something wrong when read\n"), NULL);
 		buf[ret] = '\0';
 		buf[1] = '\0';
 		if (!result)
