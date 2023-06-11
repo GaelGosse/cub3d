@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:15:08 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/11 15:48:08 by gael             ###   ########.fr       */
+/*   Updated: 2023/06/11 16:12:41 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,30 +50,15 @@ int	is_empty_line(char *line)
 	return (SUCCESS);
 }
 
-// void	copy_arr(char ***arr_src, char ***arr_dest)
-// {
-// 	int	i_src;
-
-// 	i_src = 0;
-// 	while ((*arr_src[i_src]))
-// 	{
-// 		(*arr_src[i_src]) = (*arr_dest[i_src]);
-// 		i_src++;
-// 	}
-// }
-
-
-int	ft_parsing(t_game *game, char **argv)
+int	build_map(t_game *game, char **argv)
 {
 	int	count;
 	int		fd;
 	char	*line;
-	// int	ite_each_line;
 
 	count = 0;
 	fd = -1;
 	line = NULL;
-	// ite_each_line = -1;
 	if (ft_check_ext(argv[1], 'c', 'u', 'b') == FAIL)
 		return (ft_free_parsing(game, "wrong filename extension\n"), FAIL);
 	if (ft_read_file(game, argv[1]) == FAIL)
@@ -127,44 +112,15 @@ int	ft_parsing(t_game *game, char **argv)
 		printf(RED"%s"RESET"\n", game->map->map_org[abc]);
 	}
 
-
-	// while (game->map->tab_file[++ite_each_line])
-	// {
-	// 	if (is_empty_line(game->map->tab_file[ite_each_line]) == FAIL && count < 4)
-	// 	{
-	// 		printf(GREEN"%s"RESET"\n", game->map->tab_file[ite_each_line]);
-	// 		if (texture_part(game, game->map->tab_file[ite_each_line]) == FAIL)
-	// 			return (FAIL);
-	// 		count++;
-	// 	}
-	// 	else if (is_empty_line(game->map->tab_file[ite_each_line]) == FAIL && count < 6)
-	// 	{
-	// 		printf(BLUE"%s"RESET"\n", game->map->tab_file[ite_each_line]);
-	// 		if (floor_ceil_part(game, game->map->tab_file[ite_each_line]) == FAIL)
-	// 			return (FAIL);
-	// 		count++;
-	// 	}
-	// 	else if (is_empty_line(game->map->tab_file[ite_each_line]) == FAIL)
-	// 	{
-	// 		// printf(CYAN"%s"RESET"\n", game->map->tab_file[ite_each_line]);
-	// 		if (build_map(game, ite_each_line) == FAIL)
-	// 			return (FAIL);
-	// 		count++;
-	// 	}
-	// 	else
-	// 		printf(BACK_RED" "RESET"\n");
-	// 	// if (floor_ceil_part(game) == FAIL)
-	// 	// 	return (FAIL);
-	// 	// if (build_map_part(game) == FAIL)
-	// 	// 	return (FAIL);
-	// }
-	// if (ft_create_map(game, argv[1]) == FAIL)
-	// 	return (FAIL);
-	// if (ft_single_player(game) == FAIL)
-	// 	return (ft_free_parsing(game, "wrong filename extension\n"), FAIL);
-	// if (ft_valid_path(game) == FAIL)
-	// 	return (FAIL);
 	return (SUCCESS);
+}
+
+int	ft_parsing(t_game *game, char **argv)
+{
+	if (build_map(game, argv) == FAIL)
+		return (FAIL);
+	if (hole_in_wall(game) == FAIL)
+		return (FAIL);
 }
 
 int	main(int argc, char **argv, char **envp)
@@ -180,6 +136,9 @@ int	main(int argc, char **argv, char **envp)
 	if (!game.map)
 		return (FAIL);
 	init_struct(&game);
+	if (ft_parsing(&game, argv) == FAIL)
+	if (hole_in_wall(game) == FAIL)
+		return (FAIL);
 	if (ft_parsing(&game, argv) == FAIL)
 		return (1);
 
