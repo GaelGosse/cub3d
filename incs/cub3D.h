@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   incs/cub3D.h                                       :+:      :+:    :+:   */
+/*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:45:40 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/11 22:12:48 by gael             ###   ########.fr       */
+/*   Updated: 2023/06/13 15:42:22 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,15 @@
 
 // ------------------------------ struct ------------------------------------ //
 
+typedef struct s_img
+{
+	void	*mlx_img;
+	char	*addr;
+	int		bpp;
+	int		line_len;
+	int		endian;
+}	t_img;
+
 typedef struct s_map
 {
 	char	*file_content;
@@ -76,6 +85,7 @@ typedef struct s_game
 	void	*mlibx;
 	void	*window;
 	t_map	*map;
+	t_img	***tab_img;
 }			t_game;
 // ---------------------------- end struct ---------------------------------- //
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:15:08 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/11 22:12:22 by gael             ###   ########.fr       */
+/*   Updated: 2023/06/13 17:10:27 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	init_struct(t_game *game)
 {
-	game->img_size = FAIL;
+	game->img_size = 48;
 	game->mlibx = NULL;
 	game->window = NULL;
 	game->map->file_content = NULL;
@@ -49,6 +49,30 @@ int	is_empty_line(char *line)
 	}
 	return (SUCCESS);
 }
+
+void	set_width(t_game *game)
+{
+	int	i_big;
+	int	i_small;
+	int	max;
+
+	i_big = 0;
+	i_small = 0;
+	max = 0;
+	while (game->map->map_org[i_big])
+	{
+		i_small = 0;
+		while (game->map->map_org[i_big][i_small])
+		{
+			if (i_small > max)
+				max = i_small;
+			i_small++;
+		}
+		i_big++;
+	}
+	game->map->width = max;
+}
+
 
 int	build_map(t_game *game, char **argv)
 {
@@ -97,6 +121,7 @@ int	build_map(t_game *game, char **argv)
 			{
 				if (create_map(game, line, fd) < 0)
 					return (FAIL);
+				set_width(game);
 			}
 			count++;
 		}
@@ -142,7 +167,9 @@ int	main(int argc, char **argv, char **envp)
 		return (FAIL);
 	init_struct(&game);
 	if (ft_parsing(&game, argv) == FAIL)
-		return (1);
+		return (FAIL);
+	if (start_3d(&game) == FAIL)
+		return (FAIL);
 
 	// ft_create_game(&game);
 	ft_free_parsing(&game, NULL);
