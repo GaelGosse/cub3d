@@ -39,7 +39,8 @@ _SRCS	=	build_map.c \
 			read_file.c \
 			texture_part.c \
 			texture_part_utils.c \
-			valid_wall.c
+			valid_wall.c \
+			tab_img.c
 # --------------------------------- end srcs --------------------------------- #
 
 SRC            = $(addprefix $(SRCDIR)/, $(_SRCS))

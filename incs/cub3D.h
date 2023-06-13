@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:45:40 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/13 15:42:22 by mael             ###   ########.fr       */
+/*   Updated: 2023/06/13 17:42:17 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,5 +125,16 @@ int		wrong_letter_tx(char *line);
 int		check_ceil(t_game *game, char *line);
 int		check_floor(t_game *game, char *line);
 int		floor_ceil_part(t_game *game, char *line);
+
+
+int	start_3d(t_game *game);
+int	init_tab_img(t_game *game);
+int	create_img(t_game *game);
+void	img_pix_put(t_game *game, int x, int y, int color, int i, int j);
+int	get_color(int red, int green, int blue);
+void	fill_square(t_game *game, int color, int i, int j);
+void	color_image(t_game *game);
+int	tab_img_to_window(t_game *game);
+
 
 #endif
