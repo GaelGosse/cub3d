@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3D.h                                            :+:      :+:    :+:   */
+/*   incs/cub3D.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:45:40 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/11 15:30:00 by gael             ###   ########.fr       */
+/*   Updated: 2023/06/11 22:12:48 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ typedef struct s_map
 typedef struct s_game
 {
 	int		img_size;
+	char	perso;
 	void	*mlibx;
 	void	*window;
 	t_map	*map;
@@ -79,6 +80,7 @@ typedef struct s_game
 // ---------------------------- end struct ---------------------------------- //
 
 //srcs/main.c
+int		build_map(t_game *game, char **argv);
 int		ft_parsing(t_game *game, char **argv);
 void	init_struct(t_game *game);
 int		is_empty_line(char *line);
@@ -90,9 +92,9 @@ void	ft_free_tab_str(char **tab_str);
 int		check_tx(t_game *game);
 void	print_word(char *new_w);
 //srcs/valid_wall.c
-int		ft_propagation(t_game *game);
-int		ft_replace_around(t_game *game, int ite_big, int ite_lil);
-int		ft_valid_wall(t_game *game);
+int		check_letters_map(t_game *game);
+int		check_perso(t_game *game);
+int		hole_in_wall(t_game *game);
 //srcs/build_map.c
 int		create_map(t_game *game, char *line, int fd);
 int		tab_len(char **arr);

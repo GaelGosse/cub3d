@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:15:08 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/11 16:12:41 by gael             ###   ########.fr       */
+/*   Updated: 2023/06/11 22:12:22 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,11 @@ int	ft_parsing(t_game *game, char **argv)
 		return (FAIL);
 	if (hole_in_wall(game) == FAIL)
 		return (FAIL);
+	if (check_perso(game) == FAIL)
+		return (FAIL);
+	if (check_letters_map(game) == FAIL)
+		return (FAIL);
+	return (SUCCESS);
 }
 
 int	main(int argc, char **argv, char **envp)
@@ -136,9 +141,6 @@ int	main(int argc, char **argv, char **envp)
 	if (!game.map)
 		return (FAIL);
 	init_struct(&game);
-	if (ft_parsing(&game, argv) == FAIL)
-	if (hole_in_wall(game) == FAIL)
-		return (FAIL);
 	if (ft_parsing(&game, argv) == FAIL)
 		return (1);
 

@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 18:01:41 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/11 16:10:46 by gael             ###   ########.fr       */
+/*   Updated: 2023/06/11 22:11:23 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,57 @@
 // 	return (SUCCESS);
 // }
 
+int	check_letters_map(t_game *game)
+{
+	int	i_big;
+	int	i_lil;
+
+	i_lil = -1;
+	i_big = -1;
+	while (game->map->map_org[++i_big])
+	{
+		i_lil = -1;
+		while (game->map->map_org[i_big][++i_lil])
+		{
+			if (game->map->map_org[i_big][i_lil] != 'N' && \
+			game->map->map_org[i_big][i_lil] != 'E' && \
+			game->map->map_org[i_big][i_lil] != 'S' && \
+			game->map->map_org[i_big][i_lil] != 'W' && \
+			game->map->map_org[i_big][i_lil] != '1' && \
+			game->map->map_org[i_big][i_lil] != '0' && \
+			game->map->map_org[i_big][i_lil] != ' ')
+				return (printf("wrong letters in map\n"), FAIL);
+		}
+	}
+	return (SUCCESS);
+}
+
+int	check_perso(t_game *game)
+{
+	int	i_big;
+	int	i_lil;
+
+	i_lil = -1;
+	i_big = -1;
+	while (game->map->map_org[++i_big])
+	{
+		i_lil = -1;
+		while (game->map->map_org[i_big][++i_lil])
+		{
+			if (game->map->map_org[i_big][i_lil] == 'N' || \
+			game->map->map_org[i_big][i_lil] == 'E' || \
+			game->map->map_org[i_big][i_lil] == 'S' || \
+			game->map->map_org[i_big][i_lil] == 'W')
+			{
+				if (game->perso != '\0')
+					return (printf("one player only\n"), FAIL);
+				game->perso = game->map->map_org[i_big][i_lil];
+			}
+		}
+	}
+	return (SUCCESS);
+}
+
 int	hole_in_wall(t_game *game)
 {
 	int	i_big;
@@ -105,12 +156,10 @@ int	hole_in_wall(t_game *game)
 	while (game->map->map_org[++i_big])
 	{
 		i_lil = -1;
-		while (game->map->map_org[++i_lil])
+		while (game->map->map_org[i_big][++i_lil])
 		{
-			if ((i_big == 0 || i_big == game->map->height) && game->map->map_org[i_lil] == 0)
-				return (printf("some leaks in wall...\n");, FAIL);
-			if ((i_lil == 0 || i_lil == (ft_strlen(game->map->map_org) - 1)) && game->map->map_org[i_lil] == 0)
-				return (printf("some leaks in wall...\n");, FAIL);
+			if (game->map->map_org[i_big][i_lil] == game->perso)
+			printf(YELLOW"%c"RESET, game->map->map_org[i_big][i_lil]);
 		}
 	}
 	return (SUCCESS);
