@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   incs/cub3D.h                                       :+:      :+:    :+:   */
+/*   ft_cub3D_2.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/24 15:45:40 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/19 14:30:39 by mael             ###   ########.fr       */
+/*   Created: 2023/06/19 11:38:30 by mael              #+#    #+#             */
+/*   Updated: 2023/06/19 11:39:49 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#ifndef FT_CUB3D_2_H
+# define FT_CUB3D_2_H
 
 # include <dirent.h>
 # include <errno.h>
@@ -37,78 +37,12 @@
 # include <readline/history.h>
 
 // ------------------------------ include ----------------------------------- //
-#include "../libft/libft.h"
-#include "color.h"
-#include <math.h>
-#include "../minilibx/mlx.h"
-#include <X11/keysym.h>
-#include <X11/X.h>
 // ---------------------------- end include --------------------------------- //
 
 // ------------------------------ define ------------------------------------ //
-# define SUCCESS 1
-# define FAIL -1
 // ---------------------------- end define ---------------------------------- //
 
 // ------------------------------ struct ------------------------------------ //
-
-typedef struct s_img
-{
-	void	*mlx_img;
-	char	*addr;
-	int		bpp;
-	int		line_len;
-	int		endian;
-}	t_img;
-
-typedef struct s_line
-{
-	int		dx;
-	int		dy;
-	int		steps;
-	float	xite;
-	float	yite;
-	float	corr_x;
-	float	corr_y;
-	int		x_src;
-	int		y_src;
-	int		x_dest;
-	int		y_dest;
-}	t_line;
-
-typedef struct s_map
-{
-	char	*file_content;
-	char	*file_map;
-	char	**tab_file;
-	char	**map_tmp;
-	char	**map_org;
-	char	*wall_no;
-	char	*wall_ea;
-	char	*wall_so;
-	char	*wall_we;
-	int		*floor;
-	int		*ceil;
-	int		height;
-	int		width;
-	int		pos_y;
-	int		pos_x;
-	int		count_step;
-	int		fd_map;
-}				t_map;
-
-typedef struct s_game
-{
-	int		img_size;
-	char	perso;
-	void	*mlibx;
-	void	*window;
-	t_map	*map;
-	//t_img	***tab_img;
-	//t_img	*square;
-	t_img	*img;
-	t_line	*line;
-}			t_game;
 // ---------------------------- end struct ---------------------------------- //
 
 //libft/ft_isdigit.c
@@ -221,17 +155,7 @@ char	*ft_strdup_len(char *str, int start, int end);
 //srcs/init_img.c
 int		create_image_and_get_adrr(t_game *game);
 int		init_img(t_game *game);
-//srcs/player.c
-void	draw_player(t_game *game);
-int		ft_event_listen(int key, t_game *game);
-void	set_pos_character(t_game *game);
 //srcs/start_3D.c
-void	color_image(t_game *game);
-int		display_all(t_game *game);
-void	do_quad(t_game *game, int i, int j);
-void	fill_void(t_game *game, int i, int j);
-void	fill_wall(t_game *game, int i, int j);
-void	reset_img(t_game *game);
 int		start_3D(t_game *game);
 //srcs/main.c
 int		build_map(t_game *game, char **argv);
@@ -244,12 +168,9 @@ int		create_map(t_game *game, char *line, int fd);
 int		tab_len(char **arr);
 //srcs/draw_line.c
 int		absolute_value(int nb);
-void	draw_line_vision(t_game *game);
+void	draw_line(t_game *game, int i, int j);
 int		init_line(t_game *game);
-//srcs/pixel_and_color.c
-int		get_color(int red, int green, int blue);
-void	img_pix_put(t_game *game, int x, int y, int color);
-void	img_pix_put_2(t_game *game, int x, int y, int color);
+int		put_line_in_img(t_game *game);
 //srcs/valid_wall.c
 int		check_letters_map(t_game *game);
 int		check_perso(t_game *game);
@@ -290,6 +211,8 @@ void	color_image(t_game *game);
 int		create_img(t_game *game);
 void	fill_square(t_game *game, int color, int i, int j);
 int		ft_event_listen(int key, t_game *game);
+int		get_color(int red, int green, int blue);
+void	img_pix_put(t_game *game, int x, int y, int color, int i, int j);
 int		init_tab_img(t_game *game);
 int		start_3d(t_game *game);
 int		tab_img_to_window(t_game *game);

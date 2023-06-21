@@ -1,8 +1,9 @@
-WE tx/64/water.xpm
-EA tx/64/crystal.xpm
-NO tx/64/rock.xpm
-SO tx/64/ship_left.xpm
 
+
+WE sprites/water.xpm
+EA sprites/crystal.xpm
+NO sprites/rock.xpm
+SO sprites/ship_left.xpm
 
 F 220,100,0
 C 225,30,0

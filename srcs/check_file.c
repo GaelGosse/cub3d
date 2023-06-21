@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   check_file.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 19:34:36 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/04 17:34:35 by gael             ###   ########.fr       */
+/*   Updated: 2023/06/13 18:36:08 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "../incs/cub3D.h"
 
 int	ft_check_ext(char *filename, char one, char two, char three)
 {

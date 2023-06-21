@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   texture_part.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 17:52:47 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/04 17:56:00 by gael             ###   ########.fr       */
+/*   Updated: 2023/06/13 18:36:08 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "../incs/cub3D.h"
 
 int	texture_part(t_game *game, char *line)
 {

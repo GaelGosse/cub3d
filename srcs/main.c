@@ -6,17 +6,18 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:15:08 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/13 17:10:27 by mael             ###   ########.fr       */
+/*   Updated: 2023/06/19 11:41:19 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "../incs/cub3D.h"
 
 void	init_struct(t_game *game)
 {
 	game->img_size = 48;
 	game->mlibx = NULL;
 	game->window = NULL;
+	game->perso = 0;
 	game->map->file_content = NULL;
 	game->map->file_map = NULL;
 	game->map->tab_file = NULL;
@@ -88,10 +89,10 @@ int	build_map(t_game *game, char **argv)
 	if (ft_read_file(game, argv[1]) == FAIL)
 		return (FAIL);
 
-	fd = open("maps/map2.cub", O_RDONLY);
+	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 		return (ft_free_parsing(game, "file does not exist\n"), FAIL);
-	if (access("maps/map2.cub", F_OK) != 0)
+	if (access(argv[1], F_OK) != 0)
 		return (ft_free_parsing(game, \
 			"you must use a file to contain the map\n"), FAIL);
 
@@ -144,9 +145,9 @@ int	ft_parsing(t_game *game, char **argv)
 {
 	if (build_map(game, argv) == FAIL)
 		return (FAIL);
-	if (hole_in_wall(game) == FAIL)
-		return (FAIL);
 	if (check_perso(game) == FAIL)
+		return (FAIL);
+	if (hole_in_wall(game) == FAIL)
 		return (FAIL);
 	if (check_letters_map(game) == FAIL)
 		return (FAIL);
@@ -168,8 +169,9 @@ int	main(int argc, char **argv, char **envp)
 	init_struct(&game);
 	if (ft_parsing(&game, argv) == FAIL)
 		return (FAIL);
-	if (start_3d(&game) == FAIL)
+	if (start_3D(&game) == FAIL)
 		return (FAIL);
+	
 
 	// ft_create_game(&game);
 	ft_free_parsing(&game, NULL);

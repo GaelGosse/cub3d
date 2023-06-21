@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   valid_wall.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 18:01:41 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/11 22:11:23 by gael             ###   ########.fr       */
+/*   Updated: 2023/06/16 11:02:01 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "../incs/cub3D.h"
 
 // int	ft_propagation(t_game *game)
 // {
@@ -159,7 +159,7 @@ int	hole_in_wall(t_game *game)
 		while (game->map->map_org[i_big][++i_lil])
 		{
 			if (game->map->map_org[i_big][i_lil] == game->perso)
-			printf(YELLOW"%c"RESET, game->map->map_org[i_big][i_lil]);
+				printf(YELLOW"%c"RESET, game->map->map_org[i_big][i_lil]);
 		}
 	}
 	return (SUCCESS);

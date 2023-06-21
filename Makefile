@@ -40,38 +40,55 @@ _SRCS	=	build_map.c \
 			texture_part.c \
 			texture_part_utils.c \
 			valid_wall.c \
-			tab_img.c
+			init_img.c \
+			start_3D.c \
+			pixel_and_color.c \
+			player.c \
+			draw_line.c \
 # --------------------------------- end srcs --------------------------------- #
 
 SRC            = $(addprefix $(SRCDIR)/, $(_SRCS))
 OBJ            = $(SRC:$(SRCDIR)%.c=$(OBJDIR)%.o)
 HEADER         = $(addprefix $(INCDIR)/, $(NAME).h)
+LIBX           = -L minilibx/ 
+LIBXFLAGS      = -lmlx -lXext -lX11 -lz -lm
 
 ##### Makefile work ####
 $(OBJDIR)/%.o: $(SRCDIR)/%.c $(HEADER)
 	@mkdir -p $(@D)
 	@$(CC) -c $(CFLAGS) -I$(LIBDIR) -I$(INCDIR) $< -o $@
+
 all: $(NAME)
+
 $(NAME): $(OBJ) $(HEADER)
 	@echo -e "Baking $(LIBDIR)..."
 	@make -s -C $(LIBDIR)
 	@echo -e "$(GREEN)OK!$(END)"
-	@echo -e "Baking $(NAME)..."
-	@$(CC) -I$(INCDIR) -I$(LIBDIR) -o $@ $^ $(LIBDIR)/$(LIBNAME) $(CFLAGS)
+	
+	@echo -e "Baking $(LIBDIR)..."
+	@make --no-print-directory -C minilibx
 	@echo -e "$(GREEN)OK!$(END)"
+	
+	@echo -e "Baking $(NAME)..."
+	@$(CC) -I$(INCDIR) -I$(LIBDIR) -o $@ $^ $(LIBDIR)/$(LIBNAME) $(CFLAGS) $(LIBX) $(LIBXFLAGS)
+	@echo -e "$(GREEN)OK!$(END)"
+	
 	@echo -e "$(BOLD_GREEN)$(NAME) READY !$(END)"
+
 clean:
 	@echo -e "Removing objects..."
 	@make clean -s -C $(LIBDIR)
+	@make clean --no-print-directory -C minilibx
 	@rm -rf $(OBJDIR)
 	@echo -e "$(GREEN)Done!$(END)"
+
 fclean: clean
 	@echo -e "Cleaning everything..."
 	@make fclean -s -C $(LIBDIR)
 	@rm -f $(NAME)
 	@echo -e "$(GREEN)Done!$(END)"
 	@echo -e "$(BOLD_GREEN)Everything is clean!$(END)"
+
 re: fclean all
+
 -include ${DEPS}
-
-

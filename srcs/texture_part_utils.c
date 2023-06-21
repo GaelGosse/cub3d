@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   texture_part_utils.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 21:21:53 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/04 17:55:39 by gael             ###   ########.fr       */
+/*   Updated: 2023/06/13 18:36:08 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "../incs/cub3D.h"
 
 void	print_word(char *new_w)
 {

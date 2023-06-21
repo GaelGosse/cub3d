@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:28:21 by ggosse            #+#    #+#             */
-/*   Updated: 2023/05/25 22:50:31 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/06/13 18:36:08 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "../incs/cub3D.h"
 
 int	ft_buf_read(int fd, t_game *game)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   free_parsing.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:27:05 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/11 14:36:33 by gael             ###   ########.fr       */
+/*   Updated: 2023/06/13 18:36:08 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "../incs/cub3D.h"
 
 void	ft_free_tab_str(char **tab_str)
 {
