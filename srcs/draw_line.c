@@ -99,4 +99,6 @@ void	draw_line_vision(t_game *game)
 			break ;
 		i++;
 	}
+	//return (absolute_value((int)(game->line->corr_y - game->line->y_src)));
 }
+

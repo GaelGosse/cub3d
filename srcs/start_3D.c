@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:52:12 by mael              #+#    #+#             */
-/*   Updated: 2023/06/19 14:32:10 by mael             ###   ########.fr       */
+/*   Updated: 2023/06/21 16:42:25 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,19 @@ int	display_all(t_game *game)
 	draw_player(game);
 	game->line->x_src = game->map->pos_x;
 	game->line->y_src = game->map->pos_y;
-	game->line->x_dest = game->map->pos_x;
-	game->line->y_dest = 0;
+	// game->line->x_dest = game->map->pos_x;
+	// game->line->y_dest = 0;
+	// printf("res draw line vison = %d\n" , draw_line_vision(game));
+	init_position(game);
+	
 	draw_line_vision(game);
+	init_fov(game);
+	calcul_len_first_line(game);
+	calcul_opposite_side(game);
+	printf("res line len = %d\n", game->fov->len_first_line);
 	mlx_put_image_to_window(game->mlibx, game->window, game->img->mlx_img, \
 		0, 0);
+	printf("\n");
 	return (SUCCESS);
 }
 

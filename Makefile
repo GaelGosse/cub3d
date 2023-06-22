@@ -50,7 +50,8 @@ _SRCS	=	build_map.c \
 			start_3D.c \
 			texture_part.c \
 			texture_part_utils.c \
-			valid_wall.c
+			valid_wall.c \
+			fov.c \
 # --------------------------------- end srcs --------------------------------- #
 
 

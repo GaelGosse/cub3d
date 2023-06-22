@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:15:08 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/26 16:57:31 by gael             ###   ########.fr       */
+/*   Updated: 2023/06/22 11:30:34 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,10 @@ void	init_struct(t_game *game)
 
 int	open_fd(t_game *game, int *fd)
 {
-	(*fd) = open("maps/map2.cub", O_RDONLY);
+	(*fd) = open("maps/map3.cub", O_RDONLY);
 	if ((*fd) == -1)
 		return (ft_free_parsing(game, "file does not exist\n"), FAIL);
-	if (access("maps/map2.cub", F_OK) != 0)
+	if (access("maps/map3.cub", F_OK) != 0)
 		return (ft_free_parsing(game, \
 			"you must use a file to contain the map\n"), FAIL);
 	return (SUCCESS);
