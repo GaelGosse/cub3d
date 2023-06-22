@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:52:12 by mael              #+#    #+#             */
-/*   Updated: 2023/06/21 16:42:25 by mael             ###   ########.fr       */
+/*   Updated: 2023/06/22 12:04:04 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	display_all(t_game *game)
 {
+
 	if (init_img(game) == FAIL)
 		return (FAIL);
 	if (create_image_and_get_adrr(game) == FAIL)
@@ -26,12 +27,10 @@ int	display_all(t_game *game)
 	// game->line->y_dest = 0;
 	// printf("res draw line vison = %d\n" , draw_line_vision(game));
 	init_position(game);
-	
 	draw_line_vision(game);
 	init_fov(game);
 	calcul_len_first_line(game);
 	calcul_opposite_side(game);
-	printf("res line len = %d\n", game->fov->len_first_line);
 	mlx_put_image_to_window(game->mlibx, game->window, game->img->mlx_img, \
 		0, 0);
 	printf("\n");
@@ -50,7 +49,7 @@ int	start_3D(t_game *game)
 	game->mlibx = mlx_init();
 	if (!game->mlibx)
 		return (printf("mlx pointer issue\n"), FAIL);
-	game->map->width++;
+	// game->map->width++;
 	game->window = mlx_new_window(game->mlibx, (game->map->width) * game->img_size, 
 		game->map->height * game->img_size, "cub3D");
 	if (!game->window)

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3D.h                                            :+:      :+:    :+:   */
+/*   incs/cub3D.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:45:40 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/22 11:28:54 by mael             ###   ########.fr       */
+/*   Updated: 2023/06/22 11:57:11 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,6 @@ typedef struct s_fov
 	int	len_first_line;
 	
 }			t_fov;
-
 
 typedef struct s_game
 {
@@ -247,11 +246,11 @@ int		start_3D(t_game *game);
 //srcs/main.c
 int		ft_parsing(t_game *game, char **argv);
 void	init_struct(t_game *game);
-int		open_fd(t_game *game, int *fd);
+int		open_fd(t_game *game, int *fd, char **argv);
 void	print_map(char **arr);
 //srcs/build_map.c
 void	build_content(t_game *game, char **line, int fd);
-int		build_map(t_game *game);
+int		build_map(t_game *game, char **argv);
 int		create_map(t_game *game, char *line, int fd);
 void	realloc_lines(t_game *game);
 void	skip_empty_line(char **line, int fd);
@@ -282,6 +281,8 @@ int		ft_read_file(t_game *game, char *filename);
 //srcs/texture_part_utils.c
 int		check_tx(t_game *game);
 void	print_word(char *new_w);
+//srcs/convert.c
+double deg_to_radian(double deg);
 //srcs/floor_ceil_part.c
 int		check_ceil(t_game *game, char *line);
 int		check_ceil_content(t_game *game, char **color);

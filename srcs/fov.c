@@ -46,8 +46,11 @@ void	calcul_len_first_line(t_game *game)
 int	calcul_opposite_side(t_game *game)
 {
 	int	op_side;
+	double angle;
 
-	op_side = atan(5) * game->fov->len_first_line;
+	angle = deg_to_radian(5);
+	printf("res line len = %d\n", game->fov->len_first_line);
+	op_side = atan(angle) * game->fov->len_first_line;
 	printf("op_side: %i\n", op_side);
 	// printf(" %f\n", sqrt(pow(op_side, 2) + pow(game->fov->len_first_line, 2)));
 	return (op_side);

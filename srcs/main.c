@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:15:08 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/22 11:30:34 by mael             ###   ########.fr       */
+/*   Updated: 2023/06/22 11:37:21 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,12 @@ void	init_struct(t_game *game)
 	game->map->fd_map = FAIL;
 }
 
-int	open_fd(t_game *game, int *fd)
+int	open_fd(t_game *game, int *fd, char **argv)
 {
-	(*fd) = open("maps/map3.cub", O_RDONLY);
+	(*fd) = open(argv[1], O_RDONLY);
 	if ((*fd) == -1)
 		return (ft_free_parsing(game, "file does not exist\n"), FAIL);
-	if (access("maps/map3.cub", F_OK) != 0)
+	if (access(argv[1], F_OK) != 0)
 		return (ft_free_parsing(game, \
 			"you must use a file to contain the map\n"), FAIL);
 	return (SUCCESS);
@@ -80,7 +80,7 @@ int	ft_parsing(t_game *game, char **argv)
 		return (ft_free_parsing(game, "wrong filename extension\n"), FAIL);
 	if (ft_read_file(game, argv[1]) == FAIL)
 		return (FAIL);
-	if (build_map(game) == FAIL)
+	if (build_map(game, argv) == FAIL)
 		return (FAIL);
 	if (check_perso(game) == FAIL)
 		return (FAIL);

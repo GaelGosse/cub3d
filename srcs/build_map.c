@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   build_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 09:38:48 by gael              #+#    #+#             */
-/*   Updated: 2023/06/25 12:10:19 by gael             ###   ########.fr       */
+/*   Updated: 2023/06/22 11:36:29 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	create_map(t_game *game, char *line, int fd)
 	return (FAIL);
 }
 
-int	build_map(t_game *game)
+int	build_map(t_game *game, char **argv)
 {
 	int		count;
 	int		fd;
@@ -89,7 +89,7 @@ int	build_map(t_game *game)
 
 	count = 0;
 	fd = -1;
-	if (open_fd(game, &fd) == FAIL)
+	if (open_fd(game, &fd, argv) == FAIL)
 		return (FAIL);
 	line = gnl(fd);
 	while (line && line[0] != '\0')
