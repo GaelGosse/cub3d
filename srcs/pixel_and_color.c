@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pixel_and_color.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 12:19:47 by mael              #+#    #+#             */
-/*   Updated: 2023/06/19 12:20:54 by mael             ###   ########.fr       */
+/*   Updated: 2023/06/25 12:11:17 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	img_pix_put_2(t_game *game, int x, int y, int color)
 {
 	char	*pixel;
 
-	pixel = game->img->addr + (y * game->img->line_len + x * 
+	pixel = game->img->addr + (y * game->img->line_len + x * \
 		(game->img->bpp / 8));
 	*(int *)pixel = color;
 }
@@ -25,7 +25,7 @@ void	img_pix_put(t_game *game, int x, int y, int color)
 {
 	char	*pixel;
 
-	pixel = game->img->addr + (y * game->img->line_len + x * 
+	pixel = game->img->addr + (y * game->img->line_len + x * \
 		(game->img->bpp / 8));
 	*(int *)pixel = color;
 }

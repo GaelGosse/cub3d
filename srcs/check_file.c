@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   check_file.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/21 19:34:36 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/13 18:36:08 by mael             ###   ########.fr       */
+/*   Updated: 2023/06/19 08:28:17 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/cub3D.h"
+#include "cub3D.h"
 
 int	ft_check_ext(char *filename, char one, char two, char three)
 {
@@ -53,5 +53,6 @@ int	wrong_letter_tx(char *line)
 		return (SUCCESS);
 	if (line[0] == 'W' && line[0 + 1] == 'E')
 		return (SUCCESS);
-	return (printf(RED"Err: %c (%i) wrong letter for textures \n"RST, line[0], line[0]), FAIL);
+	return (printf(RED"Err: %c (%i) wrong letter for textures \n"RST, \
+	line[0], line[0]), FAIL);
 }

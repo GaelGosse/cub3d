@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_img.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/25 00:12:20 by gael              #+#    #+#             */
+/*   Updated: 2023/06/25 12:07:24 by gael             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../incs/cub3D.h"
 
 int	init_img(t_game *game)
@@ -13,12 +25,14 @@ int	init_img(t_game *game)
 	return (SUCCESS);
 }
 
-int	 create_image_and_get_adrr(t_game *game)
+int	create_image_and_get_adrr(t_game *game)
 {
-	game->img->mlx_img = mlx_new_image(game->mlibx, game->map->width * game->img_size, game->map->height * game->img_size);
+	game->img->mlx_img = mlx_new_image(game->mlibx, game->map->width * \
+	game->img_size, game->map->height * game->img_size);
 	if (!game->img->mlx_img)
 		return (printf("fail to create image\n"), FAIL);
-	game->img->addr = mlx_get_data_addr(game->img->mlx_img, &game->img->bpp, &game->img->line_len, &game->img->endian);
+	game->img->addr = mlx_get_data_addr(game->img->mlx_img, &game->img->bpp, \
+	&game->img->line_len, &game->img->endian);
 	if (!game->img->addr)
 		return (printf("addr failed\n"), FAIL);
 	return (SUCCESS);

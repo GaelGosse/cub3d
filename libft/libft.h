@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:28:51 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/09 15:40:07 by gael             ###   ########.fr       */
+/*   Updated: 2023/06/21 11:46:36 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,8 +116,10 @@ int		ft_putstr_fd(char *s, int fd);
 //ft_putunbr.c
 int		ft_putunbr(unsigned long long int nbr);
 //ft_strdup.c
+char	*ft_str_replace(char *src, char search, char replace);
 char	*ft_strdup(const char *src);
 char	*ft_strdup_len(char *str, int start, int end);
+char	*ft_strdup_pad(char *src, int len, char pad);
 //ft_memmove.c
 void	*ft_memmove(void *destination, const void *source, size_t n);
 //ft_strrchr.c

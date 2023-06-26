@@ -1,4 +1,5 @@
 
+
 ##### Colors #####
 BLACK=\033[0;30m
 RED=\033[0;31m
@@ -10,6 +11,7 @@ CYAN=\033[0;36m
 WHITE=\033[0;37m
 END=\033[0m
 
+
 ##### bold colors #####
 BOLD_BLACK=\033[1;30m
 BOLD_RED=\033[1;31m
@@ -19,6 +21,7 @@ BOLD_BLUE=\033[1;34m
 BOLD_PURPLE=\033[1;35m
 BOLD_CYAN=\033[1;36m
 BOLD_WHITE=\033[1;37m
+
 
 ##### Names #####
 NAME	= cub3D
@@ -30,28 +33,33 @@ OBJDIR	= objs
 INCDIR	= incs
 LIBDIR	= libft
 
+
 # ----------------------------------- srcs ----------------------------------- #
 _SRCS	=	build_map.c \
+			build_map_utils.c \
 			check_file.c \
+			draw_line.c \
+			flooding.c \
 			floor_ceil_part.c \
 			free_parsing.c \
-			main.c \
-			read_file.c \
-			texture_part.c \
-			texture_part_utils.c \
-			valid_wall.c \
 			init_img.c \
-			start_3D.c \
+			main.c \
 			pixel_and_color.c \
 			player.c \
-			draw_line.c \
+			read_file.c \
+			start_3D.c \
+			texture_part.c \
+			texture_part_utils.c \
+			valid_wall.c
 # --------------------------------- end srcs --------------------------------- #
+
 
 SRC            = $(addprefix $(SRCDIR)/, $(_SRCS))
 OBJ            = $(SRC:$(SRCDIR)%.c=$(OBJDIR)%.o)
 HEADER         = $(addprefix $(INCDIR)/, $(NAME).h)
 LIBX           = -L minilibx/ 
 LIBXFLAGS      = -lmlx -lXext -lX11 -lz -lm
+
 
 ##### Makefile work ####
 $(OBJDIR)/%.o: $(SRCDIR)/%.c $(HEADER)
@@ -92,3 +100,5 @@ fclean: clean
 re: fclean all
 
 -include ${DEPS}
+
+

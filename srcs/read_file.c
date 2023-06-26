@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:28:21 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/13 18:36:08 by mael             ###   ########.fr       */
+/*   Updated: 2023/06/19 08:30:34 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/cub3D.h"
+#include "cub3D.h"
 
 int	ft_buf_read(int fd, t_game *game)
 {
@@ -31,11 +31,10 @@ int	ft_buf_read(int fd, t_game *game)
 		if (!game->map->file_content)
 			game->map->file_content = ft_strdup(buf);
 		else
-			game->map->file_content = ft_strjoin_lfree(game->map->file_content, buf);
+			game->map->file_content = \
+			ft_strjoin_lfree(game->map->file_content, buf);
 	}
 	game->map->tab_file = ft_split(game->map->file_content, '\n');
-	// free(game->map->file_content);
-	// game->map->file_content = NULL;
 	return (SUCCESS);
 }
 

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   texture_part.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 17:52:47 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/13 18:36:08 by mael             ###   ########.fr       */
+/*   Updated: 2023/06/19 08:33:42 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incs/cub3D.h"
+#include "cub3D.h"
 
 int	texture_part(t_game *game, char *line)
 {
@@ -24,8 +24,8 @@ int	texture_part(t_game *game, char *line)
 		return (FAIL);
 	if (check_we(game, line) == FAIL)
 		return (FAIL);
-	if (game->map->wall_no != NULL &&  game->map->wall_ea != NULL && \
-	game->map->wall_so != NULL &&  game->map->wall_we != NULL)
+	if (game->map->wall_no != NULL && game->map->wall_ea != NULL && \
+	game->map->wall_so != NULL && game->map->wall_we != NULL)
 		return (check_tx(game));
 	return (SUCCESS);
 }
@@ -77,4 +77,3 @@ int	check_we(t_game *game, char *line)
 		game->map->wall_we = ft_strdup_len(line, 3, ft_strlen(line) - 1);
 	return (SUCCESS);
 }
-
