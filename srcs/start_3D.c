@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:52:12 by mael              #+#    #+#             */
-/*   Updated: 2023/06/22 12:04:04 by mael             ###   ########.fr       */
+/*   Updated: 2023/06/27 16:25:51 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 int	display_all(t_game *game)
 {
+	int len_side;
+	int i;
 
+	i = 0;
 	if (init_img(game) == FAIL)
 		return (FAIL);
 	if (create_image_and_get_adrr(game) == FAIL)
@@ -30,7 +33,46 @@ int	display_all(t_game *game)
 	draw_line_vision(game);
 	init_fov(game);
 	calcul_len_first_line(game);
-	calcul_opposite_side(game);
+	len_side = calcul_opposite_side(game, i);
+	while (i < 15)
+	{
+		if (game->perso == 'N' || game->perso == 'S')
+		{
+			game->line->x_dest = game->line->x_dest + len_side;
+			game->line->y_dest = 0;
+		}
+		else if (game->perso == 'W' || game->perso == 'E')
+		{
+			game->line->x_dest = 0;
+			game->line->y_dest = game->line->y_dest + len_side;
+		}
+		game->fov->lines_vision[i] = draw_line_vision(game);
+		len_side = calcul_opposite_side(game, i);
+		i++;
+	}
+	printf("\n.....................................\n\n");
+	i++;
+	//i = 0;
+	game->line->x_dest = game->map->pos_x;
+	game->line->y_dest = game->map->pos_y;
+	len_side = calcul_opposite_side(game, i);
+	while (i < 31)
+	{
+		// printf("line i: %i\n", i);
+		if (game->perso == 'N' || game->perso == 'S')
+		{
+			game->line->x_dest = game->line->x_dest - len_side;
+			game->line->y_dest = 0;
+		}
+		else if (game->perso == 'W' || game->perso == 'E')
+		{
+			game->line->x_dest = 0;
+			game->line->y_dest = game->line->y_dest - len_side;
+		}
+		game->fov->lines_vision[i] = draw_line_vision(game);
+		len_side = calcul_opposite_side(game, i);
+		i++;
+	}
 	mlx_put_image_to_window(game->mlibx, game->window, game->img->mlx_img, \
 		0, 0);
 	printf("\n");

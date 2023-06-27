@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:45:40 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/22 11:57:11 by mael             ###   ########.fr       */
+/*   Updated: 2023/06/27 14:47:50 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,8 @@ typedef struct s_map
 
 typedef struct s_fov
 {
-	int	len_first_line;
+	int		*lines_vision;
+	int		len_first_line;
 	
 }			t_fov;
 
@@ -256,7 +257,7 @@ void	realloc_lines(t_game *game);
 void	skip_empty_line(char **line, int fd);
 //srcs/draw_line.c
 int		absolute_value(int nb);
-void	draw_line_vision(t_game *game);
+int		draw_line_vision(t_game *game);
 int		init_line(t_game *game);
 //srcs/pixel_and_color.c
 int		get_color(int red, int green, int blue);
@@ -302,7 +303,7 @@ int		is_propa_finished(t_game *game);
 int		propagation(t_game *game, int row, int col, int count);
 //srcs/fov.c
 void	calcul_len_first_line(t_game *game);
-int		calcul_opposite_side(t_game *game);
+int		calcul_opposite_side(t_game *game, int i);
 int		init_fov(t_game *game);
 void	init_position(t_game *game);
 //srcs/build_map_utils.c

@@ -2,9 +2,20 @@
 
 int	init_fov(t_game *game)
 {
+	int i;
+
+	i = 0;
 	game->fov = malloc(sizeof(t_fov));
 	if (!game->fov)
 		return (printf("Init fov failed \n"), FAIL);
+	game->fov->lines_vision = malloc(sizeof(int) * 31);
+	if (!game->fov->lines_vision)
+		return (printf("lines_visions failed\n"), FAIL);
+	while (i < 31)
+	{
+		game->fov->lines_vision[i] = 0;
+		i++;
+	}
 	game->fov->len_first_line = 0;
 	return (SUCCESS);
 }
@@ -43,15 +54,24 @@ void	calcul_len_first_line(t_game *game)
 			game->map->pos_x));
 }
 
-int	calcul_opposite_side(t_game *game)
+// int	fill_tab_lines_vision(t_game *game)
+// {
+
+// }
+
+
+int	calcul_opposite_side(t_game *game, int i)
 {
 	int	op_side;
 	double angle;
 
-	angle = deg_to_radian(5);
-	printf("res line len = %d\n", game->fov->len_first_line);
-	op_side = atan(angle) * game->fov->len_first_line;
-	printf("op_side: %i\n", op_side);
+	angle = deg_to_radian(2);
+//	printf("res line len = %d\n", game->fov->len_first_line);
+	// if (i == 6 || i == 0)
+	// 	op_side = atan(angle) * game->fov->len_first_line;
+	// else 
+	op_side = atan(angle) * game->fov->lines_vision[i];
+//	printf("op_side: %i\n", op_side);
 	// printf(" %f\n", sqrt(pow(op_side, 2) + pow(game->fov->len_first_line, 2)));
 	return (op_side);
 }

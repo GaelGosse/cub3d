@@ -66,10 +66,12 @@ int	init_line(t_game *game)
 // 	return (SUCCESS);
 // }
 
-void	draw_line_vision(t_game *game)
+int	draw_line_vision(t_game *game)
 {
 	game->line->dx = game->line->x_dest - game->line->x_src;
 	game->line->dy = game->line->y_dest - game->line->y_src;
+	// printf("game->line->y_dest: %i\n", game->line->y_dest);
+	// printf("game->line->y_src: %i\n", game->line->y_src);
 
 	if (absolute_value(game->line->dx) > absolute_value(game->line->dy))
 		game->line->steps = absolute_value(game->line->dx);
@@ -78,27 +80,48 @@ void	draw_line_vision(t_game *game)
 
 	game->line->xite = game->line->dx / (float)game->line->steps;
 	game->line->yite = game->line->dy / (float)game->line->steps;
+	// printf("game->line->dx: %d\n", game->line->dx);
+	// printf("(float)game->line->steps: %f\n", (float)game->line->steps);
+	// printf("game->line->x_src: %f\n", game->line->x_src);
+	// printf("game->line->xite: %f\n", game->line->xite);
 
 	game->line->corr_x = game->line->x_src;
 	game->line->corr_y = game->line->y_src;
 	
 	int i = 0;
-	int y_check;
-	int	x_check;
+	int	toggle = FAIL;
+	int y_check = FAIL;
+	int	x_check = FAIL;
 
-	y_check = FAIL;
-	x_check = FAIL;
+
 	while (i <= game->line->steps)
 	{
-		img_pix_put(game, round(game->line->corr_x), round(game->line->corr_y), get_color(255, 255, 0));
+		if (toggle == FAIL && i == 0 && round(game->line->corr_x) > 0 && round(game->line->corr_y) > 0)
+			img_pix_put(game, round(game->line->corr_x), round(game->line->corr_y), get_color(255, 255, 0));
+		else if (toggle == FAIL && i > 0 && round(game->line->corr_x) > 0 && round(game->line->corr_y) > 0 && game->map->map_org[y_check][x_check] != '1')
+			img_pix_put(game, round(game->line->corr_x), round(game->line->corr_y), get_color(255, 255, 0));
 		game->line->corr_x = game->line->corr_x + game->line->xite;
 		game->line->corr_y = game->line->corr_y + game->line->yite;
 		y_check = (int)(game->line->corr_y / game->img_size);
 		x_check = (int)(game->line->corr_x / game->img_size);
-		if (game->map->map_org[y_check][x_check] == '1')
-			break ;
+		// if (((int)(game->line->corr_y / game->img_size) > game->map->height) || 
+		// (int)(game->line->corr_x / game->img_size) > game->map->height)
+		// 	break ;
+		if (y_check >= 0 && x_check >= 0 && x_check < game->map->width && y_check < game->map->height && game->map->map_org[y_check][x_check] == '1')
+			toggle = SUCCESS;
 		i++;
 	}
+	
+	double len;
+
+	// printf("game->line->corr_x: %i\n", game->line->corr_x);
+	// printf("game->line->corr_y: %i\n", game->line->corr_y);
+	// printf("game->line->x_src: %i\n", game->line->x_src);
+	// printf("game->line->>y_src %i\n", game->line->y_src);
+
+	len = sqrt(pow(game->line->corr_x - game->line->x_src, 2) + pow(game->line->corr_y - game->line->y_src, 2));
+	//printf("len = %f\n", len);
+	return (len);
 	//return (absolute_value((int)(game->line->corr_y - game->line->y_src)));
 }
 
