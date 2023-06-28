@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:15:08 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/28 08:00:35 by gael             ###   ########.fr       */
+/*   Updated: 2023/06/28 12:29:52 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void	print_map(char **arr)
 				|| arr[i_big][i_lil] == 'S' || arr[i_big][i_lil] == 'W')
 				printf(BACK_RED"  "RESET);
 		}
-		printf("\n");
 	}
 }
 
@@ -44,6 +43,7 @@ void	init_struct(t_game *game)
 	game->mlibx = NULL;
 	game->window = NULL;
 	game->perso = '\0';
+	game->flag = 0;
 	game->map->file_content = NULL;
 	game->map->file_map = NULL;
 	game->map->tab_file = NULL;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:35:04 by mael              #+#    #+#             */
-/*   Updated: 2023/06/19 14:19:20 by mael             ###   ########.fr       */
+/*   Updated: 2023/06/28 12:11:36 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,8 @@ int	ft_event_listen(int key, t_game *game)
 			return (printf("i_check %i\n", i_check), FAIL);
 		if (game->map->map_org[i_check][game->map->pos_x / game->img_size] != '1')
 		{
-			game->map->pos_y = game->map->pos_y - 5;
 			reset_img(game);
+			game->map->pos_y = game->map->pos_y - 5;
 			display_all(game);
 		}
 	}
@@ -82,8 +82,8 @@ int	ft_event_listen(int key, t_game *game)
 			return (printf("i_check %i\n", i_check), FAIL);
 		if (game->map->map_org[i_check][game->map->pos_x / game->img_size] != '1')
 		{
-			game->map->pos_y = game->map->pos_y + 5;
 			reset_img(game);
+			game->map->pos_y = game->map->pos_y + 5;
 			display_all(game);
 		}
 	}
@@ -94,8 +94,9 @@ int	ft_event_listen(int key, t_game *game)
 			return (printf("j_check %i\n", j_check), FAIL);
 		if (game->map->map_org[game->map->pos_y  / game->img_size][j_check] != '1')
 		{
-			game->map->pos_x = game->map->pos_x - 5;
+			//game->map->pos_x = game->map->pos_x - 5;
 			reset_img(game);
+			rotate_left(game);
 			display_all(game);
 		}
 	}
@@ -106,8 +107,9 @@ int	ft_event_listen(int key, t_game *game)
 			return (printf("j_check %i\n", j_check), FAIL);
 		if (game->map->map_org[game->map->pos_y / game->img_size][j_check] != '1')
 		{
-			game->map->pos_x = game->map->pos_x + 5;
+			//game->map->pos_x = game->map->pos_x + 5;
 			reset_img(game);
+			rotate_right(game);
 			display_all(game);
 		}
 	}

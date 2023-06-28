@@ -67,10 +67,10 @@ int	calcul_opposite_side(t_game *game, int i)
 
 	angle = deg_to_radian(2);
 //	printf("res line len = %d\n", game->fov->len_first_line);
-	// if (i == 6 || i == 0)
-	// 	op_side = atan(angle) * game->fov->len_first_line;
-	// else 
-	op_side = atan(angle) * game->fov->lines_vision[i];
+	if (i == 6 || i == 0)
+		op_side = atan(angle) * game->fov->len_first_line;
+	else
+		op_side = atan(angle) * game->fov->lines_vision[i];
 //	printf("op_side: %i\n", op_side);
 	// printf(" %f\n", sqrt(pow(op_side, 2) + pow(game->fov->len_first_line, 2)));
 	return (op_side);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_3D.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:52:12 by mael              #+#    #+#             */
-/*   Updated: 2023/06/27 18:05:43 by mael             ###   ########.fr       */
+/*   Updated: 2023/06/28 12:54:45 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,74 +26,17 @@ int	display_all(t_game *game)
 	draw_player(game);
 	game->line->x_src = game->map->pos_x;
 	game->line->y_src = game->map->pos_y;
-	// game->line->x_dest = game->map->pos_x;
-	// game->line->y_dest = 0;
-	// printf("res draw line vison = %d\n" , draw_line_vision(game));
-	init_position(game);
-	draw_line_vision(game);
+	//printf("game->line->x_dest: %i\n", game->line->x_dest);
+	draw_line_vision(game, 0);
 	init_fov(game);
 	calcul_len_first_line(game);
 	len_side = calcul_opposite_side(game, i);
-	while (i < 15)
-	{
-		if (game->perso == 'N')
-		{
-			game->line->x_dest = game->line->x_dest + len_side;
-			game->line->y_dest = 0;
-		}
-		else if (game->perso == 'S')
-		{
-			game->line->x_dest = game->line->x_dest + len_side;
-			game->line->y_dest = game->map->height * game->img_size;
-		}
-		else if (game->perso == 'E')
-		{
-			game->line->x_dest = game->map->width * game->img_size;
-			game->line->y_dest = game->line->y_dest + len_side;
-		}
-		else if (game->perso == 'W')
-		{
-			game->line->x_dest = 0;
-			game->line->y_dest = game->line->y_dest + len_side;
-		}
-		game->fov->lines_vision[i] = draw_line_vision(game);
-		len_side = calcul_opposite_side(game, i);
-		i++;
-	}
-	i++;
-	//i = 0;
-	game->line->x_dest = game->map->pos_x;
-	game->line->y_dest = game->map->pos_y;
-	len_side = calcul_opposite_side(game, i);
-	while (i < 31)
-	{
-		if (game->perso == 'N')
-		{
-			game->line->x_dest = game->line->x_dest - len_side;
-			game->line->y_dest = 0;
-		}
-		else if (game->perso == 'S')
-		{
-			game->line->x_dest = game->line->x_dest - len_side;
-			game->line->y_dest = game->map->height * game->img_size;
-		}
-		else if (game->perso == 'E')
-		{
-			game->line->x_dest = game->map->width * game->img_size;
-			game->line->y_dest = game->line->y_dest - len_side;
-		}
-		else if (game->perso == 'W')
-		{
-			game->line->x_dest = 0;
-			game->line->y_dest = game->line->y_dest - len_side;
-		}
-		game->fov->lines_vision[i] = draw_line_vision(game);
-		len_side = calcul_opposite_side(game, i);
-		i++;
-	}
+	if (game->flag == 0)
+		line_in_a_first_time(game, len_side);
+	else
+		put_line_during_the_game(game, len_side);
 	mlx_put_image_to_window(game->mlibx, game->window, game->img->mlx_img, \
 		0, 0);
-	printf("\n");
 	return (SUCCESS);
 }
 
@@ -116,6 +59,7 @@ int	start_3D(t_game *game)
 		return (printf("Window failed\n"), FAIL);
 	init_line(game);
 	set_pos_character(game);
+	init_position(game);
 	if (display_all(game) == FAIL)
 		return (FAIL);
 	mlx_hook(game->window, KeyPress, KeyPressMask, &ft_event_listen, game);
