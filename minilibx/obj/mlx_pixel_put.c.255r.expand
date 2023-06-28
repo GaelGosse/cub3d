@@ -1,0 +1,274 @@
+
+;; Function mlx_pixel_put (mlx_pixel_put, funcdef_no=6, decl_uid=9188, cgraph_uid=7, symbol_order=6)
+
+Partition 0: size 128 align 16
+	xgcv
+
+;; Generating RTL for gimple basic block 2
+
+;; Generating RTL for gimple basic block 3
+
+;; Generating RTL for gimple basic block 4
+
+
+try_optimize_cfg iteration 1
+
+Merging block 3 into block 2...
+Merged blocks 2 and 3.
+Merged 2 and 3 without moving.
+Merging block 6 into block 5...
+Merged blocks 5 and 6.
+Merged 5 and 6 without moving.
+
+
+try_optimize_cfg iteration 2
+
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 9 NOTE_INSN_DELETED)
+(note 9 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 9 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -152 [0xffffffffffffff68])) [5 xvar+0 S8 A64])
+        (reg:DI 5 di [ xvar ])) "mlx_pixel_put.c":18:1 -1
+     (nil))
+(insn 3 2 4 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -160 [0xffffffffffffff60])) [6 win+0 S8 A64])
+        (reg:DI 4 si [ win ])) "mlx_pixel_put.c":18:1 -1
+     (nil))
+(insn 4 3 5 2 (set (mem/c:SI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -164 [0xffffffffffffff5c])) [3 x+0 S4 A32])
+        (reg:SI 1 dx [ x ])) "mlx_pixel_put.c":18:1 -1
+     (nil))
+(insn 5 4 6 2 (set (mem/c:SI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -168 [0xffffffffffffff58])) [3 y+0 S4 A32])
+        (reg:SI 2 cx [ y ])) "mlx_pixel_put.c":18:1 -1
+     (nil))
+(insn 6 5 7 2 (set (mem/c:SI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -172 [0xffffffffffffff54])) [3 color+0 S4 A32])
+        (reg:SI 36 r8 [ color ])) "mlx_pixel_put.c":18:1 -1
+     (nil))
+(note 7 6 8 2 NOTE_INSN_FUNCTION_BEG)
+(insn 8 7 11 2 (parallel [
+            (set (mem/v/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                        (const_int -8 [0xfffffffffffffff8])) [1 D.9195+0 S8 A64])
+                (unspec:DI [
+                        (mem/v/f:DI (const_int 40 [0x28]) [0 MEM[(<address-space-1> long unsigned int *)40B]+0 S8 A64 AS1])
+                    ] UNSPEC_SP_SET))
+            (set (scratch:DI)
+                (const_int 0 [0]))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_pixel_put.c":18:1 -1
+     (nil))
+(insn 11 8 12 2 (set (reg:SI 92)
+        (mem/c:SI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -172 [0xffffffffffffff54])) [3 color+0 S4 A32])) "mlx_pixel_put.c":21:22 -1
+     (nil))
+(insn 12 11 13 2 (set (reg:DI 93)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -152 [0xffffffffffffff68])) [5 xvar+0 S8 A64])) "mlx_pixel_put.c":21:22 -1
+     (nil))
+(insn 13 12 14 2 (set (reg:SI 4 si)
+        (reg:SI 92)) "mlx_pixel_put.c":21:22 -1
+     (nil))
+(insn 14 13 15 2 (set (reg:DI 5 di)
+        (reg:DI 93)) "mlx_pixel_put.c":21:22 -1
+     (nil))
+(insn 15 14 16 2 (set (reg:QI 0 ax)
+        (const_int 0 [0])) "mlx_pixel_put.c":21:22 -1
+     (nil))
+(call_insn 16 15 17 2 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("mlx_int_get_good_color") [flags 0x41]  <function_decl 0x7fe408e1e700 mlx_int_get_good_color>) [0 mlx_int_get_good_color S1 A8])
+            (const_int 0 [0]))) "mlx_pixel_put.c":21:22 -1
+     (nil)
+    (expr_list (use (reg:QI 0 ax))
+        (expr_list:DI (use (reg:DI 5 di))
+            (expr_list:SI (use (reg:SI 4 si))
+                (nil)))))
+(insn 17 16 18 2 (set (reg:SI 82 [ _1 ])
+        (reg:SI 0 ax)) "mlx_pixel_put.c":21:22 -1
+     (nil))
+(insn 18 17 19 2 (set (reg:DI 83 [ _2 ])
+        (sign_extend:DI (reg:SI 82 [ _1 ]))) "mlx_pixel_put.c":21:22 discrim 1 -1
+     (nil))
+(insn 19 18 20 2 (set (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -128 [0xffffffffffffff80])) [4 xgcv.foreground+0 S8 A128])
+        (reg:DI 83 [ _2 ])) "mlx_pixel_put.c":21:20 discrim 1 -1
+     (nil))
+(insn 20 19 21 2 (set (reg/f:DI 94)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -160 [0xffffffffffffff60])) [6 win+0 S8 A64])) "mlx_pixel_put.c":22:4 -1
+     (nil))
+(insn 21 20 22 2 (set (reg/f:DI 84 [ _3 ])
+        (mem/f:DI (plus:DI (reg/f:DI 94)
+                (const_int 8 [0x8])) [8 win_16(D)->gc+0 S8 A64])) "mlx_pixel_put.c":22:4 -1
+     (nil))
+(insn 22 21 23 2 (set (reg/f:DI 95)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -152 [0xffffffffffffff68])) [5 xvar+0 S8 A64])) "mlx_pixel_put.c":22:4 -1
+     (nil))
+(insn 23 22 24 2 (set (reg/f:DI 85 [ _4 ])
+        (mem/f:DI (reg/f:DI 95) [12 xvar_12(D)->display+0 S8 A64])) "mlx_pixel_put.c":22:4 -1
+     (nil))
+(insn 24 23 25 2 (parallel [
+            (set (reg:DI 96)
+                (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -144 [0xffffffffffffff70])))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_pixel_put.c":22:4 -1
+     (nil))
+(insn 25 24 26 2 (set (reg:DI 2 cx)
+        (reg:DI 96)) "mlx_pixel_put.c":22:4 -1
+     (nil))
+(insn 26 25 27 2 (set (reg:DI 1 dx)
+        (const_int 4 [0x4])) "mlx_pixel_put.c":22:4 -1
+     (nil))
+(insn 27 26 28 2 (set (reg:DI 4 si)
+        (reg/f:DI 84 [ _3 ])) "mlx_pixel_put.c":22:4 -1
+     (nil))
+(insn 28 27 29 2 (set (reg:DI 5 di)
+        (reg/f:DI 85 [ _4 ])) "mlx_pixel_put.c":22:4 -1
+     (nil))
+(call_insn 29 28 30 2 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("XChangeGC") [flags 0x41]  <function_decl 0x7fe409112b00 XChangeGC>) [0 XChangeGC S1 A8])
+            (const_int 0 [0]))) "mlx_pixel_put.c":22:4 -1
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (expr_list:DI (use (reg:DI 1 dx))
+                (expr_list:DI (use (reg:DI 2 cx))
+                    (nil))))))
+(insn 30 29 31 2 (set (reg/f:DI 97)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -160 [0xffffffffffffff60])) [6 win+0 S8 A64])) "mlx_pixel_put.c":23:4 -1
+     (nil))
+(insn 31 30 32 2 (set (reg/f:DI 86 [ _5 ])
+        (mem/f:DI (plus:DI (reg/f:DI 97)
+                (const_int 8 [0x8])) [8 win_16(D)->gc+0 S8 A64])) "mlx_pixel_put.c":23:4 -1
+     (nil))
+(insn 32 31 33 2 (set (reg/f:DI 98)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -160 [0xffffffffffffff60])) [6 win+0 S8 A64])) "mlx_pixel_put.c":23:4 -1
+     (nil))
+(insn 33 32 34 2 (set (reg:DI 87 [ _6 ])
+        (mem:DI (reg/f:DI 98) [4 win_16(D)->window+0 S8 A64])) "mlx_pixel_put.c":23:4 -1
+     (nil))
+(insn 34 33 35 2 (set (reg/f:DI 99)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -152 [0xffffffffffffff68])) [5 xvar+0 S8 A64])) "mlx_pixel_put.c":23:4 -1
+     (nil))
+(insn 35 34 36 2 (set (reg/f:DI 88 [ _7 ])
+        (mem/f:DI (reg/f:DI 99) [12 xvar_12(D)->display+0 S8 A64])) "mlx_pixel_put.c":23:4 -1
+     (nil))
+(insn 36 35 37 2 (set (reg:SI 100)
+        (mem/c:SI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -168 [0xffffffffffffff58])) [3 y+0 S4 A32])) "mlx_pixel_put.c":23:4 -1
+     (nil))
+(insn 37 36 38 2 (set (reg:SI 101)
+        (mem/c:SI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -164 [0xffffffffffffff5c])) [3 x+0 S4 A32])) "mlx_pixel_put.c":23:4 -1
+     (nil))
+(insn 38 37 39 2 (set (reg:SI 36 r8)
+        (reg:SI 100)) "mlx_pixel_put.c":23:4 -1
+     (nil))
+(insn 39 38 40 2 (set (reg:SI 2 cx)
+        (reg:SI 101)) "mlx_pixel_put.c":23:4 -1
+     (nil))
+(insn 40 39 41 2 (set (reg:DI 1 dx)
+        (reg/f:DI 86 [ _5 ])) "mlx_pixel_put.c":23:4 -1
+     (nil))
+(insn 41 40 42 2 (set (reg:DI 4 si)
+        (reg:DI 87 [ _6 ])) "mlx_pixel_put.c":23:4 -1
+     (nil))
+(insn 42 41 43 2 (set (reg:DI 5 di)
+        (reg/f:DI 88 [ _7 ])) "mlx_pixel_put.c":23:4 -1
+     (nil))
+(call_insn 43 42 44 2 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("XDrawPoint") [flags 0x41]  <function_decl 0x7fe409121a00 XDrawPoint>) [0 XDrawPoint S1 A8])
+            (const_int 0 [0]))) "mlx_pixel_put.c":23:4 -1
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (expr_list:DI (use (reg:DI 1 dx))
+                (expr_list:SI (use (reg:SI 2 cx))
+                    (expr_list:SI (use (reg:SI 36 r8))
+                        (nil)))))))
+(insn 44 43 45 2 (set (reg/f:DI 102)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -152 [0xffffffffffffff68])) [5 xvar+0 S8 A64])) "mlx_pixel_put.c":24:12 -1
+     (nil))
+(insn 45 44 46 2 (set (reg:SI 89 [ _8 ])
+        (mem:SI (plus:DI (reg/f:DI 102)
+                (const_int 80 [0x50])) [3 xvar_12(D)->do_flush+0 S4 A64])) "mlx_pixel_put.c":24:12 -1
+     (nil))
+(insn 46 45 47 2 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg:SI 89 [ _8 ])
+            (const_int 0 [0]))) "mlx_pixel_put.c":24:7 -1
+     (nil))
+(jump_insn 47 46 48 2 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 53)
+            (pc))) "mlx_pixel_put.c":24:7 -1
+     (nil)
+ -> 53)
+(note 48 47 49 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 49 48 50 4 (set (reg/f:DI 103)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -152 [0xffffffffffffff68])) [5 xvar+0 S8 A64])) "mlx_pixel_put.c":25:6 -1
+     (nil))
+(insn 50 49 51 4 (set (reg/f:DI 90 [ _9 ])
+        (mem/f:DI (reg/f:DI 103) [12 xvar_12(D)->display+0 S8 A64])) "mlx_pixel_put.c":25:6 -1
+     (nil))
+(insn 51 50 52 4 (set (reg:DI 5 di)
+        (reg/f:DI 90 [ _9 ])) "mlx_pixel_put.c":25:6 -1
+     (nil))
+(call_insn 52 51 53 4 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("XFlush") [flags 0x41]  <function_decl 0x7fe409129b00 XFlush>) [0 XFlush S1 A8])
+            (const_int 0 [0]))) "mlx_pixel_put.c":25:6 -1
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(code_label 53 52 54 5 2 (nil) [1 uses])
+(note 54 53 62 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 62 54 63 5 (clobber (reg/i:SI 0 ax)) "mlx_pixel_put.c":26:1 -1
+     (nil))
+(insn 63 62 68 5 (clobber (reg:SI 91 [ <retval> ])) "mlx_pixel_put.c":26:1 -1
+     (nil))
+(insn 68 63 56 5 (const_int 0 [0]) "mlx_pixel_put.c":26:1 -1
+     (nil))
+(insn 56 68 57 5 (parallel [
+            (set (reg:CCZ 17 flags)
+                (unspec:CCZ [
+                        (mem/v/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                                (const_int -8 [0xfffffffffffffff8])) [1 D.9195+0 S8 A64])
+                        (mem/v/f:DI (const_int 40 [0x28]) [0 MEM[(<address-space-1> long unsigned int *)40B]+0 S8 A64 AS1])
+                    ] UNSPEC_SP_TEST))
+            (clobber (scratch:DI))
+        ]) "mlx_pixel_put.c":26:1 -1
+     (nil))
+(jump_insn 57 56 66 5 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 60)
+            (pc))) "mlx_pixel_put.c":26:1 -1
+     (nil)
+ -> 60)
+(note 66 57 58 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+(call_insn 58 66 59 7 (call (mem:QI (symbol_ref:DI ("__stack_chk_fail") [flags 0x41]  <function_decl 0x7fe408e25b00 __stack_chk_fail>) [0 __stack_chk_fail S1 A8])
+        (const_int 0 [0])) "mlx_pixel_put.c":26:1 -1
+     (expr_list:REG_ARGS_SIZE (const_int 0 [0])
+        (expr_list:REG_NORETURN (const_int 0 [0])
+            (expr_list:REG_EH_REGION (const_int 0 [0])
+                (nil))))
+    (nil))
+(barrier 59 58 60)
+(code_label 60 59 67 8 3 (nil) [1 uses])
+(note 67 60 61 8 [bb 8] NOTE_INSN_BASIC_BLOCK)
+(insn 61 67 64 8 (set (reg/i:SI 0 ax)
+        (reg:SI 91 [ <retval> ])) "mlx_pixel_put.c":26:1 -1
+     (nil))
+(insn 64 61 0 8 (use (reg/i:SI 0 ax)) "mlx_pixel_put.c":26:1 -1
+     (nil))

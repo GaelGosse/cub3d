@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_3D.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:52:12 by mael              #+#    #+#             */
-/*   Updated: 2023/06/27 16:25:51 by mael             ###   ########.fr       */
+/*   Updated: 2023/06/27 20:23:01 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,22 @@ int	display_all(t_game *game)
 	len_side = calcul_opposite_side(game, i);
 	while (i < 15)
 	{
-		if (game->perso == 'N' || game->perso == 'S')
+		if (game->perso == 'N')
 		{
 			game->line->x_dest = game->line->x_dest + len_side;
 			game->line->y_dest = 0;
 		}
-		else if (game->perso == 'W' || game->perso == 'E')
+		else if (game->perso == 'S')
+		{
+			game->line->x_dest = game->line->x_dest + len_side;
+			game->line->y_dest = game->map->height * game->img_size;
+		}
+		else if (game->perso == 'E')
+		{
+			game->line->x_dest = game->map->width * game->img_size;
+			game->line->y_dest = game->line->y_dest + len_side;
+		}
+		else if (game->perso == 'W')
 		{
 			game->line->x_dest = 0;
 			game->line->y_dest = game->line->y_dest + len_side;
@@ -50,7 +60,6 @@ int	display_all(t_game *game)
 		len_side = calcul_opposite_side(game, i);
 		i++;
 	}
-	printf("\n.....................................\n\n");
 	i++;
 	//i = 0;
 	game->line->x_dest = game->map->pos_x;
@@ -58,16 +67,25 @@ int	display_all(t_game *game)
 	len_side = calcul_opposite_side(game, i);
 	while (i < 31)
 	{
-		// printf("line i: %i\n", i);
-		if (game->perso == 'N' || game->perso == 'S')
+		if (game->perso == 'N')
 		{
-			game->line->x_dest = game->line->x_dest - len_side;
+			game->line->x_dest = game->line->x_dest + len_side;
 			game->line->y_dest = 0;
 		}
-		else if (game->perso == 'W' || game->perso == 'E')
+		else if (game->perso == 'S')
+		{
+			game->line->x_dest = game->line->x_dest + len_side;
+			game->line->y_dest = game->map->height * game->img_size;
+		}
+		else if (game->perso == 'E')
+		{
+			game->line->x_dest = game->map->width * game->img_size;
+			game->line->y_dest = game->line->y_dest + len_side;
+		}
+		else if (game->perso == 'W')
 		{
 			game->line->x_dest = 0;
-			game->line->y_dest = game->line->y_dest - len_side;
+			game->line->y_dest = game->line->y_dest + len_side;
 		}
 		game->fov->lines_vision[i] = draw_line_vision(game);
 		len_side = calcul_opposite_side(game, i);
@@ -92,7 +110,7 @@ int	start_3D(t_game *game)
 	if (!game->mlibx)
 		return (printf("mlx pointer issue\n"), FAIL);
 	// game->map->width++;
-	game->window = mlx_new_window(game->mlibx, (game->map->width) * game->img_size, 
+	game->window = mlx_new_window(game->mlibx, (game->map->width) * game->img_size,
 		game->map->height * game->img_size, "cub3D");
 	if (!game->window)
 		return (printf("Window failed\n"), FAIL);
@@ -116,7 +134,7 @@ void	fill_wall(t_game *game, int i, int j)
 		x = j * game->img_size;
 		while (x < (j + 1) * game->img_size)
 		{
-			img_pix_put(game, x, y, get_color(255, 0, 230));
+			img_pix_put(game, x, y, get_color(255, 255, 255));
 			x++;
 		}
 		y++;
@@ -134,7 +152,7 @@ void	fill_void(t_game *game, int i, int j)
 		x = j * game->img_size;
 		while (x < (j + 1) * game->img_size)
 		{
-			img_pix_put(game, x, y, get_color(10, 30, 240));
+			img_pix_put(game, x, y, get_color(5, 15, 120));
 			x++;
 		}
 		y++;

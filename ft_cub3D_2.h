@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_cub3D_2.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 11:38:30 by mael              #+#    #+#             */
-/*   Updated: 2023/06/19 11:39:49 by mael             ###   ########.fr       */
+/*   Updated: 2023/06/28 08:00:35 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,11 +177,11 @@ int		check_perso(t_game *game);
 int		hole_in_wall(t_game *game);
 //srcs/free_parsing.c
 void	free_img(t_game *game);
-void	ft_free_parsing(t_game *game, char *err);
-void	ft_free_tab_str(char **tab_str);
+void	free_parsing(t_game *game, char *err);
+void	free_tab_str(char **tab_str);
 //srcs/check_file.c
-int		ft_check_env(char **envp);
-int		ft_check_ext(char *filename, char one, char two, char three);
+int		check_env(char **envp);
+int		check_ext(char *filename, char one, char two, char three);
 int		wrong_letter_tx(char *line);
 //srcs/read_file.c
 int		ft_buf_read(int fd, t_game *game);

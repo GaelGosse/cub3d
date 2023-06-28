@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:15:08 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/22 11:37:21 by mael             ###   ########.fr       */
+/*   Updated: 2023/06/28 08:00:35 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,17 +67,17 @@ int	open_fd(t_game *game, int *fd, char **argv)
 {
 	(*fd) = open(argv[1], O_RDONLY);
 	if ((*fd) == -1)
-		return (ft_free_parsing(game, "file does not exist\n"), FAIL);
+		return (free_parsing(game, "file does not exist\n"), FAIL);
 	if (access(argv[1], F_OK) != 0)
-		return (ft_free_parsing(game, \
+		return (free_parsing(game, \
 			"you must use a file to contain the map\n"), FAIL);
 	return (SUCCESS);
 }
 
 int	ft_parsing(t_game *game, char **argv)
 {
-	if (ft_check_ext(argv[1], 'c', 'u', 'b') == FAIL)
-		return (ft_free_parsing(game, "wrong filename extension\n"), FAIL);
+	if (check_ext(argv[1], 'c', 'u', 'b') == FAIL)
+		return (free_parsing(game, "wrong filename extension\n"), FAIL);
 	if (ft_read_file(game, argv[1]) == FAIL)
 		return (FAIL);
 	if (build_map(game, argv) == FAIL)
@@ -102,7 +102,7 @@ int	main(int argc, char **argv, char **envp)
 {
 	t_game	game;
 
-	if (ft_check_env(envp) == FAIL)
+	if (check_env(envp) == FAIL)
 		return (ft_putstr_fd("Error\nyou must have env. variables\n", 2), 1);
 	if (argc != 2)
 		return (ft_putstr_fd("Error\nyou must called one arg\n", 2), 1);
@@ -117,7 +117,7 @@ int	main(int argc, char **argv, char **envp)
 
 
 	// ft_create_game(&game);
-	ft_free_parsing(&game, NULL);
+	free_parsing(&game, NULL);
 	(void)game;
 	(void)argc;
 	(void)argv;

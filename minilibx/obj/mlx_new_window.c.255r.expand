@@ -1,0 +1,677 @@
+
+;; Function mlx_new_window (mlx_new_window, funcdef_no=6, decl_uid=9187, cgraph_uid=7, symbol_order=6)
+
+Partition 2: size 128 align 16
+	xgcv
+Partition 1: size 112 align 16
+	xswa
+Partition 0: size 8 align 8
+	new_win_31
+
+;; Generating RTL for gimple basic block 2
+
+;; Generating RTL for gimple basic block 3
+
+;; Generating RTL for gimple basic block 4
+Selected stringop expansion strategy: rep_8byte
+
+;; Generating RTL for gimple basic block 5
+
+;; Generating RTL for gimple basic block 6
+
+
+try_optimize_cfg iteration 1
+
+Merging block 3 into block 2...
+Merged blocks 2 and 3.
+Merged 2 and 3 without moving.
+Redirecting jump 24 from 6 to 7.
+Merging block 6 into block 5...
+Merged blocks 5 and 6.
+Merged 5 and 6 without moving.
+Removing jump 146.
+Merging block 8 into block 7...
+Merged blocks 7 and 8.
+Merged 7 and 8 without moving.
+
+
+try_optimize_cfg iteration 2
+
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 8 NOTE_INSN_DELETED)
+(note 8 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 8 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -280 [0xfffffffffffffee8])) [7 xvar+0 S8 A64])
+        (reg:DI 5 di [ xvar ])) "mlx_new_window.c":23:1 -1
+     (nil))
+(insn 3 2 4 2 (set (mem/c:SI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -284 [0xfffffffffffffee4])) [3 size_x+0 S4 A32])
+        (reg:SI 4 si [ size_x ])) "mlx_new_window.c":23:1 -1
+     (nil))
+(insn 4 3 5 2 (set (mem/c:SI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -288 [0xfffffffffffffee0])) [3 size_y+0 S4 A32])
+        (reg:SI 1 dx [ size_y ])) "mlx_new_window.c":23:1 -1
+     (nil))
+(insn 5 4 6 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -296 [0xfffffffffffffed8])) [8 title+0 S8 A64])
+        (reg:DI 2 cx [ title ])) "mlx_new_window.c":23:1 -1
+     (nil))
+(note 6 5 7 2 NOTE_INSN_FUNCTION_BEG)
+(insn 7 6 10 2 (parallel [
+            (set (mem/v/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                        (const_int -8 [0xfffffffffffffff8])) [1 D.9199+0 S8 A64])
+                (unspec:DI [
+                        (mem/v/f:DI (const_int 40 [0x28]) [0 MEM[(<address-space-1> long unsigned int *)40B]+0 S8 A64 AS1])
+                    ] UNSPEC_SP_SET))
+            (set (scratch:DI)
+                (const_int 0 [0]))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_new_window.c":23:1 -1
+     (nil))
+(insn 10 7 11 2 (set (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -248 [0xffffffffffffff08])) [4 xswa.background_pixel+0 S8 A64])
+        (const_int 0 [0])) "mlx_new_window.c":28:24 -1
+     (nil))
+(insn 11 10 12 2 (set (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -232 [0xffffffffffffff18])) [4 xswa.border_pixel+0 S8 A64])
+        (const_int -1 [0xffffffffffffffff])) "mlx_new_window.c":29:20 -1
+     (nil))
+(insn 12 11 13 2 (set (reg/f:DI 105)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -280 [0xfffffffffffffee8])) [7 xvar+0 S8 A64])) "mlx_new_window.c":30:22 -1
+     (nil))
+(insn 13 12 14 2 (set (reg:DI 82 [ _1 ])
+        (mem:DI (plus:DI (reg/f:DI 105)
+                (const_int 32 [0x20])) [4 xvar_27(D)->cmap+0 S8 A64])) "mlx_new_window.c":30:22 -1
+     (nil))
+(insn 14 13 15 2 (set (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -160 [0xffffffffffffff60])) [4 xswa.colormap+0 S8 A128])
+        (reg:DI 82 [ _1 ])) "mlx_new_window.c":30:16 -1
+     (nil))
+(insn 15 14 16 2 (set (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -184 [0xffffffffffffff48])) [4 xswa.event_mask+0 S8 A64])
+        (const_int 16777215 [0xffffff])) "mlx_new_window.c":36:18 -1
+     (nil))
+(insn 16 15 17 2 (set (reg:DI 5 di)
+        (const_int 936 [0x3a8])) "mlx_new_window.c":37:18 -1
+     (nil))
+(call_insn 17 16 18 2 (set (reg:DI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("malloc") [flags 0x41]  <function_decl 0x7f76dcd01200 malloc>) [0 __builtin_malloc S1 A8])
+            (const_int 0 [0]))) "mlx_new_window.c":37:18 -1
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 18 17 19 2 (set (reg/f:DI 106)
+        (reg:DI 0 ax)) "mlx_new_window.c":37:18 -1
+     (expr_list:REG_NOALIAS (reg/f:DI 106)
+        (nil)))
+(insn 19 18 20 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -264 [0xfffffffffffffef8])) [6 new_win+0 S8 A64])
+        (reg/f:DI 106)) "mlx_new_window.c":37:18 -1
+     (nil))
+(insn 20 19 21 2 (set (reg:CCZ 17 flags)
+        (compare:CCZ (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -264 [0xfffffffffffffef8])) [6 new_win+0 S8 A64])
+            (const_int 0 [0]))) "mlx_new_window.c":37:5 discrim 1 -1
+     (nil))
+(jump_insn 21 20 22 2 (set (pc)
+        (if_then_else (ne (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 26)
+            (pc))) "mlx_new_window.c":37:5 discrim 1 -1
+     (nil)
+ -> 26)
+(note 22 21 23 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 23 22 24 4 (set (reg/f:DI 103 [ _22 ])
+        (const_int 0 [0])) "mlx_new_window.c":38:10 -1
+     (nil))
+(jump_insn 24 23 25 4 (set (pc)
+        (label_ref:DI 143)) "mlx_new_window.c":38:10 997 {jump}
+     (nil)
+ -> 143)
+(barrier 25 24 26)
+(code_label 26 25 27 5 2 (nil) [1 uses])
+(note 27 26 28 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 28 27 29 5 (set (reg/f:DI 107)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -280 [0xfffffffffffffee8])) [7 xvar+0 S8 A64])) "mlx_new_window.c":39:20 -1
+     (nil))
+(insn 29 28 30 5 (set (reg/f:DI 83 [ _2 ])
+        (mem/f:DI (plus:DI (reg/f:DI 107)
+                (const_int 24 [0x18])) [11 xvar_27(D)->visual+0 S8 A64])) "mlx_new_window.c":39:20 -1
+     (nil))
+(insn 30 29 31 5 (set (reg:SI 84 [ size_y.0_3 ])
+        (mem/c:SI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -288 [0xfffffffffffffee0])) [3 size_y+0 S4 A32])) "mlx_new_window.c":39:20 -1
+     (nil))
+(insn 31 30 32 5 (set (reg:SI 85 [ size_x.1_4 ])
+        (mem/c:SI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -284 [0xfffffffffffffee4])) [3 size_x+0 S4 A32])) "mlx_new_window.c":39:20 -1
+     (nil))
+(insn 32 31 33 5 (set (reg/f:DI 108)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -280 [0xfffffffffffffee8])) [7 xvar+0 S8 A64])) "mlx_new_window.c":39:20 -1
+     (nil))
+(insn 33 32 34 5 (set (reg:DI 86 [ _5 ])
+        (mem:DI (plus:DI (reg/f:DI 108)
+                (const_int 8 [0x8])) [4 xvar_27(D)->root+0 S8 A64])) "mlx_new_window.c":39:20 -1
+     (nil))
+(insn 34 33 35 5 (set (reg/f:DI 109)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -280 [0xfffffffffffffee8])) [7 xvar+0 S8 A64])) "mlx_new_window.c":39:20 -1
+     (nil))
+(insn 35 34 36 5 (set (reg/f:DI 87 [ _6 ])
+        (mem/f:DI (reg/f:DI 109) [10 xvar_27(D)->display+0 S8 A64])) "mlx_new_window.c":39:20 -1
+     (nil))
+(insn 36 35 37 5 (parallel [
+            (set (reg:DI 110)
+                (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -256 [0xffffffffffffff00])))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_new_window.c":39:20 -1
+     (nil))
+(insn 37 36 38 5 (set (mem/f:DI (pre_dec:DI (reg/f:DI 7 sp)) [13  S8 A64])
+        (reg:DI 110)) "mlx_new_window.c":39:20 -1
+     (expr_list:REG_ARGS_SIZE (const_int 8 [0x8])
+        (nil)))
+(insn 38 37 39 5 (set (mem:DI (pre_dec:DI (reg/f:DI 7 sp)) [4  S8 A64])
+        (const_int 10250 [0x280a])) "mlx_new_window.c":39:20 -1
+     (expr_list:REG_ARGS_SIZE (const_int 16 [0x10])
+        (nil)))
+(insn 39 38 40 5 (set (mem/f:DI (pre_dec:DI (reg/f:DI 7 sp)) [11  S8 A64])
+        (reg/f:DI 83 [ _2 ])) "mlx_new_window.c":39:20 -1
+     (expr_list:REG_ARGS_SIZE (const_int 24 [0x18])
+        (nil)))
+(insn 40 39 41 5 (set (mem:SI (pre_modify:DI (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 7 sp)
+                    (const_int -8 [0xfffffffffffffff8]))) [3  S4 A32])
+        (const_int 1 [0x1])) "mlx_new_window.c":39:20 -1
+     (expr_list:REG_ARGS_SIZE (const_int 32 [0x20])
+        (nil)))
+(insn 41 40 42 5 (set (mem:SI (pre_modify:DI (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 7 sp)
+                    (const_int -8 [0xfffffffffffffff8]))) [3  S4 A32])
+        (const_int 0 [0])) "mlx_new_window.c":39:20 -1
+     (expr_list:REG_ARGS_SIZE (const_int 40 [0x28])
+        (nil)))
+(insn 42 41 43 5 (set (mem:SI (pre_modify:DI (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 7 sp)
+                    (const_int -8 [0xfffffffffffffff8]))) [3  S4 A32])
+        (const_int 0 [0])) "mlx_new_window.c":39:20 -1
+     (expr_list:REG_ARGS_SIZE (const_int 48 [0x30])
+        (nil)))
+(insn 43 42 44 5 (set (reg:SI 37 r9)
+        (reg:SI 84 [ size_y.0_3 ])) "mlx_new_window.c":39:20 -1
+     (nil))
+(insn 44 43 45 5 (set (reg:SI 36 r8)
+        (reg:SI 85 [ size_x.1_4 ])) "mlx_new_window.c":39:20 -1
+     (nil))
+(insn 45 44 46 5 (set (reg:SI 2 cx)
+        (const_int 0 [0])) "mlx_new_window.c":39:20 -1
+     (nil))
+(insn 46 45 47 5 (set (reg:SI 1 dx)
+        (const_int 0 [0])) "mlx_new_window.c":39:20 -1
+     (nil))
+(insn 47 46 48 5 (set (reg:DI 4 si)
+        (reg:DI 86 [ _5 ])) "mlx_new_window.c":39:20 -1
+     (nil))
+(insn 48 47 49 5 (set (reg:DI 5 di)
+        (reg/f:DI 87 [ _6 ])) "mlx_new_window.c":39:20 -1
+     (nil))
+(call_insn 49 48 50 5 (set (reg:DI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("XCreateWindow") [flags 0x41]  <function_decl 0x7f76dcaf7900 XCreateWindow>) [0 XCreateWindow S1 A8])
+            (const_int 48 [0x30]))) "mlx_new_window.c":39:20 -1
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (expr_list:SI (use (reg:SI 1 dx))
+                (expr_list:SI (use (reg:SI 2 cx))
+                    (expr_list:SI (use (reg:SI 36 r8))
+                        (expr_list:SI (use (reg:SI 37 r9))
+                            (nil))))))))
+(insn 50 49 51 5 (parallel [
+            (set (reg/f:DI 7 sp)
+                (plus:DI (reg/f:DI 7 sp)
+                    (const_int 48 [0x30])))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_new_window.c":39:20 -1
+     (expr_list:REG_ARGS_SIZE (const_int 0 [0])
+        (nil)))
+(insn 51 50 52 5 (set (reg:DI 88 [ _7 ])
+        (reg:DI 0 ax)) "mlx_new_window.c":39:20 -1
+     (nil))
+(insn 52 51 53 5 (set (reg/f:DI 111)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -264 [0xfffffffffffffef8])) [6 new_win+0 S8 A64])) "mlx_new_window.c":39:18 discrim 1 -1
+     (nil))
+(insn 53 52 54 5 (set (mem:DI (reg/f:DI 111) [4 new_win_31->window+0 S8 A64])
+        (reg:DI 88 [ _7 ])) "mlx_new_window.c":39:18 discrim 1 -1
+     (nil))
+(insn 54 53 55 5 (set (reg/f:DI 112)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -264 [0xfffffffffffffef8])) [6 new_win+0 S8 A64])) "mlx_new_window.c":43:2 -1
+     (nil))
+(insn 55 54 56 5 (set (reg:DI 89 [ _8 ])
+        (mem:DI (reg/f:DI 112) [4 new_win_31->window+0 S8 A64])) "mlx_new_window.c":43:2 -1
+     (nil))
+(insn 56 55 57 5 (set (reg:SI 113)
+        (mem/c:SI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -288 [0xfffffffffffffee0])) [3 size_y+0 S4 A32])) "mlx_new_window.c":43:2 -1
+     (nil))
+(insn 57 56 58 5 (set (reg:SI 114)
+        (mem/c:SI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -284 [0xfffffffffffffee4])) [3 size_x+0 S4 A32])) "mlx_new_window.c":43:2 -1
+     (nil))
+(insn 58 57 59 5 (set (reg:DI 115)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -280 [0xfffffffffffffee8])) [7 xvar+0 S8 A64])) "mlx_new_window.c":43:2 -1
+     (nil))
+(insn 59 58 60 5 (set (reg:SI 2 cx)
+        (reg:SI 113)) "mlx_new_window.c":43:2 -1
+     (nil))
+(insn 60 59 61 5 (set (reg:SI 1 dx)
+        (reg:SI 114)) "mlx_new_window.c":43:2 -1
+     (nil))
+(insn 61 60 62 5 (set (reg:DI 4 si)
+        (reg:DI 89 [ _8 ])) "mlx_new_window.c":43:2 -1
+     (nil))
+(insn 62 61 63 5 (set (reg:DI 5 di)
+        (reg:DI 115)) "mlx_new_window.c":43:2 -1
+     (nil))
+(insn 63 62 64 5 (set (reg:QI 0 ax)
+        (const_int 0 [0])) "mlx_new_window.c":43:2 -1
+     (nil))
+(call_insn 64 63 65 5 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("mlx_int_anti_resize_win") [flags 0x41]  <function_decl 0x7f76dc81d900 mlx_int_anti_resize_win>) [0 mlx_int_anti_resize_win S1 A8])
+            (const_int 0 [0]))) "mlx_new_window.c":43:2 -1
+     (nil)
+    (expr_list (use (reg:QI 0 ax))
+        (expr_list:DI (use (reg:DI 5 di))
+            (expr_list:DI (use (reg:DI 4 si))
+                (expr_list:SI (use (reg:SI 1 dx))
+                    (expr_list:SI (use (reg:SI 2 cx))
+                        (nil)))))))
+(insn 65 64 66 5 (set (reg/f:DI 116)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -264 [0xfffffffffffffef8])) [6 new_win+0 S8 A64])) "mlx_new_window.c":44:2 -1
+     (nil))
+(insn 66 65 67 5 (set (reg:DI 90 [ _9 ])
+        (mem:DI (reg/f:DI 116) [4 new_win_31->window+0 S8 A64])) "mlx_new_window.c":44:2 -1
+     (nil))
+(insn 67 66 68 5 (set (reg/f:DI 117)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -280 [0xfffffffffffffee8])) [7 xvar+0 S8 A64])) "mlx_new_window.c":44:2 -1
+     (nil))
+(insn 68 67 69 5 (set (reg/f:DI 91 [ _10 ])
+        (mem/f:DI (reg/f:DI 117) [10 xvar_27(D)->display+0 S8 A64])) "mlx_new_window.c":44:2 -1
+     (nil))
+(insn 69 68 70 5 (set (reg:DI 118)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -296 [0xfffffffffffffed8])) [8 title+0 S8 A64])) "mlx_new_window.c":44:2 -1
+     (nil))
+(insn 70 69 71 5 (set (reg:DI 1 dx)
+        (reg:DI 118)) "mlx_new_window.c":44:2 -1
+     (nil))
+(insn 71 70 72 5 (set (reg:DI 4 si)
+        (reg:DI 90 [ _9 ])) "mlx_new_window.c":44:2 -1
+     (nil))
+(insn 72 71 73 5 (set (reg:DI 5 di)
+        (reg/f:DI 91 [ _10 ])) "mlx_new_window.c":44:2 -1
+     (nil))
+(call_insn 73 72 74 5 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("XStoreName") [flags 0x41]  <function_decl 0x7f76dcb5b000 XStoreName>) [0 XStoreName S1 A8])
+            (const_int 0 [0]))) "mlx_new_window.c":44:2 -1
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (expr_list:DI (use (reg:DI 1 dx))
+                (nil)))))
+(insn 74 73 75 5 (set (reg/f:DI 119)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -280 [0xfffffffffffffee8])) [7 xvar+0 S8 A64])) "mlx_new_window.c":45:2 -1
+     (nil))
+(insn 75 74 76 5 (parallel [
+            (set (reg/f:DI 92 [ _11 ])
+                (plus:DI (reg/f:DI 119)
+                    (const_int 112 [0x70])))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_new_window.c":45:2 -1
+     (expr_list:REG_EQUAL (plus:DI (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -280 [0xfffffffffffffee8])) [7 xvar+0 S8 A64])
+            (const_int 112 [0x70]))
+        (nil)))
+(insn 76 75 77 5 (set (reg/f:DI 120)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -264 [0xfffffffffffffef8])) [6 new_win+0 S8 A64])) "mlx_new_window.c":45:2 -1
+     (nil))
+(insn 77 76 78 5 (set (reg:DI 93 [ _12 ])
+        (mem:DI (reg/f:DI 120) [4 new_win_31->window+0 S8 A64])) "mlx_new_window.c":45:2 -1
+     (nil))
+(insn 78 77 79 5 (set (reg/f:DI 121)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -280 [0xfffffffffffffee8])) [7 xvar+0 S8 A64])) "mlx_new_window.c":45:2 -1
+     (nil))
+(insn 79 78 80 5 (set (reg/f:DI 94 [ _13 ])
+        (mem/f:DI (reg/f:DI 121) [10 xvar_27(D)->display+0 S8 A64])) "mlx_new_window.c":45:2 -1
+     (nil))
+(insn 80 79 81 5 (set (reg:SI 2 cx)
+        (const_int 1 [0x1])) "mlx_new_window.c":45:2 -1
+     (nil))
+(insn 81 80 82 5 (set (reg:DI 1 dx)
+        (reg/f:DI 92 [ _11 ])) "mlx_new_window.c":45:2 -1
+     (nil))
+(insn 82 81 83 5 (set (reg:DI 4 si)
+        (reg:DI 93 [ _12 ])) "mlx_new_window.c":45:2 -1
+     (nil))
+(insn 83 82 84 5 (set (reg:DI 5 di)
+        (reg/f:DI 94 [ _13 ])) "mlx_new_window.c":45:2 -1
+     (nil))
+(call_insn 84 83 85 5 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("XSetWMProtocols") [flags 0x41]  <function_decl 0x7f76dcb0b100 XSetWMProtocols>) [0 XSetWMProtocols S1 A8])
+            (const_int 0 [0]))) "mlx_new_window.c":45:2 -1
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (expr_list:DI (use (reg:DI 1 dx))
+                (expr_list:SI (use (reg:SI 2 cx))
+                    (nil))))))
+(insn 85 84 86 5 (set (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -128 [0xffffffffffffff80])) [4 xgcv.foreground+0 S8 A128])
+        (const_int -1 [0xffffffffffffffff])) "mlx_new_window.c":46:18 -1
+     (nil))
+(insn 86 85 87 5 (set (mem/c:SI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -144 [0xffffffffffffff70])) [3 xgcv.function+0 S4 A128])
+        (const_int 3 [0x3])) "mlx_new_window.c":47:16 -1
+     (nil))
+(insn 87 86 88 5 (set (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -136 [0xffffffffffffff78])) [4 xgcv.plane_mask+0 S8 A64])
+        (const_int -1 [0xffffffffffffffff])) "mlx_new_window.c":48:18 -1
+     (nil))
+(insn 88 87 89 5 (set (reg/f:DI 122)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -264 [0xfffffffffffffef8])) [6 new_win+0 S8 A64])) "mlx_new_window.c":49:16 -1
+     (nil))
+(insn 89 88 90 5 (set (reg:DI 95 [ _14 ])
+        (mem:DI (reg/f:DI 122) [4 new_win_31->window+0 S8 A64])) "mlx_new_window.c":49:16 -1
+     (nil))
+(insn 90 89 91 5 (set (reg/f:DI 123)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -280 [0xfffffffffffffee8])) [7 xvar+0 S8 A64])) "mlx_new_window.c":49:16 -1
+     (nil))
+(insn 91 90 92 5 (set (reg/f:DI 96 [ _15 ])
+        (mem/f:DI (reg/f:DI 123) [10 xvar_27(D)->display+0 S8 A64])) "mlx_new_window.c":49:16 -1
+     (nil))
+(insn 92 91 93 5 (parallel [
+            (set (reg:DI 124)
+                (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -144 [0xffffffffffffff70])))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_new_window.c":49:16 -1
+     (nil))
+(insn 93 92 94 5 (set (reg:DI 2 cx)
+        (reg:DI 124)) "mlx_new_window.c":49:16 -1
+     (nil))
+(insn 94 93 95 5 (set (reg:DI 1 dx)
+        (const_int 7 [0x7])) "mlx_new_window.c":49:16 -1
+     (nil))
+(insn 95 94 96 5 (set (reg:DI 4 si)
+        (reg:DI 95 [ _14 ])) "mlx_new_window.c":49:16 -1
+     (nil))
+(insn 96 95 97 5 (set (reg:DI 5 di)
+        (reg/f:DI 96 [ _15 ])) "mlx_new_window.c":49:16 -1
+     (nil))
+(call_insn 97 96 98 5 (set (reg:DI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("XCreateGC") [flags 0x41]  <function_decl 0x7f76dcaf7100 XCreateGC>) [0 XCreateGC S1 A8])
+            (const_int 0 [0]))) "mlx_new_window.c":49:16 -1
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (expr_list:DI (use (reg:DI 1 dx))
+                (expr_list:DI (use (reg:DI 2 cx))
+                    (nil))))))
+(insn 98 97 99 5 (set (reg/f:DI 97 [ _16 ])
+        (reg:DI 0 ax)) "mlx_new_window.c":49:16 -1
+     (nil))
+(insn 99 98 100 5 (set (reg/f:DI 125)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -264 [0xfffffffffffffef8])) [6 new_win+0 S8 A64])) "mlx_new_window.c":49:14 discrim 1 -1
+     (nil))
+(insn 100 99 101 5 (set (mem/f:DI (plus:DI (reg/f:DI 125)
+                (const_int 8 [0x8])) [15 new_win_31->gc+0 S8 A64])
+        (reg/f:DI 97 [ _16 ])) "mlx_new_window.c":49:14 discrim 1 -1
+     (nil))
+(insn 101 100 102 5 (set (reg/f:DI 126)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -280 [0xfffffffffffffee8])) [7 xvar+0 S8 A64])) "mlx_new_window.c":51:22 -1
+     (nil))
+(insn 102 101 103 5 (set (reg/f:DI 98 [ _17 ])
+        (mem/f:DI (plus:DI (reg/f:DI 126)
+                (const_int 48 [0x30])) [6 xvar_27(D)->win_list+0 S8 A64])) "mlx_new_window.c":51:22 -1
+     (nil))
+(insn 103 102 104 5 (set (reg/f:DI 127)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -264 [0xfffffffffffffef8])) [6 new_win+0 S8 A64])) "mlx_new_window.c":51:16 -1
+     (nil))
+(insn 104 103 105 5 (set (mem/f:DI (plus:DI (reg/f:DI 127)
+                (const_int 16 [0x10])) [6 new_win_31->next+0 S8 A64])
+        (reg/f:DI 98 [ _17 ])) "mlx_new_window.c":51:16 -1
+     (nil))
+(insn 105 104 106 5 (set (reg/f:DI 128)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -280 [0xfffffffffffffee8])) [7 xvar+0 S8 A64])) "mlx_new_window.c":52:17 -1
+     (nil))
+(insn 106 105 107 5 (set (reg/f:DI 129)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -264 [0xfffffffffffffef8])) [6 new_win+0 S8 A64])) "mlx_new_window.c":52:17 -1
+     (nil))
+(insn 107 106 108 5 (set (mem/f:DI (plus:DI (reg/f:DI 128)
+                (const_int 48 [0x30])) [6 xvar_27(D)->win_list+0 S8 A64])
+        (reg/f:DI 129)) "mlx_new_window.c":52:17 -1
+     (nil))
+(insn 108 107 109 5 (set (reg/f:DI 130)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -264 [0xfffffffffffffef8])) [6 new_win+0 S8 A64])) "mlx_new_window.c":58:8 -1
+     (nil))
+(insn 109 108 110 5 (parallel [
+            (set (reg/f:DI 99 [ _18 ])
+                (plus:DI (reg/f:DI 130)
+                    (const_int 72 [0x48])))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_new_window.c":58:8 -1
+     (expr_list:REG_EQUAL (plus:DI (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -264 [0xfffffffffffffef8])) [6 new_win+0 S8 A64])
+            (const_int 72 [0x48]))
+        (nil)))
+(insn 110 109 111 5 (set (reg/f:DI 131)
+        (reg/f:DI 99 [ _18 ])) "mlx_new_window.c":58:2 -1
+     (nil))
+(insn 111 110 112 5 (set (reg:SI 132)
+        (const_int 864 [0x360])) "mlx_new_window.c":58:2 -1
+     (nil))
+(insn 112 111 113 5 (set (reg:DI 133)
+        (const_int 0 [0])) "mlx_new_window.c":58:2 -1
+     (nil))
+(insn 113 112 114 5 (set (mem:DI (reg/f:DI 131) [0  S8 A8])
+        (reg:DI 133)) "mlx_new_window.c":58:2 -1
+     (nil))
+(insn 114 113 115 5 (set (reg:DI 134)
+        (zero_extend:DI (reg:SI 132))) "mlx_new_window.c":58:2 -1
+     (nil))
+(insn 115 114 116 5 (parallel [
+            (set (reg:DI 135)
+                (plus:DI (reg/f:DI 131)
+                    (reg:DI 134)))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_new_window.c":58:2 -1
+     (nil))
+(insn 116 115 117 5 (parallel [
+            (set (reg/f:DI 136)
+                (plus:DI (reg:DI 135)
+                    (const_int 8 [0x8])))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_new_window.c":58:2 -1
+     (nil))
+(insn 117 116 118 5 (set (mem:DI (plus:DI (reg/f:DI 136)
+                (const_int -16 [0xfffffffffffffff0])) [0  S8 A8])
+        (reg:DI 133)) "mlx_new_window.c":58:2 -1
+     (nil))
+(insn 118 117 119 5 (parallel [
+            (set (reg/f:DI 137)
+                (plus:DI (reg/f:DI 131)
+                    (const_int 8 [0x8])))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_new_window.c":58:2 -1
+     (nil))
+(insn 119 118 120 5 (parallel [
+            (set (reg/f:DI 137)
+                (and:DI (reg/f:DI 137)
+                    (const_int -8 [0xfffffffffffffff8])))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_new_window.c":58:2 -1
+     (nil))
+(insn 120 119 121 5 (parallel [
+            (set (reg/f:DI 131)
+                (minus:DI (reg/f:DI 131)
+                    (reg/f:DI 137)))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_new_window.c":58:2 -1
+     (nil))
+(insn 121 120 122 5 (parallel [
+            (set (reg:SI 132)
+                (plus:SI (reg:SI 132)
+                    (subreg:SI (reg/f:DI 131) 0)))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_new_window.c":58:2 -1
+     (nil))
+(insn 122 121 123 5 (parallel [
+            (set (reg:SI 132)
+                (and:SI (reg:SI 132)
+                    (const_int -8 [0xfffffffffffffff8])))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_new_window.c":58:2 -1
+     (nil))
+(insn 123 122 124 5 (parallel [
+            (set (reg:SI 138)
+                (lshiftrt:SI (reg:SI 132)
+                    (const_int 3 [0x3])))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_new_window.c":58:2 -1
+     (nil))
+(insn 124 123 125 5 (set (reg:DI 139)
+        (zero_extend:DI (reg:SI 138))) "mlx_new_window.c":58:2 -1
+     (nil))
+(insn 125 124 126 5 (parallel [
+            (set (reg:DI 139)
+                (const_int 0 [0]))
+            (set (reg/f:DI 137)
+                (plus:DI (ashift:DI (reg:DI 139)
+                        (const_int 3 [0x3]))
+                    (reg/f:DI 137)))
+            (set (mem:BLK (reg/f:DI 137) [0  A64])
+                (const_int 0 [0]))
+            (use (reg:DI 133))
+            (use (reg:DI 139))
+        ]) "mlx_new_window.c":58:2 -1
+     (nil))
+(insn 126 125 127 5 (set (reg/f:DI 140)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -264 [0xfffffffffffffef8])) [6 new_win+0 S8 A64])) "mlx_new_window.c":59:2 -1
+     (nil))
+(insn 127 126 128 5 (set (reg:DI 100 [ _19 ])
+        (mem:DI (reg/f:DI 140) [4 new_win_31->window+0 S8 A64])) "mlx_new_window.c":59:2 -1
+     (nil))
+(insn 128 127 129 5 (set (reg/f:DI 141)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -280 [0xfffffffffffffee8])) [7 xvar+0 S8 A64])) "mlx_new_window.c":59:2 -1
+     (nil))
+(insn 129 128 130 5 (set (reg/f:DI 101 [ _20 ])
+        (mem/f:DI (reg/f:DI 141) [10 xvar_27(D)->display+0 S8 A64])) "mlx_new_window.c":59:2 -1
+     (nil))
+(insn 130 129 131 5 (set (reg:DI 4 si)
+        (reg:DI 100 [ _19 ])) "mlx_new_window.c":59:2 -1
+     (nil))
+(insn 131 130 132 5 (set (reg:DI 5 di)
+        (reg/f:DI 101 [ _20 ])) "mlx_new_window.c":59:2 -1
+     (nil))
+(call_insn 132 131 133 5 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("XMapRaised") [flags 0x41]  <function_decl 0x7f76dcb3b600 XMapRaised>) [0 XMapRaised S1 A8])
+            (const_int 0 [0]))) "mlx_new_window.c":59:2 -1
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (nil))))
+(insn 133 132 134 5 (set (reg/f:DI 142)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -264 [0xfffffffffffffef8])) [6 new_win+0 S8 A64])) "mlx_new_window.c":60:2 -1
+     (nil))
+(insn 134 133 135 5 (set (reg:DI 102 [ _21 ])
+        (mem:DI (reg/f:DI 142) [4 new_win_31->window+0 S8 A64])) "mlx_new_window.c":60:2 -1
+     (nil))
+(insn 135 134 136 5 (set (reg:DI 143)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -280 [0xfffffffffffffee8])) [7 xvar+0 S8 A64])) "mlx_new_window.c":60:2 -1
+     (nil))
+(insn 136 135 137 5 (set (reg:DI 4 si)
+        (reg:DI 102 [ _21 ])) "mlx_new_window.c":60:2 -1
+     (nil))
+(insn 137 136 138 5 (set (reg:DI 5 di)
+        (reg:DI 143)) "mlx_new_window.c":60:2 -1
+     (nil))
+(insn 138 137 139 5 (set (reg:QI 0 ax)
+        (const_int 0 [0])) "mlx_new_window.c":60:2 -1
+     (nil))
+(call_insn 139 138 140 5 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("mlx_int_wait_first_expose") [flags 0x41]  <function_decl 0x7f76dc81da00 mlx_int_wait_first_expose>) [0 mlx_int_wait_first_expose S1 A8])
+            (const_int 0 [0]))) "mlx_new_window.c":60:2 -1
+     (nil)
+    (expr_list (use (reg:QI 0 ax))
+        (expr_list:DI (use (reg:DI 5 di))
+            (expr_list:DI (use (reg:DI 4 si))
+                (nil)))))
+(insn 140 139 143 5 (set (reg/f:DI 103 [ _22 ])
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -264 [0xfffffffffffffef8])) [6 new_win+0 S8 A64])) "mlx_new_window.c":61:9 -1
+     (nil))
+(code_label 143 140 144 7 4 (nil) [1 uses])
+(note 144 143 145 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+(insn 145 144 149 7 (set (reg/f:DI 104 [ <retval> ])
+        (reg/f:DI 103 [ _22 ])) "mlx_new_window.c":62:1 -1
+     (nil))
+(insn 149 145 150 7 (parallel [
+            (set (reg:CCZ 17 flags)
+                (unspec:CCZ [
+                        (mem/v/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                                (const_int -8 [0xfffffffffffffff8])) [1 D.9199+0 S8 A64])
+                        (mem/v/f:DI (const_int 40 [0x28]) [0 MEM[(<address-space-1> long unsigned int *)40B]+0 S8 A64 AS1])
+                    ] UNSPEC_SP_TEST))
+            (clobber (scratch:DI))
+        ]) "mlx_new_window.c":62:1 -1
+     (nil))
+(jump_insn 150 149 157 7 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 153)
+            (pc))) "mlx_new_window.c":62:1 -1
+     (nil)
+ -> 153)
+(note 157 150 151 9 [bb 9] NOTE_INSN_BASIC_BLOCK)
+(call_insn 151 157 152 9 (call (mem:QI (symbol_ref:DI ("__stack_chk_fail") [flags 0x41]  <function_decl 0x7f76dc824f00 __stack_chk_fail>) [0 __stack_chk_fail S1 A8])
+        (const_int 0 [0])) "mlx_new_window.c":62:1 -1
+     (expr_list:REG_ARGS_SIZE (const_int 0 [0])
+        (expr_list:REG_NORETURN (const_int 0 [0])
+            (expr_list:REG_EH_REGION (const_int 0 [0])
+                (nil))))
+    (nil))
+(barrier 152 151 153)
+(code_label 153 152 158 10 5 (nil) [1 uses])
+(note 158 153 154 10 [bb 10] NOTE_INSN_BASIC_BLOCK)
+(insn 154 158 155 10 (set (reg/i:DI 0 ax)
+        (reg/f:DI 104 [ <retval> ])) "mlx_new_window.c":62:1 -1
+     (nil))
+(insn 155 154 0 10 (use (reg/i:DI 0 ax)) "mlx_new_window.c":62:1 -1
+     (nil))

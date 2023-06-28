@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:28:21 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/19 08:30:34 by gael             ###   ########.fr       */
+/*   Updated: 2023/06/28 08:00:35 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ int	ft_buf_read(int fd, t_game *game)
 	buf[0] = 'X';
 	buf[1] = '\0';
 	if (fd < 0 || fd > 1024 || read(fd, 0, 0) < 0)
-		return (ft_free_parsing(game, "Something wrong with args"), FAIL);
+		return (free_parsing(game, "Something wrong with args"), FAIL);
 	while (buf[0] != '\0')
 	{
 		ret = read(fd, buf, 1);
 		if (ret < 0)
-			return (ft_free_parsing(game, "Something wrong with args"), FAIL);
+			return (free_parsing(game, "Something wrong with args"), FAIL);
 		buf[ret] = '\0';
 		buf[1] = '\0';
 		if (!game->map->file_content)
@@ -44,13 +44,13 @@ int	ft_read_file(t_game *game, char *filename)
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
-		return (ft_free_parsing(game, "file does not exist\n"), FAIL);
+		return (free_parsing(game, "file does not exist\n"), FAIL);
 	if (access(filename, F_OK) != 0)
-		return (ft_free_parsing(game, \
+		return (free_parsing(game, \
 			"you must use a file to contain the map\n"), FAIL);
 	if (ft_buf_read(fd, game) == FAIL)
 		return (FAIL);
 	if (close(fd) == -1)
-		return (ft_free_parsing(game, "close err\n"), FAIL);
+		return (free_parsing(game, "close err\n"), FAIL);
 	return (SUCCESS);
 }

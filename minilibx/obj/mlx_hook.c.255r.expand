@@ -1,0 +1,425 @@
+
+;; Function mlx_hook (mlx_hook, funcdef_no=6, decl_uid=9188, cgraph_uid=7, symbol_order=6)
+
+
+;; Generating RTL for gimple basic block 2
+
+
+try_optimize_cfg iteration 1
+
+Merging block 3 into block 2...
+Merged blocks 2 and 3.
+Merged 2 and 3 without moving.
+Merging block 4 into block 2...
+Merged blocks 2 and 4.
+Merged 2 and 4 without moving.
+
+
+try_optimize_cfg iteration 2
+
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 8 NOTE_INSN_DELETED)
+(note 8 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 8 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [1 win+0 S8 A64])
+        (reg:DI 5 di [ win ])) "mlx_hook.c":19:1 -1
+     (nil))
+(insn 3 2 4 2 (set (mem/c:SI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -12 [0xfffffffffffffff4])) [2 x_event+0 S4 A32])
+        (reg:SI 4 si [ x_event ])) "mlx_hook.c":19:1 -1
+     (nil))
+(insn 4 3 5 2 (set (mem/c:SI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [2 x_mask+0 S4 A32])
+        (reg:SI 1 dx [ x_mask ])) "mlx_hook.c":19:1 -1
+     (nil))
+(insn 5 4 6 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -24 [0xffffffffffffffe8])) [3 funct+0 S8 A64])
+        (reg:DI 2 cx [ funct ])) "mlx_hook.c":19:1 -1
+     (nil))
+(insn 6 5 7 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -32 [0xffffffffffffffe0])) [4 param+0 S8 A64])
+        (reg:DI 36 r8 [ param ])) "mlx_hook.c":19:1 -1
+     (nil))
+(note 7 6 10 2 NOTE_INSN_FUNCTION_BEG)
+(insn 10 7 11 2 (set (reg/f:DI 83)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [1 win+0 S8 A64])) "mlx_hook.c":20:28 -1
+     (nil))
+(insn 11 10 12 2 (set (reg:SI 85)
+        (mem/c:SI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -12 [0xfffffffffffffff4])) [2 x_event+0 S4 A32])) "mlx_hook.c":20:28 -1
+     (nil))
+(insn 12 11 13 2 (set (reg:DI 84)
+        (sign_extend:DI (reg:SI 85))) "mlx_hook.c":20:28 -1
+     (nil))
+(insn 13 12 14 2 (set (reg:DI 86)
+        (reg:DI 84)) "mlx_hook.c":20:28 -1
+     (nil))
+(insn 14 13 15 2 (parallel [
+            (set (reg:DI 86)
+                (ashift:DI (reg:DI 86)
+                    (const_int 1 [0x1])))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_hook.c":20:28 -1
+     (nil))
+(insn 15 14 16 2 (parallel [
+            (set (reg:DI 86)
+                (plus:DI (reg:DI 86)
+                    (reg:DI 84)))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_hook.c":20:28 -1
+     (expr_list:REG_EQUAL (mult:DI (reg:DI 84)
+            (const_int 3 [0x3]))
+        (nil)))
+(insn 16 15 17 2 (parallel [
+            (set (reg:DI 87)
+                (ashift:DI (reg:DI 86)
+                    (const_int 3 [0x3])))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_hook.c":20:28 -1
+     (nil))
+(insn 17 16 18 2 (set (reg:DI 86)
+        (reg:DI 87)) "mlx_hook.c":20:28 -1
+     (expr_list:REG_EQUAL (mult:DI (reg:DI 84)
+            (const_int 24 [0x18]))
+        (nil)))
+(insn 18 17 19 2 (parallel [
+            (set (reg:DI 88)
+                (plus:DI (reg/f:DI 83)
+                    (reg:DI 86)))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_hook.c":20:28 -1
+     (nil))
+(insn 19 18 20 2 (parallel [
+            (set (reg/f:DI 89)
+                (plus:DI (reg:DI 88)
+                    (const_int 80 [0x50])))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_hook.c":20:28 -1
+     (nil))
+(insn 20 19 21 2 (set (reg/f:DI 90)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -24 [0xffffffffffffffe8])) [3 funct+0 S8 A64])) "mlx_hook.c":20:28 -1
+     (nil))
+(insn 21 20 22 2 (set (mem/f:DI (reg/f:DI 89) [3 win_2(D)->hooks[x_event_3(D)].hook+0 S8 A64])
+        (reg/f:DI 90)) "mlx_hook.c":20:28 -1
+     (nil))
+(insn 22 21 23 2 (set (reg/f:DI 91)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [1 win+0 S8 A64])) "mlx_hook.c":21:29 -1
+     (nil))
+(insn 23 22 24 2 (set (reg:SI 93)
+        (mem/c:SI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -12 [0xfffffffffffffff4])) [2 x_event+0 S4 A32])) "mlx_hook.c":21:29 -1
+     (nil))
+(insn 24 23 25 2 (set (reg:DI 92)
+        (sign_extend:DI (reg:SI 93))) "mlx_hook.c":21:29 -1
+     (nil))
+(insn 25 24 26 2 (set (reg:DI 94)
+        (reg:DI 92)) "mlx_hook.c":21:29 -1
+     (nil))
+(insn 26 25 27 2 (parallel [
+            (set (reg:DI 94)
+                (ashift:DI (reg:DI 94)
+                    (const_int 1 [0x1])))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_hook.c":21:29 -1
+     (nil))
+(insn 27 26 28 2 (parallel [
+            (set (reg:DI 94)
+                (plus:DI (reg:DI 94)
+                    (reg:DI 92)))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_hook.c":21:29 -1
+     (expr_list:REG_EQUAL (mult:DI (reg:DI 92)
+            (const_int 3 [0x3]))
+        (nil)))
+(insn 28 27 29 2 (parallel [
+            (set (reg:DI 95)
+                (ashift:DI (reg:DI 94)
+                    (const_int 3 [0x3])))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_hook.c":21:29 -1
+     (nil))
+(insn 29 28 30 2 (set (reg:DI 94)
+        (reg:DI 95)) "mlx_hook.c":21:29 -1
+     (expr_list:REG_EQUAL (mult:DI (reg:DI 92)
+            (const_int 24 [0x18]))
+        (nil)))
+(insn 30 29 31 2 (parallel [
+            (set (reg:DI 96)
+                (plus:DI (reg/f:DI 91)
+                    (reg:DI 94)))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_hook.c":21:29 -1
+     (nil))
+(insn 31 30 32 2 (parallel [
+            (set (reg/f:DI 97)
+                (plus:DI (reg:DI 96)
+                    (const_int 88 [0x58])))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_hook.c":21:29 -1
+     (nil))
+(insn 32 31 33 2 (set (reg/f:DI 98)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -32 [0xffffffffffffffe0])) [4 param+0 S8 A64])) "mlx_hook.c":21:29 -1
+     (nil))
+(insn 33 32 34 2 (set (mem/f:DI (reg/f:DI 97) [4 win_2(D)->hooks[x_event_3(D)].param+0 S8 A64])
+        (reg/f:DI 98)) "mlx_hook.c":21:29 -1
+     (nil))
+(insn 34 33 35 2 (set (reg/f:DI 99)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [1 win+0 S8 A64])) "mlx_hook.c":22:28 -1
+     (nil))
+(insn 35 34 36 2 (set (reg:SI 101)
+        (mem/c:SI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -12 [0xfffffffffffffff4])) [2 x_event+0 S4 A32])) "mlx_hook.c":22:28 -1
+     (nil))
+(insn 36 35 37 2 (set (reg:DI 100)
+        (sign_extend:DI (reg:SI 101))) "mlx_hook.c":22:28 -1
+     (nil))
+(insn 37 36 38 2 (set (reg:DI 102)
+        (reg:DI 100)) "mlx_hook.c":22:28 -1
+     (nil))
+(insn 38 37 39 2 (parallel [
+            (set (reg:DI 102)
+                (ashift:DI (reg:DI 102)
+                    (const_int 1 [0x1])))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_hook.c":22:28 -1
+     (nil))
+(insn 39 38 40 2 (parallel [
+            (set (reg:DI 102)
+                (plus:DI (reg:DI 102)
+                    (reg:DI 100)))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_hook.c":22:28 -1
+     (expr_list:REG_EQUAL (mult:DI (reg:DI 100)
+            (const_int 3 [0x3]))
+        (nil)))
+(insn 40 39 41 2 (parallel [
+            (set (reg:DI 103)
+                (ashift:DI (reg:DI 102)
+                    (const_int 3 [0x3])))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_hook.c":22:28 -1
+     (nil))
+(insn 41 40 42 2 (set (reg:DI 102)
+        (reg:DI 103)) "mlx_hook.c":22:28 -1
+     (expr_list:REG_EQUAL (mult:DI (reg:DI 100)
+            (const_int 24 [0x18]))
+        (nil)))
+(insn 42 41 43 2 (parallel [
+            (set (reg:DI 104)
+                (plus:DI (reg/f:DI 99)
+                    (reg:DI 102)))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_hook.c":22:28 -1
+     (nil))
+(insn 43 42 44 2 (parallel [
+            (set (reg/f:DI 105)
+                (plus:DI (reg:DI 104)
+                    (const_int 72 [0x48])))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_hook.c":22:28 -1
+     (nil))
+(insn 44 43 45 2 (set (reg:SI 106)
+        (mem/c:SI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [2 x_mask+0 S4 A32])) "mlx_hook.c":22:28 -1
+     (nil))
+(insn 45 44 48 2 (set (mem:SI (reg/f:DI 105) [2 win_2(D)->hooks[x_event_3(D)].mask+0 S4 A64])
+        (reg:SI 106)) "mlx_hook.c":22:28 -1
+     (nil))
+(insn 48 45 49 2 (clobber (reg/i:SI 0 ax)) "mlx_hook.c":23:1 -1
+     (nil))
+(insn 49 48 52 2 (clobber (reg:SI 82 [ <retval> ])) "mlx_hook.c":23:1 -1
+     (nil))
+(insn 52 49 47 2 (const_int 0 [0]) "mlx_hook.c":23:1 -1
+     (nil))
+(insn 47 52 50 2 (set (reg/i:SI 0 ax)
+        (reg:SI 82 [ <retval> ])) "mlx_hook.c":23:1 -1
+     (nil))
+(insn 50 47 0 2 (use (reg/i:SI 0 ax)) "mlx_hook.c":23:1 -1
+     (nil))
+
+;; Function mlx_do_key_autorepeatoff (mlx_do_key_autorepeatoff, funcdef_no=7, decl_uid=9191, cgraph_uid=8, symbol_order=7)
+
+
+;; Generating RTL for gimple basic block 2
+
+
+try_optimize_cfg iteration 1
+
+Merging block 3 into block 2...
+Merged blocks 2 and 3.
+Merged 2 and 3 without moving.
+Merging block 4 into block 2...
+Merged blocks 2 and 4.
+Merged 2 and 4 without moving.
+
+
+try_optimize_cfg iteration 2
+
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 4 NOTE_INSN_DELETED)
+(note 4 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 4 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [9 xvar+0 S8 A64])
+        (reg:DI 5 di [ xvar ])) "mlx_hook.c":27:1 -1
+     (nil))
+(note 3 2 6 2 NOTE_INSN_FUNCTION_BEG)
+(insn 6 3 7 2 (set (reg/f:DI 84)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [9 xvar+0 S8 A64])) "mlx_hook.c":28:3 -1
+     (nil))
+(insn 7 6 8 2 (set (reg/f:DI 82 [ _1 ])
+        (mem/f:DI (reg/f:DI 84) [11 xvar_3(D)->display+0 S8 A64])) "mlx_hook.c":28:3 -1
+     (nil))
+(insn 8 7 9 2 (set (reg:DI 5 di)
+        (reg/f:DI 82 [ _1 ])) "mlx_hook.c":28:3 -1
+     (nil))
+(call_insn 9 8 12 2 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("XAutoRepeatOff") [flags 0x41]  <function_decl 0x7f9fa1355300 XAutoRepeatOff>) [0 XAutoRepeatOff S1 A8])
+            (const_int 0 [0]))) "mlx_hook.c":28:3 -1
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 12 9 13 2 (clobber (reg/i:SI 0 ax)) "mlx_hook.c":29:1 -1
+     (nil))
+(insn 13 12 16 2 (clobber (reg:SI 83 [ <retval> ])) "mlx_hook.c":29:1 -1
+     (nil))
+(insn 16 13 11 2 (const_int 0 [0]) "mlx_hook.c":29:1 -1
+     (nil))
+(insn 11 16 14 2 (set (reg/i:SI 0 ax)
+        (reg:SI 83 [ <retval> ])) "mlx_hook.c":29:1 -1
+     (nil))
+(insn 14 11 0 2 (use (reg/i:SI 0 ax)) "mlx_hook.c":29:1 -1
+     (nil))
+
+;; Function mlx_do_key_autorepeaton (mlx_do_key_autorepeaton, funcdef_no=8, decl_uid=9194, cgraph_uid=9, symbol_order=8)
+
+
+;; Generating RTL for gimple basic block 2
+
+
+try_optimize_cfg iteration 1
+
+Merging block 3 into block 2...
+Merged blocks 2 and 3.
+Merged 2 and 3 without moving.
+Merging block 4 into block 2...
+Merged blocks 2 and 4.
+Merged 2 and 4 without moving.
+
+
+try_optimize_cfg iteration 2
+
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 4 NOTE_INSN_DELETED)
+(note 4 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 4 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [9 xvar+0 S8 A64])
+        (reg:DI 5 di [ xvar ])) "mlx_hook.c":32:1 -1
+     (nil))
+(note 3 2 6 2 NOTE_INSN_FUNCTION_BEG)
+(insn 6 3 7 2 (set (reg/f:DI 84)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [9 xvar+0 S8 A64])) "mlx_hook.c":33:3 -1
+     (nil))
+(insn 7 6 8 2 (set (reg/f:DI 82 [ _1 ])
+        (mem/f:DI (reg/f:DI 84) [11 xvar_3(D)->display+0 S8 A64])) "mlx_hook.c":33:3 -1
+     (nil))
+(insn 8 7 9 2 (set (reg:DI 5 di)
+        (reg/f:DI 82 [ _1 ])) "mlx_hook.c":33:3 -1
+     (nil))
+(call_insn 9 8 12 2 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("XAutoRepeatOn") [flags 0x41]  <function_decl 0x7f9fa1355400 XAutoRepeatOn>) [0 XAutoRepeatOn S1 A8])
+            (const_int 0 [0]))) "mlx_hook.c":33:3 -1
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 12 9 13 2 (clobber (reg/i:SI 0 ax)) "mlx_hook.c":34:1 -1
+     (nil))
+(insn 13 12 16 2 (clobber (reg:SI 83 [ <retval> ])) "mlx_hook.c":34:1 -1
+     (nil))
+(insn 16 13 11 2 (const_int 0 [0]) "mlx_hook.c":34:1 -1
+     (nil))
+(insn 11 16 14 2 (set (reg/i:SI 0 ax)
+        (reg:SI 83 [ <retval> ])) "mlx_hook.c":34:1 -1
+     (nil))
+(insn 14 11 0 2 (use (reg/i:SI 0 ax)) "mlx_hook.c":34:1 -1
+     (nil))
+
+;; Function mlx_do_sync (mlx_do_sync, funcdef_no=9, decl_uid=9197, cgraph_uid=10, symbol_order=9)
+
+
+;; Generating RTL for gimple basic block 2
+
+
+try_optimize_cfg iteration 1
+
+Merging block 3 into block 2...
+Merged blocks 2 and 3.
+Merged 2 and 3 without moving.
+Merging block 4 into block 2...
+Merged blocks 2 and 4.
+Merged 2 and 4 without moving.
+
+
+try_optimize_cfg iteration 2
+
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 4 NOTE_INSN_DELETED)
+(note 4 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 4 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [9 xvar+0 S8 A64])
+        (reg:DI 5 di [ xvar ])) "mlx_hook.c":38:1 -1
+     (nil))
+(note 3 2 6 2 NOTE_INSN_FUNCTION_BEG)
+(insn 6 3 7 2 (set (reg/f:DI 84)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [9 xvar+0 S8 A64])) "mlx_hook.c":39:3 -1
+     (nil))
+(insn 7 6 8 2 (set (reg/f:DI 82 [ _1 ])
+        (mem/f:DI (reg/f:DI 84) [11 xvar_3(D)->display+0 S8 A64])) "mlx_hook.c":39:3 -1
+     (nil))
+(insn 8 7 9 2 (set (reg:SI 4 si)
+        (const_int 0 [0])) "mlx_hook.c":39:3 -1
+     (nil))
+(insn 9 8 10 2 (set (reg:DI 5 di)
+        (reg/f:DI 82 [ _1 ])) "mlx_hook.c":39:3 -1
+     (nil))
+(call_insn 10 9 13 2 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("XSync") [flags 0x41]  <function_decl 0x7f9fa139f200 XSync>) [0 XSync S1 A8])
+            (const_int 0 [0]))) "mlx_hook.c":39:3 -1
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:SI (use (reg:SI 4 si))
+            (nil))))
+(insn 13 10 14 2 (clobber (reg/i:SI 0 ax)) "mlx_hook.c":40:1 -1
+     (nil))
+(insn 14 13 17 2 (clobber (reg:SI 83 [ <retval> ])) "mlx_hook.c":40:1 -1
+     (nil))
+(insn 17 14 12 2 (const_int 0 [0]) "mlx_hook.c":40:1 -1
+     (nil))
+(insn 12 17 15 2 (set (reg/i:SI 0 ax)
+        (reg:SI 83 [ <retval> ])) "mlx_hook.c":40:1 -1
+     (nil))
+(insn 15 12 0 2 (use (reg/i:SI 0 ax)) "mlx_hook.c":40:1 -1
+     (nil))

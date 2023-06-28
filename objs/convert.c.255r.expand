@@ -1,0 +1,82 @@
+
+;; Function deg_to_radian (deg_to_radian, funcdef_no=6, decl_uid=8756, cgraph_uid=7, symbol_order=6)
+
+Partition 0: size 8 align 8
+	rad_2
+
+;; Generating RTL for gimple basic block 2
+
+;; Generating RTL for gimple basic block 3
+
+
+try_optimize_cfg iteration 1
+
+Merging block 3 into block 2...
+Merged blocks 2 and 3.
+Merged 2 and 3 without moving.
+Merging block 4 into block 2...
+Merged blocks 2 and 4.
+Merged 2 and 4 without moving.
+Removing jump 18.
+Merging block 5 into block 2...
+Merged blocks 2 and 5.
+Merged 2 and 5 without moving.
+
+
+try_optimize_cfg iteration 2
+
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 4 NOTE_INSN_DELETED)
+(note 4 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 4 3 2 (set (mem/c:DF (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -24 [0xffffffffffffffe8])) [1 deg+0 S8 A64])
+        (reg:DF 20 xmm0 [ deg ])) "srcs/convert.c":16:1 -1
+     (nil))
+(note 3 2 6 2 NOTE_INSN_FUNCTION_BEG)
+(insn 6 3 7 2 (set (reg:DF 85)
+        (mem/u/c:DF (symbol_ref/u:DI ("*.LC0") [flags 0x2]) [0  S8 A64])) "srcs/convert.c":19:6 -1
+     (nil))
+(insn 7 6 8 2 (set (mem/c:DF (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [1 rad+0 S8 A64])
+        (reg:DF 85)) "srcs/convert.c":19:6 -1
+     (nil))
+(insn 8 7 9 2 (set (reg:DF 86)
+        (mem/c:DF (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -24 [0xffffffffffffffe8])) [1 deg+0 S8 A64])) "srcs/convert.c":20:12 -1
+     (nil))
+(insn 9 8 10 2 (set (reg:DF 87)
+        (mem/u/c:DF (symbol_ref/u:DI ("*.LC1") [flags 0x2]) [0  S8 A64])) "srcs/convert.c":20:12 -1
+     (expr_list:REG_EQUAL (const_double:DF 3.141592653589793115997963468544185161590576171875e+0 [0x0.c90fdaa22168cp+2])
+        (nil)))
+(insn 10 9 11 2 (set (reg:DF 82 [ _1 ])
+        (mult:DF (reg:DF 86)
+            (reg:DF 87))) "srcs/convert.c":20:12 -1
+     (nil))
+(insn 11 10 12 2 (set (reg:DF 89)
+        (mem/u/c:DF (symbol_ref/u:DI ("*.LC2") [flags 0x2]) [0  S8 A64])) "srcs/convert.c":20:6 -1
+     (expr_list:REG_EQUAL (const_double:DF 1.8e+2 [0x0.b4p+8])
+        (nil)))
+(insn 12 11 13 2 (set (reg:DF 88)
+        (div:DF (reg:DF 82 [ _1 ])
+            (reg:DF 89))) "srcs/convert.c":20:6 -1
+     (nil))
+(insn 13 12 14 2 (set (mem/c:DF (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [1 rad+0 S8 A64])
+        (reg:DF 88)) "srcs/convert.c":20:6 -1
+     (nil))
+(insn 14 13 17 2 (set (reg:DF 83 [ _5 ])
+        (mem/c:DF (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [1 rad+0 S8 A64])) "srcs/convert.c":21:9 -1
+     (nil))
+(insn 17 14 21 2 (set (reg:DF 84 [ <retval> ])
+        (reg:DF 83 [ _5 ])) "srcs/convert.c":21:9 discrim 1 -1
+     (nil))
+(insn 21 17 22 2 (set (reg/i:DF 20 xmm0)
+        (reg:DF 84 [ <retval> ])) "srcs/convert.c":22:1 -1
+     (nil))
+(insn 22 21 0 2 (use (reg/i:DF 20 xmm0)) "srcs/convert.c":22:1 -1
+     (nil))

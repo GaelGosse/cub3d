@@ -1,0 +1,738 @@
+
+;; Function ft_free_tab_str (ft_free_tab_str, funcdef_no=6, decl_uid=8735, cgraph_uid=7, symbol_order=6)
+
+Partition 0: size 4 align 4
+	ite_free_two_12
+
+;; Generating RTL for gimple basic block 2
+
+;; Generating RTL for gimple basic block 3
+
+;; Generating RTL for gimple basic block 4
+
+;; Generating RTL for gimple basic block 5
+
+
+try_optimize_cfg iteration 1
+
+Merging block 3 into block 2...
+Merged blocks 2 and 3.
+Merged 2 and 3 without moving.
+Merging block 7 into block 6...
+Merged blocks 6 and 7.
+Merged 6 and 7 without moving.
+
+
+try_optimize_cfg iteration 2
+
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 4 NOTE_INSN_DELETED)
+(note 4 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 4 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -24 [0xffffffffffffffe8])) [2 tab_str+0 S8 A64])
+        (reg:DI 5 di [ tab_str ])) "srcs/free_parsing.c":16:1 -1
+     (nil))
+(note 3 2 6 2 NOTE_INSN_FUNCTION_BEG)
+(insn 6 3 7 2 (set (mem/c:SI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [1 ite_free_two+0 S4 A32])
+        (const_int -1 [0xffffffffffffffff])) "srcs/free_parsing.c":19:15 -1
+     (nil))
+(jump_insn 7 6 8 2 (set (pc)
+        (label_ref 24)) "srcs/free_parsing.c":20:8 -1
+     (nil)
+ -> 24)
+(barrier 8 7 33)
+(code_label 33 8 9 4 3 (nil) [1 uses])
+(note 9 33 10 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 10 9 11 4 (set (reg:SI 93)
+        (mem/c:SI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [1 ite_free_two+0 S4 A32])) "srcs/free_parsing.c":23:15 -1
+     (nil))
+(insn 11 10 12 4 (set (reg:DI 82 [ _1 ])
+        (sign_extend:DI (reg:SI 93))) "srcs/free_parsing.c":23:15 -1
+     (nil))
+(insn 12 11 13 4 (parallel [
+            (set (reg:DI 83 [ _2 ])
+                (ashift:DI (reg:DI 82 [ _1 ])
+                    (const_int 3 [0x3])))
+            (clobber (reg:CC 17 flags))
+        ]) "srcs/free_parsing.c":23:15 -1
+     (nil))
+(insn 13 12 14 4 (set (reg/f:DI 94)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -24 [0xffffffffffffffe8])) [2 tab_str+0 S8 A64])) "srcs/free_parsing.c":23:15 -1
+     (nil))
+(insn 14 13 15 4 (parallel [
+            (set (reg/f:DI 84 [ _3 ])
+                (plus:DI (reg:DI 83 [ _2 ])
+                    (reg/f:DI 94)))
+            (clobber (reg:CC 17 flags))
+        ]) "srcs/free_parsing.c":23:15 -1
+     (expr_list:REG_EQUAL (plus:DI (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -24 [0xffffffffffffffe8])) [2 tab_str+0 S8 A64])
+            (reg:DI 83 [ _2 ]))
+        (nil)))
+(insn 15 14 16 4 (set (reg/f:DI 85 [ _4 ])
+        (mem/f:DI (reg/f:DI 84 [ _3 ]) [3 *_3+0 S8 A64])) "srcs/free_parsing.c":23:3 -1
+     (nil))
+(insn 16 15 17 4 (set (reg:DI 5 di)
+        (reg/f:DI 85 [ _4 ])) "srcs/free_parsing.c":23:3 -1
+     (nil))
+(call_insn 17 16 18 4 (call (mem:QI (symbol_ref:DI ("free") [flags 0x41]  <function_decl 0x7fc241d92600 free>) [0 __builtin_free S1 A8])
+        (const_int 0 [0])) "srcs/free_parsing.c":23:3 -1
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 18 17 19 4 (set (reg:SI 95)
+        (mem/c:SI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [1 ite_free_two+0 S4 A32])) "srcs/free_parsing.c":24:10 -1
+     (nil))
+(insn 19 18 20 4 (set (reg:DI 86 [ _5 ])
+        (sign_extend:DI (reg:SI 95))) "srcs/free_parsing.c":24:10 -1
+     (nil))
+(insn 20 19 21 4 (parallel [
+            (set (reg:DI 87 [ _6 ])
+                (ashift:DI (reg:DI 86 [ _5 ])
+                    (const_int 3 [0x3])))
+            (clobber (reg:CC 17 flags))
+        ]) "srcs/free_parsing.c":24:10 -1
+     (nil))
+(insn 21 20 22 4 (set (reg/f:DI 96)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -24 [0xffffffffffffffe8])) [2 tab_str+0 S8 A64])) "srcs/free_parsing.c":24:10 -1
+     (nil))
+(insn 22 21 23 4 (parallel [
+            (set (reg/f:DI 88 [ _7 ])
+                (plus:DI (reg:DI 87 [ _6 ])
+                    (reg/f:DI 96)))
+            (clobber (reg:CC 17 flags))
+        ]) "srcs/free_parsing.c":24:10 -1
+     (expr_list:REG_EQUAL (plus:DI (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -24 [0xffffffffffffffe8])) [2 tab_str+0 S8 A64])
+            (reg:DI 87 [ _6 ]))
+        (nil)))
+(insn 23 22 24 4 (set (mem/f:DI (reg/f:DI 88 [ _7 ]) [3 *_7+0 S8 A64])
+        (const_int 0 [0])) "srcs/free_parsing.c":24:25 -1
+     (nil))
+(code_label 24 23 25 5 2 (nil) [1 uses])
+(note 25 24 26 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 26 25 27 5 (parallel [
+            (set (mem/c:SI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                        (const_int -4 [0xfffffffffffffffc])) [1 ite_free_two+0 S4 A32])
+                (plus:SI (mem/c:SI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                            (const_int -4 [0xfffffffffffffffc])) [1 ite_free_two+0 S4 A32])
+                    (const_int 1 [0x1])))
+            (clobber (reg:CC 17 flags))
+        ]) "srcs/free_parsing.c":20:9 -1
+     (nil))
+(insn 27 26 28 5 (set (reg:SI 97)
+        (mem/c:SI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [1 ite_free_two+0 S4 A32])) "srcs/free_parsing.c":20:17 -1
+     (nil))
+(insn 28 27 29 5 (set (reg:DI 89 [ _8 ])
+        (sign_extend:DI (reg:SI 97))) "srcs/free_parsing.c":20:17 -1
+     (nil))
+(insn 29 28 30 5 (parallel [
+            (set (reg:DI 90 [ _9 ])
+                (ashift:DI (reg:DI 89 [ _8 ])
+                    (const_int 3 [0x3])))
+            (clobber (reg:CC 17 flags))
+        ]) "srcs/free_parsing.c":20:16 -1
+     (nil))
+(insn 30 29 31 5 (set (reg/f:DI 98)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -24 [0xffffffffffffffe8])) [2 tab_str+0 S8 A64])) "srcs/free_parsing.c":20:16 -1
+     (nil))
+(insn 31 30 32 5 (parallel [
+            (set (reg/f:DI 91 [ _10 ])
+                (plus:DI (reg:DI 90 [ _9 ])
+                    (reg/f:DI 98)))
+            (clobber (reg:CC 17 flags))
+        ]) "srcs/free_parsing.c":20:16 -1
+     (expr_list:REG_EQUAL (plus:DI (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -24 [0xffffffffffffffe8])) [2 tab_str+0 S8 A64])
+            (reg:DI 90 [ _9 ]))
+        (nil)))
+(insn 32 31 34 5 (set (reg/f:DI 92 [ _11 ])
+        (mem/f:DI (reg/f:DI 91 [ _10 ]) [3 *_10+0 S8 A64])) "srcs/free_parsing.c":20:16 -1
+     (nil))
+(insn 34 32 35 5 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg/f:DI 92 [ _11 ])
+            (const_int 0 [0]))) "srcs/free_parsing.c":20:9 -1
+     (nil))
+(jump_insn 35 34 36 5 (set (pc)
+        (if_then_else (ne (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 33)
+            (pc))) "srcs/free_parsing.c":20:9 -1
+     (nil)
+ -> 33)
+(note 36 35 37 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 37 36 38 6 (set (reg:DI 99)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -24 [0xffffffffffffffe8])) [2 tab_str+0 S8 A64])) "srcs/free_parsing.c":27:2 -1
+     (nil))
+(insn 38 37 39 6 (set (reg:DI 5 di)
+        (reg:DI 99)) "srcs/free_parsing.c":27:2 -1
+     (nil))
+(call_insn 39 38 40 6 (call (mem:QI (symbol_ref:DI ("free") [flags 0x41]  <function_decl 0x7fc241d92600 free>) [0 __builtin_free S1 A8])
+        (const_int 0 [0])) "srcs/free_parsing.c":27:2 -1
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 40 39 0 6 (set (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -24 [0xffffffffffffffe8])) [2 tab_str+0 S8 A64])
+        (const_int 0 [0])) "srcs/free_parsing.c":28:10 -1
+     (nil))
+
+;; Function free_img (free_img, funcdef_no=7, decl_uid=8730, cgraph_uid=8, symbol_order=7)
+
+
+;; Generating RTL for gimple basic block 2
+
+;; Generating RTL for gimple basic block 3
+
+;; Generating RTL for gimple basic block 4
+
+;; Generating RTL for gimple basic block 5
+
+;; Generating RTL for gimple basic block 6
+
+;; Generating RTL for gimple basic block 7
+
+;; Generating RTL for gimple basic block 8
+
+;; Generating RTL for gimple basic block 9
+
+;; Generating RTL for gimple basic block 10
+
+
+try_optimize_cfg iteration 1
+
+Merging block 3 into block 2...
+Merged blocks 2 and 3.
+Merged 2 and 3 without moving.
+Edge 9->11 redirected to 12
+Merging block 11 into block 10...
+Merged blocks 10 and 11.
+Merged 10 and 11 without moving.
+
+
+try_optimize_cfg iteration 2
+
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 4 NOTE_INSN_DELETED)
+(note 4 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 4 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [4 game+0 S8 A64])
+        (reg:DI 5 di [ game ])) "srcs/free_parsing.c":60:1 -1
+     (nil))
+(note 3 2 6 2 NOTE_INSN_FUNCTION_BEG)
+(insn 6 3 7 2 (set (reg/f:DI 102)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [4 game+0 S8 A64])) "srcs/free_parsing.c":61:10 -1
+     (nil))
+(insn 7 6 8 2 (set (reg/f:DI 82 [ _1 ])
+        (mem/f:DI (plus:DI (reg/f:DI 102)
+                (const_int 24 [0x18])) [7 game_26(D)->map+0 S8 A64])) "srcs/free_parsing.c":61:10 -1
+     (nil))
+(insn 8 7 9 2 (set (reg/f:DI 83 [ _2 ])
+        (mem/f:DI (plus:DI (reg/f:DI 82 [ _1 ])
+                (const_int 40 [0x28])) [3 _1->wall_no+0 S8 A64])) "srcs/free_parsing.c":61:15 -1
+     (nil))
+(insn 9 8 10 2 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg/f:DI 83 [ _2 ])
+            (const_int 0 [0]))) "srcs/free_parsing.c":61:5 -1
+     (nil))
+(jump_insn 10 9 11 2 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 20)
+            (pc))) "srcs/free_parsing.c":61:5 -1
+     (nil)
+ -> 20)
+(note 11 10 12 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 12 11 13 4 (set (reg/f:DI 103)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [4 game+0 S8 A64])) "srcs/free_parsing.c":63:12 -1
+     (nil))
+(insn 13 12 14 4 (set (reg/f:DI 84 [ _3 ])
+        (mem/f:DI (plus:DI (reg/f:DI 103)
+                (const_int 24 [0x18])) [7 game_26(D)->map+0 S8 A64])) "srcs/free_parsing.c":63:12 -1
+     (nil))
+(insn 14 13 15 4 (set (reg/f:DI 85 [ _4 ])
+        (mem/f:DI (plus:DI (reg/f:DI 84 [ _3 ])
+                (const_int 40 [0x28])) [3 _3->wall_no+0 S8 A64])) "srcs/free_parsing.c":63:17 -1
+     (nil))
+(insn 15 14 16 4 (set (reg:DI 5 di)
+        (reg/f:DI 85 [ _4 ])) "srcs/free_parsing.c":63:3 -1
+     (nil))
+(call_insn 16 15 17 4 (call (mem:QI (symbol_ref:DI ("free") [flags 0x41]  <function_decl 0x7fc241d92600 free>) [0 __builtin_free S1 A8])
+        (const_int 0 [0])) "srcs/free_parsing.c":63:3 -1
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 17 16 18 4 (set (reg/f:DI 104)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [4 game+0 S8 A64])) "srcs/free_parsing.c":64:7 -1
+     (nil))
+(insn 18 17 19 4 (set (reg/f:DI 86 [ _5 ])
+        (mem/f:DI (plus:DI (reg/f:DI 104)
+                (const_int 24 [0x18])) [7 game_26(D)->map+0 S8 A64])) "srcs/free_parsing.c":64:7 -1
+     (nil))
+(insn 19 18 20 4 (set (mem/f:DI (plus:DI (reg/f:DI 86 [ _5 ])
+                (const_int 40 [0x28])) [3 _5->wall_no+0 S8 A64])
+        (const_int 0 [0])) "srcs/free_parsing.c":64:22 -1
+     (nil))
+(code_label 20 19 21 5 5 (nil) [1 uses])
+(note 21 20 22 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 22 21 23 5 (set (reg/f:DI 105)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [4 game+0 S8 A64])) "srcs/free_parsing.c":66:10 -1
+     (nil))
+(insn 23 22 24 5 (set (reg/f:DI 87 [ _6 ])
+        (mem/f:DI (plus:DI (reg/f:DI 105)
+                (const_int 24 [0x18])) [7 game_26(D)->map+0 S8 A64])) "srcs/free_parsing.c":66:10 -1
+     (nil))
+(insn 24 23 25 5 (set (reg/f:DI 88 [ _7 ])
+        (mem/f:DI (plus:DI (reg/f:DI 87 [ _6 ])
+                (const_int 48 [0x30])) [3 _6->wall_ea+0 S8 A64])) "srcs/free_parsing.c":66:15 -1
+     (nil))
+(insn 25 24 26 5 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg/f:DI 88 [ _7 ])
+            (const_int 0 [0]))) "srcs/free_parsing.c":66:5 -1
+     (nil))
+(jump_insn 26 25 27 5 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 36)
+            (pc))) "srcs/free_parsing.c":66:5 -1
+     (nil)
+ -> 36)
+(note 27 26 28 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 28 27 29 6 (set (reg/f:DI 106)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [4 game+0 S8 A64])) "srcs/free_parsing.c":68:12 -1
+     (nil))
+(insn 29 28 30 6 (set (reg/f:DI 89 [ _8 ])
+        (mem/f:DI (plus:DI (reg/f:DI 106)
+                (const_int 24 [0x18])) [7 game_26(D)->map+0 S8 A64])) "srcs/free_parsing.c":68:12 -1
+     (nil))
+(insn 30 29 31 6 (set (reg/f:DI 90 [ _9 ])
+        (mem/f:DI (plus:DI (reg/f:DI 89 [ _8 ])
+                (const_int 48 [0x30])) [3 _8->wall_ea+0 S8 A64])) "srcs/free_parsing.c":68:17 -1
+     (nil))
+(insn 31 30 32 6 (set (reg:DI 5 di)
+        (reg/f:DI 90 [ _9 ])) "srcs/free_parsing.c":68:3 -1
+     (nil))
+(call_insn 32 31 33 6 (call (mem:QI (symbol_ref:DI ("free") [flags 0x41]  <function_decl 0x7fc241d92600 free>) [0 __builtin_free S1 A8])
+        (const_int 0 [0])) "srcs/free_parsing.c":68:3 -1
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 33 32 34 6 (set (reg/f:DI 107)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [4 game+0 S8 A64])) "srcs/free_parsing.c":69:7 -1
+     (nil))
+(insn 34 33 35 6 (set (reg/f:DI 91 [ _10 ])
+        (mem/f:DI (plus:DI (reg/f:DI 107)
+                (const_int 24 [0x18])) [7 game_26(D)->map+0 S8 A64])) "srcs/free_parsing.c":69:7 -1
+     (nil))
+(insn 35 34 36 6 (set (mem/f:DI (plus:DI (reg/f:DI 91 [ _10 ])
+                (const_int 48 [0x30])) [3 _10->wall_ea+0 S8 A64])
+        (const_int 0 [0])) "srcs/free_parsing.c":69:22 -1
+     (nil))
+(code_label 36 35 37 7 6 (nil) [1 uses])
+(note 37 36 38 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+(insn 38 37 39 7 (set (reg/f:DI 108)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [4 game+0 S8 A64])) "srcs/free_parsing.c":71:10 -1
+     (nil))
+(insn 39 38 40 7 (set (reg/f:DI 92 [ _11 ])
+        (mem/f:DI (plus:DI (reg/f:DI 108)
+                (const_int 24 [0x18])) [7 game_26(D)->map+0 S8 A64])) "srcs/free_parsing.c":71:10 -1
+     (nil))
+(insn 40 39 41 7 (set (reg/f:DI 93 [ _12 ])
+        (mem/f:DI (plus:DI (reg/f:DI 92 [ _11 ])
+                (const_int 56 [0x38])) [3 _11->wall_so+0 S8 A64])) "srcs/free_parsing.c":71:15 -1
+     (nil))
+(insn 41 40 42 7 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg/f:DI 93 [ _12 ])
+            (const_int 0 [0]))) "srcs/free_parsing.c":71:5 -1
+     (nil))
+(jump_insn 42 41 43 7 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 52)
+            (pc))) "srcs/free_parsing.c":71:5 -1
+     (nil)
+ -> 52)
+(note 43 42 44 8 [bb 8] NOTE_INSN_BASIC_BLOCK)
+(insn 44 43 45 8 (set (reg/f:DI 109)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [4 game+0 S8 A64])) "srcs/free_parsing.c":73:12 -1
+     (nil))
+(insn 45 44 46 8 (set (reg/f:DI 94 [ _13 ])
+        (mem/f:DI (plus:DI (reg/f:DI 109)
+                (const_int 24 [0x18])) [7 game_26(D)->map+0 S8 A64])) "srcs/free_parsing.c":73:12 -1
+     (nil))
+(insn 46 45 47 8 (set (reg/f:DI 95 [ _14 ])
+        (mem/f:DI (plus:DI (reg/f:DI 94 [ _13 ])
+                (const_int 56 [0x38])) [3 _13->wall_so+0 S8 A64])) "srcs/free_parsing.c":73:17 -1
+     (nil))
+(insn 47 46 48 8 (set (reg:DI 5 di)
+        (reg/f:DI 95 [ _14 ])) "srcs/free_parsing.c":73:3 -1
+     (nil))
+(call_insn 48 47 49 8 (call (mem:QI (symbol_ref:DI ("free") [flags 0x41]  <function_decl 0x7fc241d92600 free>) [0 __builtin_free S1 A8])
+        (const_int 0 [0])) "srcs/free_parsing.c":73:3 -1
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 49 48 50 8 (set (reg/f:DI 110)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [4 game+0 S8 A64])) "srcs/free_parsing.c":74:7 -1
+     (nil))
+(insn 50 49 51 8 (set (reg/f:DI 96 [ _15 ])
+        (mem/f:DI (plus:DI (reg/f:DI 110)
+                (const_int 24 [0x18])) [7 game_26(D)->map+0 S8 A64])) "srcs/free_parsing.c":74:7 -1
+     (nil))
+(insn 51 50 52 8 (set (mem/f:DI (plus:DI (reg/f:DI 96 [ _15 ])
+                (const_int 56 [0x38])) [3 _15->wall_so+0 S8 A64])
+        (const_int 0 [0])) "srcs/free_parsing.c":74:22 -1
+     (nil))
+(code_label 52 51 53 9 7 (nil) [1 uses])
+(note 53 52 54 9 [bb 9] NOTE_INSN_BASIC_BLOCK)
+(insn 54 53 55 9 (set (reg/f:DI 111)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [4 game+0 S8 A64])) "srcs/free_parsing.c":76:10 -1
+     (nil))
+(insn 55 54 56 9 (set (reg/f:DI 97 [ _16 ])
+        (mem/f:DI (plus:DI (reg/f:DI 111)
+                (const_int 24 [0x18])) [7 game_26(D)->map+0 S8 A64])) "srcs/free_parsing.c":76:10 -1
+     (nil))
+(insn 56 55 57 9 (set (reg/f:DI 98 [ _17 ])
+        (mem/f:DI (plus:DI (reg/f:DI 97 [ _16 ])
+                (const_int 64 [0x40])) [3 _16->wall_we+0 S8 A64])) "srcs/free_parsing.c":76:15 -1
+     (nil))
+(insn 57 56 58 9 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg/f:DI 98 [ _17 ])
+            (const_int 0 [0]))) "srcs/free_parsing.c":76:5 -1
+     (nil))
+(jump_insn 58 57 59 9 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref:DI 70)
+            (pc))) "srcs/free_parsing.c":76:5 996 {*jcc}
+     (nil)
+ -> 70)
+(note 59 58 60 10 [bb 10] NOTE_INSN_BASIC_BLOCK)
+(insn 60 59 61 10 (set (reg/f:DI 112)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [4 game+0 S8 A64])) "srcs/free_parsing.c":78:12 -1
+     (nil))
+(insn 61 60 62 10 (set (reg/f:DI 99 [ _18 ])
+        (mem/f:DI (plus:DI (reg/f:DI 112)
+                (const_int 24 [0x18])) [7 game_26(D)->map+0 S8 A64])) "srcs/free_parsing.c":78:12 -1
+     (nil))
+(insn 62 61 63 10 (set (reg/f:DI 100 [ _19 ])
+        (mem/f:DI (plus:DI (reg/f:DI 99 [ _18 ])
+                (const_int 64 [0x40])) [3 _18->wall_we+0 S8 A64])) "srcs/free_parsing.c":78:17 -1
+     (nil))
+(insn 63 62 64 10 (set (reg:DI 5 di)
+        (reg/f:DI 100 [ _19 ])) "srcs/free_parsing.c":78:3 -1
+     (nil))
+(call_insn 64 63 65 10 (call (mem:QI (symbol_ref:DI ("free") [flags 0x41]  <function_decl 0x7fc241d92600 free>) [0 __builtin_free S1 A8])
+        (const_int 0 [0])) "srcs/free_parsing.c":78:3 -1
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 65 64 66 10 (set (reg/f:DI 113)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [4 game+0 S8 A64])) "srcs/free_parsing.c":79:7 -1
+     (nil))
+(insn 66 65 67 10 (set (reg/f:DI 101 [ _20 ])
+        (mem/f:DI (plus:DI (reg/f:DI 113)
+                (const_int 24 [0x18])) [7 game_26(D)->map+0 S8 A64])) "srcs/free_parsing.c":79:7 -1
+     (nil))
+(insn 67 66 70 10 (set (mem/f:DI (plus:DI (reg/f:DI 101 [ _20 ])
+                (const_int 64 [0x40])) [3 _20->wall_we+0 S8 A64])
+        (const_int 0 [0])) "srcs/free_parsing.c":79:22 -1
+     (nil))
+(code_label 70 67 71 12 4 (nil) [1 uses])
+(note 71 70 0 12 [bb 12] NOTE_INSN_BASIC_BLOCK)
+
+;; Function ft_free_parsing (ft_free_parsing, funcdef_no=8, decl_uid=8733, cgraph_uid=9, symbol_order=8)
+
+
+;; Generating RTL for gimple basic block 2
+
+;; Generating RTL for gimple basic block 3
+
+;; Generating RTL for gimple basic block 4
+
+;; Generating RTL for gimple basic block 5
+
+;; Generating RTL for gimple basic block 6
+
+;; Generating RTL for gimple basic block 7
+
+;; Generating RTL for gimple basic block 8
+
+;; Generating RTL for gimple basic block 9
+
+;; Generating RTL for gimple basic block 10
+
+
+try_optimize_cfg iteration 1
+
+Merging block 3 into block 2...
+Merged blocks 2 and 3.
+Merged 2 and 3 without moving.
+Edge 9->11 redirected to 12
+Merging block 11 into block 10...
+Merged blocks 10 and 11.
+Merged 10 and 11 without moving.
+
+
+try_optimize_cfg iteration 2
+
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 5 NOTE_INSN_DELETED)
+(note 5 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 5 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [4 game+0 S8 A64])
+        (reg:DI 5 di [ game ])) "srcs/free_parsing.c":84:1 -1
+     (nil))
+(insn 3 2 4 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [3 err+0 S8 A64])
+        (reg:DI 4 si [ err ])) "srcs/free_parsing.c":84:1 -1
+     (nil))
+(note 4 3 7 2 NOTE_INSN_FUNCTION_BEG)
+(insn 7 4 8 2 (set (reg:CCZ 17 flags)
+        (compare:CCZ (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -16 [0xfffffffffffffff0])) [3 err+0 S8 A64])
+            (const_int 0 [0]))) "srcs/free_parsing.c":85:5 -1
+     (nil))
+(jump_insn 8 7 9 2 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 18)
+            (pc))) "srcs/free_parsing.c":85:5 -1
+     (nil)
+ -> 18)
+(note 9 8 10 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 10 9 11 4 (set (reg:SI 4 si)
+        (const_int 2 [0x2])) "srcs/free_parsing.c":87:3 -1
+     (nil))
+(insn 11 10 12 4 (set (reg:DI 93)
+        (symbol_ref/f:DI ("*.LC0") [flags 0x2]  <var_decl 0x7fc241922090 *.LC0>)) "srcs/free_parsing.c":87:3 -1
+     (nil))
+(insn 12 11 13 4 (set (reg:DI 5 di)
+        (reg:DI 93)) "srcs/free_parsing.c":87:3 -1
+     (expr_list:REG_EQUAL (symbol_ref/f:DI ("*.LC0") [flags 0x2]  <var_decl 0x7fc241922090 *.LC0>)
+        (nil)))
+(call_insn 13 12 14 4 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("ft_putstr_fd") [flags 0x41]  <function_decl 0x7fc24187b500 ft_putstr_fd>) [0 ft_putstr_fd S1 A8])
+            (const_int 0 [0]))) "srcs/free_parsing.c":87:3 -1
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:SI (use (reg:SI 4 si))
+            (nil))))
+(insn 14 13 15 4 (set (reg:DI 94)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -16 [0xfffffffffffffff0])) [3 err+0 S8 A64])) "srcs/free_parsing.c":88:3 -1
+     (nil))
+(insn 15 14 16 4 (set (reg:SI 4 si)
+        (const_int 2 [0x2])) "srcs/free_parsing.c":88:3 -1
+     (nil))
+(insn 16 15 17 4 (set (reg:DI 5 di)
+        (reg:DI 94)) "srcs/free_parsing.c":88:3 -1
+     (nil))
+(call_insn 17 16 18 4 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("ft_putstr_fd") [flags 0x41]  <function_decl 0x7fc24187b500 ft_putstr_fd>) [0 ft_putstr_fd S1 A8])
+            (const_int 0 [0]))) "srcs/free_parsing.c":88:3 -1
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:SI (use (reg:SI 4 si))
+            (nil))))
+(code_label 18 17 19 5 11 (nil) [1 uses])
+(note 19 18 20 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 20 19 21 5 (set (reg/f:DI 95)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [4 game+0 S8 A64])) "srcs/free_parsing.c":90:10 -1
+     (nil))
+(insn 21 20 22 5 (set (reg/f:DI 82 [ _1 ])
+        (mem/f:DI (plus:DI (reg/f:DI 95)
+                (const_int 24 [0x18])) [7 game_20(D)->map+0 S8 A64])) "srcs/free_parsing.c":90:10 -1
+     (nil))
+(insn 22 21 23 5 (set (reg/f:DI 83 [ _2 ])
+        (mem/f:DI (reg/f:DI 82 [ _1 ]) [3 _1->file_content+0 S8 A64])) "srcs/free_parsing.c":90:15 -1
+     (nil))
+(insn 23 22 24 5 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg/f:DI 83 [ _2 ])
+            (const_int 0 [0]))) "srcs/free_parsing.c":90:5 -1
+     (nil))
+(jump_insn 24 23 25 5 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 34)
+            (pc))) "srcs/free_parsing.c":90:5 -1
+     (nil)
+ -> 34)
+(note 25 24 26 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 26 25 27 6 (set (reg/f:DI 96)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [4 game+0 S8 A64])) "srcs/free_parsing.c":92:12 -1
+     (nil))
+(insn 27 26 28 6 (set (reg/f:DI 84 [ _3 ])
+        (mem/f:DI (plus:DI (reg/f:DI 96)
+                (const_int 24 [0x18])) [7 game_20(D)->map+0 S8 A64])) "srcs/free_parsing.c":92:12 -1
+     (nil))
+(insn 28 27 29 6 (set (reg/f:DI 85 [ _4 ])
+        (mem/f:DI (reg/f:DI 84 [ _3 ]) [3 _3->file_content+0 S8 A64])) "srcs/free_parsing.c":92:17 -1
+     (nil))
+(insn 29 28 30 6 (set (reg:DI 5 di)
+        (reg/f:DI 85 [ _4 ])) "srcs/free_parsing.c":92:3 -1
+     (nil))
+(call_insn 30 29 31 6 (call (mem:QI (symbol_ref:DI ("free") [flags 0x41]  <function_decl 0x7fc241d92600 free>) [0 __builtin_free S1 A8])
+        (const_int 0 [0])) "srcs/free_parsing.c":92:3 -1
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 31 30 32 6 (set (reg/f:DI 97)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [4 game+0 S8 A64])) "srcs/free_parsing.c":93:7 -1
+     (nil))
+(insn 32 31 33 6 (set (reg/f:DI 86 [ _5 ])
+        (mem/f:DI (plus:DI (reg/f:DI 97)
+                (const_int 24 [0x18])) [7 game_20(D)->map+0 S8 A64])) "srcs/free_parsing.c":93:7 -1
+     (nil))
+(insn 33 32 34 6 (set (mem/f:DI (reg/f:DI 86 [ _5 ]) [3 _5->file_content+0 S8 A64])
+        (const_int 0 [0])) "srcs/free_parsing.c":93:27 -1
+     (nil))
+(code_label 34 33 35 7 12 (nil) [1 uses])
+(note 35 34 36 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+(insn 36 35 37 7 (set (reg:DI 98)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [4 game+0 S8 A64])) "srcs/free_parsing.c":95:2 -1
+     (nil))
+(insn 37 36 38 7 (set (reg:DI 5 di)
+        (reg:DI 98)) "srcs/free_parsing.c":95:2 -1
+     (nil))
+(call_insn 38 37 39 7 (call (mem:QI (symbol_ref:DI ("free_img") [flags 0x3]  <function_decl 0x7fc2418f7d00 free_img>) [0 free_img S1 A8])
+        (const_int 0 [0])) "srcs/free_parsing.c":95:2 -1
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 39 38 40 7 (set (reg/f:DI 99)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [4 game+0 S8 A64])) "srcs/free_parsing.c":96:10 -1
+     (nil))
+(insn 40 39 41 7 (set (reg/f:DI 87 [ _6 ])
+        (mem/f:DI (plus:DI (reg/f:DI 99)
+                (const_int 24 [0x18])) [7 game_20(D)->map+0 S8 A64])) "srcs/free_parsing.c":96:10 -1
+     (nil))
+(insn 41 40 42 7 (set (reg/f:DI 88 [ _7 ])
+        (mem/f:DI (plus:DI (reg/f:DI 87 [ _6 ])
+                (const_int 16 [0x10])) [2 _6->tab_file+0 S8 A64])) "srcs/free_parsing.c":96:15 -1
+     (nil))
+(insn 42 41 43 7 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg/f:DI 88 [ _7 ])
+            (const_int 0 [0]))) "srcs/free_parsing.c":96:5 -1
+     (nil))
+(jump_insn 43 42 44 7 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 50)
+            (pc))) "srcs/free_parsing.c":96:5 -1
+     (nil)
+ -> 50)
+(note 44 43 45 8 [bb 8] NOTE_INSN_BASIC_BLOCK)
+(insn 45 44 46 8 (set (reg/f:DI 100)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [4 game+0 S8 A64])) "srcs/free_parsing.c":97:23 -1
+     (nil))
+(insn 46 45 47 8 (set (reg/f:DI 89 [ _8 ])
+        (mem/f:DI (plus:DI (reg/f:DI 100)
+                (const_int 24 [0x18])) [7 game_20(D)->map+0 S8 A64])) "srcs/free_parsing.c":97:23 -1
+     (nil))
+(insn 47 46 48 8 (set (reg/f:DI 90 [ _9 ])
+        (mem/f:DI (plus:DI (reg/f:DI 89 [ _8 ])
+                (const_int 16 [0x10])) [2 _8->tab_file+0 S8 A64])) "srcs/free_parsing.c":97:3 -1
+     (nil))
+(insn 48 47 49 8 (set (reg:DI 5 di)
+        (reg/f:DI 90 [ _9 ])) "srcs/free_parsing.c":97:3 -1
+     (nil))
+(call_insn 49 48 50 8 (call (mem:QI (symbol_ref:DI ("ft_free_tab_str") [flags 0x3]  <function_decl 0x7fc2418f7f00 ft_free_tab_str>) [0 ft_free_tab_str S1 A8])
+        (const_int 0 [0])) "srcs/free_parsing.c":97:3 -1
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(code_label 50 49 51 9 13 (nil) [1 uses])
+(note 51 50 52 9 [bb 9] NOTE_INSN_BASIC_BLOCK)
+(insn 52 51 53 9 (set (reg/f:DI 101)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [4 game+0 S8 A64])) "srcs/free_parsing.c":101:10 -1
+     (nil))
+(insn 53 52 54 9 (set (reg/f:DI 91 [ _10 ])
+        (mem/f:DI (plus:DI (reg/f:DI 101)
+                (const_int 24 [0x18])) [7 game_20(D)->map+0 S8 A64])) "srcs/free_parsing.c":101:10 -1
+     (nil))
+(insn 54 53 55 9 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg/f:DI 91 [ _10 ])
+            (const_int 0 [0]))) "srcs/free_parsing.c":101:5 -1
+     (nil))
+(jump_insn 55 54 56 9 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref:DI 65)
+            (pc))) "srcs/free_parsing.c":101:5 996 {*jcc}
+     (nil)
+ -> 65)
+(note 56 55 57 10 [bb 10] NOTE_INSN_BASIC_BLOCK)
+(insn 57 56 58 10 (set (reg/f:DI 102)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [4 game+0 S8 A64])) "srcs/free_parsing.c":103:12 -1
+     (nil))
+(insn 58 57 59 10 (set (reg/f:DI 92 [ _11 ])
+        (mem/f:DI (plus:DI (reg/f:DI 102)
+                (const_int 24 [0x18])) [7 game_20(D)->map+0 S8 A64])) "srcs/free_parsing.c":103:12 -1
+     (nil))
+(insn 59 58 60 10 (set (reg:DI 5 di)
+        (reg/f:DI 92 [ _11 ])) "srcs/free_parsing.c":103:3 -1
+     (nil))
+(call_insn 60 59 61 10 (call (mem:QI (symbol_ref:DI ("free") [flags 0x41]  <function_decl 0x7fc241d92600 free>) [0 __builtin_free S1 A8])
+        (const_int 0 [0])) "srcs/free_parsing.c":103:3 -1
+     (expr_list:REG_EH_REGION (const_int 0 [0])
+        (nil))
+    (expr_list:DI (use (reg:DI 5 di))
+        (nil)))
+(insn 61 60 62 10 (set (reg/f:DI 103)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [4 game+0 S8 A64])) "srcs/free_parsing.c":104:13 -1
+     (nil))
+(insn 62 61 65 10 (set (mem/f:DI (plus:DI (reg/f:DI 103)
+                (const_int 24 [0x18])) [7 game_20(D)->map+0 S8 A64])
+        (const_int 0 [0])) "srcs/free_parsing.c":104:13 -1
+     (nil))
+(code_label 65 62 66 12 10 (nil) [1 uses])
+(note 66 65 0 12 [bb 12] NOTE_INSN_BASIC_BLOCK)

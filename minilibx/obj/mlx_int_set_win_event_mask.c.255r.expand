@@ -1,0 +1,308 @@
+
+;; Function mlx_int_set_win_event_mask (mlx_int_set_win_event_mask, funcdef_no=6, decl_uid=9174, cgraph_uid=7, symbol_order=6)
+
+Partition 2: size 112 align 16
+	xwa
+Partition 0: size 8 align 8
+	win_8
+Partition 1: size 4 align 4
+	i_9
+
+;; Generating RTL for gimple basic block 2
+
+;; Generating RTL for gimple basic block 3
+
+;; Generating RTL for gimple basic block 4
+
+;; Generating RTL for gimple basic block 5
+
+;; Generating RTL for gimple basic block 6
+
+;; Generating RTL for gimple basic block 7
+
+;; Generating RTL for gimple basic block 8
+
+
+try_optimize_cfg iteration 1
+
+Merging block 3 into block 2...
+Merged blocks 2 and 3.
+Merged 2 and 3 without moving.
+Merging block 10 into block 9...
+Merged blocks 9 and 10.
+Merged 9 and 10 without moving.
+
+
+try_optimize_cfg iteration 2
+
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 5 NOTE_INSN_DELETED)
+(note 5 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(insn 2 5 3 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -152 [0xffffffffffffff68])) [6 xvar+0 S8 A64])
+        (reg:DI 5 di [ xvar ])) "mlx_int_set_win_event_mask.c":18:1 -1
+     (nil))
+(note 3 2 4 2 NOTE_INSN_FUNCTION_BEG)
+(insn 4 3 7 2 (parallel [
+            (set (mem/v/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                        (const_int -8 [0xfffffffffffffff8])) [1 D.9198+0 S8 A64])
+                (unspec:DI [
+                        (mem/v/f:DI (const_int 40 [0x28]) [0 MEM[(<address-space-1> long unsigned int *)40B]+0 S8 A64 AS1])
+                    ] UNSPEC_SP_SET))
+            (set (scratch:DI)
+                (const_int 0 [0]))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_int_set_win_event_mask.c":18:1 -1
+     (nil))
+(insn 7 4 8 2 (set (reg/f:DI 90)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -152 [0xffffffffffffff68])) [6 xvar+0 S8 A64])) "mlx_int_set_win_event_mask.c":24:7 -1
+     (nil))
+(insn 8 7 9 2 (set (reg/f:DI 91)
+        (mem/f:DI (plus:DI (reg/f:DI 90)
+                (const_int 48 [0x30])) [5 xvar_13(D)->win_list+0 S8 A64])) "mlx_int_set_win_event_mask.c":24:7 -1
+     (nil))
+(insn 9 8 10 2 (set (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -136 [0xffffffffffffff78])) [5 win+0 S8 A64])
+        (reg/f:DI 91)) "mlx_int_set_win_event_mask.c":24:7 -1
+     (nil))
+(jump_insn 10 9 11 2 (set (pc)
+        (label_ref 55)) "mlx_int_set_win_event_mask.c":25:9 -1
+     (nil)
+ -> 55)
+(barrier 11 10 57)
+(code_label 57 11 12 4 5 (nil) [1 uses])
+(note 12 57 13 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 13 12 14 4 (set (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -56 [0xffffffffffffffc8])) [3 xwa.event_mask+0 S8 A64])
+        (const_int 0 [0])) "mlx_int_set_win_event_mask.c":27:22 -1
+     (nil))
+(insn 14 13 15 4 (set (mem/c:SI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -140 [0xffffffffffffff74])) [4 i+0 S4 A32])
+        (const_int 36 [0x24])) "mlx_int_set_win_event_mask.c":28:9 -1
+     (nil))
+(jump_insn 15 14 16 4 (set (pc)
+        (label_ref 33)) "mlx_int_set_win_event_mask.c":29:13 -1
+     (nil)
+ -> 33)
+(barrier 16 15 38)
+(code_label 38 16 17 5 4 (nil) [1 uses])
+(note 17 38 18 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 18 17 19 5 (set (reg:DI 82 [ _1 ])
+        (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -56 [0xffffffffffffffc8])) [3 xwa.event_mask+0 S8 A64])) "mlx_int_set_win_event_mask.c":30:5 -1
+     (nil))
+(insn 19 18 20 5 (set (reg/f:DI 92)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -136 [0xffffffffffffff78])) [5 win+0 S8 A64])) "mlx_int_set_win_event_mask.c":30:33 -1
+     (nil))
+(insn 20 19 21 5 (set (reg:SI 94)
+        (mem/c:SI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -140 [0xffffffffffffff74])) [4 i+0 S4 A32])) "mlx_int_set_win_event_mask.c":30:33 -1
+     (nil))
+(insn 21 20 22 5 (set (reg:DI 93)
+        (sign_extend:DI (reg:SI 94))) "mlx_int_set_win_event_mask.c":30:33 -1
+     (nil))
+(insn 22 21 23 5 (set (reg:DI 95)
+        (reg:DI 93)) "mlx_int_set_win_event_mask.c":30:33 -1
+     (nil))
+(insn 23 22 24 5 (parallel [
+            (set (reg:DI 95)
+                (ashift:DI (reg:DI 95)
+                    (const_int 1 [0x1])))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_int_set_win_event_mask.c":30:33 -1
+     (nil))
+(insn 24 23 25 5 (parallel [
+            (set (reg:DI 95)
+                (plus:DI (reg:DI 95)
+                    (reg:DI 93)))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_int_set_win_event_mask.c":30:33 -1
+     (expr_list:REG_EQUAL (mult:DI (reg:DI 93)
+            (const_int 3 [0x3]))
+        (nil)))
+(insn 25 24 26 5 (parallel [
+            (set (reg:DI 96)
+                (ashift:DI (reg:DI 95)
+                    (const_int 3 [0x3])))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_int_set_win_event_mask.c":30:33 -1
+     (nil))
+(insn 26 25 27 5 (set (reg:DI 95)
+        (reg:DI 96)) "mlx_int_set_win_event_mask.c":30:33 -1
+     (expr_list:REG_EQUAL (mult:DI (reg:DI 93)
+            (const_int 24 [0x18]))
+        (nil)))
+(insn 27 26 28 5 (parallel [
+            (set (reg:DI 97)
+                (plus:DI (reg/f:DI 92)
+                    (reg:DI 95)))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_int_set_win_event_mask.c":30:33 -1
+     (nil))
+(insn 28 27 29 5 (parallel [
+            (set (reg/f:DI 98)
+                (plus:DI (reg:DI 97)
+                    (const_int 72 [0x48])))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_int_set_win_event_mask.c":30:33 -1
+     (nil))
+(insn 29 28 30 5 (set (reg:SI 83 [ _2 ])
+        (mem:SI (reg/f:DI 98) [4 win_8->hooks[i_18].mask+0 S4 A64])) "mlx_int_set_win_event_mask.c":30:33 -1
+     (nil))
+(insn 30 29 31 5 (set (reg:DI 84 [ _3 ])
+        (sign_extend:DI (reg:SI 83 [ _2 ]))) "mlx_int_set_win_event_mask.c":30:33 -1
+     (nil))
+(insn 31 30 32 5 (parallel [
+            (set (reg:DI 85 [ _4 ])
+                (ior:DI (reg:DI 82 [ _1 ])
+                    (reg:DI 84 [ _3 ])))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_int_set_win_event_mask.c":30:17 -1
+     (nil))
+(insn 32 31 33 5 (set (mem/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -56 [0xffffffffffffffc8])) [3 xwa.event_mask+0 S8 A64])
+        (reg:DI 85 [ _4 ])) "mlx_int_set_win_event_mask.c":30:17 -1
+     (nil))
+(code_label 33 32 34 6 3 (nil) [1 uses])
+(note 34 33 35 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 35 34 36 6 (set (reg:SI 86 [ i.0_5 ])
+        (mem/c:SI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -140 [0xffffffffffffff74])) [4 i+0 S4 A32])) "mlx_int_set_win_event_mask.c":29:15 -1
+     (nil))
+(insn 36 35 37 6 (parallel [
+            (set (reg:SI 99)
+                (plus:SI (reg:SI 86 [ i.0_5 ])
+                    (const_int -1 [0xffffffffffffffff])))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_int_set_win_event_mask.c":29:15 -1
+     (nil))
+(insn 37 36 39 6 (set (mem/c:SI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -140 [0xffffffffffffff74])) [4 i+0 S4 A32])
+        (reg:SI 99)) "mlx_int_set_win_event_mask.c":29:15 -1
+     (nil))
+(insn 39 37 40 6 (set (reg:CCZ 17 flags)
+        (compare:CCZ (reg:SI 86 [ i.0_5 ])
+            (const_int 0 [0]))) "mlx_int_set_win_event_mask.c":29:14 -1
+     (nil))
+(jump_insn 40 39 41 6 (set (pc)
+        (if_then_else (ne (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 38)
+            (pc))) "mlx_int_set_win_event_mask.c":29:14 -1
+     (nil)
+ -> 38)
+(note 41 40 42 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+(insn 42 41 43 7 (set (reg/f:DI 100)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -136 [0xffffffffffffff78])) [5 win+0 S8 A64])) "mlx_int_set_win_event_mask.c":31:7 -1
+     (nil))
+(insn 43 42 44 7 (set (reg:DI 87 [ _6 ])
+        (mem:DI (reg/f:DI 100) [3 win_8->window+0 S8 A64])) "mlx_int_set_win_event_mask.c":31:7 -1
+     (nil))
+(insn 44 43 45 7 (set (reg/f:DI 101)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -152 [0xffffffffffffff68])) [6 xvar+0 S8 A64])) "mlx_int_set_win_event_mask.c":31:7 -1
+     (nil))
+(insn 45 44 46 7 (set (reg/f:DI 88 [ _7 ])
+        (mem/f:DI (reg/f:DI 101) [8 xvar_13(D)->display+0 S8 A64])) "mlx_int_set_win_event_mask.c":31:7 -1
+     (nil))
+(insn 46 45 47 7 (parallel [
+            (set (reg:DI 102)
+                (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -128 [0xffffffffffffff80])))
+            (clobber (reg:CC 17 flags))
+        ]) "mlx_int_set_win_event_mask.c":31:7 -1
+     (nil))
+(insn 47 46 48 7 (set (reg:DI 2 cx)
+        (reg:DI 102)) "mlx_int_set_win_event_mask.c":31:7 -1
+     (nil))
+(insn 48 47 49 7 (set (reg:DI 1 dx)
+        (const_int 2048 [0x800])) "mlx_int_set_win_event_mask.c":31:7 -1
+     (nil))
+(insn 49 48 50 7 (set (reg:DI 4 si)
+        (reg:DI 87 [ _6 ])) "mlx_int_set_win_event_mask.c":31:7 -1
+     (nil))
+(insn 50 49 51 7 (set (reg:DI 5 di)
+        (reg/f:DI 88 [ _7 ])) "mlx_int_set_win_event_mask.c":31:7 -1
+     (nil))
+(call_insn 51 50 52 7 (set (reg:SI 0 ax)
+        (call (mem:QI (symbol_ref:DI ("XChangeWindowAttributes") [flags 0x41]  <function_decl 0x7f4623d48100 XChangeWindowAttributes>) [0 XChangeWindowAttributes S1 A8])
+            (const_int 0 [0]))) "mlx_int_set_win_event_mask.c":31:7 -1
+     (nil)
+    (expr_list:DI (use (reg:DI 5 di))
+        (expr_list:DI (use (reg:DI 4 si))
+            (expr_list:DI (use (reg:DI 1 dx))
+                (expr_list:DI (use (reg:DI 2 cx))
+                    (nil))))))
+(insn 52 51 53 7 (set (reg/f:DI 103)
+        (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -136 [0xffffffffffffff78])) [5 win+0 S8 A64])) "mlx_int_set_win_event_mask.c":32:11 -1
+     (nil))
+(insn 53 52 54 7 (set (reg/f:DI 104)
+        (mem/f:DI (plus:DI (reg/f:DI 103)
+                (const_int 16 [0x10])) [5 win_8->next+0 S8 A64])) "mlx_int_set_win_event_mask.c":32:11 -1
+     (nil))
+(insn 54 53 55 7 (set (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                (const_int -136 [0xffffffffffffff78])) [5 win+0 S8 A64])
+        (reg/f:DI 104)) "mlx_int_set_win_event_mask.c":32:11 -1
+     (nil))
+(code_label 55 54 56 8 2 (nil) [1 uses])
+(note 56 55 58 8 [bb 8] NOTE_INSN_BASIC_BLOCK)
+(insn 58 56 59 8 (set (reg:CCZ 17 flags)
+        (compare:CCZ (mem/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                    (const_int -136 [0xffffffffffffff78])) [5 win+0 S8 A64])
+            (const_int 0 [0]))) "mlx_int_set_win_event_mask.c":25:10 -1
+     (nil))
+(jump_insn 59 58 60 8 (set (pc)
+        (if_then_else (ne (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 57)
+            (pc))) "mlx_int_set_win_event_mask.c":25:10 -1
+     (nil)
+ -> 57)
+(note 60 59 68 9 [bb 9] NOTE_INSN_BASIC_BLOCK)
+(insn 68 60 69 9 (clobber (reg/i:SI 0 ax)) "mlx_int_set_win_event_mask.c":34:1 -1
+     (nil))
+(insn 69 68 74 9 (clobber (reg:SI 89 [ <retval> ])) "mlx_int_set_win_event_mask.c":34:1 -1
+     (nil))
+(insn 74 69 62 9 (const_int 0 [0]) "mlx_int_set_win_event_mask.c":34:1 -1
+     (nil))
+(insn 62 74 63 9 (parallel [
+            (set (reg:CCZ 17 flags)
+                (unspec:CCZ [
+                        (mem/v/f/c:DI (plus:DI (reg/f:DI 77 virtual-stack-vars)
+                                (const_int -8 [0xfffffffffffffff8])) [1 D.9198+0 S8 A64])
+                        (mem/v/f:DI (const_int 40 [0x28]) [0 MEM[(<address-space-1> long unsigned int *)40B]+0 S8 A64 AS1])
+                    ] UNSPEC_SP_TEST))
+            (clobber (scratch:DI))
+        ]) "mlx_int_set_win_event_mask.c":34:1 -1
+     (nil))
+(jump_insn 63 62 72 9 (set (pc)
+        (if_then_else (eq (reg:CCZ 17 flags)
+                (const_int 0 [0]))
+            (label_ref 66)
+            (pc))) "mlx_int_set_win_event_mask.c":34:1 -1
+     (nil)
+ -> 66)
+(note 72 63 64 11 [bb 11] NOTE_INSN_BASIC_BLOCK)
+(call_insn 64 72 65 11 (call (mem:QI (symbol_ref:DI ("__stack_chk_fail") [flags 0x41]  <function_decl 0x7f4623a56500 __stack_chk_fail>) [0 __stack_chk_fail S1 A8])
+        (const_int 0 [0])) "mlx_int_set_win_event_mask.c":34:1 -1
+     (expr_list:REG_ARGS_SIZE (const_int 0 [0])
+        (expr_list:REG_NORETURN (const_int 0 [0])
+            (expr_list:REG_EH_REGION (const_int 0 [0])
+                (nil))))
+    (nil))
+(barrier 65 64 66)
+(code_label 66 65 73 12 6 (nil) [1 uses])
+(note 73 66 67 12 [bb 12] NOTE_INSN_BASIC_BLOCK)
+(insn 67 73 70 12 (set (reg/i:SI 0 ax)
+        (reg:SI 89 [ <retval> ])) "mlx_int_set_win_event_mask.c":34:1 -1
+     (nil))
+(insn 70 67 0 12 (use (reg/i:SI 0 ax)) "mlx_int_set_win_event_mask.c":34:1 -1
+     (nil))
