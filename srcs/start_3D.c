@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   start_3D.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:52:12 by mael              #+#    #+#             */
-/*   Updated: 2023/06/28 12:54:45 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/06/30 16:02:30 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/cub3D.h"
 
-int	display_all(t_game *game)
+int	display_all(t_game *game, char key)
 {
 	int len_side;
 	int i;
@@ -26,17 +26,86 @@ int	display_all(t_game *game)
 	draw_player(game);
 	game->line->x_src = game->map->pos_x;
 	game->line->y_src = game->map->pos_y;
-	//printf("game->line->x_dest: %i\n", game->line->x_dest);
-	draw_line_vision(game, 0);
-	init_fov(game);
-	calcul_len_first_line(game);
-	len_side = calcul_opposite_side(game, i);
-	if (game->flag == 0)
-		line_in_a_first_time(game, len_side);
-	else
-		put_line_during_the_game(game, len_side);
+	// printf("calcul_move_sw(game): %i\n", calcul_move_sw(game));
+	// game->line->x_dest = game->map->pos_x;
+	// game->line->y_dest = 0;
+	// printf("res draw line vison = %d\n" , draw_line_vision(game));
+	updt_first_line(game);
+	// game->fov->len_first_line = game->map->pos_y;
+	len_side = calcul_opposite_side(game, 15, game->fov->angle);
+	printf("len_side: %i\n", len_side);
+	if (key == 'd')
+		game->line->x_dest = game->line->x_dest + len_side;
+	else if (key == 'a')
+		game->line->x_dest = game->line->x_dest - len_side;
+	// if (game == )
+	// {
+		
+	// }
+	game->line->y_dest = 0;
+	game->fov->lines_vision[15] = draw_line_vision(game);
+	// while (i < 15)
+	// {
+	// 	if (game->perso == 'N')
+	// 	{
+	// 		game->line->x_dest = game->line->x_dest + len_side;
+	// 		game->line->y_dest = 0;
+	// 	}
+	// 	else if (game->perso == 'S')
+	// 	{
+	// 		game->line->x_dest = game->line->x_dest + len_side;
+	// 		game->line->y_dest = game->map->height * game->img_size;
+	// 	}
+	// 	else if (game->perso == 'E')
+	// 	{
+	// 		game->line->x_dest = game->map->width * game->img_size;
+	// 		game->line->y_dest = game->line->y_dest + len_side;
+	// 	}
+	// 	else if (game->perso == 'W')
+	// 	{
+	// 		game->line->x_dest = 0;
+	// 		game->line->y_dest = game->line->y_dest + len_side;
+	// 	}
+	// 	game->fov->lines_vision[i] = draw_line_vision(game);
+	// 	len_side = calcul_opposite_side(game, i);
+	// 	i++;
+	// }
+	// i++;
+	// //i = 0;
+	// game->line->x_dest = game->map->pos_x;
+	// game->line->y_dest = game->map->pos_y;
+	// len_side = calcul_opposite_side(game, i);
+	// while (i < 31)
+	// {
+	// 	if (game->perso == 'N')
+	// 	{
+	// 		game->line->x_dest = game->line->x_dest - len_side;
+	// 		game->line->y_dest = 0;
+	// 	}
+	// 	else if (game->perso == 'S')
+	// 	{
+	// 		game->line->x_dest = game->line->x_dest - len_side;
+	// 		game->line->y_dest = game->map->height * game->img_size;
+	// 	}
+	// 	else if (game->perso == 'E')
+	// 	{
+	// 		game->line->x_dest = game->map->width * game->img_size;
+	// 		game->line->y_dest = game->line->y_dest - len_side;
+	// 	}
+	// 	else if (game->perso == 'W')
+	// 	{
+	// 		game->line->x_dest = 0;
+	// 		game->line->y_dest = game->line->y_dest - len_side;
+	// 	}
+	// 	game->fov->lines_vision[i] = draw_line_vision(game);
+	// 	len_side = calcul_opposite_side(game, i);
+	// 	i++;
+	// }
 	mlx_put_image_to_window(game->mlibx, game->window, game->img->mlx_img, \
 		0, 0);
+	(void)len_side;
+	(void)i;
+	printf("\n.....................................\n\n");
 	return (SUCCESS);
 }
 
@@ -45,6 +114,32 @@ void	reset_img(t_game *game)
 	mlx_destroy_image(game->mlibx, game->img->mlx_img);
 	free(game->img);
 }
+
+int	first_time(t_game *game)
+{
+	init_line(game);
+	set_pos_character(game);
+	if (init_img(game) == FAIL)
+		return (FAIL);
+	if (create_image_and_get_adrr(game) == FAIL)
+		return (FAIL);
+	color_image(game);
+	draw_player(game);
+	game->line->x_src = game->map->pos_x;
+	game->line->y_src = game->map->pos_y;
+	init_position(game);
+	init_fov(game);
+	printf("game->line->x_dest = %d\n", game->line->x_dest);
+	printf("game->line->y_dest = %d\n", game->line->y_dest);
+	printf("game->line->x_src = %d\n", game->line->x_src);
+	printf("game->line->y_src = %d\n", game->line->y_src);
+	calcul_len_first_line(game);
+	// draw_line_vision(game);
+	// mlx_put_image_to_window(game->mlibx, game->window, game->img->mlx_img, 
+	// 	0, 0);
+	return (SUCCESS);
+}
+
 
 int	start_3D(t_game *game)
 {
@@ -57,10 +152,9 @@ int	start_3D(t_game *game)
 		game->map->height * game->img_size, "cub3D");
 	if (!game->window)
 		return (printf("Window failed\n"), FAIL);
-	init_line(game);
-	set_pos_character(game);
-	init_position(game);
-	if (display_all(game) == FAIL)
+	if (first_time(game) == FAIL)
+		return (FAIL);
+	if (display_all(game, '\0') == FAIL)
 		return (FAIL);
 	mlx_hook(game->window, KeyPress, KeyPressMask, &ft_event_listen, game);
 	mlx_loop(game->mlibx);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:15:08 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/28 12:29:52 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/06/30 10:42:53 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	init_struct(t_game *game)
 	game->mlibx = NULL;
 	game->window = NULL;
 	game->perso = '\0';
-	game->flag = 0;
 	game->map->file_content = NULL;
 	game->map->file_map = NULL;
 	game->map->tab_file = NULL;

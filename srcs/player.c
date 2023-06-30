@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:35:04 by mael              #+#    #+#             */
-/*   Updated: 2023/06/28 12:11:36 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/06/30 15:45:05 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ int	ft_event_listen(int key, t_game *game)
 	j_check = 0;
 	// if (key == 65307)
 	// 	ft_destroy_and_free(game, NULL);
+	printf("start angle: %i\n", game->fov->angle);
 	if (key == XK_w)
 	{
 		//clear_img(game);
@@ -70,9 +71,9 @@ int	ft_event_listen(int key, t_game *game)
 			return (printf("i_check %i\n", i_check), FAIL);
 		if (game->map->map_org[i_check][game->map->pos_x / game->img_size] != '1')
 		{
-			reset_img(game);
 			game->map->pos_y = game->map->pos_y - 5;
-			display_all(game);
+			reset_img(game);
+			display_all(game, 'w');
 		}
 	}
 	else if (key == XK_s)
@@ -82,9 +83,9 @@ int	ft_event_listen(int key, t_game *game)
 			return (printf("i_check %i\n", i_check), FAIL);
 		if (game->map->map_org[i_check][game->map->pos_x / game->img_size] != '1')
 		{
-			reset_img(game);
 			game->map->pos_y = game->map->pos_y + 5;
-			display_all(game);
+			reset_img(game);
+			display_all(game, 's');
 		}
 	}
 	else if (key == XK_a)
@@ -94,10 +95,15 @@ int	ft_event_listen(int key, t_game *game)
 			return (printf("j_check %i\n", j_check), FAIL);
 		if (game->map->map_org[game->map->pos_y  / game->img_size][j_check] != '1')
 		{
-			//game->map->pos_x = game->map->pos_x - 5;
+			// game->map->pos_x = game->map->pos_x - 5;
+			game->fov->angle -= 5;
+			if (game->fov->angle < 0)
+				game->fov->angle = game->fov->angle + 360;
+			// if (game->fov->angle < 0)
+			// 	game->fov->angle *= -1;
+			printf("end angle: %i\n", game->fov->angle);
 			reset_img(game);
-			rotate_left(game);
-			display_all(game);
+			display_all(game, 'a');
 		}
 	}
 	else if (key == XK_d)
@@ -107,10 +113,13 @@ int	ft_event_listen(int key, t_game *game)
 			return (printf("j_check %i\n", j_check), FAIL);
 		if (game->map->map_org[game->map->pos_y / game->img_size][j_check] != '1')
 		{
-			//game->map->pos_x = game->map->pos_x + 5;
+			// game->map->pos_x = game->map->pos_x + 5;
+			game->fov->angle += 5;
+			if (game->fov->angle >= 360)
+				game->fov->angle = game->fov->angle % 360;
+			printf("end angle: %i\n", game->fov->angle);
 			reset_img(game);
-			rotate_right(game);
-			display_all(game);
+			display_all(game, 'd');
 		}
 	}
 	return (0);

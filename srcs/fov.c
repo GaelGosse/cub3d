@@ -16,6 +16,7 @@ int	init_fov(t_game *game)
 		game->fov->lines_vision[i] = 0;
 		i++;
 	}
+	game->fov->angle = 0;
 	game->fov->len_first_line = 0;
 	return (SUCCESS);
 }
@@ -60,18 +61,29 @@ void	calcul_len_first_line(t_game *game)
 // }
 
 
-int	calcul_opposite_side(t_game *game, int i)
+int	calcul_opposite_side(t_game *game, int i, double angle)
 {
 	int	op_side;
-	double angle;
+	// double angle;
 
-	angle = deg_to_radian(2);
+	// angle = 
 //	printf("res line len = %d\n", game->fov->len_first_line);
-	if (i == 6 || i == 0)
-		op_side = atan(angle) * game->fov->len_first_line;
-	else
-		op_side = atan(angle) * game->fov->lines_vision[i];
+	// if (i == 6 || i == 0)
+	// 	op_side = atan(angle) * game->fov->len_first_line;
+	// else 
+	if (angle > 180)
+		angle = 360 - angle;
+	op_side = atan(deg_to_radian(angle)) * game->fov->len_first_line;
 //	printf("op_side: %i\n", op_side);
+	(void)i;
 	// printf(" %f\n", sqrt(pow(op_side, 2) + pow(game->fov->len_first_line, 2)));
 	return (op_side);
 }
+
+int	calcul_move_sw(t_game *game)
+{
+	int	side;
+
+	side = acos(deg_to_radian(game->fov->angle)) * 5;
+	return (side);
+ }
