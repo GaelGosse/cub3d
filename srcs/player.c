@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:35:04 by mael              #+#    #+#             */
-/*   Updated: 2023/06/30 15:45:05 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/02 18:18:02 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	set_pos_character(t_game *game)
 			if (game->map->map_org[y][x] == 'W' || game->map->map_org[y][x] == 'E'
 				|| game->map->map_org[y][x] == 'N' || game->map->map_org[y][x] == 'S')
 			{
-				game->map->pos_x = (x * game->img_size) + (game->img_size / 2);
-				game->map->pos_y = (y * game->img_size) + (game->img_size / 2);
+				game->map->pos_x = (x * game->img_size) + (game->img_size);
+				game->map->pos_y = (y * game->img_size) + (game->img_size);
 			}
 			x++;
 		}
@@ -63,6 +63,8 @@ int	ft_event_listen(int key, t_game *game)
 	// if (key == 65307)
 	// 	ft_destroy_and_free(game, NULL);
 	printf("start angle: %i\n", game->fov->angle);
+	if (key == 65307)
+		ft_destroy_and_free(game, NULL);
 	if (key == XK_w)
 	{
 		//clear_img(game);

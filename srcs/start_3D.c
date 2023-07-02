@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_3D.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:52:12 by mael              #+#    #+#             */
-/*   Updated: 2023/06/30 16:02:30 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/02 17:28:20 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	display_all(t_game *game, char key)
 		game->line->x_dest = game->line->x_dest - len_side;
 	// if (game == )
 	// {
-		
+
 	// }
 	game->line->y_dest = 0;
 	game->fov->lines_vision[15] = draw_line_vision(game);
@@ -129,13 +129,9 @@ int	first_time(t_game *game)
 	game->line->y_src = game->map->pos_y;
 	init_position(game);
 	init_fov(game);
-	printf("game->line->x_dest = %d\n", game->line->x_dest);
-	printf("game->line->y_dest = %d\n", game->line->y_dest);
-	printf("game->line->x_src = %d\n", game->line->x_src);
-	printf("game->line->y_src = %d\n", game->line->y_src);
 	calcul_len_first_line(game);
 	// draw_line_vision(game);
-	// mlx_put_image_to_window(game->mlibx, game->window, game->img->mlx_img, 
+	// mlx_put_image_to_window(game->mlibx, game->window, game->img->mlx_img,
 	// 	0, 0);
 	return (SUCCESS);
 }
@@ -156,6 +152,7 @@ int	start_3D(t_game *game)
 		return (FAIL);
 	if (display_all(game, '\0') == FAIL)
 		return (FAIL);
+	mlx_hook(game->window, DestroyNotify, StructureNotifyMask, &ft_destroy_and_free2, game);
 	mlx_hook(game->window, KeyPress, KeyPressMask, &ft_event_listen, game);
 	mlx_loop(game->mlibx);
 	return (SUCCESS);
