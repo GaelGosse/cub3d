@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:15:08 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/30 10:42:53 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/03 14:01:17 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	print_map(char **arr)
 				|| arr[i_big][i_lil] == 'S' || arr[i_big][i_lil] == 'W')
 				printf(BACK_RED"  "RESET);
 		}
+		printf("\n");
 	}
 }
 
@@ -85,7 +86,6 @@ int	ft_parsing(t_game *game, char **argv)
 		return (FAIL);
 	if (check_letters_map(game) == FAIL)
 		return (FAIL);
-	return (0);
 	while (is_propa_finished(game) == FAIL)
 	{
 		if (flooding(game) == FAIL)
