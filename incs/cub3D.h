@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   incs/cub3D.h                                       :+:      :+:    :+:   */
+/*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:45:40 by ggosse            #+#    #+#             */
-/*   Updated: 2023/07/03 09:14:56 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/03 17:17:17 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,9 +99,10 @@ typedef struct s_map
 
 typedef struct s_fov
 {
-	int	*lines_vision;
-	int	len_first_line;
-	int	angle;
+	int		*lines_vision;
+	int		len_first_line;
+	int		angle;
+	char	toggle;
 }		t_fov;
 
 typedef struct s_game

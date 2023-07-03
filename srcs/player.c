@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:35:04 by mael              #+#    #+#             */
-/*   Updated: 2023/07/02 21:07:45 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/03 15:50:03 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	set_pos_character(t_game *game)
 			if (game->map->map_org[y][x] == 'W' || game->map->map_org[y][x] == 'E'
 				|| game->map->map_org[y][x] == 'N' || game->map->map_org[y][x] == 'S')
 			{
-				game->map->pos_x = (x * game->img_size) + (game->img_size);
-				game->map->pos_y = (y * game->img_size) + (game->img_size);
+				game->map->pos_x = (x * game->img_size) + (game->img_size / 2);
+				game->map->pos_y = (y * game->img_size) + (game->img_size / 2);
 			}
 			x++;
 		}
@@ -62,7 +62,6 @@ int	ft_event_listen(int key, t_game *game)
 	j_check = 0;
 	// if (key == 65307)
 	// 	ft_destroy_and_free(game, NULL);
-	printf("start angle: %i\n", game->fov->angle);
 	if (key == 65307)
 		ft_destroy_and_free(game, NULL);
 	if (key == XK_w)
@@ -103,7 +102,7 @@ int	ft_event_listen(int key, t_game *game)
 				game->fov->angle = game->fov->angle + 360;
 			// if (game->fov->angle < 0)
 			// 	game->fov->angle *= -1;
-			printf("end angle: %i\n", game->fov->angle);
+			printf(" angle: %i\n", game->fov->angle);
 			reset_img(game);
 			display_all(game, 'a');
 		}
@@ -119,7 +118,7 @@ int	ft_event_listen(int key, t_game *game)
 			game->fov->angle += 5;
 			if (game->fov->angle >= 360)
 				game->fov->angle = game->fov->angle % 360;
-			printf("end angle: %i\n", game->fov->angle);
+			printf(" angle: %i\n", game->fov->angle);
 			reset_img(game);
 			display_all(game, 'd');
 		}

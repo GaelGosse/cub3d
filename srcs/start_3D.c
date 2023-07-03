@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:52:12 by mael              #+#    #+#             */
-/*   Updated: 2023/07/03 14:12:30 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/03 17:43:13 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,71 @@ int	display_all(t_game *game, char key)
 	// game->line->x_dest = game->map->pos_x;
 	// game->line->y_dest = 0;
 	// printf("res draw line vison = %d\n" , draw_line_vision(game));
-	updt_first_line(game);
+	// updt_first_line(game);
 	// game->fov->len_first_line = game->map->pos_y;
+	if (game->line->x_dest >= game->map->width * game->img_size) // E
+		game->line->x_dest = game->map->width * game->img_size;
+	if (game->line->y_dest >= game->map->height * game->img_size) // S
+		game->line->y_dest = game->map->height * game->img_size;
+
 	len_side = calcul_opposite_side(game, 15, game->fov->angle);
+	// if (game)
+	// 	game->fov->toggle = 'E';
+	printf("len_side: %i\n", len_side);
+	printf("game->line->y_dest: %i\n", game->line->y_dest);
+	printf("game->line->x_dest: %i\n", game->line->x_dest);
 	if (game->line->x_dest >= game->map->width * game->img_size)
 	{
 		//game->line->x_dest = 0;
-		if (key == 'd')
-			game->line->y_dest = game->map->pos_y + len_side;
-		else if (key == 'a')
-			game->line->y_dest = game->map->pos_y - len_side;
-		printf("len_side: %i\n", len_side);
-		printf("game->line->y_dest: %i\n", game->line->y_dest);
-		printf("game->map->pos_y: %i\n", game->map->pos_y);
+		if (game->fov->angle < 90)
+		{
+			if (key == 'd')
+				game->line->y_dest = game->map->pos_y - len_side;
+			else if (key == 'a')
+				game->line->y_dest = game->map->pos_y - len_side;
+		}
+		else if (game->fov->angle >= 90)
+		{
+			if (key == 'd')
+				game->line->y_dest = game->map->pos_y + len_side;
+			else if (key == 'a')
+				game->line->y_dest = game->map->pos_y + len_side;
+		}
+	}
+	else if (game->line->y_dest >= game->map->height * game->img_size)
+	{
+		//game->line->x_dest = 0;
+		if (game->fov->angle < 180)
+		{
+			if (key == 'd')
+				game->line->x_dest = game->map->pos_x + len_side;
+			else if (key == 'a')
+				game->line->x_dest = game->map->pos_x + len_side;
+		}
+		else if (game->fov->angle >= 180)
+		{
+			if (key == 'd')
+				game->line->x_dest = game->map->pos_x - len_side;
+			else if (key == 'a')
+				game->line->x_dest = game->map->pos_x - len_side;
+		}
+	}
+	else if (game->line->x_dest <= 0)
+	{
+		if (game->fov->angle < 270)
+		{
+			if (key == 'd')
+				game->line->y_dest = game->map->pos_y - len_side;
+			else if (key == 'a')
+				game->line->y_dest = game->map->pos_y - len_side;
+		}
+		else if (game->fov->angle >= 270)
+		{
+			if (key == 'd')
+				game->line->y_dest = game->map->pos_y + len_side;
+			else if (key == 'a')
+				game->line->y_dest = game->map->pos_y + len_side;
+		}
 	}
 	else
 	{
@@ -55,6 +107,9 @@ int	display_all(t_game *game, char key)
 	// {
 	//
 	// }
+
+	printf("game->line->y_dest: %i\n", game->line->y_dest);
+	printf("game->line->x_dest: %i\n", game->line->x_dest);
 	game->fov->lines_vision[15] = draw_line_vision(game);
 
 

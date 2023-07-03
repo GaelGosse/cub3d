@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:15:08 by ggosse            #+#    #+#             */
-/*   Updated: 2023/07/03 14:01:17 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/03 14:44:09 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int	ft_parsing(t_game *game, char **argv)
 	}
 	if (hole_in_wall(game) == FAIL)
 		return (FAIL);
-	print_map(game->map->map_org);
+	// print_map(game->map->map_org);
 	return (SUCCESS);
 }
 
