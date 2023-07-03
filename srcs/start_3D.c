@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:52:12 by mael              #+#    #+#             */
-/*   Updated: 2023/07/02 17:28:20 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/03 09:16:12 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,42 @@ int	display_all(t_game *game, char key)
 	updt_first_line(game);
 	// game->fov->len_first_line = game->map->pos_y;
 	len_side = calcul_opposite_side(game, 15, game->fov->angle);
-	printf("len_side: %i\n", len_side);
 	if (key == 'd')
-		game->line->x_dest = game->line->x_dest + len_side;
+		game->line->x_dest = game->map->pos_x + len_side;
 	else if (key == 'a')
-		game->line->x_dest = game->line->x_dest - len_side;
+		game->line->x_dest = game->map->pos_x - len_side;
 	// if (game == )
 	// {
 
 	// }
 	game->line->y_dest = 0;
 	game->fov->lines_vision[15] = draw_line_vision(game);
+
+	// int	ite;
+
+	// cross
+	// ite = 0;
+	// while (ite++ < 5)
+	// 	img_pix_put(game, game->line->x_dest, ite, get_color(255, 0, 0));
+	// ite = -6;
+	// while (ite++ < 5)
+	// 	img_pix_put(game, game->line->x_dest + ite, 0, get_color(255, 0, 0));
+
+	// ite = game->map->pos_x;
+	// while (ite++ < game->line->x_dest)
+	// {
+	// 	if (ite >= game->map->width * game->img_size)
+	// 		break ;
+	// 	img_pix_put(game, ite, 0, get_color(255, 0, 0));
+	// }
+	// printf(BOLD_RED"AB: %i\n"RST, game->line->x_dest - game->map->pos_x);
+	// printf(YELLOW"draw_line: %i\n"RST, len_side);
+	// (void)ite;
+
+
+
+
+
 	// while (i < 15)
 	// {
 	// 	if (game->perso == 'N')
@@ -67,14 +92,14 @@ int	display_all(t_game *game, char key)
 	// 		game->line->y_dest = game->line->y_dest + len_side;
 	// 	}
 	// 	game->fov->lines_vision[i] = draw_line_vision(game);
-	// 	len_side = calcul_opposite_side(game, i);
+	// 	len_side = calcul_opposite_side(game, i, game->fov->angle);
 	// 	i++;
 	// }
 	// i++;
 	// //i = 0;
 	// game->line->x_dest = game->map->pos_x;
 	// game->line->y_dest = game->map->pos_y;
-	// len_side = calcul_opposite_side(game, i);
+	// len_side = calcul_opposite_side(game, i, game->fov->angle);
 	// while (i < 31)
 	// {
 	// 	if (game->perso == 'N')
@@ -98,7 +123,7 @@ int	display_all(t_game *game, char key)
 	// 		game->line->y_dest = game->line->y_dest - len_side;
 	// 	}
 	// 	game->fov->lines_vision[i] = draw_line_vision(game);
-	// 	len_side = calcul_opposite_side(game, i);
+	// 	len_side = calcul_opposite_side(game, i, game->fov->angle);
 	// 	i++;
 	// }
 	mlx_put_image_to_window(game->mlibx, game->window, game->img->mlx_img, \

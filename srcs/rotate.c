@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 18:22:19 by mael              #+#    #+#             */
-/*   Updated: 2023/06/30 11:49:48 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/03 09:17:02 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,4 @@ void	updt_first_line(t_game *game)
 		i--;
 	}
 	game->fov->len_first_line = game->map->pos_y - i;
-	printf("game->fov->len_first_line: %i\n", game->fov->len_first_line);
 }

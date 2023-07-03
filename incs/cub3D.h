@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:45:40 by ggosse            #+#    #+#             */
-/*   Updated: 2023/07/02 17:29:18 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/03 09:14:56 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,6 +140,7 @@ void	reset_img(t_game *game);
 int		start_3D(t_game *game);
 //srcs/draw_line.c
 int		absolute_value(int nb);
+int		draw_line(t_game *game, int x_src, int y_src, int x_dest, int y_dest, int color);
 int		draw_line_vision(t_game *game);
 int		init_line(t_game *game);
 //srcs/free_parsing.c
