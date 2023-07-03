@@ -16,7 +16,6 @@ int	init_fov(t_game *game)
 		game->fov->lines_vision[i] = 0;
 		i++;
 	}
-	game->fov->angle = 0;
 	game->fov->len_first_line = 0;
 	return (SUCCESS);
 }
@@ -27,21 +26,25 @@ void	init_position(t_game *game)
 	{
 		game->line->x_dest = game->map->pos_x;
 		game->line->y_dest = game->map->height * game->img_size;
+		game->fov->angle = 180;
 	}
 	else if (game->perso == 'W')
 	{
 		game->line->x_dest = 0;
 		game->line->y_dest = game->map->pos_y;
+		game->fov->angle = 270;
 	}
 	if (game->perso == 'N')
 	{
 		game->line->x_dest = game->map->pos_x;
 		game->line->y_dest = 0;
+		game->fov->angle = 0;
 	}
 	else if (game->perso == 'E')
 	{
 		game->line->x_dest = game->map->width * game->img_size;
 		game->line->y_dest = game->map->pos_y;
+		game->fov->angle = 90;
 	}
 }
 
@@ -75,6 +78,8 @@ int	calcul_opposite_side(t_game *game, int i, double angle)
 		angle = absolute_value(360 - angle);
 
 	// op_side = atan(deg_to_radian(angle)) * game->fov->len_first_line;
+
+
 	op_side = tan(deg_to_radian(angle)) * game->map->pos_y;
 
 

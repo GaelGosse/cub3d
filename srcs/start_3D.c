@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:52:12 by mael              #+#    #+#             */
-/*   Updated: 2023/07/03 09:16:12 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/03 12:15:01 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 int	display_all(t_game *game, char key)
 {
 	int len_side;
-	int i;
+	int i_rotate;
 
-	i = 0;
+	i_rotate = 0;
 	if (init_img(game) == FAIL)
 		return (FAIL);
 	if (create_image_and_get_adrr(game) == FAIL)
@@ -33,16 +33,31 @@ int	display_all(t_game *game, char key)
 	updt_first_line(game);
 	// game->fov->len_first_line = game->map->pos_y;
 	len_side = calcul_opposite_side(game, 15, game->fov->angle);
-	if (key == 'd')
-		game->line->x_dest = game->map->pos_x + len_side;
-	else if (key == 'a')
-		game->line->x_dest = game->map->pos_x - len_side;
+	if (game->line->x_dest >= game->map->width * game->img_size)
+	{
+		game->line->x_dest = 0;
+		if (key == 'd')
+			game->line->y_dest = game->map->pos_y - len_side;
+		else if (key == 'a')
+			game->line->y_dest = game->map->pos_y - len_side;
+	}
+	else
+	{
+		if (key == 'd')
+			game->line->x_dest = game->map->pos_x + len_side;
+		else if (key == 'a')
+			game->line->x_dest = game->map->pos_x - len_side;
+	}
 	// if (game == )
 	// {
-
+	//
 	// }
-	game->line->y_dest = 0;
 	game->fov->lines_vision[15] = draw_line_vision(game);
+	printf("game->line->y_dest: %i\n", game->line->y_dest);
+	printf(BACK_YELLOW"%c"RESET, game->perso);
+
+
+
 
 	// int	ite;
 
@@ -129,7 +144,7 @@ int	display_all(t_game *game, char key)
 	mlx_put_image_to_window(game->mlibx, game->window, game->img->mlx_img, \
 		0, 0);
 	(void)len_side;
-	(void)i;
+	(void)i_rotate;
 	printf("\n.....................................\n\n");
 	return (SUCCESS);
 }
@@ -152,8 +167,8 @@ int	first_time(t_game *game)
 	draw_player(game);
 	game->line->x_src = game->map->pos_x;
 	game->line->y_src = game->map->pos_y;
-	init_position(game);
 	init_fov(game);
+	init_position(game);
 	calcul_len_first_line(game);
 	// draw_line_vision(game);
 	// mlx_put_image_to_window(game->mlibx, game->window, game->img->mlx_img,
