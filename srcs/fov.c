@@ -79,20 +79,35 @@ int	calcul_opposite_side(t_game *game, int i, double angle)
 
 	// op_side = atan(deg_to_radian(angle)) * game->fov->len_first_line;
 
-	if (game->line->y_dest == 0) // N
-		op_side = tan(deg_to_radian(angle)) * game->map->pos_y;
-	if (game->line->x_dest >= game->map->width * game->img_size) // E
+	if (game->fov->toggle == 'N' && game->line->y_dest == 0) // N
+	{
+		game->line->y_dest = 0;
+		if (angle < 360 && angle > 180)
+		{
+			op_side = tan(deg_to_radian(360 - angle)) * game->map->pos_y;
+			printf("< 360 op_side: %i\n", op_side);
+		}
+		else
+		{
+			op_side = tan(deg_to_radian(angle)) * game->map->pos_y;
+			printf("> 0 op_side: %i\n", op_side);
+		}
+	}
+	if (game->fov->toggle == 'E' && game->line->x_dest >= game->map->width * game->img_size) // E
 	{
 		game->line->x_dest = game->map->width * game->img_size;
 		op_side = tan(deg_to_radian(absolute_value(90 - angle))) * (game->map->width * game->img_size - game->map->pos_x);
 	}
-	if (game->line->y_dest >= game->map->height * game->img_size) // S
+	if (game->fov->toggle == 'S' && game->line->y_dest >= game->map->height * game->img_size) // S
 	{
-		printf(BACK_RED"here"RST"\n");
 		game->line->y_dest = game->map->height * game->img_size;
 		op_side = tan(deg_to_radian(absolute_value(180 - angle))) * (game->map->height * game->img_size - game->map->pos_y);
 	}
-	// W
+	if (game->fov->toggle == 'W' && game->line->x_dest <= 0) // W
+	{
+		game->line->x_dest = 0;
+		op_side = tan(deg_to_radian(absolute_value(270 - angle))) * (game->map->pos_x);
+	}
 	// if (game->line->x_dest >= game->map->width * game->img_size)
 	// {
 	// 	game->line->x_dest = game->map->width * game->img_size;

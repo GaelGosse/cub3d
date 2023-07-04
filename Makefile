@@ -58,6 +58,7 @@ _SRCS	=	beginning.c \
 			start_3D.c \
 			texture_part.c \
 			texture_part_utils.c \
+			toggle.c \
 			valid_wall.c
 # --------------------------------- end srcs --------------------------------- #
 

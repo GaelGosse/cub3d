@@ -25,6 +25,8 @@ int	init_line(t_game *game)
 	game->line->y_src = 0;
 	game->line->x_dest = 0;
 	game->line->y_dest = 0;
+	game->line->x_dest_prev = 0;
+	game->line->y_dest_prev = 0;
 	return (SUCCESS);
 }
 
