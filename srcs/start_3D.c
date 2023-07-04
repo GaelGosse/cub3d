@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:52:12 by mael              #+#    #+#             */
-/*   Updated: 2023/07/04 14:20:45 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/04 14:34:25 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ int	display_all(t_game *game, char key)
 	draw_player(game);
 	game->line->x_src = game->map->pos_x;
 	game->line->y_src = game->map->pos_y;
-	change_toggle(game);
+	if (key == 'd')
+		change_toggle_d(game);
+	else if (key == 'a')
+		change_toggle_a(game);
 	len_side = calcul_opposite_side(game, 15, game->fov->angle);
 	game->line->x_dest_prev = game->line->x_dest;
 	game->line->y_dest_prev = game->line->y_dest;

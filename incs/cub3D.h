@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:45:40 by ggosse            #+#    #+#             */
-/*   Updated: 2023/07/04 12:29:43 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/04 14:42:38 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -241,7 +241,8 @@ void	draw_player(t_game *game);
 int		ft_event_listen(int key, t_game *game);
 void	set_pos_character(t_game *game);
 //srcs/toggle.c
-void	change_toggle(t_game *game);
+void	change_toggle_a(t_game *game);
+void	change_toggle_d(t_game *game);
 //srcs/start_3D.c
 void	color_image(t_game *game);
 int		display_all(t_game *game, char key);
