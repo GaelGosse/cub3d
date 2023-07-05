@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:35:04 by mael              #+#    #+#             */
-/*   Updated: 2023/07/05 14:26:23 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/05 20:13:49 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,96 +55,58 @@ void	draw_player(t_game *game)
 }
 int	ft_event_listen(int key, t_game *game)
 {
-	int	i_check;
-	int	j_check;
-
-	i_check = 0;
-	j_check = 0;
-	// if (key == 65307)
-	// 	ft_destroy_and_free(game, NULL);
-	//printf("\033c");
 	if (key == 65307)
 		ft_destroy_and_free(game, NULL);
 	if (key == XK_w)
 	{
-		//clear_img(game);
-		i_check = (game->map->pos_y - 5) / game->img_size;
-		if (i_check < 0 || i_check >= game->map->height)// * game->img_size)
-			return (printf("i_check %i\n", i_check), FAIL);
-		if (game->map->map_org[i_check][game->map->pos_x / game->img_size] != '1')
-		{
-			if (game->fov->angle == 90)
-				game->map->pos_x += 5;
-			else if (game->fov->angle == 0)
-				game->map->pos_y -= 5;
-			else if (game->fov->angle == 270)
-				game->map->pos_x -= 5;
-			else if (game->fov->angle == 180)
-				game->map->pos_y += 5;
-			else
-				move_w(game);
-			// game->map->pos_y = game->map->pos_y - 5;
-			reset_img(game);
-			display_all(game, 'w');
-		}
+		if (game->map->map_org[game->map->pos_y / game->img_size][(game->map->pos_x + 15) / game->img_size] != '1' && game->fov->angle == 90)
+			game->map->pos_x += 10;
+		else if (game->map->map_org[(game->map->pos_y - 15) / game->img_size][(game->map->pos_x) / game->img_size] != '1' && game->fov->angle == 0)
+			game->map->pos_y -= 10;
+		else if (game->map->map_org[game->map->pos_y / game->img_size][(game->map->pos_x - 15) / game->img_size] != '1' &&  game->fov->angle == 270)
+			game->map->pos_x -= 10;
+		else if (game->map->map_org[(game->map->pos_y + 15) / game->img_size][(game->map->pos_x) / game->img_size] != '1' && game->fov->angle == 180)
+			game->map->pos_y += 10;
 		else
-			printf(BACK_RED"stop"RST"\n");
+			move_w(game);
+		reset_img(game);
+		printf(BACK_PURPLE"angle: %i"RST"\n", game->fov->angle);
+		display_all(game, 'w');
 	}
 	else if (key == XK_s)
 	{
-		i_check = (game->map->pos_y + 10) / game->img_size;
-		if (i_check < 0 || i_check >= game->map->height)// * game->img_size)
-			return (printf("i_check %i\n", i_check), FAIL);
-		if (game->map->map_org[i_check][game->map->pos_x / game->img_size] != '1')
-		{
-			if (game->fov->angle == 90)
-				game->map->pos_x -= 5;
-			else if (game->fov->angle == 0)
-				game->map->pos_y += 5;
-			else if (game->fov->angle == 270)
-				game->map->pos_x += 5;
-			else if (game->fov->angle == 180)
-				game->map->pos_y -= 5;
-			else
-				move_s(game);
-			// game->map->pos_y = game->map->pos_y + 5;
-			reset_img(game);
-			display_all(game, 's');
-		}
+		if (game->map->map_org[game->map->pos_y / game->img_size][(game->map->pos_x - 15) / game->img_size] != '1' && game->fov->angle == 90)
+			game->map->pos_x -= 10;
+		else if (game->map->map_org[(game->map->pos_y + 15) / game->img_size][(game->map->pos_x) / game->img_size] != '1' && game->fov->angle == 0)
+			game->map->pos_y += 10;
+		else if (game->map->map_org[game->map->pos_y / game->img_size][(game->map->pos_x + 15) / game->img_size] != '1' &&  game->fov->angle == 270)
+			game->map->pos_x += 10;
+		else if (game->map->map_org[(game->map->pos_y - 15) / game->img_size][(game->map->pos_x) / game->img_size] != '1' && game->fov->angle == 180)
+			game->map->pos_y -= 10;
+		else
+			move_s(game);
+		reset_img(game);
+		printf(BACK_PURPLE"angle: %i"RST"\n", game->fov->angle);
+		display_all(game, 's');
 	}
 	else if (key == XK_a)
 	{
-		j_check = (game->map->pos_x - 10) / game->img_size;
-		if (j_check < 0 || j_check >= game->map->width)// * game->img_size)
-			return (printf("j_check %i\n", j_check), FAIL);
-		if (game->map->map_org[game->map->pos_y  / game->img_size][j_check] != '1')
-		{
-			// game->map->pos_x = game->map->pos_x - 5;
-			game->fov->angle -= 5;
-			if (game->fov->angle < 0)
-				game->fov->angle = game->fov->angle + 360;
-			// if (game->fov->angle < 0)
-			// 	game->fov->angle *= -1;
-			printf(" angle: %i\n", game->fov->angle);
-			reset_img(game);
-			display_all(game, 'a');
-		}
+		game->fov->angle -= 5;
+		if (game->fov->angle < 0)
+			game->fov->angle = game->fov->angle + 360;
+		reset_img(game);
+		printf(BACK_PURPLE"angle: %i"RST"\n", game->fov->angle);
+		display_all(game, 'a');
 	}
 	else if (key == XK_d)
 	{
-		j_check = (game->map->pos_x + 10) / game->img_size;
-		if (j_check < 0 || j_check >= game->map->width)// * game->img_size)
-			return (printf("j_check %i\n", j_check), FAIL);
-		if (game->map->map_org[game->map->pos_y / game->img_size][j_check] != '1')
-		{
-			// game->map->pos_x = game->map->pos_x + 5;
-			game->fov->angle += 5;
-			if (game->fov->angle >= 360)
-				game->fov->angle = game->fov->angle % 360;
-			printf(" angle: %i\n", game->fov->angle);
-			reset_img(game);
-			display_all(game, 'd');
-		}
+		game->fov->angle += 5;
+		if (game->fov->angle >= 360)
+			game->fov->angle = game->fov->angle % 360;
+		printf(" angle: %i\n", game->fov->angle);
+		reset_img(game);
+		printf(BACK_PURPLE"angle: %i"RST"\n", game->fov->angle);
+		display_all(game, 'd');
 	}
 	return (0);
 }

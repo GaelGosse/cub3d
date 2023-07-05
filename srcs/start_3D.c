@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:52:12 by mael              #+#    #+#             */
-/*   Updated: 2023/07/05 16:00:26 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/05 18:09:21 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ int	display_all(t_game *game, char key)
 		flag = 0;
 	if (display_all_reverse_a(game, key, len_side) == FAIL)
 		return (FAIL);
-	printf("len_side: %i\n", len_side);
-	printf(" X_MAX : %i\n", game->img_size * game->map->width);
 	printf(" BEFORE y_dest: %i\n", game->line->y_dest);
 	printf(" BEFORE x_dest: %i\n", game->line->x_dest);
 	if (game->fov->toggle == 'E' && game->line->x_dest >= game->map->width * game->img_size)
@@ -104,7 +102,6 @@ int	display_all(t_game *game, char key)
 			else if (key == 'a')
 				game->line->y_dest = game->map->pos_y - len_side;
 		}
-		printf(GREEN"game->line->y_dest: %i\n"RST, game->line->y_dest);
 	}
 	else if (game->fov->toggle == 'N' && game->line->y_dest <= 0)
 	{
@@ -131,6 +128,26 @@ int	display_all(t_game *game, char key)
 	// }
 	printf(" AFTER y_dest: %i\n", game->line->y_dest);
 	printf(" AFTER x_dest: %i\n", game->line->x_dest);
+	if (game->fov->angle == 0)
+	{
+		game->line->x_dest = game->map->pos_x;
+		game->line->y_dest = 0;
+	}
+	if (game->fov->angle == 90)
+	{
+		game->line->x_dest = game->map->width * game->img_size;
+		game->line->y_dest = game->map->pos_y;
+	}
+	if (game->fov->angle == 180)
+	{
+		game->line->x_dest = game->map->pos_x;
+		game->line->y_dest = game->map->width * game->img_size;
+	}
+	if (game->fov->angle == 270)
+	{
+		game->line->x_dest = 0;
+		game->line->y_dest = game->map->pos_y;
+	}
 	game->fov->lines_vision[15] = draw_line_vision(game);
 
 
