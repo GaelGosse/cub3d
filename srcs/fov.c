@@ -97,6 +97,7 @@ int	calcul_opposite_side(t_game *game, int i, double angle)
 	{
 		game->line->x_dest = game->map->width * game->img_size;
 		op_side = tan(deg_to_radian(absolute_value(90 - angle))) * (game->map->width * game->img_size - game->map->pos_x);
+		printf(BACK_PURPLE"op_side: %i"RST"\n", op_side);
 	}
 	if (game->fov->toggle == 'S' && game->line->y_dest >= game->map->height * game->img_size) // S
 	{
@@ -127,10 +128,79 @@ int	calcul_opposite_side(t_game *game, int i, double angle)
 	return (op_side);
 }
 
-int	calcul_move_sw(t_game *game)
+void	move_w(t_game *game)
 {
-	int	side;
+	if (game->fov->angle > 0 && game->fov->angle <= 45)
+	{
+		printf(BACK_RED"NNE"RST"\n");
+		game->map->pos_x += absolute_value(sin(deg_to_radian(game->fov->angle)) * 5);
+		game->map->pos_y -= absolute_value(cos(deg_to_radian(game->fov->angle)) * 5);
+	}
+	if (game->fov->angle > 45 && game->fov->angle < 90)
+	{
+		printf(BACK_RED"NEE"RST"\n");
+		game->map->pos_x += absolute_value(sin(deg_to_radian(game->fov->angle)) * 5);
+		game->map->pos_y -= absolute_value(cos(deg_to_radian(game->fov->angle)) * 5);
+	}
+	if (game->fov->angle > 90 && game->fov->angle <= 135)
+	{
+		printf(BACK_YELLOW"EES"RST"\n");
+		game->map->pos_x += absolute_value(sin(deg_to_radian(game->fov->angle)) * 5);
+		game->map->pos_y += absolute_value(cos(deg_to_radian(game->fov->angle)) * 5);
+	}
+	if (game->fov->angle > 135 && game->fov->angle < 180)
+	{
+		printf(BACK_YELLOW"SSE"RST"\n");
+		game->map->pos_x += absolute_value(sin(deg_to_radian(game->fov->angle)) * 5);
+		game->map->pos_y += absolute_value(cos(deg_to_radian(game->fov->angle)) * 5);
+	}
+	if (game->fov->angle > 180 && game->fov->angle <= 225)
+	{
+		printf(BACK_YELLOW"SSW"RST"\n");
+		game->map->pos_x -= absolute_value(sin(deg_to_radian(game->fov->angle)) * 5);
+		game->map->pos_y += absolute_value(cos(deg_to_radian(game->fov->angle)) * 5);
+	}
+	if (game->fov->angle > 225 && game->fov->angle < 270)
+	{
+		printf(BACK_RED"SWW"RST"\n");
+		game->map->pos_x -= absolute_value(sin(deg_to_radian(game->fov->angle)) * 5);
+		game->map->pos_y += absolute_value(cos(deg_to_radian(game->fov->angle)) * 5);
+	}
+	if (game->fov->angle > 270 && game->fov->angle <= 315)
+	{
+		printf(BACK_RED"WWN"RST"\n");
+		game->map->pos_x -= absolute_value(sin(deg_to_radian(game->fov->angle)) * 5);
+		game->map->pos_y -= absolute_value(cos(deg_to_radian(game->fov->angle)) * 5);
+	}
+	if (game->fov->angle > 315 && game->fov->angle < 360)
+	{
+		printf(BACK_RED"NNW"RST"\n");
+		game->map->pos_x -= absolute_value(sin(deg_to_radian(game->fov->angle)) * 5);
+		game->map->pos_y -= absolute_value(cos(deg_to_radian(game->fov->angle)) * 5);
+	}
+}
 
-	side = acos(deg_to_radian(game->fov->angle)) * 5;
-	return (side);
- }
+void	move_s(t_game *game)
+{
+	// if (game->fov->angle > 315 && game->fov->angle <= 45)
+	// {
+	// 	game->map->pos_x += sin(deg_to_radian(game->fov->angle)) * 5;
+	// 	game->map->pos_y += cos(deg_to_radian(game->fov->angle)) * 5;
+	// }
+	// else if (game->fov->angle > 45 && game->fov->angle <= 135)
+	// {
+	// 	game->map->pos_ = sin(deg_to_radian(game->fov->angle)) * 5;
+	// 	game->map->pos_ = cos(deg_to_radian(game->fov->angle)) * 5;
+	// }
+	// else if (game->fov->angle > 135 && game->fov->angle <= 225)
+	// {
+	// 	game->map->pos_ = sin(deg_to_radian(game->fov->angle)) * 5;
+	// 	game->map->pos_ = cos(deg_to_radian(game->fov->angle)) * 5;
+	// }
+	// else if (game->fov->angle > 225 && game->fov->angle <= 315)
+	// {
+	// 	game->map->pos_ = sin(deg_to_radian(game->fov->angle)) * 5;
+	// 	game->map->pos_ = cos(deg_to_radian(game->fov->angle)) * 5;
+	// }
+	(void)game;
+}

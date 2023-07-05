@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:35:04 by mael              #+#    #+#             */
-/*   Updated: 2023/07/03 15:50:03 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/05 14:26:23 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	set_pos_character(t_game *game)
 			if (game->map->map_org[y][x] == 'W' || game->map->map_org[y][x] == 'E'
 				|| game->map->map_org[y][x] == 'N' || game->map->map_org[y][x] == 'S')
 			{
-				game->map->pos_x = (x * game->img_size) + (game->img_size / 2);
-				game->map->pos_y = (y * game->img_size) + (game->img_size / 2);
+				game->map->pos_x = (x * game->img_size) + (game->img_size);
+				game->map->pos_y = (y * game->img_size) + (game->img_size);
 			}
 			x++;
 		}
@@ -62,20 +62,33 @@ int	ft_event_listen(int key, t_game *game)
 	j_check = 0;
 	// if (key == 65307)
 	// 	ft_destroy_and_free(game, NULL);
+	//printf("\033c");
 	if (key == 65307)
 		ft_destroy_and_free(game, NULL);
 	if (key == XK_w)
 	{
 		//clear_img(game);
-		i_check = (game->map->pos_y - 10) / game->img_size;
+		i_check = (game->map->pos_y - 5) / game->img_size;
 		if (i_check < 0 || i_check >= game->map->height)// * game->img_size)
 			return (printf("i_check %i\n", i_check), FAIL);
 		if (game->map->map_org[i_check][game->map->pos_x / game->img_size] != '1')
 		{
-			game->map->pos_y = game->map->pos_y - 5;
+			if (game->fov->angle == 90)
+				game->map->pos_x += 5;
+			else if (game->fov->angle == 0)
+				game->map->pos_y -= 5;
+			else if (game->fov->angle == 270)
+				game->map->pos_x -= 5;
+			else if (game->fov->angle == 180)
+				game->map->pos_y += 5;
+			else
+				move_w(game);
+			// game->map->pos_y = game->map->pos_y - 5;
 			reset_img(game);
 			display_all(game, 'w');
 		}
+		else
+			printf(BACK_RED"stop"RST"\n");
 	}
 	else if (key == XK_s)
 	{
@@ -84,7 +97,17 @@ int	ft_event_listen(int key, t_game *game)
 			return (printf("i_check %i\n", i_check), FAIL);
 		if (game->map->map_org[i_check][game->map->pos_x / game->img_size] != '1')
 		{
-			game->map->pos_y = game->map->pos_y + 5;
+			if (game->fov->angle == 90)
+				game->map->pos_x -= 5;
+			else if (game->fov->angle == 0)
+				game->map->pos_y += 5;
+			else if (game->fov->angle == 270)
+				game->map->pos_x += 5;
+			else if (game->fov->angle == 180)
+				game->map->pos_y -= 5;
+			else
+				move_s(game);
+			// game->map->pos_y = game->map->pos_y + 5;
 			reset_img(game);
 			display_all(game, 's');
 		}

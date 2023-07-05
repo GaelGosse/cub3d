@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:45:40 by ggosse            #+#    #+#             */
-/*   Updated: 2023/07/04 14:42:38 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/05 15:44:42 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -272,6 +272,9 @@ int		init_line(t_game *game);
 int		get_color(int red, int green, int blue);
 void	img_pix_put(t_game *game, int x, int y, int color);
 void	img_pix_put_2(t_game *game, int x, int y, int color);
+//srcs/display_all_reverse.c
+int		display_all_reverse_a(t_game *game, int key, int len_side);
+int		display_all_reverse_d(t_game *game, int key, int len_side);
 //srcs/valid_wall.c
 int		check_letters_map(t_game *game);
 int		check_perso(t_game *game);
@@ -316,10 +319,11 @@ int		is_propa_finished(t_game *game);
 int		propagation(t_game *game, int row, int col, int count);
 //srcs/fov.c
 void	calcul_len_first_line(t_game *game);
-int		calcul_move_sw(t_game *game);
 int		calcul_opposite_side(t_game *game, int i, double angle);
 int		init_fov(t_game *game);
 void	init_position(t_game *game);
+void	move_s(t_game *game);
+void	move_w(t_game *game);
 //srcs/build_map_utils.c
 int		check_nbr(char *str);
 int		is_empty_line(char *line);

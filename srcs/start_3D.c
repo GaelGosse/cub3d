@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:52:12 by mael              #+#    #+#             */
-/*   Updated: 2023/07/04 14:34:25 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/05 16:00:26 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ int	display_all(t_game *game, char key)
 {
 	int len_side;
 	int i_rotate;
-
+	int flag;
+	
 	i_rotate = 0;
 	if (init_img(game) == FAIL)
 		return (FAIL);
@@ -31,9 +32,21 @@ int	display_all(t_game *game, char key)
 	else if (key == 'a')
 		change_toggle_a(game);
 	len_side = calcul_opposite_side(game, 15, game->fov->angle);
+	
 	game->line->x_dest_prev = game->line->x_dest;
 	game->line->y_dest_prev = game->line->y_dest;
+	(void)flag;
+	if (display_all_reverse_d(game, key, len_side) == FAIL)
+	{
+		// flag = 1;
+		return (FAIL);
+	}
+	else
+		flag = 0;
+	if (display_all_reverse_a(game, key, len_side) == FAIL)
+		return (FAIL);
 	printf("len_side: %i\n", len_side);
+	printf(" X_MAX : %i\n", game->img_size * game->map->width);
 	printf(" BEFORE y_dest: %i\n", game->line->y_dest);
 	printf(" BEFORE x_dest: %i\n", game->line->x_dest);
 	if (game->fov->toggle == 'E' && game->line->x_dest >= game->map->width * game->img_size)
@@ -102,6 +115,7 @@ int	display_all(t_game *game, char key)
 				game->line->x_dest = game->map->pos_x + len_side;
 			else if (key == 'a')
 				game->line->x_dest = game->map->pos_x + len_side;
+			
 		}
 		else if (game->fov->angle < 360 && game->fov->angle > 180)
 		{
@@ -115,7 +129,6 @@ int	display_all(t_game *game, char key)
 	// {
 	//
 	// }
-
 	printf(" AFTER y_dest: %i\n", game->line->y_dest);
 	printf(" AFTER x_dest: %i\n", game->line->x_dest);
 	game->fov->lines_vision[15] = draw_line_vision(game);
