@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_parsing.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:27:05 by ggosse            #+#    #+#             */
-/*   Updated: 2023/07/02 17:27:08 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/06 16:36:10 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,9 @@ void	free_tab_str(char **tab_str)
 	ite_free_two = -1;
 	while (tab_str[++ite_free_two])
 	{
-		// printf("tab_str[ite_free_two]: %p\n", tab_str[ite_free_two]);
 		free(tab_str[ite_free_two]);
 		tab_str[ite_free_two] = NULL;
 	}
-	// printf("tab_str: %p\n", tab_str);
 	free(tab_str);
 	tab_str = NULL;
 }
@@ -95,14 +93,9 @@ void	free_parsing(t_game *game, char *err)
 	free_img(game);
 	if (game->map->tab_file)
 		free_tab_str(game->map->tab_file);
-	// printf("------------------------------\n");
-	// if (game->map->map_tmp)
-	// 	free_tab_str(game->map->map_tmp);
 	if (game->map)
 	{
 		free(game->map);
 		game->map = NULL;
 	}
 }
-
-

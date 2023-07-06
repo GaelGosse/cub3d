@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 09:19:32 by gael              #+#    #+#             */
-/*   Updated: 2023/07/03 14:45:10 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/06 16:36:17 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,6 @@ int	flooding(t_game *game)
 			{
 				count = 0;
 				propagation(game, i_row, i_col, count);
-				// if (propagation(game, i_row, i_col, count) == SUCCESS)
-				// {
-				// 	printf("\033c\n");
-				// 	print_map(game->map->map_tmp);
-				// 	usleep(10000);
-				// }
 			}
 		}
 	}

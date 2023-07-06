@@ -52,6 +52,7 @@ _SRCS	=	beginning.c \
 			free_parsing.c \
 			init_img.c \
 			main.c \
+			move_w_s.c \
 			pixel_and_color.c \
 			player.c \
 			read_file.c \
@@ -60,7 +61,8 @@ _SRCS	=	beginning.c \
 			texture_part.c \
 			texture_part_utils.c \
 			toggle.c \
-			valid_wall.c
+			valid_wall.c \
+			vision.c
 # --------------------------------- end srcs --------------------------------- #
 
 

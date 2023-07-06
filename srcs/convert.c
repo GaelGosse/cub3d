@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 11:55:01 by mael              #+#    #+#             */
-/*   Updated: 2023/06/22 11:55:06 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/06 16:36:38 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 double	deg_to_radian(double deg)
 {
-	double rad;
+	double	rad;
 
 	rad = 0;
 	rad = deg * M_PI / 180;

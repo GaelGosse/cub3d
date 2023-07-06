@@ -6,37 +6,37 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 15:33:07 by mael              #+#    #+#             */
-/*   Updated: 2023/07/05 18:08:55 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/06 16:38:50 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-int	display_all_reverse_d(t_game *game, int key, int len_side)
+int	display_all_reverse_d(t_game *g, int k, int l)
 {
-	if ((game->fov->angle > 0 && game->fov->angle < 90) && key == 'd' && \
-	game->fov->toggle == 'N' && game->map->pos_x + len_side >= game->map->width * game->img_size)
+	if ((g->fov->angle > 0 && g->fov->angle < 90) && k == 'd' && \
+	g->fov->toggle == 'N' && g->map->pos_x + l >= g->map->width * g->img_size)
 	{
-		game->line->x_dest = game->map->pos_x + len_side;
-		return (display_all(game, key), FAIL);
+		g->line->x_dest = g->map->pos_x + l;
+		return (display_all(g, k), FAIL);
 	}
-	if ((game->fov->angle > 90 && game->fov->angle < 180) && key == 'd' && \
-	game->fov->toggle == 'E' && game->map->pos_y + len_side >= game->map->height * game->img_size)
+	if ((g->fov->angle > 90 && g->fov->angle < 180) && k == 'd' && \
+	g->fov->toggle == 'E' && g->map->pos_y + l >= g->map->height * g->img_size)
 	{
-		game->line->y_dest = game->map->pos_y + len_side;
-		return (display_all(game, key), FAIL);
+		g->line->y_dest = g->map->pos_y + l;
+		return (display_all(g, k), FAIL);
 	}
-	if ((game->fov->angle > 180 && game->fov->angle < 270) && key == 'd' && \
-	game->fov->toggle == 'S' && game->map->pos_x - len_side < 0)
+	if ((g->fov->angle > 180 && g->fov->angle < 270) && k == 'd' && \
+	g->fov->toggle == 'S' && g->map->pos_x - l < 0)
 	{
-		game->line->x_dest = 0;
-		return (display_all(game, key), FAIL);
+		g->line->x_dest = 0;
+		return (display_all(g, k), FAIL);
 	}
-	if ((game->fov->angle > 270 && game->fov->angle < 360) && key == 'd' && \
-	game->fov->toggle == 'W' && game->map->pos_y - len_side < 0)
+	if ((g->fov->angle > 270 && g->fov->angle < 360) && k == 'd' && \
+	g->fov->toggle == 'W' && g->map->pos_y - l < 0)
 	{
-		game->line->y_dest = 0;
-		return (display_all(game, key), FAIL);
+		g->line->y_dest = 0;
+		return (display_all(g, k), FAIL);
 	}
 	return (SUCCESS);
 }

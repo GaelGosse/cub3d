@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:45:40 by ggosse            #+#    #+#             */
-/*   Updated: 2023/07/05 20:04:17 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/06 16:29:12 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,6 @@ typedef struct s_map
 typedef struct s_fov
 {
 	int		*lines_vision;
-	int		len_first_line;
 	int		angle;
 	char	toggle;
 }		t_fov;
@@ -265,8 +264,8 @@ void	realloc_lines(t_game *game);
 void	skip_empty_line(char **line, int fd);
 //srcs/draw_line.c
 int		absolute_value(int nb);
-int		draw_line(t_game *game, int x_src, int y_src, int x_dest, int y_dest, int color);
 int		draw_line_vision(t_game *game);
+void	draw_pixel(t_game *game, int toggle, int x_check, int y_check);
 int		init_line(t_game *game);
 //srcs/pixel_and_color.c
 int		get_color(int red, int green, int blue);
@@ -290,8 +289,12 @@ int		ft_destroy_and_free2(t_game *game);
 int		check_env(char **envp);
 int		check_ext(char *filename, char one, char two, char three);
 int		wrong_letter_tx(char *line);
-//srcs/rotate.c
-void	updt_first_line(t_game *game);
+//srcs/move_w_s.c
+int		calcul_corr_for_step(t_game *game);
+void	init_direction_for_s(t_game *game);
+void	init_direction_for_s_2(t_game *game);
+void	move_s(t_game *game);
+void	move_w(t_game *game);
 //srcs/read_file.c
 int		ft_buf_read(int fd, t_game *game);
 int		ft_read_file(t_game *game, char *filename);
@@ -318,12 +321,11 @@ int		flooding(t_game *game);
 int		is_propa_finished(t_game *game);
 int		propagation(t_game *game, int row, int col, int count);
 //srcs/fov.c
-void	calcul_len_first_line(t_game *game);
-int		calcul_opposite_side(t_game *game, int i, double angle);
+int		calcul_opposite_side(t_game *game, double angle);
+int		first_calcul(t_game *game, double angle);
 int		init_fov(t_game *game);
 void	init_position(t_game *game);
-void	move_s(t_game *game);
-void	move_w(t_game *game);
+int		second_calcul(t_game *game, double angle);
 //srcs/build_map_utils.c
 int		check_nbr(char *str);
 int		is_empty_line(char *line);
