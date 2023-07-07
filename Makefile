@@ -44,7 +44,9 @@ _SRCS	=	beginning.c \
 			build_map_utils.c \
 			check_file.c \
 			convert.c \
+			display_all.c \
 			display_all_reverse.c \
+			display_all_utils.c \
 			draw_line.c \
 			flooding.c \
 			floor_ceil_part.c \

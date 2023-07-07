@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:35:04 by mael              #+#    #+#             */
-/*   Updated: 2023/07/06 16:37:03 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/07 15:02:32 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ int	ft_event_listen(int key, t_game *game)
 		else
 			move_w(game);
 		reset_img(game);
-		printf(BACK_PURPLE"angle: %i"RST"\n", game->fov->angle);
 		display_all(game, 'w');
 	}
 	else if (key == XK_s)
@@ -86,7 +85,6 @@ int	ft_event_listen(int key, t_game *game)
 		else
 			move_s(game);
 		reset_img(game);
-		printf(BACK_PURPLE"angle: %i"RST"\n", game->fov->angle);
 		display_all(game, 's');
 	}
 	else if (key == XK_a)
@@ -95,7 +93,6 @@ int	ft_event_listen(int key, t_game *game)
 		if (game->fov->angle < 0)
 			game->fov->angle = game->fov->angle + 360;
 		reset_img(game);
-		printf(BACK_PURPLE"angle: %i"RST"\n", game->fov->angle);
 		display_all(game, 'a');
 	}
 	else if (key == XK_d)
@@ -103,9 +100,7 @@ int	ft_event_listen(int key, t_game *game)
 		game->fov->angle += 5;
 		if (game->fov->angle >= 360)
 			game->fov->angle = game->fov->angle % 360;
-		printf(" angle: %i\n", game->fov->angle);
 		reset_img(game);
-		printf(BACK_PURPLE"angle: %i"RST"\n", game->fov->angle);
 		display_all(game, 'd');
 	}
 	return (0);

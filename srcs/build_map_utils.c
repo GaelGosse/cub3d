@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   build_map_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 08:35:01 by gael              #+#    #+#             */
-/*   Updated: 2023/07/04 11:31:52 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/07 15:02:36 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ void	set_width(t_game *game)
 		i_big++;
 	}
 	game->map->width = max;
-	printf(PURPLE"game->map->width: %i"RESET"\n", game->map->width);
 }
 
 int	check_nbr(char *str)
