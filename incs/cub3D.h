@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   incs/cub3D.h                                       :+:      :+:    :+:   */
+/*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:45:40 by ggosse            #+#    #+#             */
-/*   Updated: 2023/07/07 15:21:34 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/08 10:52:39 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -231,5 +231,9 @@ int		check_ceil_content(t_game *game, char **color);
 int		check_floor(t_game *game, char *line);
 int		check_floor_content(t_game *game, char **color);
 int		floor_ceil_part(t_game *game, char *line);
+//srcs/vision.c
+void	vision(t_game *game, int save, int save_2);
+int	calcul_op_side_for_vison(t_game *game, int i);
+void	toggle_vision(t_game *game, int op_side);
 
 #endif

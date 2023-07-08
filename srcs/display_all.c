@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_all.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 11:04:13 by gael              #+#    #+#             */
-/*   Updated: 2023/07/07 15:22:01 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/07 19:58:26 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ int	display_all(t_game *game, char key)
 {
 	int len_side;
 	int i_rotate;
-
+	int save;
+	int save_2;
+	
 	i_rotate = 0;
 	if (init_display_all(game, key, &len_side) == FAIL)
 		return (FAIL);
@@ -29,7 +31,12 @@ int	display_all(t_game *game, char key)
 	else if (game->fov->toggle == 'N' && game->line->y_dest <= 0)
 		set_dest_n(game, key, len_side);
 	move_straight(game);
-	game->fov->lines_vision[15] = draw_line_vision(game);
+	game->fov->lines_vision[0] = draw_line_vision(game);
+	save = game->line->x_dest;
+	save_2 = game->line->y_dest;
+	vision(game, save, save_2);
+	game->line->x_dest = save;
+	game->line->y_dest = save_2;
 	mlx_put_image_to_window(game->mlibx, game->window, game->img->mlx_img, 0, 0);
 	(void)i_rotate;
 	return (SUCCESS);
