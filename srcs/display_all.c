@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 11:04:13 by gael              #+#    #+#             */
-/*   Updated: 2023/07/10 13:35:10 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/10 13:47:16 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,6 @@ int	display_all(t_game *game, char key)
 			game->line->y_dest = game->map->height * game->img_size;
 		}
 		printf(RED"abs(%i + %i): %i"RESET"\t", angle, 2 * i_rotate, abs(180 - angle - (2 * i_rotate)));
-		printf(RED"abs(%i + %i): %f"RESET"\t", angle, 2 * i_rotate, deg_to_radian(abs(180 - angle - (2 * i_rotate))));
 		printf(BOLD_RED"game->line->x_dest: %i"RESET"\t\t", game->line->x_dest);
 		printf(BOLD_RED"game->line->y_dest: %i"RESET"\t\t", game->line->y_dest);
 		printf(RED"len_vision: %i"RESET"\n", len_vision);
