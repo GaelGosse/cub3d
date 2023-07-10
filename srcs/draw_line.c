@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_line.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 16:34:58 by mael              #+#    #+#             */
-/*   Updated: 2023/07/06 16:34:59 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/10 11:04:08 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	init_line(t_game *game)
 	if (!game->line)
 		return (printf("Malloc failed\n"), FAIL);
 	game->line->dx = 0;
-	game->line->dy = 0; 
+	game->line->dy = 0;
 	game->line->steps = 0;
 	game->line->xite = 0;
 	game->line->yite = 0;
@@ -42,7 +42,7 @@ int	init_line(t_game *game)
 	return (SUCCESS);
 }
 
-void	draw_pixel(t_game *game, int toggle, int x_check, int y_check)
+void	draw_pixel(t_game *game, int toggle, int x_check, int y_check, int color)
 {
 	int i;
 
@@ -52,12 +52,12 @@ void	draw_pixel(t_game *game, int toggle, int x_check, int y_check)
 		if (toggle == FAIL && i == 0 && round(game->line->corr_x) > 0 && \
 		round(game->line->corr_y) > 0)
 			img_pix_put(game, round(game->line->corr_x), \
-			round(game->line->corr_y), get_color(255, 255, 0));
+			round(game->line->corr_y), color);
 		else if (toggle == FAIL && i > 0 && round(game->line->corr_x) > 0 && \
 		round(game->line->corr_y) > 0 && \
 		game->map->map_org[y_check][x_check] != '1')
 			img_pix_put(game, round(game->line->corr_x), \
-			round(game->line->corr_y), get_color(255, 255, 0));
+			round(game->line->corr_y), color);
 		game->line->corr_x = game->line->corr_x + game->line->xite;
 		game->line->corr_y = game->line->corr_y + game->line->yite;
 		y_check = (int)(game->line->corr_y / game->img_size);
@@ -71,7 +71,7 @@ void	draw_pixel(t_game *game, int toggle, int x_check, int y_check)
 }
 
 
-int	draw_line_vision(t_game *game)
+int	draw_line_vision(t_game *game, int color)
 {
 	double len;
 	int	toggle;
@@ -92,7 +92,7 @@ int	draw_line_vision(t_game *game)
 	game->line->yite = game->line->dy / (float)game->line->steps;
 	game->line->corr_x = game->line->x_src;
 	game->line->corr_y = game->line->y_src;
-	draw_pixel(game, toggle, x_check, y_check);
+	draw_pixel(game, toggle, x_check, y_check, color);
 	len = sqrt(pow(game->line->corr_x - game->line->x_src, 2) + \
 	pow(game->line->corr_y - game->line->y_src, 2));
 	return (len);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3D.h                                            :+:      :+:    :+:   */
+/*   incs/cub3D.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:45:40 by ggosse            #+#    #+#             */
-/*   Updated: 2023/07/08 10:52:39 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/10 13:28:34 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,8 +114,6 @@ typedef struct s_game
 	void	*mlibx;
 	void	*window;
 	t_map	*map;
-	//t_img	***tab_img;
-	//t_img	*square;
 	t_img	*img;
 	t_line	*line;
 	t_fov	*fov;
@@ -133,7 +131,6 @@ void	img_pix_put(t_game *game, int x, int y, int color);
 void	img_pix_put_2(t_game *game, int x, int y, int color);
 //srcs/start_3D.c
 void	color_image(t_game *game);
-int		display_all(t_game *game, char key);
 void	do_quad(t_game *game, int i, int j);
 void	fill_void(t_game *game, int i, int j);
 void	fill_wall(t_game *game, int i, int j);
@@ -142,8 +139,8 @@ void	reset_img(t_game *game);
 int		start_3D(t_game *game);
 //srcs/draw_line.c
 int		absolute_value(int nb);
-int		draw_line_vision(t_game *game);
-void	draw_pixel(t_game *game, int toggle, int x_check, int y_check);
+int		draw_line_vision(t_game *game, int color);
+void	draw_pixel(t_game *game, int toggle, int x_check, int y_check, int color);
 int		init_line(t_game *game);
 //srcs/free_parsing.c
 void	free_img(t_game *game);
@@ -168,7 +165,7 @@ int		check_perso(t_game *game);
 int		hole_in_wall(t_game *game);
 int		is_fault(t_game *game, int row, int col);
 //srcs/convert.c
-double deg_to_radian(double deg);
+double	deg_to_radian(double deg);
 //srcs/rotate.c
 void	t(void);
 //srcs/build_map.c
@@ -198,6 +195,7 @@ int		check_so(t_game *game, char *line);
 int		check_we(t_game *game, char *line);
 int		texture_part(t_game *game, char *line);
 //srcs/display_all.c
+int		display_all(t_game *game, char key);
 void	set_dest_e(t_game *game, int key, int len_side);
 void	set_dest_n(t_game *game, int key, int len_side);
 void	set_dest_s(t_game *game, int key, int len_side);
@@ -231,9 +229,6 @@ int		check_ceil_content(t_game *game, char **color);
 int		check_floor(t_game *game, char *line);
 int		check_floor_content(t_game *game, char **color);
 int		floor_ceil_part(t_game *game, char *line);
-//srcs/vision.c
-void	vision(t_game *game, int save, int save_2);
-int	calcul_op_side_for_vison(t_game *game, int i);
-void	toggle_vision(t_game *game, int op_side);
+//test.c
 
 #endif

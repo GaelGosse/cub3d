@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:35:04 by mael              #+#    #+#             */
-/*   Updated: 2023/07/07 15:02:32 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/09 00:34:54 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	draw_player(t_game *game)
 }
 int	ft_event_listen(int key, t_game *game)
 {
+	printf("\033c\n");
 	if (key == 65307)
 		ft_destroy_and_free(game, NULL);
 	if (key == XK_w)
