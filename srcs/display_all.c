@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 11:04:13 by gael              #+#    #+#             */
-/*   Updated: 2023/07/10 13:47:16 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/10 13:52:33 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	display_all(t_game *game, char key)
 	angle = game->fov->angle;
 	len_vision = 0;
 	i_rotate = 1;
-	if (angle > 180)
+	if (angle > 270)
 		angle = abs(angle - 360);
 	printf(GREEN"game->fov->angle: %i"RESET"\n", game->fov->angle);
 	printf(GREEN"angle: %i"RESET"\n", angle);
@@ -81,13 +81,13 @@ int	display_all(t_game *game, char key)
 		{
 			printf(GREEN"150 - 240"RESET"\n");
 			len_vision = tan(deg_to_radian(abs(180 - angle - (2 * i_rotate)))) * (game->map->height * game->img_size - game->map->pos_y);
-			if (angle - (2 * i_rotate) > 0)
+			if (180 - angle - (2 * i_rotate) > 0)
 				game->line->x_dest = game->map->pos_x + len_vision;
 			else
 				game->line->x_dest = game->map->pos_x - len_vision;
 			game->line->y_dest = game->map->height * game->img_size;
 		}
-		printf(RED"abs(%i + %i): %i"RESET"\t", angle, 2 * i_rotate, abs(180 - angle - (2 * i_rotate)));
+		printf(RED"(%i + %i): %i"RESET"\t", angle, 2 * i_rotate, (180 - angle - (2 * i_rotate)));
 		printf(BOLD_RED"game->line->x_dest: %i"RESET"\t\t", game->line->x_dest);
 		printf(BOLD_RED"game->line->y_dest: %i"RESET"\t\t", game->line->y_dest);
 		printf(RED"len_vision: %i"RESET"\n", len_vision);
