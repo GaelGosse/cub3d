@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:52:12 by mael              #+#    #+#             */
-/*   Updated: 2023/07/09 00:34:40 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/11 08:52:40 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	fill_wall(t_game *game, int i, int j)
 		x = j * game->img_size;
 		while (x < (j + 1) * game->img_size)
 		{
-			img_pix_put(game, x, y, get_color(255, 0, 230));
+			img_pix_put(game, x, y, get_color(0, 120, 255));
 			x++;
 		}
 		y++;
