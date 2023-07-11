@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 16:34:58 by mael              #+#    #+#             */
-/*   Updated: 2023/07/10 11:04:08 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/11 12:10:13 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,26 @@ void	draw_pixel(t_game *game, int toggle, int x_check, int y_check, int color)
 		if (y_check >= 0 && x_check >= 0 && x_check < game->map->width && \
 		y_check < game->map->height && \
 		game->map->map_org[y_check][x_check] == '1')
+			toggle = SUCCESS;
+		if ((game->fov->angle >= 180 && game->fov->angle < 270) && toggle == FAIL \
+		&& game->map->map_org[y_check - 1][x_check] == '1'
+		&& game->map->map_org[y_check][x_check + 1] == '1' \
+		&& (game->map->map_org[y_check - 1][x_check + 1] == '0'))
+			toggle = SUCCESS;
+		if ((game->fov->angle >= 270 && game->fov->angle < 360) && toggle == FAIL \
+		&& game->map->map_org[y_check + 1][x_check] == '1' \
+		&& game->map->map_org[y_check][x_check + 1] == '1' \
+		&& (game->map->map_org[y_check + 1][x_check + 1] == '0'))
+			toggle = SUCCESS;
+		if ((game->fov->angle >= 0 && game->fov->angle < 90) && toggle == FAIL \
+		&& game->map->map_org[y_check + 1][x_check] == '1' \
+		&& game->map->map_org[y_check][x_check - 1] == '1' \
+		&& (game->map->map_org[y_check + 1][x_check - 1] == '0'))
+			toggle = SUCCESS;
+		if ((game->fov->angle >= 90 && game->fov->angle < 180) && toggle == FAIL \
+		&& game->map->map_org[y_check - 1][x_check] == '1' \
+		&& game->map->map_org[y_check][x_check - 1] == '1' \
+		&& (game->map->map_org[y_check - 1][x_check - 1] == '0'))
 			toggle = SUCCESS;
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:45:40 by ggosse            #+#    #+#             */
-/*   Updated: 2023/07/10 13:28:34 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/11 11:30:21 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -229,6 +229,8 @@ int		check_ceil_content(t_game *game, char **color);
 int		check_floor(t_game *game, char *line);
 int		check_floor_content(t_game *game, char **color);
 int		floor_ceil_part(t_game *game, char *line);
+//srcs/check_format.c
+void	check_corner(t_game *game);
 //test.c
 
 #endif

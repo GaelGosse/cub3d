@@ -43,6 +43,7 @@ _SRCS	=	beginning.c \
 			build_map.c \
 			build_map_utils.c \
 			check_file.c \
+			check_format.c \
 			convert.c \
 			display_all.c \
 			display_all_reverse.c \
