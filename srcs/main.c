@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:15:08 by ggosse            #+#    #+#             */
-/*   Updated: 2023/07/11 12:13:30 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/11 15:23:25 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,6 @@ int	main(int argc, char **argv, char **envp)
 		return (FAIL);
 	if (start_3D(&game) == FAIL)
 		return (FAIL);
-
 
 	// ft_create_game(&game);
 	free_parsing(&game, NULL);

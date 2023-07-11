@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:52:12 by mael              #+#    #+#             */
-/*   Updated: 2023/07/11 08:52:40 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/11 15:14:07 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,22 @@ int	first_time(t_game *game)
 
 int	start_3D(t_game *game)
 {
+	int	win_width;
+	int	win_height;
+
+	win_height = 0;
+	win_width = 0;
 	game->img_size = 48;
 	game->mlibx = mlx_init();
 	if (!game->mlibx)
 		return (printf("mlx pointer issue\n"), FAIL);
 	// game->map->width++;
-	game->window = mlx_new_window(game->mlibx, (game->map->width) * game->img_size,
-		game->map->height * game->img_size, "cub3D");
+	if ((game->map->width * game->img_size) < 600)
+		win_width = 900;
+	else
+		win_width = game->map->width * game->img_size;
+	win_height = (game->map->height * game->img_size) + 700;
+	game->window = mlx_new_window(game->mlibx, win_width, win_height, "cub3D");
 	if (!game->window)
 		return (printf("Window failed\n"), FAIL);
 	if (first_time(game) == FAIL)

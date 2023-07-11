@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:45:40 by ggosse            #+#    #+#             */
-/*   Updated: 2023/07/11 11:30:21 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/11 16:08:45 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,8 +103,10 @@ typedef struct s_fov
 {
 	int		*lines_vision;
 	int		angle;
+	int		nbr_ray;
+	float	deg;
 	char	toggle;
-}		t_fov;
+}			t_fov;
 
 typedef struct s_game
 {
@@ -140,7 +142,7 @@ int		start_3D(t_game *game);
 //srcs/draw_line.c
 int		absolute_value(int nb);
 int		draw_line_vision(t_game *game, int color);
-void	draw_pixel(t_game *game, int toggle, int x_check, int y_check, int color);
+int		draw_pixel(t_game *game, int toggle, int x_check, int y_check, int color);
 int		init_line(t_game *game);
 //srcs/free_parsing.c
 void	free_img(t_game *game);
@@ -148,6 +150,8 @@ void	free_parsing(t_game *game, char *err);
 void	free_tab_str(char **tab_str);
 int		ft_destroy_and_free(t_game *game, char *err);
 int		ft_destroy_and_free2(t_game *game);
+//srcs/display_3d.c
+int		display_3d(t_game *game);
 //srcs/display_all_reverse.c
 int		display_all_reverse_a(t_game *game, int key, int len_side);
 int		display_all_reverse_d(t_game *g, int k, int l);

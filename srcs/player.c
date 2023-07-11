@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:35:04 by mael              #+#    #+#             */
-/*   Updated: 2023/07/09 00:34:54 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/11 15:22:21 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	set_pos_character(t_game *game)
 			if (game->map->map_org[y][x] == 'W' || game->map->map_org[y][x] == 'E'
 				|| game->map->map_org[y][x] == 'N' || game->map->map_org[y][x] == 'S')
 			{
-				game->map->pos_x = (x * game->img_size) + (game->img_size);
-				game->map->pos_y = (y * game->img_size) + (game->img_size);
+				game->map->pos_x = (x * game->img_size) + (game->img_size / 2);
+				game->map->pos_y = (y * game->img_size) + (game->img_size / 2);
 			}
 			x++;
 		}
@@ -55,7 +55,7 @@ void	draw_player(t_game *game)
 }
 int	ft_event_listen(int key, t_game *game)
 {
-	printf("\033c\n");
+	// printf("\033c\n");
 	if (key == 65307)
 		ft_destroy_and_free(game, NULL);
 	if (key == XK_w)

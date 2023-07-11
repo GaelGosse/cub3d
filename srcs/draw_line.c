@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 16:34:58 by mael              #+#    #+#             */
-/*   Updated: 2023/07/11 12:10:13 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/11 15:51:35 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,24 +41,32 @@ int	init_line(t_game *game)
 	game->line->y_dest_prev = 0;
 	return (SUCCESS);
 }
-
-void	draw_pixel(t_game *game, int toggle, int x_check, int y_check, int color)
+int	draw_pixel(t_game *game, int toggle, int x_check, int y_check, int color)
 {
-	int i;
+	int	i;
+	int	len;
 
+	len = 0;
 	i = 0;
 	while (i <= game->line->steps)
 	{
 		if (toggle == FAIL && i == 0 && round(game->line->corr_x) > 0 && \
 		round(game->line->corr_y) > 0)
+		{
+			//len++;
 			img_pix_put(game, round(game->line->corr_x), \
 			round(game->line->corr_y), color);
+		}
 		else if (toggle == FAIL && i > 0 && round(game->line->corr_x) > 0 && \
 		round(game->line->corr_y) > 0 && \
 		game->map->map_org[y_check][x_check] != '1')
+		{
+			//len++;
 			img_pix_put(game, round(game->line->corr_x), \
 			round(game->line->corr_y), color);
+		}
 		game->line->corr_x = game->line->corr_x + game->line->xite;
+		printf(PURPLE"game->line->xite: %f"RESET"\n", game->line->xite);
 		game->line->corr_y = game->line->corr_y + game->line->yite;
 		y_check = (int)(game->line->corr_y / game->img_size);
 		x_check = (int)(game->line->corr_x / game->img_size);
@@ -86,8 +94,13 @@ void	draw_pixel(t_game *game, int toggle, int x_check, int y_check, int color)
 		&& game->map->map_org[y_check][x_check - 1] == '1' \
 		&& (game->map->map_org[y_check - 1][x_check - 1] == '0'))
 			toggle = SUCCESS;
+		if (toggle == SUCCESS)
+			return (FAIL);
 		i++;
 	}
+	return (SUCCESS);
+	(void)len;
+	//return (len);
 }
 
 
@@ -113,8 +126,7 @@ int	draw_line_vision(t_game *game, int color)
 	game->line->corr_x = game->line->x_src;
 	game->line->corr_y = game->line->y_src;
 	draw_pixel(game, toggle, x_check, y_check, color);
-	len = sqrt(pow(game->line->corr_x - game->line->x_src, 2) + \
-	pow(game->line->corr_y - game->line->y_src, 2));
+	len = sqrt(pow(game->line->corr_x - game->line->x_src, 2) + pow(game->line->corr_y - game->line->y_src, 2));
 	return (len);
 }
 

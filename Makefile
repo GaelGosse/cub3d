@@ -39,12 +39,12 @@ LIBDIR	= libft
 
 
 # ----------------------------------- srcs ----------------------------------- #
-_SRCS	=	beginning.c \
-			build_map.c \
+_SRCS	=	build_map.c \
 			build_map_utils.c \
 			check_file.c \
 			check_format.c \
 			convert.c \
+			display_3d.c \
 			display_all.c \
 			display_all_reverse.c \
 			display_all_utils.c \
@@ -64,8 +64,7 @@ _SRCS	=	beginning.c \
 			texture_part.c \
 			texture_part_utils.c \
 			toggle.c \
-			valid_wall.c \
-			vision.c
+			valid_wall.c
 # --------------------------------- end srcs --------------------------------- #
 
 
