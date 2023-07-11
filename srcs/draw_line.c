@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_line.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 16:34:58 by mael              #+#    #+#             */
-/*   Updated: 2023/07/11 15:51:35 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/11 16:26:44 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ int	draw_pixel(t_game *game, int toggle, int x_check, int y_check, int color)
 			round(game->line->corr_y), color);
 		}
 		game->line->corr_x = game->line->corr_x + game->line->xite;
-		printf(PURPLE"game->line->xite: %f"RESET"\n", game->line->xite);
 		game->line->corr_y = game->line->corr_y + game->line->yite;
 		y_check = (int)(game->line->corr_y / game->img_size);
 		x_check = (int)(game->line->corr_x / game->img_size);

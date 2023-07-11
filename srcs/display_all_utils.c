@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_all_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 11:54:00 by gael              #+#    #+#             */
-/*   Updated: 2023/07/07 12:01:19 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/11 17:09:44 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int	init_display_all(t_game *game, int key, int *len_side)
 	draw_player(game);
 	game->line->x_src = game->map->pos_x;
 	game->line->y_src = game->map->pos_y;
-	if (key == 'd')
+	if (key == 65363)
 		change_toggle_d(game);
-	else if (key == 'a')
+	else if (key == 65361)
 		change_toggle_a(game);
 	*len_side = calcul_opposite_side(game, game->fov->angle);
 	game->line->x_dest_prev = game->line->x_dest;
