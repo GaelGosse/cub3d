@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:35:52 by mael              #+#    #+#             */
-/*   Updated: 2023/07/11 17:43:26 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/12 11:41:17 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ int	calcul_corr_for_step(t_game *game)
 	i = 0;
 	while (i <= game->line->steps)
 	{
-		game->line->corr_x = game->line->corr_x + game->line->xite;
-		game->line->corr_y = game->line->corr_y + game->line->yite;
 		if (game->map->map_org[(int)(round(game->line->corr_y) / \
 			game->img_size)][(int)(round(game->line->corr_x) / \
 			game->img_size)] == '1')
 			return (1);
+		game->line->corr_x = game->line->corr_x + game->line->xite;
+		game->line->corr_y = game->line->corr_y + game->line->yite;
 		if (i == 10)
 			break ;
 		i++;

@@ -6,13 +6,22 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 16:34:58 by mael              #+#    #+#             */
-/*   Updated: 2023/07/11 16:26:44 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/12 13:40:40 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/cub3D.h"
 
 int	absolute_value(int nb)
+{
+	if (nb == 0)
+		return (nb);
+	else if (nb < 0)
+		nb = nb * (-1);
+	return (nb);
+}
+
+float	abs_flt(float nb)
 {
 	if (nb == 0)
 		return (nb);

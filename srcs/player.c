@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:35:04 by mael              #+#    #+#             */
-/*   Updated: 2023/07/11 17:34:40 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/12 16:06:43 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,7 @@ void	draw_player(t_game *game)
 }
 int	ft_event_listen(int key, t_game *game)
 {
-	// printf("\033c\n");
-	printf(BACK_PURPLE"key: %i"RST"\n", key);
+	printf("\033c");
 	if (key == 65307)
 		ft_destroy_and_free(game, NULL);
 	if (key == XK_w)
@@ -107,16 +106,19 @@ int	ft_event_listen(int key, t_game *game)
 	}
 	else if (key == XK_a)
 	{
-		if (game->map->map_org[game->map->pos_y - 15 / game->img_size][(game->map->pos_x) / game->img_size] != '1' && game->fov->angle == 90)
+		if (game->map->map_org[(game->map->pos_y - 15) / game->img_size][(game->map->pos_x) / game->img_size] != '1' && game->fov->angle == 90)
 			game->map->pos_y -= 10;
 		else if (game->map->map_org[(game->map->pos_y) / game->img_size][(game->map->pos_x - 15) / game->img_size] != '1' && game->fov->angle == 0)
 			game->map->pos_x -= 10;
-		else if (game->map->map_org[game->map->pos_y + 15 / game->img_size][(game->map->pos_x) / game->img_size] != '1' &&  game->fov->angle == 270)
+		else if (game->map->map_org[(game->map->pos_y + 15) / game->img_size][(game->map->pos_x) / game->img_size] != '1' &&  game->fov->angle == 270)
 			game->map->pos_y += 10;
 		else if (game->map->map_org[(game->map->pos_y) / game->img_size][(game->map->pos_x + 15) / game->img_size] != '1' && game->fov->angle == 180)
 			game->map->pos_x += 10;
 		else
 		{
+			int	new_x;
+			int	new_y;
+
 			if (absolute_value(game->line->dx) > absolute_value(game->line->dy))
 				game->line->steps = absolute_value(game->line->dx);
 			else
@@ -127,29 +129,32 @@ int	ft_event_listen(int key, t_game *game)
 			game->line->corr_y = game->line->y_src;
 			if (calcul_corr_for_step(game) == 1)
 				return (FAIL);
-			int	new_x;
-			int	new_y;
-
 			new_x = round(game->line->corr_x) - game->map->pos_x;
 			new_y = round(game->line->corr_y) - game->map->pos_y;
-			game->map->pos_x += new_y;
-			game->map->pos_y += ((-1) * new_x);
+			if (game->map->map_org[(game->map->pos_y + ((-1) * new_x)) / game->img_size][(game->map->pos_x + new_y) / game->img_size] != '1')
+			{
+				game->map->pos_x += new_y;
+				game->map->pos_y += ((-1) * new_x);
+			}
 		}
 		reset_img(game);
 		display_all(game, (int)'a');
 	}
 	else if (key == XK_d)
 	{
-		if (game->map->map_org[game->map->pos_y + 15 / game->img_size][(game->map->pos_x) / game->img_size] != '1' && game->fov->angle == 90)
+		if (game->map->map_org[(game->map->pos_y + 15) / game->img_size][(game->map->pos_x) / game->img_size] != '1' && game->fov->angle == 90)
 			game->map->pos_y += 10;
 		else if (game->map->map_org[(game->map->pos_y) / game->img_size][(game->map->pos_x + 15) / game->img_size] != '1' && game->fov->angle == 0)
 			game->map->pos_x += 10;
-		else if (game->map->map_org[game->map->pos_y - 15 / game->img_size][(game->map->pos_x) / game->img_size] != '1' &&  game->fov->angle == 270)
+		else if (game->map->map_org[(game->map->pos_y - 15) / game->img_size][(game->map->pos_x) / game->img_size] != '1' &&  game->fov->angle == 270)
 			game->map->pos_y -= 10;
 		else if (game->map->map_org[(game->map->pos_y) / game->img_size][(game->map->pos_x - 15) / game->img_size] != '1' && game->fov->angle == 180)
 			game->map->pos_x -= 10;
 		else
 		{
+			int	new_x;
+			int	new_y;
+
 			if (absolute_value(game->line->dx) > absolute_value(game->line->dy))
 				game->line->steps = absolute_value(game->line->dx);
 			else
@@ -160,16 +165,16 @@ int	ft_event_listen(int key, t_game *game)
 			game->line->corr_y = game->line->y_src;
 			if (calcul_corr_for_step(game) == 1)
 				return (FAIL);
-			int	new_x;
-			int	new_y;
-
 			new_x = round(game->line->corr_x) - game->map->pos_x;
 			new_y = round(game->line->corr_y) - game->map->pos_y;
-			game->map->pos_x += ((-1) * new_y);
-			game->map->pos_y += new_x;
+			if (game->map->map_org[(game->map->pos_y + new_x) / game->img_size][(game->map->pos_x + ((-1) * new_y)) / game->img_size] != '1')
+			{
+				game->map->pos_x += ((-1) * new_y);
+				game->map->pos_y += new_x;
+			}
 		}
 		reset_img(game);
-		display_all(game, 'd');
+		display_all(game, (int)'d');
 	}
 	return (0);
 }
