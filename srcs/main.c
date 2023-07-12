@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:15:08 by ggosse            #+#    #+#             */
-/*   Updated: 2023/07/11 18:01:47 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/12 21:54:16 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ int	main(int argc, char **argv, char **envp)
 		return (ft_putstr_fd("Error\nyou must called one arg\n", 2), 1);
 	game.map = malloc(sizeof(t_map));
 	if (!game.map)
-		return (FAIL);
+		return (printf("game map alloc failed\n"), FAIL);
 	init_struct(&game);
 	if (ft_parsing(&game, argv) == FAIL)
 		return (FAIL);

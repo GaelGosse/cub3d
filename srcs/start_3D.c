@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_3D.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:52:12 by mael              #+#    #+#             */
-/*   Updated: 2023/07/14 12:22:41 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/12 22:17:12 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ int	start_3D(t_game *game)
 	if (!game->mlibx)
 		return (printf("mlx pointer issue\n"), FAIL);
 	// game->map->width++;
-	if ((game->map->width * game->img_size) < 1200)
-		game->win_width = 1200;
+	if ((game->map->width * game->img_size) < 600)
+		game->win_width = 600;
 	else
 		game->win_width = game->map->width * game->img_size;
 	game->win_height = 700;

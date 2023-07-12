@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_all.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 11:04:13 by gael              #+#    #+#             */
-/*   Updated: 2023/07/14 15:05:43 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/12 22:04:01 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@ int	display_all(t_game *game, int key)
 		set_dest_n(game, key, len_side);
 	move_straight(game);
 	game->fov->lines_vision[game->fov->nbr_ray / 2] = draw_line_vision(game, get_color(0, 255, 0));
+	game->fov->wall[game->fov->nbr_ray / 2][0] = game->line->corr_x / game->img_size;
+	game->fov->wall[game->fov->nbr_ray / 2][1] = game->line->corr_y / game->img_size;
+	printf(BACK_PURPLE"game->fov->wall[game->fov->nbr_ray / 2][0] = game->line->corr_x / game->img_size: %i"RST"\n", game->fov->wall[game->fov->nbr_ray / 2][0] = game->line->corr_x / game->img_size);
+	printf(BACK_PURPLE"game->fov->wall[game->fov->nbr_ray / 2][1] = game->line->corr_y / game->img_size: %i"RST"\n", game->fov->wall[game->fov->nbr_ray / 2][1] = game->line->corr_y / game->img_size);
 	int	len_vision;
 	int	angle;
 	int	save_x;
@@ -157,7 +161,49 @@ int	display_all(t_game *game, int key)
 
 		game->fov->lines_vision[i_rotate + game->fov->nbr_ray / 2] = draw_line_vision(game, get_color(0, 255 / (game->fov->nbr_ray / 2) * ((game->fov->nbr_ray / 2) - i_rotate), 255));
 		game->fov->lines_vision[i_rotate + game->fov->nbr_ray / 2] = abs_flt(cos(deg_to_radian(game->fov->deg * i_rotate))) * game->fov->lines_vision[i_rotate + game->fov->nbr_ray / 2];
+		// printf(BACK_PURPLE"game->line->corr_x[%i] / game->img_size: %f"RST"\n\n", i_rotate + game->fov->nbr_ray / 2, round(game->line->corr_x / game->img_size));
+		// printf(BACK_PURPLE"game->line->corr_y[%i] / game->img_size: %f"RST"\n\n", i_rotate + game->fov->nbr_ray / 2, round(game->line->corr_y / game->img_size));
+		int corr_y = round(game->line->corr_y);
+		int corr_x = round(game->line->corr_x);
+		int s = 0;
+		int e = 0;
+		int w = 0;
+		int n = 0;
 		
+		if (game->map->map_org[(corr_y - 1) / game->img_size][corr_x / game->img_size] == '1')
+			s++;
+		if (game->map->map_org[(corr_y + 1) / game->img_size][corr_x / game->img_size] == '1')
+			n++;
+		if (game->map->map_org[(corr_y) / game->img_size][(corr_x + 1) / game->img_size] == '1')
+			w++;
+		if (game->map->map_org[(corr_y) / game->img_size][(corr_x - 1) / game->img_size] == '1')
+			e++;
+		// printf(BACK_PURPLE"n: %i"RST"\n", n);
+		// printf(BACK_PURPLE"s: %i"RST"\n", s);
+		// printf(BACK_PURPLE"e: %i"RST"\n", e);
+		// printf(BACK_PURPLE"w: %i"RST"\n", w);
+		
+		if (n > s && (game->fov->toggle != 'N'))//(game->fov->toggle == 'S' || game->fov->toggle == 'W'))
+		{
+			game->fov->toggle_vision[i_rotate + game->fov->nbr_ray / 2] = 'N';
+			// printf("%i: Mon toggle est nord\n\n", i_rotate + game->fov->nbr_ray / 2);
+		}
+		else if (s > n && (game->fov->toggle != 'S')) //(game->fov->toggle == 'N' || game->fov->toggle == 'E'))
+		{
+			game->fov->toggle_vision[i_rotate + game->fov->nbr_ray / 2] = 'S';
+			// printf("%i: Mon toggle est sud\n\n", i_rotate + game->fov->nbr_ray / 2);
+		}
+		else if (e > w && game->fov->toggle != 'E') //(game->fov->toggle == 'W' || game->fov->toggle == 'N'))
+		{
+			game->fov->toggle_vision[i_rotate + game->fov->nbr_ray / 2] = 'E';
+			// printf("%i: Mon toggle est ESt\n\n", i_rotate + game->fov->nbr_ray / 2);
+		}
+		else if (w > e && game->fov->toggle != 'W') //(game->fov->toggle == 'E' || game->fov->toggle == 'S'))
+		{
+			game->fov->toggle_vision[i_rotate + game->fov->nbr_ray / 2] = 'W';
+			// printf("%i: Mon toggle est ouest\n\n", i_rotate + game->fov->nbr_ray / 2);
+		}
+		//printf(BACK_RED"game->fov->toggle_vision[%i] = : %i"RST"\n", i_rotate + game->fov->nbr_ray / 2, game->fov->toggle_vision[i_rotate + game->fov->nbr_ray / 2]);
 		i_rotate++;
 	}
 	int	save_src_x;

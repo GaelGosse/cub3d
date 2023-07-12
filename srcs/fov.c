@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fov.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 16:47:24 by mael              #+#    #+#             */
-/*   Updated: 2023/07/14 15:03:45 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/12 22:18:35 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	init_fov(t_game *game)
 	if (!game->fov)
 		return (printf("Init fov failed \n"), FAIL);
 	game->fov->nbr_ray = 60;
+	// game->fov->angle_view = 60;
 	game->fov->deg = 60 / game->fov->nbr_ray;
 	// game->fov->proj_plane = (game->win_height / 2) / tan(deg_to_radian(30));
 	game->fov->proj_plane = 300;
@@ -37,6 +38,27 @@ int	init_fov(t_game *game)
 		i++;
 	}
 	game->fov->toggle = game->perso;
+	init_fov_wall(game);
+	return (SUCCESS);
+}
+
+int	init_fov_wall(t_game *game)
+{
+	int i;
+	
+	i = 0;
+	game->fov->wall = malloc(sizeof(int *) * game->fov->nbr_ray);
+	if (!game->fov->wall)
+		return (printf("init_wall double failed\n"), FAIL);
+	while (i <= game->fov->nbr_ray)
+	{
+		game->fov->wall[i] = malloc(sizeof(int) * 2);
+		if (!game->fov->wall[i])
+			return (printf("init_wall simple failed\n"), FAIL);
+		game->fov->wall[i][0] = FAIL;
+		game->fov->wall[i][1] = FAIL;
+		i++;
+	}
 	return (SUCCESS);
 }
 

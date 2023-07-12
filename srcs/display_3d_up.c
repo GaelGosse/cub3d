@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_3d_up.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 15:17:16 by gael              #+#    #+#             */
-/*   Updated: 2023/07/13 15:36:16 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/12 21:49:32 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	init_3d_line(t_game *game)
 {
 	game->line_3d = malloc(sizeof(t_line_3d));
 	if (!game->line_3d)
-		return (FAIL);
+		return (printf("malloc line 3d failed\n"), FAIL);
 	game->line_3d->dx = 0;
 	game->line_3d->dy = 0;
 	game->line_3d->steps = 0;
@@ -53,7 +53,7 @@ int	display_3d_up(t_game *game)
 	while (i_midline > game->fov->nbr_ray / 2)
 	{
 		i_ratio = 0;
-		while (i_ratio < 20)
+		while (i_ratio < 10)
 		{
 			game->line_3d->x_dest = i_main;
 			game->line_3d->x_src = i_main;
@@ -102,7 +102,7 @@ int	display_3d_up(t_game *game)
 	while (i_midline < game->fov->nbr_ray / 2)
 	{
 		i_ratio = 0;
-		while (i_ratio < 20)
+		while (i_ratio < 10)
 		{
 			game->line_3d->x_dest = i_main;
 			game->line_3d->x_src = i_main;

@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 16:34:58 by mael              #+#    #+#             */
-/*   Updated: 2023/07/12 13:40:40 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/12 21:50:06 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	init_line(t_game *game)
 {
 	game->line = malloc(sizeof(t_line));
 	if (!game->line)
-		return (printf("Malloc failed\n"), FAIL);
+		return (printf("Malloc line failed\n"), FAIL);
 	game->line->dx = 0;
 	game->line->dy = 0;
 	game->line->steps = 0;

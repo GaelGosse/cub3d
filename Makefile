@@ -1,6 +1,7 @@
 
 
 
+
 ##### Colors #####
 BLACK=\033[0;30m
 RED=\033[0;31m
@@ -11,6 +12,7 @@ PURPLE=\033[0;35m
 CYAN=\033[0;36m
 WHITE=\033[0;37m
 END=\033[0m
+
 
 
 
@@ -26,6 +28,7 @@ BOLD_WHITE=\033[1;37m
 
 
 
+
 ##### Names #####
 NAME	= cub3D
 LIBNAME	= libft.a
@@ -35,6 +38,7 @@ SRCDIR	= srcs
 OBJDIR	= objs
 INCDIR	= incs
 LIBDIR	= libft
+
 
 
 
@@ -70,11 +74,13 @@ _SRCS	=	build_map.c \
 
 
 
+
 SRC            = $(addprefix $(SRCDIR)/, $(_SRCS))
 OBJ            = $(SRC:$(SRCDIR)%.c=$(OBJDIR)%.o)
 HEADER         = $(addprefix $(INCDIR)/, $(NAME).h)
 LIBX           = -L minilibx/ 
 LIBXFLAGS      = -lmlx -lXext -lX11 -lz -lm
+
 
 
 
@@ -117,6 +123,8 @@ fclean: clean
 re: fclean all
 
 -include ${DEPS}
+
+
 
 
 

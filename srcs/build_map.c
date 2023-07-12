@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 09:38:48 by gael              #+#    #+#             */
-/*   Updated: 2023/06/22 11:36:29 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/12 21:49:49 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ int	create_map(t_game *game, char *line, int fd)
 	if (line && line[0] == '\0')
 	{
 		game->map->map_org = malloc((sizeof(char *)) * (game->map->height + 1));
+		if (!game->map->map_org)
+			return (printf("malloc map_org failed\n"), FAIL);
 		while (++i_init_map < game->map->height)
 			game->map->map_org[i_init_map] = NULL;
 		game->map->map_org = ft_split(game->map->file_map, '\n');

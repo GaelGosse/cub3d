@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   floor_ceil_part.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 17:52:47 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/26 17:05:19 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/12 21:51:49 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ int	check_floor_content(t_game *game, char **color)
 		game->map->wall_no), FAIL);
 	free(str_tmp);
 	game->map->floor = malloc(sizeof(int) * (3));
+	if (!game->map->floor)
+		return (printf("malloc floor failed\n"), FAIL);
 	if (tab_len(tab_tmp) != 3)
 		return (printf("rgb must have 3 int\n"), FAIL);
 	while (tab_tmp[++rgb])
@@ -98,6 +100,8 @@ int	check_ceil_content(t_game *game, char **color)
 		game->map->wall_ea), FAIL);
 	free(str_tmp);
 	game->map->ceil = malloc(sizeof(int) * (3));
+	if (!game->map->ceil)
+		return (printf("malloc ceil failed\n"), FAIL);
 	if (tab_len(tab_tmp) != 3)
 		return (printf("rgb must have 3 int\n"), FAIL);
 	while (tab_tmp[++rgb])
