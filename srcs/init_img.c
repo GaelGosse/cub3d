@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_img.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 00:12:20 by gael              #+#    #+#             */
-/*   Updated: 2023/07/11 16:19:00 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/12 17:20:23 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,7 @@ int	init_img(t_game *game)
 
 int	create_image_and_get_adrr(t_game *game)
 {
-	int	win_width;
-	int	win_height;
-
-	win_height = 0;
-	win_width = 0;
-	if ((game->map->width * game->img_size) < 600)
-		win_width = 900;
-	else
-		win_width = game->map->width * game->img_size;
-	win_height = (game->map->height * game->img_size) + 700;
-	game->img->mlx_img = mlx_new_image(game->mlibx, win_width, win_height);
+	game->img->mlx_img = mlx_new_image(game->mlibx, game->win_width, game->win_height + (game->map->height * game->img_size));
 	if (!game->img->mlx_img)
 		return (printf("fail to create image\n"), FAIL);
 	game->img->addr = mlx_get_data_addr(game->img->mlx_img, &game->img->bpp, \

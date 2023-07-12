@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:45:40 by ggosse            #+#    #+#             */
-/*   Updated: 2023/07/12 15:37:21 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/12 18:06:09 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,8 @@ typedef struct s_game
 	char	perso;
 	void	*mlibx;
 	void	*window;
+	int		win_height;
+	int		win_width;
 	t_map	*map;
 	t_img	*img;
 	t_line	*line;
@@ -275,6 +277,7 @@ void	img_pix_put_2(t_game *game, int x, int y, int color);
 void	check_corner(t_game *game);
 //srcs/display_3d.c
 int		display_3d(t_game *game);
+void	fill_ceil_floor(t_game *game);
 //srcs/display_all_reverse.c
 int		display_all_reverse_a(t_game *game, int key, int len_side);
 int		display_all_reverse_d(t_game *g, int k, int l);
