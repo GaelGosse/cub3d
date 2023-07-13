@@ -44,7 +44,8 @@ _SRCS	=	build_map.c \
 			check_file.c \
 			check_format.c \
 			convert.c \
-			display_3d.c \
+			display_3d_down.c \
+			display_3d_up.c \
 			display_all.c \
 			display_all_reverse.c \
 			display_all_utils.c \

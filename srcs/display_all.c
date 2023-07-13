@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_all.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 11:04:13 by gael              #+#    #+#             */
-/*   Updated: 2023/07/12 18:21:11 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/13 15:19:37 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,14 +159,26 @@ int	display_all(t_game *game, int key)
 		game->fov->lines_vision[i_rotate + game->fov->nbr_ray / 2] = abs_flt(cos(deg_to_radian(game->fov->deg * i_rotate))) * game->fov->lines_vision[i_rotate + game->fov->nbr_ray / 2];
 		i_rotate++;
 	}
-	display_3d(game);
+	int	save_src_x;
+	int	save_src_y;
+
+	save_src_x = game->line->x_src;
+	save_src_y = game->line->y_src;
 	game->line->x_dest = save_x;
 	game->line->y_dest = save_y;
+	display_3d_up(game);
+	display_3d_down(game);
+	game->line->x_dest = save_x;
+	game->line->y_dest = save_y;
+	 game->line->x_src = save_src_x;
+	 game->line->y_src = save_src_y;
 	mlx_put_image_to_window(game->mlibx, game->window, game->img->mlx_img, 0, 0);
 	printf("\n.....................................\n\n");
 	(void)i_rotate;
 	(void)save;
 	(void)save_2;
+	(void)save_src_x;
+	(void)save_src_y;
 	return (SUCCESS);
 }
 

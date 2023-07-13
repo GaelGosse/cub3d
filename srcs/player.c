@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:35:04 by mael              #+#    #+#             */
-/*   Updated: 2023/07/12 16:06:43 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/13 12:44:09 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	draw_player(t_game *game)
 }
 int	ft_event_listen(int key, t_game *game)
 {
-	printf("\033c");
+	// printf("\033c");
 	if (key == 65307)
 		ft_destroy_and_free(game, NULL);
 	if (key == XK_w)
