@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_CUB3d_2.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 19:58:40 by mael              #+#    #+#             */
-/*   Updated: 2023/07/07 19:58:40 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/14 12:22:54 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,8 +205,8 @@ int		is_fault(t_game *game, int row, int col);
 void	free_img(t_game *game);
 void	free_parsing(t_game *game, char *err);
 void	free_tab_str(char **tab_str);
-int		ft_destroy_and_free(t_game *game, char *err);
-int		ft_destroy_and_free2(t_game *game);
+int		destroy_and_free(t_game *game, char *err);
+int		destroy_and_free2(t_game *game);
 //srcs/display_all.c
 int		display_all(t_game *game, char key);
 void	set_dest_e(t_game *game, int key, int len_side);

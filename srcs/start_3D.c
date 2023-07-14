@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:52:12 by mael              #+#    #+#             */
-/*   Updated: 2023/07/13 13:31:07 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/14 12:22:41 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	start_3D(t_game *game)
 		return (FAIL);
 	if (display_all(game, '\0') == FAIL)
 		return (FAIL);
-	mlx_hook(game->window, DestroyNotify, StructureNotifyMask, &ft_destroy_and_free2, game);
+	mlx_hook(game->window, DestroyNotify, StructureNotifyMask, &destroy_and_free2, game);
 	mlx_hook(game->window, KeyPress, KeyPressMask, &ft_event_listen, game);
 	mlx_loop(game->mlibx);
 	return (SUCCESS);

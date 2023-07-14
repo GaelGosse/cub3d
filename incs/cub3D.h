@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   incs/cub3D.h                                       :+:      :+:    :+:   */
+/*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:45:40 by ggosse            #+#    #+#             */
-/*   Updated: 2023/07/13 15:19:37 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/14 15:00:18 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,23 @@ typedef struct s_line
 	int		y_dest_prev;
 }	t_line;
 
+typedef struct s_temp
+{
+	int		dx;
+	int		dy;
+	int		steps;
+	float	xite;
+	float	yite;
+	float	corr_x;
+	float	corr_y;
+	int		x_src;
+	int		y_src;
+	int		x_dest;
+	int		y_dest;
+	int		x_dest_prev;
+	int		y_dest_prev;
+}	t_temp;
+
 typedef struct s_line_3d
 {
 	int		dx;
@@ -119,6 +136,7 @@ typedef struct s_map
 typedef struct s_fov
 {
 	int		*lines_vision;
+	int		*toggle_vision;
 	int		angle;
 	int		nbr_ray;
 	int		proj_plane;
@@ -140,6 +158,7 @@ typedef struct s_game
 	t_line		*line;
 	t_fov		*fov;
 	t_line_3d	*line_3d;
+	t_temp		*temp;
 }			t_game;
 // ---------------------------- end struct ---------------------------------- //
 
@@ -167,11 +186,11 @@ int		draw_line_vision(t_game *game, int color);
 int		draw_pixel(t_game *game, int toggle, int x_check, int y_check, int color);
 int		init_line(t_game *game);
 //srcs/free_parsing.c
+int		destroy_and_free(t_game *game, char *err);
+int		destroy_and_free2(t_game *game);
 void	free_img(t_game *game);
 void	free_parsing(t_game *game, char *err);
 void	free_tab_str(char **tab_str);
-int		ft_destroy_and_free(t_game *game, char *err);
-int		ft_destroy_and_free2(t_game *game);
 //srcs/display_3d_up.c
 int		display_3d_up(t_game *game);
 void	fill_ceil_floor(t_game *game);
@@ -207,6 +226,8 @@ int		ft_buf_read(int fd, t_game *game);
 int		ft_read_file(t_game *game, char *filename);
 //srcs/display_3d_down.c
 int		display_3d_down(t_game *game);
+void	draw_line_temp(t_game *game, int flag_1, int flag_2, int flag_3, int flag_4);
+int		init_temp(t_game *game);
 //srcs/fov.c
 int		calcul_opposite_side(t_game *game, double angle);
 int		first_calcul(t_game *game, double angle);

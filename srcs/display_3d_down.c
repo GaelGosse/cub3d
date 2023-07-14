@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 15:15:57 by gael              #+#    #+#             */
-/*   Updated: 2023/07/13 15:53:45 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/14 15:01:51 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,18 @@ int	display_3d_down(t_game *game)
 	int	i_ratio;
 	int	y;
 	int	i_main;
+	int flag_1;
+	int flag_2;
+	int flag_3;
+	int flag_4;
 
 	i_main = 0;
 	i_draw = 0;
 	i_ratio = 0;
 	y = (game->win_height / 2) + (game->map->height * game->img_size);
 	i_midline = game->fov->nbr_ray;
+	if (init_temp(game) == FAIL)
+		return (FAIL);
 	while (i_midline > game->fov->nbr_ray / 2)
 	{
 		i_ratio = 0;
@@ -38,7 +44,19 @@ int	display_3d_down(t_game *game)
 			game->line_3d->y_dest = (game->win_height / 2) + (game->map->height * game->img_size);
 			// game->line_3d->y_dest += (game->fov->lines_vision[i_midline] * (-1));
 			game->line_3d->y_dest += ((game->fov->proj_plane * game->img_size) / game->fov->lines_vision[i_midline]);// - i_ratio;
-
+			if (i_ratio == 0)
+			{
+				flag_1 = game->line_3d->y_dest;
+				flag_3 = game->line_3d->x_dest;
+				draw_line_temp(game, flag_1, flag_2, flag_3, flag_4);
+				printf(PURPLE"flag_1: %i"RESET"\n", flag_1);
+			}
+			if (i_ratio == 0)
+			{
+				flag_2 = game->line_3d->y_dest;
+				flag_4 = game->line_3d->x_src;
+				printf(PURPLE"flag_2: %i"RESET"\n", flag_2);
+			}
 			game->line_3d->dx = game->line_3d->x_dest - game->line_3d->x_src;
 			game->line_3d->dy = game->line_3d->y_dest - game->line_3d->y_src;
 			if (absolute_value(game->line_3d->dx) > absolute_value(game->line_3d->dy))
@@ -123,3 +141,67 @@ int	display_3d_down(t_game *game)
 	(void)y;
 }
 
+
+int	init_temp(t_game *game)
+{
+	game->temp = malloc(sizeof(t_temp));
+	if (!game->temp)
+		return (printf("Malloc failed\n"), FAIL);
+	game->temp->dx = 0;
+	game->temp->dy = 0;
+	game->temp->steps = 0;
+	game->temp->xite = 0;
+	game->temp->yite = 0;
+	game->temp->corr_x = 0;
+	game->temp->corr_y = 0;
+	game->temp->x_src = 0;
+	game->temp->y_src = 0;
+	game->temp->x_dest = 0;
+	game->temp->y_dest = 0;
+	game->temp->x_dest_prev = 0;
+	game->temp->y_dest_prev = 0;
+	return (SUCCESS);
+}
+
+
+
+void	draw_line_temp(t_game *game, int flag_1, int flag_2, int flag_3, int flag_4)
+{
+	game->temp->x_dest = flag_3;
+	game->temp->x_src = flag_4;
+
+	game->temp->y_src = flag_2;
+	game->temp->y_dest = flag_1;
+
+
+	game->temp->dx = game->temp->x_dest - game->temp->x_src;
+	game->temp->dy = game->temp->y_dest - game->temp->y_src;
+	if (absolute_value(game->temp->dx) > absolute_value(game->temp->dy))
+		game->temp->steps = absolute_value(game->temp->dx);
+	else
+		game->temp->steps = absolute_value(game->temp->dy);
+	game->temp->xite = game->temp->dx / (float)game->temp->steps;
+	game->temp->yite = game->temp->dy / (float)game->temp->steps;
+	game->temp->corr_x = game->temp->x_src;
+	game->temp->corr_y = game->temp->y_src;
+	int i_draw = 0;
+	while (i_draw <= game->temp->steps)
+	{
+		// if (game->temp->corr_y < game->map->height * game->img_size || game->temp->corr_y > game->win_height + game->map->height * game->img_size)
+		// 	break ;
+		int	temp_y;
+
+		temp_y = game->temp->corr_y;
+		while (temp_y >= game->line_3d->y_dest)
+		{
+			img_pix_put(game, round(game->temp->corr_x),
+			round(temp_y), get_color(0, 0, 255));
+			temp_y--;
+		}
+		img_pix_put(game, round(game->temp->corr_x),
+		round(game->temp->corr_y), get_color(0, 255, 0));
+		game->temp->corr_x = game->temp->corr_x + game->temp->xite;
+		game->temp->corr_y = game->temp->corr_y + game->temp->yite;
+		i_draw++;
+	}
+}

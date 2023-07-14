@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:35:04 by mael              #+#    #+#             */
-/*   Updated: 2023/07/13 12:44:09 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/14 12:22:54 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	ft_event_listen(int key, t_game *game)
 {
 	// printf("\033c");
 	if (key == 65307)
-		ft_destroy_and_free(game, NULL);
+		destroy_and_free(game, NULL);
 	if (key == XK_w)
 	{
 		if (game->map->map_org[game->map->pos_y / game->img_size][(game->map->pos_x + 15) / game->img_size] != '1' && game->fov->angle == 90)

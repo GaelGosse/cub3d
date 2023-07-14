@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_parsing.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:27:05 by ggosse            #+#    #+#             */
-/*   Updated: 2023/07/06 16:36:10 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/14 12:22:54 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	free_tab_str(char **tab_str)
 	tab_str = NULL;
 }
 
-int	ft_destroy_and_free(t_game *game, char *err)
+int	destroy_and_free(t_game *game, char *err)
 {
 	if (err)
 		ft_putstr_fd(err, 2);
@@ -41,7 +41,7 @@ int	ft_destroy_and_free(t_game *game, char *err)
 	exit (1);
 }
 
-int	ft_destroy_and_free2(t_game *game)
+int	destroy_and_free2(t_game *game)
 {
 	if (game->window)
 		mlx_destroy_window(game->mlibx, game->window);
