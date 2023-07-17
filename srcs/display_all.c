@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 11:04:13 by gael              #+#    #+#             */
-/*   Updated: 2023/07/17 15:24:32 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/17 17:40:23 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	display_all(t_game *game, int key)
 {
+	printf("\033c");
 	int len_side;
 	int i_rotate;
 	int save;
@@ -120,7 +121,47 @@ int	display_all(t_game *game, int key)
 			game->fov->lines_vision[i_rotate] = 1;
 		game->fov->wall[i_rotate][0] = game->line->corr_x / game->img_size;
 		game->fov->wall[i_rotate][1] = game->line->corr_y / game->img_size;
-		// printf(BACK_RED"game->fov->lines_vision[%i]: %i"RST"\n", i_rotate, game->fov->lines_vision[i_rotate]);
+		int corr_y = round(game->line->corr_y);
+		int corr_x = round(game->line->corr_x);
+		int s = 0;
+		int e = 0;
+		int w = 0;
+		int n = 0;
+		
+		if (game->map->map_org[(corr_y - 10) / game->img_size][corr_x / game->img_size] == '1')
+			s++;
+		if (game->map->map_org[(corr_y + 10) / game->img_size][corr_x / game->img_size] == '1')
+			n++;
+		if (game->map->map_org[(corr_y) / game->img_size][(corr_x + 10) / game->img_size] == '1')
+			w++;
+		if (game->map->map_org[(corr_y) / game->img_size][(corr_x - 10) / game->img_size] == '1')
+			e++;
+		// printf(BACK_PURPLE"n: %i"RST"\n", n);
+		// printf(BACK_PURPLE"s: %i"RST"\n", s);
+		// printf(BACK_PURPLE"e: %i"RST"\n", e);
+		// printf(BACK_PURPLE"w: %i"RST"\n", w);
+		
+		if (n > s && (game->fov->toggle != 'N'))//(game->fov->toggle == 'S' || game->fov->toggle == 'W'))
+		{
+			game->fov->toggle_vision[i_rotate] = 'N';
+			// printf("%i: Mon toggle est nord\n\n", i_rotate);
+		}
+		else if (s > n && (game->fov->toggle != 'S')) //(game->fov->toggle == 'N' || game->fov->toggle == 'E'))
+		{
+			game->fov->toggle_vision[i_rotate] = 'S';
+			// printf("%i: Mon toggle est sud\n\n", i_rotate);
+		}
+		else if (e > w && game->fov->toggle != 'E') //(game->fov->toggle == 'W' || game->fov->toggle == 'N'))
+		{
+			game->fov->toggle_vision[i_rotate] = 'E';
+			// printf("%i: Mon toggle est ESt\n\n", i_rotate);
+		}
+		else if (w > e && game->fov->toggle != 'W') //(game->fov->toggle == 'E' || game->fov->toggle == 'S'))
+		{
+			game->fov->toggle_vision[i_rotate] = 'W';
+			// printf("%i: Mon toggle est ouest\n\n", i_rotate);
+		}
+		// printf(BACK_RED"game->fov->toggle_vision[%i]: %c"RST"\n", i_rotate, game->fov->toggle_vision[i_rotate]);
 		i_rotate++;
 	}
 
@@ -184,18 +225,24 @@ int	display_all(t_game *game, int key)
 		int w = 0;
 		int n = 0;
 		
-		if (game->map->map_org[(corr_y - 1) / game->img_size][corr_x / game->img_size] == '1')
+		if (game->map->map_org[(corr_y - 10) / game->img_size][corr_x / game->img_size] == '1')
 			s++;
-		if (game->map->map_org[(corr_y + 1) / game->img_size][corr_x / game->img_size] == '1')
+		if (game->map->map_org[(corr_y + 10) / game->img_size][corr_x / game->img_size] == '1')
 			n++;
-		if (game->map->map_org[(corr_y) / game->img_size][(corr_x + 1) / game->img_size] == '1')
+		if (game->map->map_org[(corr_y) / game->img_size][(corr_x + 10) / game->img_size] == '1')
 			w++;
-		if (game->map->map_org[(corr_y) / game->img_size][(corr_x - 1) / game->img_size] == '1')
+		if (game->map->map_org[(corr_y) / game->img_size][(corr_x - 10) / game->img_size] == '1')
 			e++;
-		// printf(BACK_PURPLE"n: %i"RST"\n", n);
-		// printf(BACK_PURPLE"s: %i"RST"\n", s);
-		// printf(BACK_PURPLE"e: %i"RST"\n", e);
-		// printf(BACK_PURPLE"w: %i"RST"\n", w);
+		if (i_rotate + game->fov->nbr_ray / 2 == 282)
+		{
+			printf(BACK_PURPLE"(corr_y - 10) : %i (%i)"RST"\n", (corr_y - 10), (corr_y - 10) / game->img_size);
+			printf(BACK_PURPLE"(corr_y + 10) : %i (%i)"RST"\n", (corr_y + 10), (corr_y + 10) / game->img_size);
+			printf(BACK_PURPLE"(corr_x - 10) : %i (%i)"RST"\n", (corr_x - 10), (corr_x - 10) / game->img_size);
+			printf(BACK_PURPLE"(corr_x + 10) : %i (%i)"RST"\n", (corr_x + 10), (corr_x + 10) / game->img_size);
+			printf(BACK_PURPLE" %i "RST"\n", n);
+			printf(BACK_PURPLE"%i %i"RST"\n", w, e);
+			printf(BACK_PURPLE" %i "RST"\n", s);
+		}
 		
 		if (n > s && (game->fov->toggle != 'N'))//(game->fov->toggle == 'S' || game->fov->toggle == 'W'))
 		{
@@ -217,7 +264,8 @@ int	display_all(t_game *game, int key)
 			game->fov->toggle_vision[i_rotate + game->fov->nbr_ray / 2] = 'W';
 			// printf("%i: Mon toggle est ouest\n\n", i_rotate + game->fov->nbr_ray / 2);
 		}
-		//printf(BACK_RED"game->fov->toggle_vision[%i] = : %i"RST"\n", i_rotate + game->fov->nbr_ray / 2, game->fov->toggle_vision[i_rotate + game->fov->nbr_ray / 2]);
+		if (i_rotate + game->fov->nbr_ray / 2 > 279 && i_rotate + game->fov->nbr_ray / 2 < 286)
+			printf(BACK_BLUE"game->fov->toggle_vision[%i] = : %c"RST"\n", i_rotate + game->fov->nbr_ray / 2, game->fov->toggle_vision[i_rotate + game->fov->nbr_ray / 2]);
 		i_rotate++;
 	}
 	int	save_src_x;
