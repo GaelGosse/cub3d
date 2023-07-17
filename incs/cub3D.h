@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3D.h                                            :+:      :+:    :+:   */
+/*   incs/cub3D.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:45:40 by ggosse            #+#    #+#             */
-/*   Updated: 2023/07/12 22:16:23 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/17 15:09:38 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -304,6 +304,7 @@ int		create_map(t_game *game, char *line, int fd);
 void	realloc_lines(t_game *game);
 void	skip_empty_line(char **line, int fd);
 //srcs/draw_line.c
+double abs_dble(double nb);
 float abs_flt(float nb);
 int		absolute_value(int nb);
 int		draw_line_vision(t_game *game, int color);

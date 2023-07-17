@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 15:17:16 by gael              #+#    #+#             */
-/*   Updated: 2023/07/12 21:49:32 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/17 15:26:49 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	display_3d_up(t_game *game)
 	while (i_midline > game->fov->nbr_ray / 2)
 	{
 		i_ratio = 0;
-		while (i_ratio < 10)
+		while (i_ratio < 2)
 		{
 			game->line_3d->x_dest = i_main;
 			game->line_3d->x_src = i_main;
@@ -61,6 +61,8 @@ int	display_3d_up(t_game *game)
 			game->line_3d->y_src = (game->win_height / 2) + (game->map->height * game->img_size);
 			game->line_3d->y_dest = (game->win_height / 2) + (game->map->height * game->img_size);
 			// game->line_3d->y_dest += (game->fov->lines_vision[i_midline] * (-1));
+			if (game->fov->lines_vision[i_midline] == 0)
+				game->fov->lines_vision[i_midline] = 1;
 			game->line_3d->y_dest += ((game->fov->proj_plane * game->img_size) / game->fov->lines_vision[i_midline]) * (-1);
 
 			game->line_3d->dx = game->line_3d->x_dest - game->line_3d->x_src;
@@ -102,7 +104,7 @@ int	display_3d_up(t_game *game)
 	while (i_midline < game->fov->nbr_ray / 2)
 	{
 		i_ratio = 0;
-		while (i_ratio < 10)
+		while (i_ratio < 2)
 		{
 			game->line_3d->x_dest = i_main;
 			game->line_3d->x_src = i_main;
@@ -110,6 +112,8 @@ int	display_3d_up(t_game *game)
 			game->line_3d->y_src = (game->win_height / 2) + (game->map->height * game->img_size);
 			game->line_3d->y_dest = (game->win_height / 2) + (game->map->height * game->img_size);
 			// game->line_3d->y_dest += (game->fov->lines_vision[i_midline] * (-1) );
+			if (game->fov->lines_vision[i_midline] == 0)
+				game->fov->lines_vision[i_midline] = 1;
 			game->line_3d->y_dest += ((game->fov->proj_plane * game->img_size) / game->fov->lines_vision[i_midline]) * (-1);
 
 

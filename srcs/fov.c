@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 16:47:24 by mael              #+#    #+#             */
-/*   Updated: 2023/07/12 22:18:35 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/17 15:16:50 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int	init_fov(t_game *game)
 	game->fov = malloc(sizeof(t_fov));
 	if (!game->fov)
 		return (printf("Init fov failed \n"), FAIL);
-	game->fov->nbr_ray = 60;
+	game->fov->nbr_ray = 60 * 5;
 	// game->fov->angle_view = 60;
-	game->fov->deg = 60 / game->fov->nbr_ray;
+	game->fov->deg = 0.2; //60 / game->fov->nbr_ray;
 	// game->fov->proj_plane = (game->win_height / 2) / tan(deg_to_radian(30));
 	game->fov->proj_plane = 300;
 	game->fov->lines_vision = malloc(sizeof(int) * game->fov->nbr_ray + 1);

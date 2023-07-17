@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 16:34:58 by mael              #+#    #+#             */
-/*   Updated: 2023/07/12 21:50:06 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/17 14:59:47 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,15 @@ int	absolute_value(int nb)
 }
 
 float	abs_flt(float nb)
+{
+	if (nb == 0)
+		return (nb);
+	else if (nb < 0)
+		nb = nb * (-1);
+	return (nb);
+}
+
+double	abs_dble(double nb)
 {
 	if (nb == 0)
 		return (nb);

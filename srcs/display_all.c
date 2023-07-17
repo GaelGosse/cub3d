@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 11:04:13 by gael              #+#    #+#             */
-/*   Updated: 2023/07/12 22:04:01 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/17 15:24:32 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,10 @@ int	display_all(t_game *game, int key)
 	game->fov->lines_vision[game->fov->nbr_ray / 2] = draw_line_vision(game, get_color(0, 255, 0));
 	game->fov->wall[game->fov->nbr_ray / 2][0] = game->line->corr_x / game->img_size;
 	game->fov->wall[game->fov->nbr_ray / 2][1] = game->line->corr_y / game->img_size;
-	printf(BACK_PURPLE"game->fov->wall[game->fov->nbr_ray / 2][0] = game->line->corr_x / game->img_size: %i"RST"\n", game->fov->wall[game->fov->nbr_ray / 2][0] = game->line->corr_x / game->img_size);
-	printf(BACK_PURPLE"game->fov->wall[game->fov->nbr_ray / 2][1] = game->line->corr_y / game->img_size: %i"RST"\n", game->fov->wall[game->fov->nbr_ray / 2][1] = game->line->corr_y / game->img_size);
-	int	len_vision;
-	int	angle;
-	int	save_x;
-	int	save_y;
+	double	angle;
+	int		len_vision;
+	int		save_x;
+	int		save_y;
 
 	save_x = game->line->x_dest;
 	save_y = game->line->y_dest;
@@ -48,21 +46,21 @@ int	display_all(t_game *game, int key)
 	i_rotate = 0;
 	while (i_rotate < game->fov->nbr_ray / 2)
 	{
-		int	angle_2;
+		double	angle_2;
 
 		angle_2 = 0;
 		if (game->fov->angle >= 0 && game->fov->angle < 60)
 		{
-			angle_2 = angle + (int)(game->fov->deg * i_rotate);
-			len_vision = tan(deg_to_radian(abs(angle_2))) * game->map->pos_y;
+			angle_2 = angle + (game->fov->deg * i_rotate);
+			len_vision = tan(deg_to_radian(abs_dble(angle_2))) * game->map->pos_y;
 			if (angle_2 > 0)
 				game->line->x_dest = game->map->pos_x + len_vision;
 			game->line->y_dest = 0;
 		}
 		if (game->fov->angle >= 330 && game->fov->angle < 360)
 		{
-			angle_2 = 360 - angle - (int)(game->fov->deg * i_rotate);
-			len_vision = tan(deg_to_radian(abs(angle_2))) * game->map->pos_y;
+			angle_2 = 360 - angle - (game->fov->deg * i_rotate);
+			len_vision = tan(deg_to_radian(abs_dble(angle_2))) * game->map->pos_y;
 			if (angle_2 > 0)
 				game->line->x_dest = game->map->pos_x - len_vision;
 			else
@@ -71,8 +69,15 @@ int	display_all(t_game *game, int key)
 		}
 		if (game->fov->angle < 330 && game->fov->angle >= 270)
 		{
-			angle_2 = 270 - angle - (int)(game->fov->deg * i_rotate);
-			len_vision = tan(deg_to_radian(abs(angle_2))) * game->map->pos_x;
+			angle_2 = 270 - angle - (game->fov->deg * i_rotate);
+			len_vision = tan(deg_to_radian(abs_dble(angle_2))) * game->map->pos_x;
+			// printf(BACK_PURPLE" i_rotate: %i"RST"\n",  i_rotate);
+			// printf(BACK_PURPLE"game->fov->deg: %f"RST"\n", game->fov->deg);
+			// printf(BACK_PURPLE"game->fov->deg * i_rotate: %f"RST"\n", game->fov->deg * i_rotate);
+			// printf(BACK_PURPLE"angle_2: %f"RST"\n", angle_2);
+			// printf("\n");
+			// printf("\n");
+			// printf("\n");
 			if (angle_2 > 0)
 				game->line->y_dest = game->map->pos_y + len_vision;
 			else
@@ -81,8 +86,8 @@ int	display_all(t_game *game, int key)
 		}
 		if (game->fov->angle >= 60 && game->fov->angle < 150)
 		{
-			angle_2 = 90 - angle - (int)(game->fov->deg * i_rotate);
-			len_vision = tan( deg_to_radian(abs(angle_2)) ) * (game->map->width * game->img_size - game->map->pos_x);
+			angle_2 = 90 - angle - (game->fov->deg * i_rotate);
+			len_vision = tan( deg_to_radian(abs_dble(angle_2)) ) * (game->map->width * game->img_size - game->map->pos_x);
 			if ((angle_2) > 0)
 				game->line->y_dest = game->map->pos_y - len_vision;
 			else
@@ -91,8 +96,8 @@ int	display_all(t_game *game, int key)
 		}
 		if (game->fov->angle >= 150 && game->fov->angle < 240)
 		{
-			angle_2 = 180 - angle - (int)(game->fov->deg * i_rotate);
-			len_vision = tan(deg_to_radian(abs(angle_2))) * (game->map->height * game->img_size - game->map->pos_y);
+			angle_2 = 180 - angle - (game->fov->deg * i_rotate);
+			len_vision = tan(deg_to_radian(abs_dble(angle_2))) * (game->map->height * game->img_size - game->map->pos_y);
 			if (angle_2 > 0)
 				game->line->x_dest = game->map->pos_x + len_vision;
 			else
@@ -101,17 +106,20 @@ int	display_all(t_game *game, int key)
 		}
 		if (game->fov->angle >= 240 && game->fov->angle < 270)
 		{
-			angle_2 = 270 - angle - (int)(game->fov->deg * i_rotate);
-			len_vision = tan(deg_to_radian(abs(angle_2))) * game->map->pos_x;
+			angle_2 = 270 - angle - (game->fov->deg * i_rotate);
+			len_vision = tan(deg_to_radian(abs_dble(angle_2))) * game->map->pos_x;
 			if (angle_2 > 0)
 				game->line->y_dest = game->map->pos_y + len_vision;
 			else
 				game->line->y_dest = game->map->pos_y - len_vision;
 			game->line->x_dest = 0;
 		}
-
 		game->fov->lines_vision[i_rotate] = draw_line_vision(game, get_color(255, 255 / (game->fov->nbr_ray / 2) * ((game->fov->nbr_ray / 2) - i_rotate), 0));
 		game->fov->lines_vision[i_rotate] = abs_flt(cos(deg_to_radian(game->fov->deg * i_rotate))) * game->fov->lines_vision[i_rotate];
+		if (game->fov->lines_vision[i_rotate] == 0)
+			game->fov->lines_vision[i_rotate] = 1;
+		game->fov->wall[i_rotate][0] = game->line->corr_x / game->img_size;
+		game->fov->wall[i_rotate][1] = game->line->corr_y / game->img_size;
 		// printf(BACK_RED"game->fov->lines_vision[%i]: %i"RST"\n", i_rotate, game->fov->lines_vision[i_rotate]);
 		i_rotate++;
 	}
@@ -119,13 +127,13 @@ int	display_all(t_game *game, int key)
 
 	i_rotate = 1;
 	if (angle > 180)
-		angle = abs(angle - 360);
+		angle = abs_dble(angle - 360);
 	while (i_rotate <= game->fov->nbr_ray / 2)
 	{
 		if (game->fov->angle >= 0 && game->fov->angle < 90)
 		{
-			len_vision = tan(deg_to_radian(abs(angle - (int)(game->fov->deg * i_rotate)))) * game->map->pos_y;
-			if (angle - (int)(game->fov->deg * i_rotate) > 0)
+			len_vision = tan(deg_to_radian(abs_dble(angle - (game->fov->deg * i_rotate)))) * game->map->pos_y;
+			if (angle - (game->fov->deg * i_rotate) > 0)
 				game->line->x_dest = game->map->pos_x + len_vision;
 			else
 				game->line->x_dest = game->map->pos_x - len_vision;
@@ -133,8 +141,8 @@ int	display_all(t_game *game, int key)
 		}
 		if (game->fov->angle >= 90 && game->fov->angle < 180)
 		{
-			len_vision = tan( deg_to_radian(abs(angle - (int)(game->fov->deg * i_rotate) - 90)) ) * (game->map->width * game->img_size - game->map->pos_x);
-			if ((angle - (int)(game->fov->deg * i_rotate)) > 90)
+			len_vision = tan( deg_to_radian(abs_dble(angle - (game->fov->deg * i_rotate) - 90)) ) * (game->map->width * game->img_size - game->map->pos_x);
+			if ((angle - (game->fov->deg * i_rotate)) > 90)
 				game->line->y_dest = game->map->pos_y + len_vision;
 			else
 				game->line->y_dest = game->map->pos_y - len_vision;
@@ -142,8 +150,8 @@ int	display_all(t_game *game, int key)
 		}
 		if (game->fov->angle >= 180 && game->fov->angle < 270)
 		{
-			len_vision = tan( deg_to_radian(abs(180 - angle - (int)(game->fov->deg * i_rotate))) ) * (game->map->height * game->img_size - game->map->pos_y);
-			if (180 - angle - (int)(game->fov->deg * i_rotate) > 0)
+			len_vision = tan( deg_to_radian(abs_dble(180 - angle - (game->fov->deg * i_rotate))) ) * (game->map->height * game->img_size - game->map->pos_y);
+			if (180 - angle - (game->fov->deg * i_rotate) > 0)
 				game->line->x_dest = game->map->pos_x - len_vision;
 			else
 				game->line->x_dest = game->map->pos_x + len_vision;
@@ -151,8 +159,8 @@ int	display_all(t_game *game, int key)
 		}
 		if (game->fov->angle >= 270 && game->fov->angle < 360)
 		{
-			len_vision = tan( deg_to_radian(abs(90 - angle - (int)(game->fov->deg * i_rotate))) ) * (game->map->pos_x);
-			if (90 - angle - (int)(game->fov->deg * i_rotate) > 0)
+			len_vision = tan( deg_to_radian(abs_dble(90 - angle - (game->fov->deg * i_rotate))) ) * (game->map->pos_x);
+			if (90 - angle - (game->fov->deg * i_rotate) > 0)
 				game->line->y_dest = game->map->pos_y - len_vision;
 			else
 				game->line->y_dest = game->map->pos_y + len_vision;
@@ -163,6 +171,12 @@ int	display_all(t_game *game, int key)
 		game->fov->lines_vision[i_rotate + game->fov->nbr_ray / 2] = abs_flt(cos(deg_to_radian(game->fov->deg * i_rotate))) * game->fov->lines_vision[i_rotate + game->fov->nbr_ray / 2];
 		// printf(BACK_PURPLE"game->line->corr_x[%i] / game->img_size: %f"RST"\n\n", i_rotate + game->fov->nbr_ray / 2, round(game->line->corr_x / game->img_size));
 		// printf(BACK_PURPLE"game->line->corr_y[%i] / game->img_size: %f"RST"\n\n", i_rotate + game->fov->nbr_ray / 2, round(game->line->corr_y / game->img_size));
+		if (game->fov->lines_vision[i_rotate + game->fov->nbr_ray / 2] == 0)
+			game->fov->lines_vision[i_rotate] = 1;
+
+		game->fov->wall[i_rotate + game->fov->nbr_ray / 2][0] = game->line->corr_x / game->img_size;
+		game->fov->wall[i_rotate + game->fov->nbr_ray / 2][1] = game->line->corr_y / game->img_size;
+		
 		int corr_y = round(game->line->corr_y);
 		int corr_x = round(game->line->corr_x);
 		int s = 0;

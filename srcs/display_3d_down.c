@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 15:15:57 by gael              #+#    #+#             */
-/*   Updated: 2023/07/12 21:49:05 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/17 15:27:14 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ int	display_3d_down(t_game *game)
 	int	i_ratio;
 	int	y;
 	int	i_main;
-	// int flag_1;
-	// int flag_2;
-	// int flag_3;
-	// int flag_4;
-	// int flag_5 = FAIL;
-	// int flag_6 = FAIL;
+	int flag_1;
+	int flag_2;
+	int flag_3;
+	int flag_4;
+	int flag_5 = FAIL;
+	int flag_6 = FAIL;
 	
 	i_main = 0;
 	i_draw = 0;
@@ -37,7 +37,8 @@ int	display_3d_down(t_game *game)
 	while (i_midline > game->fov->nbr_ray / 2)
 	{
 		i_ratio = 0;
-		while (i_ratio < 10)
+		// printf(BACK_PURPLE"game->fov->lines_vision[%i]: %i"RST"\n", i_midline, game->fov->lines_vision[i_midline]);
+		while (i_ratio < 2)
 		{
 			game->line_3d->x_dest = i_main;
 			game->line_3d->x_src = i_main;
@@ -45,7 +46,17 @@ int	display_3d_down(t_game *game)
 			game->line_3d->y_src = (game->win_height / 2) + (game->map->height * game->img_size);
 			game->line_3d->y_dest = (game->win_height / 2) + (game->map->height * game->img_size);
 			// game->line_3d->y_dest += (game->fov->lines_vision[i_midline] * (-1));
-			game->line_3d->y_dest += ((game->fov->proj_plane * game->img_size) / game->fov->lines_vision[i_midline]);// - i_ratio;
+			// if (((game->fov->proj_plane * game->img_size) / game->fov->lines_vision[i_midline]) - i_ratio > ((game->fov->proj_plane * game->img_size) / game->fov->lines_vision[i_midline - 1]) - i_ratio)
+			// {
+			// 	game->line_3d->y_dest += ((game->fov->proj_plane * game->img_size) / game->fov->lines_vision[i_midline]) - i_ratio / 2;
+			// }
+			// else
+			if (game->fov->lines_vision[i_midline] == 0)
+				game->fov->lines_vision[i_midline] = 1;
+			game->line_3d->y_dest += ((game->fov->proj_plane * game->img_size) / game->fov->lines_vision[i_midline]);
+			// printf(BACK_PURPLE"( game->fov->lines_vision[%i]) - i_ratio: %i"RST"\n", i_midline, ((game->fov->proj_plane * game->img_size) / game->fov->lines_vision[i_midline]) - i_ratio);
+			// printf(BACK_PURPLE"( game->fov->lines_vision[%i]) - i_ratio: %i"RST"\n", i_midline - 1, ((game->fov->proj_plane * game->img_size) / game->fov->lines_vision[i_midline - 1]) - i_ratio);
+			// printf("\n");
 			// if (i_ratio == 19 && i_midline == 31)
 			// {
 			// 	flag_1 = game->line_3d->y_dest;
@@ -80,11 +91,12 @@ int	display_3d_down(t_game *game)
 			// printf("\n");
 			// if (flag_6 == SUCCESS && game->fov->toggle_vision[i_midline] != game->fov->toggle_vision[i_midline + 1] && i_ratio == 0)
 			// {
-			// 	printf(BACK_RED"g"RST"\n");
 			// 	flag_1 = game->line_3d->y_dest;
 			// 	flag_3 = game->line_3d->x_dest;
-			// 	draw_line_temp(game, flag_1, flag_2, flag_3, flag_4);
+			// 	//draw_line_temp(game, flag_1, flag_2, flag_3, flag_4);
 			// 	flag_5 = SUCCESS;
+			// 	flag_2 = game->line_3d->y_dest;
+			// 	flag_4 = game->line_3d->x_src;
 			// }
 			// if (flag_5 == FAIL && game->fov->toggle_vision[i_midline] != game->fov->toggle_vision[i_midline - 1])
 			// {
@@ -105,13 +117,11 @@ int	display_3d_down(t_game *game)
 			{
 				if (game->line_3d->corr_y < game->map->height * game->img_size || game->line_3d->corr_y > game->win_height + game->map->height * game->img_size)
 					break ;
-				img_pix_put(game, round(game->line_3d->corr_x),
-				round(game->line_3d->corr_y), get_color(0, 0, 255));
+				img_pix_put(game, round(game->line_3d->corr_x), round(game->line_3d->corr_y), get_color(0, 0, 255));
 				game->line_3d->corr_x = game->line_3d->corr_x + game->line_3d->xite;
 				game->line_3d->corr_y = game->line_3d->corr_y + game->line_3d->yite;
 				i_draw++;
 			}
-
 			i_ratio++;
 			i_main++;
 		}
@@ -128,7 +138,7 @@ int	display_3d_down(t_game *game)
 	while (i_midline < game->fov->nbr_ray / 2)
 	{
 		i_ratio = 0;
-		while (i_ratio < 10)
+		while (i_ratio < 2)
 		{
 			game->line_3d->x_dest = i_main;
 			game->line_3d->x_src = i_main;
@@ -136,6 +146,8 @@ int	display_3d_down(t_game *game)
 			game->line_3d->y_src = (game->win_height / 2) + (game->map->height * game->img_size);
 			game->line_3d->y_dest = (game->win_height / 2) + (game->map->height * game->img_size);
 			// game->line_3d->y_dest += (game->fov->lines_vision[i_midline] * (-1) );
+			if (game->fov->lines_vision[i_midline] == 0)
+				game->fov->lines_vision[i_midline] = 1;
 			game->line_3d->y_dest += ((game->fov->proj_plane * game->img_size) / game->fov->lines_vision[i_midline]);// + i_ratio;
 
 
@@ -173,6 +185,12 @@ int	display_3d_down(t_game *game)
 	return (SUCCESS);
 	(void)game;
 	(void)y;
+	(void)flag_1;
+	(void)flag_2;
+	(void)flag_3;
+	(void)flag_4;
+	(void)flag_5;
+	(void)flag_6;
 }
 
 

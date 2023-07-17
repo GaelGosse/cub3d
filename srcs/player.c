@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:35:04 by mael              #+#    #+#             */
-/*   Updated: 2023/07/14 12:22:54 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/17 15:28:08 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	set_pos_character(t_game *game)
 			if (game->map->map_org[y][x] == 'W' || game->map->map_org[y][x] == 'E'
 				|| game->map->map_org[y][x] == 'N' || game->map->map_org[y][x] == 'S')
 			{
-				game->map->pos_x = (x * game->img_size) + (game->img_size / 2);
-				game->map->pos_y = (y * game->img_size) + (game->img_size / 2);
+				game->map->pos_x = (x * game->img_size) + (game->img_size );
+				game->map->pos_y = (y * game->img_size) + (game->img_size );
 			}
 			x++;
 		}
