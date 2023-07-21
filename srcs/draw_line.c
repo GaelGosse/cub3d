@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 16:34:58 by mael              #+#    #+#             */
-/*   Updated: 2023/07/17 16:40:49 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/21 11:57:33 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,30 +71,49 @@ int	draw_pixel(t_game *game, int toggle, int x_check, int y_check, int color)
 		if (toggle == FAIL && i == 0 && round(game->line->corr_x) > 0 && \
 		round(game->line->corr_y) > 0)
 		{
+			// if (game->line->corr_x > 383)
+			// {
+			// 	printf("game->line->corr_x: %f\n", game->line->corr_x);
+			// 	// game->line->corr_x = 383;
+			// }
 			//len++;
-			img_pix_put(game, round(game->line->corr_x), \
-			round(game->line->corr_y), color);
+			img_pix_put(game, round(game->line->corr_x), round(game->line->corr_y), color);
 		}
 		else if (toggle == FAIL && i > 0 && round(game->line->corr_x) > 0 && \
 		round(game->line->corr_y) > 0 && \
 		game->map->map_org[y_check][x_check] != '1')
 		{
+			// if (game->line->corr_x > 383)
+			// {
+			// 	printf("game->line->corr_x: %f\n", game->line->corr_x);
+			// 	// game->line->corr_x = 383;
+			// }
 			//len++;
-			img_pix_put(game, round(game->line->corr_x), \
-			round(game->line->corr_y), color);
+			//img_pix_put(game, round(game->line->corr_x), round(game->line->corr_y), color);
 		}
 		game->line->corr_x = game->line->corr_x + game->line->xite;
 		game->line->corr_y = game->line->corr_y + game->line->yite;
 		y_check = (int)(game->line->corr_y / game->img_size);
 		x_check = (int)(game->line->corr_x / game->img_size);
+		
 		// printf("map_org[y_check + 1][x_check]: %c\n", game->map->map_org[y_check + 1][x_check]);
 		// printf("map_org[y_check][x_check + 1]: %c\n", game->map->map_org[y_check][x_check + 1]);
 		// printf("map_org[y_check + 1][x_check + 1]: %c\n", game->map->map_org[y_check + 1][x_check + 1]);
 		// printf("\n");
-		if (y_check >= 0 && x_check >= 0 && x_check < game->map->width && \
+		if (toggle == FAIL && y_check >= 0 && x_check >= 0 && x_check < game->map->width && \
 		y_check < game->map->height && \
 		game->map->map_org[y_check][x_check] == '1')
+		{
+			// if (y_check < 4)
+			// {
+			// 	printf(RED"game->line->corr_y / game->img_size: %f\n"RST, game->line->corr_y / game->img_size);
+			// 	printf(BLUE"game->line->corr_x : %f\n"RST, game->line->corr_x);
+			// 	printf(BACK_PURPLE"y_check: %i"RST"\n", y_check);
+			// 	printf(BACK_PURPLE"x_check: %i"RST"\n", x_check);
+			// 	printf("\n");
+			// }
 			toggle = SUCCESS;
+		}
 		if ((game->fov->angle >= 180 && game->fov->angle < 270) && toggle == FAIL \
 		&& game->map->map_org[y_check - 1][x_check] == '1'
 		&& game->map->map_org[y_check][x_check + 1] == '1' \
@@ -151,7 +170,8 @@ int	draw_line_vision(t_game *game, int color)
 	game->line->corr_x = game->line->x_src;
 	game->line->corr_y = game->line->y_src;
 	draw_pixel(game, toggle, x_check, y_check, color);
-	len = sqrt(pow(game->line->corr_x - game->line->x_src, 2) + pow(game->line->corr_y - game->line->y_src, 2));
+	len = sqrt(pow(game->line->corr_x - game->line->x_src, 2) + \
+		pow(game->line->corr_y - game->line->y_src, 2));
 	return (len);
 }
 

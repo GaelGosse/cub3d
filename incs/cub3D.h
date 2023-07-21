@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:45:40 by ggosse            #+#    #+#             */
-/*   Updated: 2023/07/17 15:57:48 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/21 11:46:00 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,6 +136,7 @@ typedef struct s_map
 
 typedef struct s_fov
 {
+	float	**wall_witch;
 	int		**wall;
 	int		*lines_vision;
 	int		*toggle_vision;
@@ -336,6 +337,7 @@ void	free_parsing(t_game *game, char *err);
 void	free_tab_str(char **tab_str);
 //srcs/display_all.c
 int		display_all(t_game *game, int key);
+int		is_impur(t_game *game);
 void	set_dest_e(t_game *game, int key, int len_side);
 void	set_dest_n(t_game *game, int key, int len_side);
 void	set_dest_s(t_game *game, int key, int len_side);
@@ -358,6 +360,10 @@ int		ft_read_file(t_game *game, char *filename);
 //srcs/texture_part_utils.c
 int		check_tx(t_game *game);
 void	print_word(char *new_w);
+//srcs/fitter.c
+void	fitter_blue(t_game *game);
+int		is_increase_blue(t_game *game, int i_fit);
+void	print_tab_wall(t_game *game);
 //srcs/convert.c
 double deg_to_radian(double deg);
 //srcs/floor_ceil_part.c
@@ -382,6 +388,7 @@ int		calcul_opposite_side(t_game *game, double angle);
 int		first_calcul(t_game *game, double angle);
 int		init_fov(t_game *game);
 int		init_fov_wall(t_game *game);
+int		init_fov_wall_witch(t_game *game);
 void	init_position(t_game *game);
 int		second_calcul(t_game *game, double angle);
 //srcs/build_map_utils.c
@@ -396,6 +403,7 @@ int		init_temp(t_game *game);
 //srcs/display_all_utils.c
 int		init_display_all(t_game *game, int key, int *len_side);
 void	move_straight(t_game *game);
+void	rotate_new(t_game *game);
 //test.c
 
 #endif

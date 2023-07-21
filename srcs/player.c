@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:35:04 by mael              #+#    #+#             */
-/*   Updated: 2023/07/17 15:38:23 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/19 17:40:39 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,8 @@ int	ft_event_listen(int key, t_game *game)
 		{
 			int	new_x;
 			int	new_y;
+			int	check_x;
+			int	check_y;
 
 			if (absolute_value(game->line->dx) > absolute_value(game->line->dy))
 				game->line->steps = absolute_value(game->line->dx);
@@ -131,10 +133,20 @@ int	ft_event_listen(int key, t_game *game)
 				return (FAIL);
 			new_x = round(game->line->corr_x) - game->map->pos_x;
 			new_y = round(game->line->corr_y) - game->map->pos_y;
-			if (game->map->map_org[(game->map->pos_y + ((-1) * new_x)) / game->img_size][(game->map->pos_x + new_y) / game->img_size] != '1')
+			if (new_x > 0)
+				check_x = new_x + 5;
+			else
+				check_x = new_x - 5;
+			if (new_y > 0)
+				check_y = new_y + 5;
+			else
+				check_y = new_y - 5;
+			if (game->map->map_org[(game->map->pos_y + ((-1) * (check_x))) / game->img_size][(game->map->pos_x + (check_y)) / game->img_size] != '1')
 			{
 				game->map->pos_x += new_y;
 				game->map->pos_y += ((-1) * new_x);
+				game->line->x_dest += new_y;
+				game->line->y_dest += ((-1) * new_x);
 			}
 		}
 		reset_img(game);
@@ -154,6 +166,8 @@ int	ft_event_listen(int key, t_game *game)
 		{
 			int	new_x;
 			int	new_y;
+			int	check_x;
+			int	check_y;
 
 			if (absolute_value(game->line->dx) > absolute_value(game->line->dy))
 				game->line->steps = absolute_value(game->line->dx);
@@ -167,10 +181,20 @@ int	ft_event_listen(int key, t_game *game)
 				return (FAIL);
 			new_x = round(game->line->corr_x) - game->map->pos_x;
 			new_y = round(game->line->corr_y) - game->map->pos_y;
-			if (game->map->map_org[(game->map->pos_y + new_x) / game->img_size][(game->map->pos_x + ((-1) * new_y)) / game->img_size] != '1')
+			if (new_x < 0)
+				check_x = new_x - 5;
+			else
+				check_x = new_x + 5;
+			if (new_y < 0)
+				check_y = new_y - 5;
+			else
+				check_y = new_y + 5;
+			if (game->map->map_org[(game->map->pos_y + (check_x)) / game->img_size][(game->map->pos_x + ((-1) * (check_y))) / game->img_size] != '1')
 			{
 				game->map->pos_x += ((-1) * new_y);
 				game->map->pos_y += new_x;
+				game->line->x_dest += ((-1) * new_y);
+				game->line->y_dest += new_x;
 			}
 		}
 		reset_img(game);

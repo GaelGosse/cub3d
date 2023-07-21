@@ -54,6 +54,7 @@ _SRCS	=	build_map.c \
 			display_all_reverse.c \
 			display_all_utils.c \
 			draw_line.c \
+			fitter.c \
 			flooding.c \
 			floor_ceil_part.c \
 			fov.c \

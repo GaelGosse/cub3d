@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:52:12 by mael              #+#    #+#             */
-/*   Updated: 2023/07/17 15:59:34 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/19 11:27:06 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ int	first_time(t_game *game)
 	draw_player(game);
 	game->line->x_src = game->map->pos_x;
 	game->line->y_src = game->map->pos_y;
-	init_fov(game);
+	if (init_fov(game) == FAIL)
+		return (FAIL);
 	init_position(game);
 	// draw_line_vision(game);
 	// mlx_put_image_to_window(game->mlibx, game->window, game->img->mlx_img,

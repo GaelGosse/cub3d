@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 16:47:24 by mael              #+#    #+#             */
-/*   Updated: 2023/07/17 16:00:43 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/21 11:46:18 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ int	init_fov(t_game *game)
 		i++;
 	}
 	game->fov->toggle = game->perso;
-	init_fov_wall(game);
+	if (init_fov_wall(game) == FAIL)
+		return (FAIL);
+	if (init_fov_wall_witch(game) == FAIL)
+		return (FAIL);
 	return (SUCCESS);
 }
 
@@ -57,6 +60,26 @@ int	init_fov_wall(t_game *game)
 			return (printf("init_wall simple failed\n"), FAIL);
 		game->fov->wall[i][0] = FAIL;
 		game->fov->wall[i][1] = FAIL;
+		i++;
+	}
+	return (SUCCESS);
+}
+
+int	init_fov_wall_witch(t_game *game)
+{
+	int i;
+
+	i = 0;
+	game->fov->wall_witch = malloc(sizeof(float *) * game->fov->nbr_ray);
+	if (!game->fov->wall_witch)
+		return (printf("init witch double failed\n"), FAIL);
+	while (i <= game->fov->nbr_ray)
+	{
+		game->fov->wall_witch[i] = malloc(sizeof(float) * 2);
+		if (!game->fov->wall_witch[i])
+			return (printf("init witch simple failed\n"), FAIL);
+		game->fov->wall_witch[i][0] = FAIL;
+		game->fov->wall_witch[i][1] = FAIL;
 		i++;
 	}
 	return (SUCCESS);
