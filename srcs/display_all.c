@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_all.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 11:04:13 by gael              #+#    #+#             */
-/*   Updated: 2023/07/21 11:50:26 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/21 14:13:20 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,7 @@ int	display_all(t_game *game, int key)
 		int e = 0;
 		int w = 0;
 		int n = 0;
-		
+
 		if (game->map->map_org[(corr_y - 1) / game->img_size][corr_x / game->img_size] == '1')
 			s++;
 		if (game->map->map_org[(corr_y + 1) / game->img_size][corr_x / game->img_size] == '1')
@@ -143,7 +143,7 @@ int	display_all(t_game *game, int key)
 			w++;
 		if (game->map->map_org[(corr_y) / game->img_size][(corr_x - 1) / game->img_size] == '1')
 			e++;
-		
+
 		if (n > s)// && (game->fov->toggle != 'N'))//(game->fov->toggle == 'S' || game->fov->toggle == 'W'))
 		{
 			game->fov->toggle_vision[i_rotate] = 'N';
@@ -160,7 +160,7 @@ int	display_all(t_game *game, int key)
 		{
 			game->fov->toggle_vision[i_rotate] = 'W';
 		}
-		
+
 		// printf(BACK_RED"game->fov->toggle_vision[%i]: %c"RST"\n", i_rotate, game->fov->toggle_vision[i_rotate]);
 		i_rotate++;
 	}
@@ -233,7 +233,7 @@ int	display_all(t_game *game, int key)
 		int e = 0;
 		int w = 0;
 		int n = 0;
-		
+
 		if (game->map->map_org[(corr_y - 1) / game->img_size][corr_x / game->img_size] == '1')
 			s++;
 		if (game->map->map_org[(corr_y + 1) / game->img_size][corr_x / game->img_size] == '1')
@@ -252,7 +252,7 @@ int	display_all(t_game *game, int key)
 		// 	printf(BACK_PURPLE"\t\t\t\t%i %i"RST"\n", w, e);
 		// 	printf(BACK_PURPLE"\t\t\t\t %i "RST"\n", s);
 		// }
-		
+
 		if (n > s)// && (game->fov->toggle != 'N'))//(game->fov->toggle == 'S' || game->fov->toggle == 'W'))
 		{
 			game->fov->toggle_vision[i_rotate + game->fov->nbr_ray / 2] = 'N';
@@ -294,7 +294,7 @@ int	display_all(t_game *game, int key)
 	// }
 	// print_tab_wall(game);
 	fitter_blue(game);
-	// fitter_red(game);
+	fitter_red(game);
 	// i = 0;
 	// while (game->fov->toggle_vision[i])
 	// {
@@ -307,16 +307,16 @@ int	display_all(t_game *game, int key)
 	// 	i = 1;
 	// 	while (i < game->fov->nbr_ray)
 	// 	{
-	// 		if (game->fov->lines_vision[i] != game->fov->lines_vision[i + 1] && 
-	// 		game->fov->lines_vision[i] != game->fov->lines_vision[i - 1] && 
+	// 		if (game->fov->lines_vision[i] != game->fov->lines_vision[i + 1] &&
+	// 		game->fov->lines_vision[i] != game->fov->lines_vision[i - 1] &&
 	// 		game->fov->lines_vision[i + 1] == game->fov->lines_vision[i - 1])
 	// 			game->fov->lines_vision[i] = game->fov->lines_vision[i - 1];
-	// 		if (game->fov->lines_vision[i] != game->fov->lines_vision[i + 2] && 
-	// 		game->fov->lines_vision[i] != game->fov->lines_vision[i - 2] && 
+	// 		if (game->fov->lines_vision[i] != game->fov->lines_vision[i + 2] &&
+	// 		game->fov->lines_vision[i] != game->fov->lines_vision[i - 2] &&
 	// 		game->fov->lines_vision[i + 2] == game->fov->lines_vision[i - 2])
 	// 			game->fov->lines_vision[i] = game->fov->lines_vision[i - 2];
-	// 		if (game->fov->lines_vision[i] != game->fov->lines_vision[i + 3] && 
-	// 		game->fov->lines_vision[i] != game->fov->lines_vision[i - 3] && 
+	// 		if (game->fov->lines_vision[i] != game->fov->lines_vision[i + 3] &&
+	// 		game->fov->lines_vision[i] != game->fov->lines_vision[i - 3] &&
 	// 		game->fov->lines_vision[i + 3] == game->fov->lines_vision[i - 3])
 	// 			game->fov->lines_vision[i] = game->fov->lines_vision[i - 3];
 	// 		i++;
