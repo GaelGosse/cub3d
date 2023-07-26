@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_3d_down.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 15:15:57 by gael              #+#    #+#             */
-/*   Updated: 2023/07/17 16:59:07 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/26 11:21:23 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	display_3d_down(t_game *game)
 	int flag_4;
 	int flag_5 = FAIL;
 	int flag_6 = FAIL;
-	
+
 	i_main = 0;
 	i_draw = 0;
 	i_ratio = 0;
@@ -83,7 +83,7 @@ int	display_3d_down(t_game *game)
 			// 		flag_2
 			// 	}
 			// 	if (game->fov->toggle_vision[i] != game->fov->toggle_vision[i - 1])
-			
+
 			// 	i--;
 			// }
 			// printf("tv[%i]: %i\tflag_5: %i\n", i_midline, game->fov->toggle_vision[i_midline], flag_5);
@@ -205,7 +205,7 @@ int	display_3d_down(t_game *game)
 				}
 				else if (game->fov->toggle_vision[i_midline] == 'W')
 				{
-			
+
 					img_pix_put(game, round(game->line_3d->corr_x),
 					round(game->line_3d->corr_y), get_color(0, 255, 0));
 				}

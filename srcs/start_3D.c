@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_3D.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:52:12 by mael              #+#    #+#             */
-/*   Updated: 2023/07/19 11:27:06 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/26 15:33:28 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void	fill_void(t_game *game, int i, int j)
 		x = j * game->img_size;
 		while (x < (j + 1) * game->img_size)
 		{
-			img_pix_put(game, x, y, get_color(5, 15, 120));
+			img_pix_put(game, x, y, get_color(5, 120, 10));
 			x++;
 		}
 		y++;

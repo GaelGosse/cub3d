@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tools.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 01:14:19 by gael              #+#    #+#             */
-/*   Updated: 2023/02/05 07:36:27 by ggosse           ###   ########.fr       */
+/*   Updated: 2023/07/25 08:48:44 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	num_hexa_len(unsigned long long int nbr)
+int	num_hexa_len(unsigned long long int nbr)
 {
 	long int	len;
 

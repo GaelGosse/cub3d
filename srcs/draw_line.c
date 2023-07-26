@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_line.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 16:34:58 by mael              #+#    #+#             */
-/*   Updated: 2023/07/21 11:57:33 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/26 11:33:04 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,13 +89,13 @@ int	draw_pixel(t_game *game, int toggle, int x_check, int y_check, int color)
 			// 	// game->line->corr_x = 383;
 			// }
 			//len++;
-			//img_pix_put(game, round(game->line->corr_x), round(game->line->corr_y), color);
+			img_pix_put(game, round(game->line->corr_x), round(game->line->corr_y), color);
 		}
 		game->line->corr_x = game->line->corr_x + game->line->xite;
 		game->line->corr_y = game->line->corr_y + game->line->yite;
 		y_check = (int)(game->line->corr_y / game->img_size);
 		x_check = (int)(game->line->corr_x / game->img_size);
-		
+
 		// printf("map_org[y_check + 1][x_check]: %c\n", game->map->map_org[y_check + 1][x_check]);
 		// printf("map_org[y_check][x_check + 1]: %c\n", game->map->map_org[y_check][x_check + 1]);
 		// printf("map_org[y_check + 1][x_check + 1]: %c\n", game->map->map_org[y_check + 1][x_check + 1]);

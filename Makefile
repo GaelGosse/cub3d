@@ -43,7 +43,8 @@ LIBDIR	= libft
 
 
 # ----------------------------------- srcs ----------------------------------- #
-_SRCS	=	build_map.c \
+_SRCS	=	buffer.c \
+			build_map.c \
 			build_map_utils.c \
 			check_file.c \
 			check_format.c \
@@ -70,7 +71,10 @@ _SRCS	=	build_map.c \
 			texture_part.c \
 			texture_part_utils.c \
 			toggle.c \
-			valid_wall.c
+			valid_wall.c \
+			xpm_correction.c \
+			xpm_first.c \
+			xpm_parse.c
 # --------------------------------- end srcs --------------------------------- #
 
 

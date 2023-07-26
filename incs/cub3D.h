@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:45:40 by ggosse            #+#    #+#             */
-/*   Updated: 2023/07/21 17:36:13 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/26 10:21:52 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,16 @@
 // ---------------------------- end define ---------------------------------- //
 
 // ------------------------------ struct ------------------------------------ //
+
+typedef struct s_xpm
+{
+	char	*file_content;
+	char	*file_map;
+	char	**tab_file;
+	int		*lenth_n_color;
+	int		**colors;
+	int		tab_start;
+}	t_xpm;
 
 typedef struct s_img
 {
@@ -158,6 +168,7 @@ typedef struct s_game
 	int			win_width;
 	t_map		*map;
 	t_img		*img;
+	t_xpm		*xpm;
 	t_line		*line;
 	t_fov		*fov;
 	t_line_3d	*line_3d;
@@ -217,6 +228,7 @@ int		hole_in_wall(t_game *game);
 int		is_fault(t_game *game, int row, int col);
 //srcs/convert.c
 double	deg_to_radian(double deg);
+int		hex_to_dec(char *hexa);
 //srcs/rotate.c
 void	t(void);
 //srcs/build_map.c
@@ -240,6 +252,8 @@ int		init_fov_wall(t_game *game);
 int		init_fov_wall_witch(t_game *game);
 void	init_position(t_game *game);
 int		second_calcul(t_game *game, double angle);
+//srcs/xpm_first.c
+char	*keep_metadata_xpm(char **tmp, int i_tmp);
 //srcs/build_map_utils.c
 int		check_nbr(char *str);
 int		is_empty_line(char *line);
@@ -269,6 +283,12 @@ void	set_pos_character(t_game *game);
 //srcs/toggle.c
 void	change_toggle_a(t_game *game);
 void	change_toggle_d(t_game *game);
+//srcs/xpm_parse.c
+int		buf_split_xpm(int fd, t_game *game);
+int		get_content_xpm(t_game *game, int fd, int ret, char *buf);
+int		init_xpm(t_game *game);
+int		read_xpm(t_game *game, char *filename);
+int		xpm_parse(t_game *game);
 //srcs/check_file.c
 int		check_env(char **envp);
 int		check_ext(char *filename, char one, char two, char three);
@@ -290,7 +310,16 @@ int		check_floor_content(t_game *game, char **color);
 int		floor_ceil_part(t_game *game, char *line);
 //srcs/check_format.c
 void	check_corner(t_game *game);
+//srcs/xpm_correction.c
+int		copy_tab_xpm(t_game *game, char **tmp);
+int		read_first_line_xpm(t_game *game);
+int		set_color(t_game *game, int i_color, char *tmp);
+int		set_color_when_no_digit(t_game *game, int i_color, int i_tab_file);
+int		set_lenth_n_color(t_game *game, char **line);
+void	xpm_correct(t_game *g);
+void	xpm_wo_comm(t_game *g, int n_comm);
 //srcs/fitter.c
+void	cross(t_game *game, int i_fit, int x_plus, int y_plus);
 void	fitter_blue(t_game *game);
 void	fitter_red(t_game *game);
 int		is_increase_blue(t_game *game, int i_fit);

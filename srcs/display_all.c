@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 11:04:13 by gael              #+#    #+#             */
-/*   Updated: 2023/07/21 14:13:20 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/25 23:08:09 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -294,7 +294,7 @@ int	display_all(t_game *game, int key)
 	// }
 	// print_tab_wall(game);
 	fitter_blue(game);
-	fitter_red(game);
+	// fitter_red(game);
 	// i = 0;
 	// while (game->fov->toggle_vision[i])
 	// {
