@@ -321,7 +321,7 @@ int	is_increase_blue(t_game *game, int i_fit)
 								if (((int)(game->fov->wall_witch[i_fit + 1][0]) - j) % game->img_size == 0)
 								{
 									printf("hit by hrz South \n");
-									cross(game, i_fit + 1, -i, 0);
+									// cross(game, i_fit + 1, -i, 0);
 									// printf(" Sud & hrz ""\n");
 									return (FAIL);
 								}
