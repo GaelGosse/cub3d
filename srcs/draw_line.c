@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 16:34:58 by mael              #+#    #+#             */
-/*   Updated: 2023/07/26 11:33:04 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/28 20:48:52 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	absolute_value(int nb)
 	return (nb);
 }
 
-float	abs_flt(float nb)
+double	abs_flt(double nb)
 {
 	if (nb == 0)
 		return (nb);
@@ -68,8 +68,8 @@ int	draw_pixel(t_game *game, int toggle, int x_check, int y_check, int color)
 	i = 0;
 	while (i <= game->line->steps)
 	{
-		if (toggle == FAIL && i == 0 && round(game->line->corr_x) > 0 && \
-		round(game->line->corr_y) > 0)
+		if (toggle == FAIL && i == 0 && roundf(game->line->corr_x) > 0 && \
+		roundf(game->line->corr_y) > 0)
 		{
 			// if (game->line->corr_x > 383)
 			// {
@@ -77,10 +77,10 @@ int	draw_pixel(t_game *game, int toggle, int x_check, int y_check, int color)
 			// 	// game->line->corr_x = 383;
 			// }
 			//len++;
-			img_pix_put(game, round(game->line->corr_x), round(game->line->corr_y), color);
+			img_pix_put(game, roundf(game->line->corr_x), roundf(game->line->corr_y), color);
 		}
-		else if (toggle == FAIL && i > 0 && round(game->line->corr_x) > 0 && \
-		round(game->line->corr_y) > 0 && \
+		else if (toggle == FAIL && i > 0 && roundf(game->line->corr_x) > 0 && \
+		roundf(game->line->corr_y) > 0 && \
 		game->map->map_org[y_check][x_check] != '1')
 		{
 			// if (game->line->corr_x > 383)
@@ -89,7 +89,7 @@ int	draw_pixel(t_game *game, int toggle, int x_check, int y_check, int color)
 			// 	// game->line->corr_x = 383;
 			// }
 			//len++;
-			img_pix_put(game, round(game->line->corr_x), round(game->line->corr_y), color);
+			img_pix_put(game, roundf(game->line->corr_x), roundf(game->line->corr_y), color);
 		}
 		game->line->corr_x = game->line->corr_x + game->line->xite;
 		game->line->corr_y = game->line->corr_y + game->line->yite;
@@ -112,32 +112,10 @@ int	draw_pixel(t_game *game, int toggle, int x_check, int y_check, int color)
 			// 	printf(BACK_PURPLE"x_check: %i"RST"\n", x_check);
 			// 	printf("\n");
 			// }
+			game->line->corr_x = roundf(game->line->corr_x);
+			game->line->corr_y = roundf(game->line->corr_y);
 			toggle = SUCCESS;
 		}
-		if ((game->fov->angle >= 180 && game->fov->angle < 270) && toggle == FAIL \
-		&& game->map->map_org[y_check - 1][x_check] == '1'
-		&& game->map->map_org[y_check][x_check + 1] == '1' \
-		&& (game->map->map_org[y_check - 1][x_check + 1] == '0' \
-		|| game->map->map_org[y_check - 1][x_check + 1] == game->perso))
-			toggle = SUCCESS;
-		if ((game->fov->angle >= 270 && game->fov->angle < 360) && toggle == FAIL \
-		&& game->map->map_org[y_check + 1][x_check] == '1' \
-		&& game->map->map_org[y_check][x_check + 1] == '1' \
-		&& (game->map->map_org[y_check + 1][x_check + 1] == '0' \
-		|| game->map->map_org[y_check + 1][x_check + 1] == game->perso))
-			toggle = SUCCESS;
-		if ((game->fov->angle >= 0 && game->fov->angle < 90) && toggle == FAIL \
-		&& game->map->map_org[y_check + 1][x_check] == '1' \
-		&& game->map->map_org[y_check][x_check - 1] == '1' \
-		&& (game->map->map_org[y_check + 1][x_check - 1] == '0' \
-		|| game->map->map_org[y_check + 1][x_check - 1] == game->perso))
-			toggle = SUCCESS;
-		if ((game->fov->angle >= 90 && game->fov->angle < 180) && toggle == FAIL \
-		&& game->map->map_org[y_check - 1][x_check] == '1' \
-		&& game->map->map_org[y_check][x_check - 1] == '1' \
-		&& (game->map->map_org[y_check - 1][x_check - 1] == '0' \
-		|| game->map->map_org[y_check - 1][x_check - 1] == game->perso))
-			toggle = SUCCESS;
 		if (toggle == SUCCESS)
 			return (FAIL);
 		i++;
@@ -165,13 +143,19 @@ int	draw_line_vision(t_game *game, int color)
 		game->line->steps = absolute_value(game->line->dx);
 	else
 		game->line->steps = absolute_value(game->line->dy);
-	game->line->xite = game->line->dx / (float)game->line->steps;
-	game->line->yite = game->line->dy / (float)game->line->steps;
+	game->line->xite = game->line->dx / (double)game->line->steps;
+	game->line->yite = game->line->dy / (double)game->line->steps;
 	game->line->corr_x = game->line->x_src;
 	game->line->corr_y = game->line->y_src;
 	draw_pixel(game, toggle, x_check, y_check, color);
-	len = sqrt(pow(game->line->corr_x - game->line->x_src, 2) + \
-		pow(game->line->corr_y - game->line->y_src, 2));
+	len = sqrt(pow(game->line->corr_x - (double)game->line->x_src, 2) + \
+		pow(game->line->corr_y - (double)game->line->y_src, 2));
+	// printf("\n");
+	// printf(PURPLE"corr x: %f\ty:%f"RESET"\n", game->line->corr_x, game->line->corr_y);
+	// printf(PURPLE"src x: %d\ty:%d"RESET"\n", game->line->x_src, game->line->y_src);
+	// printf(BACK_YELLOW"len: %f"RESET"\n", len);
+	len = roundf(len);
+	// printf(BACK_YELLOW"len: %f"RESET"\n", len);
 	return (len);
 }
 

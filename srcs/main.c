@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:15:08 by ggosse            #+#    #+#             */
-/*   Updated: 2023/07/25 16:19:53 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/31 00:53:53 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ int	ft_parsing(t_game *game, char **argv)
 		return (FAIL);
 	if (build_map(game, argv) == FAIL)
 		return (FAIL);
+	if (xpm_parse(game) == FAIL)
+		return (FAIL);
 	if (check_perso(game) == FAIL)
 		return (FAIL);
 	if (check_letters_map(game) == FAIL)
@@ -94,10 +96,6 @@ int	ft_parsing(t_game *game, char **argv)
 	if (hole_in_wall(game) == FAIL)
 		return (FAIL);
 	check_corner(game);
-	if (xpm_parse(game) == FAIL)
-		return (FAIL);
-	// print_map(game->map->map_tmp);
-	// print_map(game->map->map_org);
 	return (SUCCESS);
 }
 
@@ -117,10 +115,7 @@ int	main(int argc, char **argv, char **envp)
 		return (FAIL);
 	if (start_3D(&game) == FAIL)
 		return (FAIL);
-
-	// ft_create_game(&game);
 	free_parsing(&game, NULL);
-	(void)game;
 	(void)argc;
 	(void)argv;
 	(void)envp;

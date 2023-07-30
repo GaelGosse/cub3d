@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fov.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 16:47:24 by mael              #+#    #+#             */
-/*   Updated: 2023/07/21 11:46:18 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/28 16:38:14 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	init_fov(t_game *game)
 int	init_fov_wall(t_game *game)
 {
 	int i;
-	
+
 	i = 0;
 	game->fov->wall = malloc(sizeof(int *) * game->fov->nbr_ray);
 	if (!game->fov->wall)
@@ -70,12 +70,12 @@ int	init_fov_wall_witch(t_game *game)
 	int i;
 
 	i = 0;
-	game->fov->wall_witch = malloc(sizeof(float *) * game->fov->nbr_ray);
+	game->fov->wall_witch = malloc(sizeof(double *) * game->fov->nbr_ray);
 	if (!game->fov->wall_witch)
 		return (printf("init witch double failed\n"), FAIL);
 	while (i <= game->fov->nbr_ray)
 	{
-		game->fov->wall_witch[i] = malloc(sizeof(float) * 2);
+		game->fov->wall_witch[i] = malloc(sizeof(double) * 2);
 		if (!game->fov->wall_witch[i])
 			return (printf("init witch simple failed\n"), FAIL);
 		game->fov->wall_witch[i][0] = FAIL;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   floor_ceil_part.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 17:52:47 by ggosse            #+#    #+#             */
-/*   Updated: 2023/07/12 21:51:49 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/29 23:22:49 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 int	floor_ceil_part(t_game *game, char *line)
 {
+	if (game->map->wall_no == NULL || game->map->wall_ea == NULL || \
+	game->map->wall_so == NULL || game->map->wall_we == NULL)
+		return (printf("a wall is missing in .cub\n"), FAIL);
+
 	if (line[0] && line[0] != 'F' && \
 	line[0] != 'C' && line[1] && line[1] == ' ')
 		return (printf(RED"Err: %c (%i) wrong letter for floor or ceil \n"RST, \

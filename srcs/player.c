@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:35:04 by mael              #+#    #+#             */
-/*   Updated: 2023/07/19 17:40:39 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/28 16:38:14 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,8 +125,8 @@ int	ft_event_listen(int key, t_game *game)
 				game->line->steps = absolute_value(game->line->dx);
 			else
 				game->line->steps = absolute_value(game->line->dy);
-			game->line->xite = game->line->dx / (float)game->line->steps;
-			game->line->yite = game->line->dy / (float)game->line->steps;
+			game->line->xite = game->line->dx / (double)game->line->steps;
+			game->line->yite = game->line->dy / (double)game->line->steps;
 			game->line->corr_x = game->line->x_src;
 			game->line->corr_y = game->line->y_src;
 			if (calcul_corr_for_step(game) == 1)
@@ -173,8 +173,8 @@ int	ft_event_listen(int key, t_game *game)
 				game->line->steps = absolute_value(game->line->dx);
 			else
 				game->line->steps = absolute_value(game->line->dy);
-			game->line->xite = game->line->dx / (float)game->line->steps;
-			game->line->yite = game->line->dy / (float)game->line->steps;
+			game->line->xite = game->line->dx / (double)game->line->steps;
+			game->line->yite = game->line->dy / (double)game->line->steps;
 			game->line->corr_x = game->line->x_src;
 			game->line->corr_y = game->line->y_src;
 			if (calcul_corr_for_step(game) == 1)

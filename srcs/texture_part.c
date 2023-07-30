@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 17:52:47 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/19 08:33:42 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/29 00:30:14 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,14 @@ int	texture_part(t_game *game, char *line)
 	if (game->map->wall_no != NULL && game->map->wall_ea != NULL && \
 	game->map->wall_so != NULL && game->map->wall_we != NULL)
 		return (check_tx(game));
+	// else
+	// {
+	// 	printf(BACK_GREEN"%s"RESET"\n", game->map->wall_no);
+	// 	printf(BACK_GREEN"%s"RESET"\n", game->map->wall_ea);
+	// 	printf(BACK_GREEN"%s"RESET"\n", game->map->wall_so);
+	// 	printf(BACK_GREEN"%s"RESET"\n", game->map->wall_we);
+	// 	return (printf("a wall is missing\n"), FAIL);
+	// }
 	return (SUCCESS);
 }
 

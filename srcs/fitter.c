@@ -120,9 +120,9 @@ int	is_increase_blue(t_game *game, int i_fit)
 	if (((int)(game->fov->wall_witch[i_fit][0]) % game->img_size == 0 \
 	&& (int)(game->fov->wall_witch[i_fit][1]) % game->img_size == 0))
 	{
-		printf(BACK_RED" perfect hit"RST"\n");
+		// printf(BACK_RED" perfect hit"RST"\n");
 		// img_pix_put(game, round(game->fov->wall_witch[i_fit][0]), round(game->fov->wall_witch[i_fit][1]), get_color(255, 0, 255));
-		cross(game, i_fit, 0, 0);
+		// cross(game, i_fit, 0, 0);
 		return (FAIL);
 	}
 	else if (((int)(game->fov->wall_witch[i_fit + 1][0]) % game->img_size != 0 \
@@ -195,7 +195,7 @@ int	is_increase_blue(t_game *game, int i_fit)
 					|| ((int)(game->fov->wall_witch[i_fit][0])) + 1 % game->img_size == 0)
 					&& ((int)(game->fov->wall_witch[i_fit][1]) - i) % game->img_size == 0)
 					{
-						img_pix_put(game, round(game->fov->wall_witch[i_fit + 1][0]) + 1, round(game->fov->wall_witch[i_fit + 1][1]) + j, get_color(255, 0, 0));
+						// img_pix_put(game, round(game->fov->wall_witch[i_fit + 1][0]) + 1, round(game->fov->wall_witch[i_fit + 1][1]) + j, get_color(255, 0, 0));
 						j = 0;
 						while (j <= 20)
 						{
@@ -204,8 +204,8 @@ int	is_increase_blue(t_game *game, int i_fit)
 							|| ((int)(game->fov->wall_witch[i_fit + 1][0]) + 1) % game->img_size == 0)
 							&& ((int)(game->fov->wall_witch[i_fit + 1][1]) + j) % game->img_size == 0)
 							{
-								printf("hit by vtcl EAST \n");
-								cross(game, i_fit + 1, 0, -i);
+								// printf("hit by vtcl EAST \n");
+								// cross(game, i_fit + 1, 0, -i);
 								return (FAIL);
 							}
 							j++;
@@ -227,15 +227,15 @@ int	is_increase_blue(t_game *game, int i_fit)
 				i = -1;
 				// if ((int)(game->fov->wall_witch[i_fit][1]) < 160)
 				// {
-				// 	printf(GREEN"x: %i\t"BOLD_WHITE, (int)(game->fov->wall_witch[i_fit][0]) + i);
-				// 	printf(" y: %i", (int)(game->fov->wall_witch[i_fit][1]) - 1);
-				// 	printf(" y: %i", (int)(game->fov->wall_witch[i_fit][1]));
-				// 	printf(" y: %i"RESET"\t", (int)(game->fov->wall_witch[i_fit][1]) + 1);
+					// printf(GREEN"x: %i\t"BOLD_WHITE, (int)(game->fov->wall_witch[i_fit][0]) + i);
+					// printf(" y: %i", (int)(game->fov->wall_witch[i_fit][1]) - 1);
+					// printf(" y: %i", (int)(game->fov->wall_witch[i_fit][1]));
+					// printf(" y: %i"RESET"\t", (int)(game->fov->wall_witch[i_fit][1]) + 1);
 
-				// 	printf(GREEN"(%i, ", ((int)(game->fov->wall_witch[i_fit][0]) + i) % game->img_size);
-				// 	printf("%i)"RESET" ", ((int)(game->fov->wall_witch[i_fit][1]) - 1) % game->img_size);
-				// 	printf("%i)"RESET" ", ((int)(game->fov->wall_witch[i_fit][1])) % game->img_size);
-				// 	printf("%i)"RESET"\n", ((int)(game->fov->wall_witch[i_fit][1]) + 1) % game->img_size);
+					// printf(GREEN"(%i, ", ((int)(game->fov->wall_witch[i_fit][0]) + i) % game->img_size);
+					// printf("%i)"RESET" ", ((int)(game->fov->wall_witch[i_fit][1]) - 1) % game->img_size);
+					// printf("%i)"RESET" ", ((int)(game->fov->wall_witch[i_fit][1])) % game->img_size);
+					// printf("%i)"RESET"\n", ((int)(game->fov->wall_witch[i_fit][1]) + 1) % game->img_size);
 				// }
 				// img_pix_put(game, round(game->fov->wall_witch[i_fit][0]) - i, round(game->fov->wall_witch[i_fit][1]) + 1, get_color(255, 0, 255));
 				while (i <= 20)
@@ -256,8 +256,7 @@ int	is_increase_blue(t_game *game, int i_fit)
 							&& ((int)(game->fov->wall_witch[i_fit + 1][0]) + j) % game->img_size == 0)
 							{
 								printf("hit by hrz north \n");
-								cross(game, i_fit + 1, -i, 0);
-								// printf(" Nord hrz "RESET"\n");
+								cross(game, i_fit + 1, j, 0);
 								return (FAIL);
 							}
 							j++;
@@ -275,7 +274,7 @@ int	is_increase_blue(t_game *game, int i_fit)
 			}
 			else if (game->fov->angle >= 90 && game ->fov->angle <= 270)
 			{
-				i = 0;
+				i = -1;
 				while (i <= 20)
 				{
 					// printf(UNDER_GREEN"x: %i\t"GREEN, (int)(game->fov->wall_witch[i_fit][0]) + i);
@@ -285,35 +284,16 @@ int	is_increase_blue(t_game *game, int i_fit)
 					// printf(UNDER_GREEN"(%i, ", ((int)(game->fov->wall_witch[i_fit][0]) + i) % game->img_size);
 					// printf("%i)"RESET"\n", ((int)(game->fov->wall_witch[i_fit][1])) % game->img_size);
 					// img_pix_put(game, round(game->fov->wall_witch[i_fit + 1][0]) + i, round(game->fov->wall_witch[i_fit + 1][1]) + 1, get_color(75, 75, 75));
-					// if (i_fit >= 205 && i_fit <= 224)
-					// {
-					// 	printf("y 0: %i\t\t", ((int)(game->fov->wall_witch[i_fit][1])) % game->img_size);
-					// 	printf("y-1: %i\t\t", ((int)(game->fov->wall_witch[i_fit][1]) - 1) % game->img_size);
-					// 	printf("y+1: %i\n", ((int)(game->fov->wall_witch[i_fit][1]) + 1) % game->img_size);
-					// 	printf("(int)(game->fov->wall_witch[%i][0]): %i + %i = %i""\n", i_fit, (int)(game->fov->wall_witch[i_fit][0]), i, (int)(game->fov->wall_witch[i_fit][0]) + i);
-					// 	printf("x+i: %i\n", ((int)(game->fov->wall_witch[i_fit][0]) + i) % game->img_size);
-					// 	printf("\n");
-					// }
 					if (((int)(game->fov->wall_witch[i_fit][0]) + i) % game->img_size == 0
 					&& (((int)(game->fov->wall_witch[i_fit][1])) % game->img_size == 0
 					|| ((int)(game->fov->wall_witch[i_fit][1]) - 1) % game->img_size == 0
 					|| ((int)(game->fov->wall_witch[i_fit][1]) + 1) % game->img_size == 0))
 					{
-						// if (i_fit >= 205 && i_fit <= 224)
-						// {
-						// 	printf("\t\ty 0: %i\t\t", ((int)(game->fov->wall_witch[i_fit][1])) % game->img_size);
-						// 	printf("\t\ty-1: %i\t\t", ((int)(game->fov->wall_witch[i_fit][1]) - 1) % game->img_size);
-						// 	printf("\t\ty+1: %i\n", ((int)(game->fov->wall_witch[i_fit][1]) + 1) % game->img_size);
-						// 	printf("\t\t(int)(game->fov->wall_witch[%i][0]): %i + %i = %i""\n", i_fit, (int)(game->fov->wall_witch[i_fit][0]), i, (int)(game->fov->wall_witch[i_fit][0]) + i);
-						// 	printf("\t\tx+i: %i\n", ((int)(game->fov->wall_witch[i_fit][0]) + i) % game->img_size);
-						// 	printf("\t\t\n");
-						// }
 						// cross(game, i_fit, i, 0);
-						// return (FAIL);
-						j = 0;
+						j =-1;
 						while (j <= 20)
 						{
-							img_pix_put(game, round(game->fov->wall_witch[i_fit + 1][0]) + j, round(game->fov->wall_witch[i_fit + 1][1]) + 1, get_color(0, 0, 0));
+							img_pix_put(game, round(game->fov->wall_witch[i_fit + 1][0]) - j, round(game->fov->wall_witch[i_fit + 1][1]) + 1, get_color(0, 0, 0));
 							if ((((int)(game->fov->wall_witch[i_fit + 1][1]) % game->img_size == 0)
 							|| (((int)(game->fov->wall_witch[i_fit + 1][1]) - 1) % game->img_size == 0)
 							|| (((int)(game->fov->wall_witch[i_fit + 1][1]) + 1) % game->img_size == 0)))
@@ -321,8 +301,7 @@ int	is_increase_blue(t_game *game, int i_fit)
 								if (((int)(game->fov->wall_witch[i_fit + 1][0]) - j) % game->img_size == 0)
 								{
 									printf("hit by hrz South \n");
-									// cross(game, i_fit + 1, -i, 0);
-									// printf(" Sud & hrz ""\n");
+									cross(game, i_fit + 1, -j, 0);
 									return (FAIL);
 								}
 							}

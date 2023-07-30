@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 14:00:18 by gael              #+#    #+#             */
-/*   Updated: 2023/07/25 00:33:13 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/29 23:19:06 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,3 @@
 // 	return (line);
 // }
 
-char	*keep_metadata_xpm(char **tmp, int i_tmp)
-{
-	int	end;
-	int	len_line;
-
-	len_line = ft_strlen(tmp[i_tmp]) - 1;
-	end = FAIL;
-	if (tmp[i_tmp][len_line] == ',' && tmp[i_tmp][len_line - 1] == '"')
-		end = len_line - 1;
-	else if (tmp[i_tmp][len_line] == '"')
-		end = len_line - 2;
-	return (ft_strdup_len(tmp[i_tmp], 1, end));
-}

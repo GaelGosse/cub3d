@@ -55,6 +55,8 @@ _SRCS	=	buffer.c \
 			display_all_reverse.c \
 			display_all_utils.c \
 			draw_line.c \
+			draw_xpm.c \
+			draw_xpm_so.c \
 			fitter.c \
 			flooding.c \
 			floor_ceil_part.c \
@@ -72,9 +74,19 @@ _SRCS	=	buffer.c \
 			texture_part_utils.c \
 			toggle.c \
 			valid_wall.c \
-			xpm_correction.c \
-			xpm_first.c \
-			xpm_parse.c
+			xpm_common.c \
+			xpm_ea_correction.c \
+			xpm_ea_open.c \
+			xpm_ea_parse.c \
+			xpm_no_correction.c \
+			xpm_no_open.c \
+			xpm_no_parse.c \
+			xpm_so_correction.c \
+			xpm_so_open.c \
+			xpm_so_parse.c \
+			xpm_we_correction.c \
+			xpm_we_open.c \
+			xpm_we_parse.c
 # --------------------------------- end srcs --------------------------------- #
 
 

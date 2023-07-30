@@ -2,14 +2,14 @@ WE sprites/water.xpm
 EA sprites/crystal.xpm
 NO sprites/rock.xpm
 SO sprites/ship_left.xpm
-C 255,180,35
 F 20,160,220
+C 255,180,35
 
 
 011111110
 111101111
 110000001
-10000W001
+1000E0001
 011111110
 
 

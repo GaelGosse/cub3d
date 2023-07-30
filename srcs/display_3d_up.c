@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_3d_up.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 15:17:16 by gael              #+#    #+#             */
-/*   Updated: 2023/07/17 17:02:09 by mael             ###   ########.fr       */
+/*   Updated: 2023/07/28 22:24:23 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int	display_3d_up(t_game *game)
 			if (game->fov->lines_vision[i_midline] == 0)
 				game->fov->lines_vision[i_midline] = 1;
 			game->line_3d->y_dest += ((game->fov->proj_plane * game->img_size) / game->fov->lines_vision[i_midline]) * (-1);
+			// printf(CYAN"((proj_plane * img_size) / lines_vision[%i]) * (-1): %i"RESET"\n", i_midline, ((game->fov->proj_plane * game->img_size) / game->fov->lines_vision[i_midline]) * (-1));
 
 			game->line_3d->dx = game->line_3d->x_dest - game->line_3d->x_src;
 			game->line_3d->dy = game->line_3d->y_dest - game->line_3d->y_src;
@@ -71,8 +72,8 @@ int	display_3d_up(t_game *game)
 				game->line_3d->steps = absolute_value(game->line_3d->dx);
 			else
 				game->line_3d->steps = absolute_value(game->line_3d->dy);
-			game->line_3d->xite = game->line_3d->dx / (float)game->line_3d->steps;
-			game->line_3d->yite = game->line_3d->dy / (float)game->line_3d->steps;
+			game->line_3d->xite = game->line_3d->dx / (double)game->line_3d->steps;
+			game->line_3d->yite = game->line_3d->dy / (double)game->line_3d->steps;
 			game->line_3d->corr_x = game->line_3d->x_src;
 			game->line_3d->corr_y = game->line_3d->y_src;
 			i_draw = 0;
@@ -84,23 +85,23 @@ int	display_3d_up(t_game *game)
 				// 	break ;
 				if (game->fov->toggle_vision[i_midline] == 'E')
 				{
-					img_pix_put(game, round(game->line_3d->corr_x),
-					round(game->line_3d->corr_y), get_color(255, 0, 0));
+					img_pix_put(game, roundf(game->line_3d->corr_x),
+					roundf(game->line_3d->corr_y), get_color(255, 0, 0));
 				}
 				else if (game->fov->toggle_vision[i_midline] == 'N')
 				{
-					img_pix_put(game, round(game->line_3d->corr_x),
-					round(game->line_3d->corr_y), get_color(255, 255, 0));
+					img_pix_put(game, roundf(game->line_3d->corr_x),
+					roundf(game->line_3d->corr_y), get_color(255, 255, 0));
 				}
 				else if (game->fov->toggle_vision[i_midline] == 'S')
 				{
-					img_pix_put(game, round(game->line_3d->corr_x),
-					round(game->line_3d->corr_y), get_color(0, 0, 255));
+					img_pix_put(game, roundf(game->line_3d->corr_x),
+					roundf(game->line_3d->corr_y), get_color(0, 0, 255));
 				}
 				else if (game->fov->toggle_vision[i_midline] == 'W')
 				{
-					img_pix_put(game, round(game->line_3d->corr_x),
-					round(game->line_3d->corr_y), get_color(0, 255, 0));
+					img_pix_put(game, roundf(game->line_3d->corr_x),
+					roundf(game->line_3d->corr_y), get_color(0, 255, 0));
 				}
 				game->line_3d->corr_x = game->line_3d->corr_x + game->line_3d->xite;
 				game->line_3d->corr_y = game->line_3d->corr_y + game->line_3d->yite;
@@ -133,6 +134,7 @@ int	display_3d_up(t_game *game)
 			if (game->fov->lines_vision[i_midline] == 0)
 				game->fov->lines_vision[i_midline] = 1;
 			game->line_3d->y_dest += ((game->fov->proj_plane * game->img_size) / game->fov->lines_vision[i_midline]) * (-1);
+			// printf(RED"((proj_plane * img_size) / %i [%i]) * (-1): %f"RESET"\n", game->fov->lines_vision[i_midline], i_midline, (((double)game->fov->proj_plane * (double)game->img_size) / (double)game->fov->lines_vision[i_midline]) );
 
 
 			game->line_3d->dx = game->line_3d->x_dest - game->line_3d->x_src;
@@ -141,8 +143,8 @@ int	display_3d_up(t_game *game)
 				game->line_3d->steps = absolute_value(game->line_3d->dx);
 			else
 				game->line_3d->steps = absolute_value(game->line_3d->dy);
-			game->line_3d->xite = game->line_3d->dx / (float)game->line_3d->steps;
-			game->line_3d->yite = game->line_3d->dy / (float)game->line_3d->steps;
+			game->line_3d->xite = game->line_3d->dx / (double)game->line_3d->steps;
+			game->line_3d->yite = game->line_3d->dy / (double)game->line_3d->steps;
 			game->line_3d->corr_x = game->line_3d->x_src;
 			game->line_3d->corr_y = game->line_3d->y_src;
 			i_draw = 0;
@@ -152,23 +154,23 @@ int	display_3d_up(t_game *game)
 					break ;
 				if (game->fov->toggle_vision[i_midline] == 'E')
 				{
-					img_pix_put(game, round(game->line_3d->corr_x),
-					round(game->line_3d->corr_y), get_color(255, 0, 0));
+					img_pix_put(game, roundf(game->line_3d->corr_x),
+					roundf(game->line_3d->corr_y), get_color(255, 0, 0));
 				}
 				else if (game->fov->toggle_vision[i_midline] == 'N')
 				{
-					img_pix_put(game, round(game->line_3d->corr_x),
-					round(game->line_3d->corr_y), get_color(255, 255, 0));
+					img_pix_put(game, roundf(game->line_3d->corr_x),
+					roundf(game->line_3d->corr_y), get_color(255, 255, 0));
 				}
 				else if (game->fov->toggle_vision[i_midline] == 'S')
 				{
-					img_pix_put(game, round(game->line_3d->corr_x),
-					round(game->line_3d->corr_y), get_color(0, 0, 255));
+					img_pix_put(game, roundf(game->line_3d->corr_x),
+					roundf(game->line_3d->corr_y), get_color(0, 0, 255));
 				}
 				else if (game->fov->toggle_vision[i_midline] == 'W')
 				{
-					img_pix_put(game, round(game->line_3d->corr_x),
-					round(game->line_3d->corr_y), get_color(0, 255, 0));
+					img_pix_put(game, roundf(game->line_3d->corr_x),
+					roundf(game->line_3d->corr_y), get_color(0, 255, 0));
 				}
 				game->line_3d->corr_x = game->line_3d->corr_x + game->line_3d->xite;
 				game->line_3d->corr_y = game->line_3d->corr_y + game->line_3d->yite;
@@ -201,7 +203,7 @@ void	fill_ceil_floor(t_game *game)
 		x = 0;
 		while (x < game->win_width)
 		{
-			img_pix_put(game, x, y, get_color(255, 140, 20));
+			img_pix_put(game, x, y, get_color(10, 177, 255));
 			x++;
 		}
 	}
@@ -211,7 +213,7 @@ void	fill_ceil_floor(t_game *game)
 		x = 0;
 		while (x < game->win_width)
 		{
-			img_pix_put(game, x, y, get_color(20, 140, 255));
+			img_pix_put(game, x, y, get_color(35, 150, 90));
 			x++;
 		}
 	}

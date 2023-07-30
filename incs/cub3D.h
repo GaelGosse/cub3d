@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   incs/cub3D.h                                       :+:      :+:    :+:   */
+/*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:45:40 by ggosse            #+#    #+#             */
-/*   Updated: 2023/07/26 10:21:52 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/31 00:59:26 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,30 @@
 
 typedef struct s_xpm
 {
-	char	*file_content;
-	char	*file_map;
-	char	**tab_file;
-	int		*lenth_n_color;
-	int		**colors;
-	int		tab_start;
+	char	*no_file_content;
+	char	*no_file_map;
+	char	**no_tab_file;
+	int		**no_colors;
+	int		no_width_height;
+	int		no_tab_start;
+	char	*ea_file_content;
+	char	*ea_file_map;
+	char	**ea_tab_file;
+	int		**ea_colors;
+	int		ea_width_height;
+	int		ea_tab_start;
+	char	*we_file_content;
+	char	*we_file_map;
+	char	**we_tab_file;
+	int		**we_colors;
+	int		we_width_height;
+	int		we_tab_start;
+	char	*so_file_content;
+	char	*so_file_map;
+	char	**so_tab_file;
+	int		**so_colors;
+	int		so_width_height;
+	int		so_tab_start;
 }	t_xpm;
 
 typedef struct s_img
@@ -76,10 +94,10 @@ typedef struct s_line
 	int		dx;
 	int		dy;
 	int		steps;
-	float	xite;
-	float	yite;
-	float	corr_x;
-	float	corr_y;
+	double	xite;
+	double	yite;
+	double	corr_x;
+	double	corr_y;
 	int		x_src;
 	int		y_src;
 	int		x_dest;
@@ -93,10 +111,10 @@ typedef struct s_temp
 	int		dx;
 	int		dy;
 	int		steps;
-	float	xite;
-	float	yite;
-	float	corr_x;
-	float	corr_y;
+	double	xite;
+	double	yite;
+	double	corr_x;
+	double	corr_y;
 	int		x_src;
 	int		y_src;
 	int		x_dest;
@@ -110,10 +128,10 @@ typedef struct s_line_3d
 	int		dx;
 	int		dy;
 	int		steps;
-	float	xite;
-	float	yite;
-	float	corr_x;
-	float	corr_y;
+	double	xite;
+	double	yite;
+	double	corr_x;
+	double	corr_y;
 	int		x_src;
 	int		y_src;
 	int		x_dest;
@@ -145,14 +163,14 @@ typedef struct s_map
 
 typedef struct s_fov
 {
-	float	**wall_witch;
+	double	**wall_witch;
 	int		**wall;
 	int		*lines_vision;
 	int		*toggle_vision;
 	int		angle;
 	int		nbr_ray;
 	int		proj_plane;
-	float	deg;
+	double	deg;
 	char	toggle;
 }			t_fov;
 
@@ -176,6 +194,16 @@ typedef struct s_game
 }			t_game;
 // ---------------------------- end struct ---------------------------------- //
 
+//srcs/xpm_no_open.c
+void	xpm_no_hex_to_dec(t_game *g, int i_color, int i_tab_file);
+char	*xpm_no_keep_metadata(char **tmp, int i_tmp);
+int		xpm_no_letter_color(t_game *game, int i_color, int i_tab_file);
+int		xpm_no_set_color(t_game *game, int i_color, char *tmp);
+//srcs/xpm_so_parse.c
+int		xpm_so_get_content_xpm(t_game *game, int fd, int ret, char *buf);
+int		xpm_so_parse(t_game *game);
+int		xpm_so_read(t_game *game, char *filename);
+int		xpm_so_split_buf(int fd, t_game *game);
 //srcs/main.c
 int		ft_parsing(t_game *game, char **argv);
 void	init_struct(t_game *game);
@@ -185,6 +213,12 @@ void	print_map(char **arr);
 int		get_color(int red, int green, int blue);
 void	img_pix_put(t_game *game, int x, int y, int color);
 void	img_pix_put_2(t_game *game, int x, int y, int color);
+//srcs/xpm_we_correction.c
+int		xpm_we_copy_tab(t_game *game, char **tmp);
+void	xpm_we_correct(t_game *g);
+int		xpm_we_read_1line(t_game *game);
+int		xpm_we_set_len_n_color(t_game *g, char **line);
+void	xpm_we_wo_comm(t_game *g, int n_comm);
 //srcs/start_3D.c
 void	color_image(t_game *game);
 void	do_quad(t_game *game, int i, int j);
@@ -195,7 +229,7 @@ void	reset_img(t_game *game);
 int		start_3D(t_game *game);
 //srcs/draw_line.c
 double	abs_dble(double nb);
-float abs_flt(float nb);
+double	abs_flt(double nb);
 int		absolute_value(int nb);
 int		draw_line_vision(t_game *game, int color);
 int		draw_pixel(t_game *game, int toggle, int x_check, int y_check, int color);
@@ -210,6 +244,12 @@ void	free_tab_str(char **tab_str);
 int		display_3d_up(t_game *game);
 void	fill_ceil_floor(t_game *game);
 int		init_3d_line(t_game *game);
+//srcs/xpm_so_correction.c
+int		xpm_so_copy_tab(t_game *game, char **tmp);
+void	xpm_so_correct(t_game *g);
+int		xpm_so_read_1line(t_game *game);
+int		xpm_so_set_len_n_color(t_game *g, char **line);
+void	xpm_so_wo_comm(t_game *g, int n_comm);
 //srcs/display_all_reverse.c
 int		display_all_reverse_a(t_game *game, int key, int len_side);
 int		display_all_reverse_d(t_game *g, int k, int l);
@@ -244,6 +284,8 @@ int		ft_read_file(t_game *game, char *filename);
 int		display_3d_down(t_game *game);
 void	draw_line_temp(t_game *game, int flag_1, int flag_2, int flag_3, int flag_4);
 int		init_temp(t_game *game);
+//srcs/draw_xpm.c
+int		draw_xpm_down_blue(t_game *game, int i_midline);
 //srcs/fov.c
 int		calcul_opposite_side(t_game *game, double angle);
 int		first_calcul(t_game *game, double angle);
@@ -252,8 +294,11 @@ int		init_fov_wall(t_game *game);
 int		init_fov_wall_witch(t_game *game);
 void	init_position(t_game *game);
 int		second_calcul(t_game *game, double angle);
-//srcs/xpm_first.c
-char	*keep_metadata_xpm(char **tmp, int i_tmp);
+//srcs/xpm_we_open.c
+void	xpm_we_hex_to_dec(t_game *g, int i_color, int i_tab_file);
+char	*xpm_we_keep_metadata(char **tmp, int i_tmp);
+int		xpm_we_letter_color(t_game *game, int i_color, int i_tab_file);
+int		xpm_we_set_color(t_game *game, int i_color, char *tmp);
 //srcs/build_map_utils.c
 int		check_nbr(char *str);
 int		is_empty_line(char *line);
@@ -283,12 +328,30 @@ void	set_pos_character(t_game *game);
 //srcs/toggle.c
 void	change_toggle_a(t_game *game);
 void	change_toggle_d(t_game *game);
-//srcs/xpm_parse.c
-int		buf_split_xpm(int fd, t_game *game);
-int		get_content_xpm(t_game *game, int fd, int ret, char *buf);
+//srcs/xpm_common.c
 int		init_xpm(t_game *game);
-int		read_xpm(t_game *game, char *filename);
 int		xpm_parse(t_game *game);
+//srcs/xpm_ea_parse.c
+int		xpm_ea_get_content_xpm(t_game *game, int fd, int ret, char *buf);
+int		xpm_ea_parse(t_game *game);
+int		xpm_ea_read(t_game *game, char *filename);
+int		xpm_ea_split_buf(int fd, t_game *game);
+//srcs/xpm_no_correction.c
+int		xpm_no_copy_tab(t_game *game, char **tmp);
+void	xpm_no_correct(t_game *g);
+int		xpm_no_read_1line(t_game *game);
+int		xpm_no_set_len_n_color(t_game *g, char **line);
+void	xpm_no_wo_comm(t_game *g, int n_comm);
+//srcs/xpm_so_open.c
+void	xpm_so_hex_to_dec(t_game *g, int i_color, int i_tab_file);
+char	*xpm_so_keep_metadata(char **tmp, int i_tmp);
+int		xpm_so_letter_color(t_game *game, int i_color, int i_tab_file);
+int		xpm_so_set_color(t_game *game, int i_color, char *tmp);
+//srcs/xpm_no_parse.c
+int		xpm_no_get_content_xpm(t_game *game, int fd, int ret, char *buf);
+int		xpm_no_parse(t_game *game);
+int		xpm_no_read(t_game *game, char *filename);
+int		xpm_no_split_buf(int fd, t_game *game);
 //srcs/check_file.c
 int		check_env(char **envp);
 int		check_ext(char *filename, char one, char two, char three);
@@ -302,22 +365,33 @@ void	init_direction_for_s(t_game *game);
 void	init_direction_for_s_2(t_game *game);
 void	move_s(t_game *game);
 void	move_w(t_game *game);
+//srcs/draw_xpm_so.c
+void	draw_xpm_so(t_game *game, int i_midline);
+void	draw_xpm_so_color(t_game *game, int x, int y);
 //srcs/floor_ceil_part.c
 int		check_ceil(t_game *game, char *line);
 int		check_ceil_content(t_game *game, char **color);
 int		check_floor(t_game *game, char *line);
 int		check_floor_content(t_game *game, char **color);
 int		floor_ceil_part(t_game *game, char *line);
+//srcs/xpm_we_parse.c
+int		xpm_we_get_content_xpm(t_game *game, int fd, int ret, char *buf);
+int		xpm_we_parse(t_game *game);
+int		xpm_we_read(t_game *game, char *filename);
+int		xpm_we_split_buf(int fd, t_game *game);
 //srcs/check_format.c
 void	check_corner(t_game *game);
-//srcs/xpm_correction.c
-int		copy_tab_xpm(t_game *game, char **tmp);
-int		read_first_line_xpm(t_game *game);
-int		set_color(t_game *game, int i_color, char *tmp);
-int		set_color_when_no_digit(t_game *game, int i_color, int i_tab_file);
-int		set_lenth_n_color(t_game *game, char **line);
-void	xpm_correct(t_game *g);
-void	xpm_wo_comm(t_game *g, int n_comm);
+//srcs/xpm_ea_open.c
+void	xpm_ea_hex_to_dec(t_game *g, int i_color, int i_tab_file);
+char	*xpm_ea_keep_metadata(char **tmp, int i_tmp);
+int		xpm_ea_letter_color(t_game *game, int i_color, int i_tab_file);
+int		xpm_ea_set_color(t_game *game, int i_color, char *tmp);
+//srcs/xpm_ea_correction.c
+int		xpm_ea_copy_tab(t_game *game, char **tmp);
+void	xpm_ea_correct(t_game *g);
+int		xpm_ea_read_1line(t_game *game);
+int		xpm_ea_set_len_n_color(t_game *g, char **line);
+void	xpm_ea_wo_comm(t_game *g, int n_comm);
 //srcs/fitter.c
 void	cross(t_game *game, int i_fit, int x_plus, int y_plus);
 void	fitter_blue(t_game *game);
@@ -326,5 +400,6 @@ int		is_increase_blue(t_game *game, int i_fit);
 int		is_increase_red(t_game *game, int i_fit);
 void	print_tab_wall(t_game *game);
 //test.c
+float rounded(float flt);
 
 #endif

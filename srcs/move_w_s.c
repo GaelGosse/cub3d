@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:35:52 by mael              #+#    #+#             */
-/*   Updated: 2023/07/13 12:45:32 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/28 16:38:14 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void	move_w(t_game *game)
 		game->line->steps = absolute_value(game->line->dx);
 	else
 		game->line->steps = absolute_value(game->line->dy);
-	game->line->xite = game->line->dx / (float)game->line->steps;
-	game->line->yite = game->line->dy / (float)game->line->steps;
+	game->line->xite = game->line->dx / (double)game->line->steps;
+	game->line->yite = game->line->dy / (double)game->line->steps;
 	game->line->corr_x = game->line->x_src;
 	game->line->corr_y = game->line->y_src;
 	if (calcul_corr_for_step(game) == 1)
@@ -102,8 +102,8 @@ void	move_s(t_game *game)
 		game->line->steps = absolute_value(game->line->dx);
 	else
 		game->line->steps = absolute_value(game->line->dy);
-	game->line->xite = game->line->dx / (float)game->line->steps;
-	game->line->yite = game->line->dy / (float)game->line->steps;
+	game->line->xite = game->line->dx / (double)game->line->steps;
+	game->line->yite = game->line->dy / (double)game->line->steps;
 	game->line->corr_x = game->line->x_src;
 	game->line->corr_y = game->line->y_src;
 	if (calcul_corr_for_step(game) == 1)

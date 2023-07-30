@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 11:04:13 by gael              #+#    #+#             */
-/*   Updated: 2023/07/25 23:08:09 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/28 20:49:33 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ int	display_all(t_game *game, int key)
 		}
 		game->fov->lines_vision[i_rotate] = draw_line_vision(game, get_color(255, 255 / (game->fov->nbr_ray / 2) * ((game->fov->nbr_ray / 2) - i_rotate), 0));
 		game->fov->lines_vision[i_rotate] = abs_flt(cos(deg_to_radian(game->fov->deg * i_rotate))) * game->fov->lines_vision[i_rotate];
-		// printf(BLUE"game->fov->lines_vision[%i]: %i\n"RST, i_rotate, game->fov->lines_vision[i_rotate]);
+		// printf(RED"game->fov->lines_vision[%i]: %i\n"RST, i_rotate, game->fov->lines_vision[i_rotate]);
 		if (game->fov->lines_vision[i_rotate] == 0)
 			game->fov->lines_vision[i_rotate] = 1;
 //		printf(BACK_RED"middle red"RST"\n");
@@ -212,7 +212,7 @@ int	display_all(t_game *game, int key)
 		}
 		game->fov->lines_vision[i_rotate + game->fov->nbr_ray / 2] = draw_line_vision(game, get_color(0, 255 / (game->fov->nbr_ray / 2) * ((game->fov->nbr_ray / 2) - i_rotate), 255));
 		game->fov->lines_vision[i_rotate + game->fov->nbr_ray / 2] = abs_flt(cos(deg_to_radian(game->fov->deg * i_rotate))) * game->fov->lines_vision[i_rotate + game->fov->nbr_ray / 2];
-		//printf(BLUE"game->fov->lines_vision[%i]: %i\n"RST, i_rotate + game->fov->nbr_ray / 2, game->fov->lines_vision[i_rotate + game->fov->nbr_ray / 2]);
+		// printf(CYAN"game->fov->lines_vision[%i]: %i\n"RST, i_rotate + game->fov->nbr_ray / 2, game->fov->lines_vision[i_rotate + game->fov->nbr_ray / 2]);
 		// printf(BACK_PURPLE"game->line->corr_x[%i] / game->img_size: %f"RST"\n\n", i_rotate + game->fov->nbr_ray / 2, round(game->line->corr_x / game->img_size));
 		// printf(BACK_PURPLE"game->line->corr_y[%i] / game->img_size: %f"RST"\n\n", i_rotate + game->fov->nbr_ray / 2, round(game->line->corr_y / game->img_size));
 		if (game->fov->lines_vision[i_rotate + game->fov->nbr_ray / 2] == 0)
@@ -293,7 +293,7 @@ int	display_all(t_game *game, int key)
 	// 	i++;
 	// }
 	// print_tab_wall(game);
-	fitter_blue(game);
+	// fitter_blue(game);
 	// fitter_red(game);
 	// i = 0;
 	// while (game->fov->toggle_vision[i])

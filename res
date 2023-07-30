@@ -1,3050 +1,1536 @@
-make: Nothing to be done for 'all'.
-[H[2J[3J[0;42;30msprites/rock.xpm[0m
-[0;42;30mwhite[0m
-c[0;43;30mgame->fov->toggle: W[0m
-[0;33m(0, 168)[0m
-[1;33mgame->fov->angle: 270[0m
-
-[0;34m(0, 168)[0m
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[205][0]): 139 + 0 = 139
-x+i: 43
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[205][0]): 139 + 1 = 140
-x+i: 44
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[205][0]): 139 + 2 = 141
-x+i: 45
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[205][0]): 139 + 3 = 142
-x+i: 46
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[205][0]): 139 + 4 = 143
-x+i: 47
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[205][0]): 139 + 5 = 144
-x+i: 0
-
-		y 0: 0				y-1: 47				y+1: 1
-		(int)(game->fov->wall_witch[205][0]): 139 + 5 = 144
-		x+i: 0
-		
-				(game->fov->wall_witch[205 + 1][0]):142 - 0 % img_size = 46 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 1 % img_size = 45 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 2 % img_size = 44 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 3 % img_size = 43 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 4 % img_size = 42 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 5 % img_size = 41 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 6 % img_size = 40 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 7 % img_size = 39 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 8 % img_size = 38 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 9 % img_size = 37 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 10 % img_size = 36 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 11 % img_size = 35 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 12 % img_size = 34 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 13 % img_size = 33 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 14 % img_size = 32 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 15 % img_size = 31 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 16 % img_size = 30 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 17 % img_size = 29 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 18 % img_size = 28 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 19 % img_size = 27 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 20 % img_size = 26 
-				 Sud || hrz 
+Baking libft...
+OK!
+Baking libft...
+./configure
+configure [info] : Found X11 include path directory: /usr/include
+configure [info] : Generate "makefile.gen" from template "makefile.mk"
+configure [info] : Generate "test/makefile.gen" from template "test/makefile.mk"
+configure [info] : Execute "make all" from file "makefile.gen"
+make[2]: Nothing to be done for 'all'.
+configure [info] : Execute "make all" from file "test/makefile.gen"
+make[2]: Nothing to be done for 'all'.
+OK!
+Baking cub3D...
+OK!
+cub3D READY !
 ------------------------------
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[205][0]): 139 + 0 = 139
-x+i: 43
+game->fov->toggle: W
+(0, 168)
+game->fov->angle: 270
 
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[205][0]): 139 + 1 = 140
-x+i: 44
+m(0, 168)
 
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[205][0]): 139 + 2 = 141
-x+i: 45
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[205][0]): 139 + 3 = 142
-x+i: 46
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[205][0]): 139 + 4 = 143
-x+i: 47
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[205][0]): 139 + 5 = 144
-x+i: 0
-
-		y 0: 0				y-1: 47				y+1: 1
-		(int)(game->fov->wall_witch[205][0]): 139 + 5 = 144
-		x+i: 0
-		
-				(game->fov->wall_witch[205 + 1][0]):142 - 0 % img_size = 46 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 1 % img_size = 45 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 2 % img_size = 44 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 3 % img_size = 43 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 4 % img_size = 42 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 5 % img_size = 41 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 6 % img_size = 40 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 7 % img_size = 39 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 8 % img_size = 38 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 9 % img_size = 37 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 10 % img_size = 36 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 11 % img_size = 35 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 12 % img_size = 34 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 13 % img_size = 33 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 14 % img_size = 32 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 15 % img_size = 31 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 16 % img_size = 30 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 17 % img_size = 29 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 18 % img_size = 28 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 19 % img_size = 27 
-				 Sud || hrz 
-				(game->fov->wall_witch[205 + 1][0]):142 - 20 % img_size = 26 
-				 Sud || hrz 
-------------------------------
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 0 = 146
-x+i: 2
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 1 = 147
-x+i: 3
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 2 = 148
-x+i: 4
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 3 = 149
-x+i: 5
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 4 = 150
-x+i: 6
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 5 = 151
-x+i: 7
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 6 = 152
-x+i: 8
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 7 = 153
-x+i: 9
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 8 = 154
-x+i: 10
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 9 = 155
-x+i: 11
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 10 = 156
-x+i: 12
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 11 = 157
-x+i: 13
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 12 = 158
-x+i: 14
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 13 = 159
-x+i: 15
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 14 = 160
-x+i: 16
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 15 = 161
-x+i: 17
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 16 = 162
-x+i: 18
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 17 = 163
-x+i: 19
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 18 = 164
-x+i: 20
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 19 = 165
-x+i: 21
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 20 = 166
-x+i: 22
 
 ------------------------------
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 0 = 146
-x+i: 2
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 1 = 147
-x+i: 3
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 2 = 148
-x+i: 4
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 3 = 149
-x+i: 5
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 4 = 150
-x+i: 6
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 5 = 151
-x+i: 7
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 6 = 152
-x+i: 8
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 7 = 153
-x+i: 9
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 8 = 154
-x+i: 10
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 9 = 155
-x+i: 11
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 10 = 156
-x+i: 12
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 11 = 157
-x+i: 13
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 12 = 158
-x+i: 14
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 13 = 159
-x+i: 15
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 14 = 160
-x+i: 16
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 15 = 161
-x+i: 17
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 16 = 162
-x+i: 18
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 17 = 163
-x+i: 19
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 18 = 164
-x+i: 20
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 19 = 165
-x+i: 21
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 20 = 166
-x+i: 22
-
-------------------------------
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 0 = 148
-x+i: 4
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 1 = 149
-x+i: 5
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 2 = 150
-x+i: 6
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 3 = 151
-x+i: 7
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 4 = 152
-x+i: 8
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 5 = 153
-x+i: 9
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 6 = 154
-x+i: 10
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 7 = 155
-x+i: 11
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 8 = 156
-x+i: 12
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 9 = 157
-x+i: 13
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 10 = 158
-x+i: 14
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 11 = 159
-x+i: 15
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 12 = 160
-x+i: 16
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 13 = 161
-x+i: 17
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 14 = 162
-x+i: 18
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 15 = 163
-x+i: 19
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 16 = 164
-x+i: 20
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 17 = 165
-x+i: 21
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 18 = 166
-x+i: 22
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 19 = 167
-x+i: 23
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 20 = 168
-x+i: 24
-
-------------------------------
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 0 = 150
-x+i: 6
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 1 = 151
-x+i: 7
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 2 = 152
-x+i: 8
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 3 = 153
-x+i: 9
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 4 = 154
-x+i: 10
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 5 = 155
-x+i: 11
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 6 = 156
-x+i: 12
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 7 = 157
-x+i: 13
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 8 = 158
-x+i: 14
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 9 = 159
-x+i: 15
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 10 = 160
-x+i: 16
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 11 = 161
-x+i: 17
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 12 = 162
-x+i: 18
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 13 = 163
-x+i: 19
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 14 = 164
-x+i: 20
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 15 = 165
-x+i: 21
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 16 = 166
-x+i: 22
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 17 = 167
-x+i: 23
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 18 = 168
-x+i: 24
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 19 = 169
-x+i: 25
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 20 = 170
-x+i: 26
-
-------------------------------
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 0 = 152
-x+i: 8
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 1 = 153
-x+i: 9
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 2 = 154
-x+i: 10
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 3 = 155
-x+i: 11
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 4 = 156
-x+i: 12
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 5 = 157
-x+i: 13
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 6 = 158
-x+i: 14
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 7 = 159
-x+i: 15
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 8 = 160
-x+i: 16
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 9 = 161
-x+i: 17
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 10 = 162
-x+i: 18
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 11 = 163
-x+i: 19
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 12 = 164
-x+i: 20
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 13 = 165
-x+i: 21
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 14 = 166
-x+i: 22
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 15 = 167
-x+i: 23
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 16 = 168
-x+i: 24
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 17 = 169
-x+i: 25
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 18 = 170
-x+i: 26
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 19 = 171
-x+i: 27
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 20 = 172
-x+i: 28
-
-------------------------------
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 0 = 154
-x+i: 10
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 1 = 155
-x+i: 11
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 2 = 156
-x+i: 12
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 3 = 157
-x+i: 13
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 4 = 158
-x+i: 14
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 5 = 159
-x+i: 15
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 6 = 160
-x+i: 16
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 7 = 161
-x+i: 17
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 8 = 162
-x+i: 18
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 9 = 163
-x+i: 19
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 10 = 164
-x+i: 20
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 11 = 165
-x+i: 21
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 12 = 166
-x+i: 22
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 13 = 167
-x+i: 23
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 14 = 168
-x+i: 24
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 15 = 169
-x+i: 25
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 16 = 170
-x+i: 26
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 17 = 171
-x+i: 27
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 18 = 172
-x+i: 28
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 19 = 173
-x+i: 29
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 20 = 174
-x+i: 30
-
-------------------------------
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 0 = 156
-x+i: 12
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 1 = 157
-x+i: 13
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 2 = 158
-x+i: 14
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 3 = 159
-x+i: 15
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 4 = 160
-x+i: 16
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 5 = 161
-x+i: 17
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 6 = 162
-x+i: 18
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 7 = 163
-x+i: 19
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 8 = 164
-x+i: 20
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 9 = 165
-x+i: 21
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 10 = 166
-x+i: 22
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 11 = 167
-x+i: 23
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 12 = 168
-x+i: 24
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 13 = 169
-x+i: 25
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 14 = 170
-x+i: 26
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 15 = 171
-x+i: 27
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 16 = 172
-x+i: 28
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 17 = 173
-x+i: 29
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 18 = 174
-x+i: 30
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 19 = 175
-x+i: 31
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 20 = 176
-x+i: 32
-
-------------------------------
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 0 = 158
-x+i: 14
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 1 = 159
-x+i: 15
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 2 = 160
-x+i: 16
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 3 = 161
-x+i: 17
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 4 = 162
-x+i: 18
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 5 = 163
-x+i: 19
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 6 = 164
-x+i: 20
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 7 = 165
-x+i: 21
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 8 = 166
-x+i: 22
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 9 = 167
-x+i: 23
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 10 = 168
-x+i: 24
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 11 = 169
-x+i: 25
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 12 = 170
-x+i: 26
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 13 = 171
-x+i: 27
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 14 = 172
-x+i: 28
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 15 = 173
-x+i: 29
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 16 = 174
-x+i: 30
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 17 = 175
-x+i: 31
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 18 = 176
-x+i: 32
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 19 = 177
-x+i: 33
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 20 = 178
-x+i: 34
-
-------------------------------
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 0 = 160
-x+i: 16
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 1 = 161
-x+i: 17
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 2 = 162
-x+i: 18
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 3 = 163
-x+i: 19
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 4 = 164
-x+i: 20
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 5 = 165
-x+i: 21
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 6 = 166
-x+i: 22
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 7 = 167
-x+i: 23
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 8 = 168
-x+i: 24
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 9 = 169
-x+i: 25
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 10 = 170
-x+i: 26
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 11 = 171
-x+i: 27
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 12 = 172
-x+i: 28
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 13 = 173
-x+i: 29
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 14 = 174
-x+i: 30
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 15 = 175
-x+i: 31
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 16 = 176
-x+i: 32
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 17 = 177
-x+i: 33
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 18 = 178
-x+i: 34
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 19 = 179
-x+i: 35
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 20 = 180
-x+i: 36
-
-------------------------------
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 0 = 161
-x+i: 17
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 1 = 162
-x+i: 18
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 2 = 163
-x+i: 19
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 3 = 164
-x+i: 20
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 4 = 165
-x+i: 21
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 5 = 166
-x+i: 22
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 6 = 167
-x+i: 23
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 7 = 168
-x+i: 24
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 8 = 169
-x+i: 25
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 9 = 170
-x+i: 26
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 10 = 171
-x+i: 27
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 11 = 172
-x+i: 28
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 12 = 173
-x+i: 29
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 13 = 174
-x+i: 30
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 14 = 175
-x+i: 31
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 15 = 176
-x+i: 32
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 16 = 177
-x+i: 33
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 17 = 178
-x+i: 34
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 18 = 179
-x+i: 35
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 19 = 180
-x+i: 36
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 20 = 181
-x+i: 37
-
-------------------------------
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 0 = 163
-x+i: 19
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 1 = 164
-x+i: 20
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 2 = 165
-x+i: 21
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 3 = 166
-x+i: 22
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 4 = 167
-x+i: 23
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 5 = 168
-x+i: 24
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 6 = 169
-x+i: 25
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 7 = 170
-x+i: 26
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 8 = 171
-x+i: 27
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 9 = 172
-x+i: 28
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 10 = 173
-x+i: 29
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 11 = 174
-x+i: 30
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 12 = 175
-x+i: 31
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 13 = 176
-x+i: 32
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 14 = 177
-x+i: 33
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 15 = 178
-x+i: 34
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 16 = 179
-x+i: 35
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 17 = 180
-x+i: 36
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 18 = 181
-x+i: 37
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 19 = 182
-x+i: 38
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 20 = 183
-x+i: 39
-
-------------------------------
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 0 = 165
-x+i: 21
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 1 = 166
-x+i: 22
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 2 = 167
-x+i: 23
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 3 = 168
-x+i: 24
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 4 = 169
-x+i: 25
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 5 = 170
-x+i: 26
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 6 = 171
-x+i: 27
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 7 = 172
-x+i: 28
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 8 = 173
-x+i: 29
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 9 = 174
-x+i: 30
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 10 = 175
-x+i: 31
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 11 = 176
-x+i: 32
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 12 = 177
-x+i: 33
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 13 = 178
-x+i: 34
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 14 = 179
-x+i: 35
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 15 = 180
-x+i: 36
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 16 = 181
-x+i: 37
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 17 = 182
-x+i: 38
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 18 = 183
-x+i: 39
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 19 = 184
-x+i: 40
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 20 = 185
-x+i: 41
-
-------------------------------
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 0 = 166
-x+i: 22
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 1 = 167
-x+i: 23
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 2 = 168
-x+i: 24
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 3 = 169
-x+i: 25
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 4 = 170
-x+i: 26
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 5 = 171
-x+i: 27
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 6 = 172
-x+i: 28
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 7 = 173
-x+i: 29
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 8 = 174
-x+i: 30
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 9 = 175
-x+i: 31
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 10 = 176
-x+i: 32
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 11 = 177
-x+i: 33
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 12 = 178
-x+i: 34
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 13 = 179
-x+i: 35
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 14 = 180
-x+i: 36
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 15 = 181
-x+i: 37
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 16 = 182
-x+i: 38
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 17 = 183
-x+i: 39
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 18 = 184
-x+i: 40
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 19 = 185
-x+i: 41
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 20 = 186
-x+i: 42
-
-------------------------------
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 0 = 168
-x+i: 24
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 1 = 169
-x+i: 25
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 2 = 170
-x+i: 26
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 3 = 171
-x+i: 27
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 4 = 172
-x+i: 28
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 5 = 173
-x+i: 29
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 6 = 174
-x+i: 30
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 7 = 175
-x+i: 31
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 8 = 176
-x+i: 32
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 9 = 177
-x+i: 33
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 10 = 178
-x+i: 34
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 11 = 179
-x+i: 35
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 12 = 180
-x+i: 36
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 13 = 181
-x+i: 37
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 14 = 182
-x+i: 38
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 15 = 183
-x+i: 39
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 16 = 184
-x+i: 40
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 17 = 185
-x+i: 41
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 18 = 186
-x+i: 42
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 19 = 187
-x+i: 43
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 20 = 188
-x+i: 44
-
-------------------------------
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 0 = 169
-x+i: 25
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 1 = 170
-x+i: 26
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 2 = 171
-x+i: 27
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 3 = 172
-x+i: 28
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 4 = 173
-x+i: 29
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 5 = 174
-x+i: 30
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 6 = 175
-x+i: 31
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 7 = 176
-x+i: 32
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 8 = 177
-x+i: 33
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 9 = 178
-x+i: 34
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 10 = 179
-x+i: 35
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 11 = 180
-x+i: 36
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 12 = 181
-x+i: 37
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 13 = 182
-x+i: 38
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 14 = 183
-x+i: 39
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 15 = 184
-x+i: 40
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 16 = 185
-x+i: 41
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 17 = 186
-x+i: 42
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 18 = 187
-x+i: 43
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 19 = 188
-x+i: 44
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 20 = 189
-x+i: 45
-
-------------------------------
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 0 = 170
-x+i: 26
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 1 = 171
-x+i: 27
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 2 = 172
-x+i: 28
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 3 = 173
-x+i: 29
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 4 = 174
-x+i: 30
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 5 = 175
-x+i: 31
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 6 = 176
-x+i: 32
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 7 = 177
-x+i: 33
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 8 = 178
-x+i: 34
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 9 = 179
-x+i: 35
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 10 = 180
-x+i: 36
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 11 = 181
-x+i: 37
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 12 = 182
-x+i: 38
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 13 = 183
-x+i: 39
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 14 = 184
-x+i: 40
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 15 = 185
-x+i: 41
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 16 = 186
-x+i: 42
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 17 = 187
-x+i: 43
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 18 = 188
-x+i: 44
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 19 = 189
-x+i: 45
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 20 = 190
-x+i: 46
-
-------------------------------
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 0 = 172
-x+i: 28
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 1 = 173
-x+i: 29
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 2 = 174
-x+i: 30
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 3 = 175
-x+i: 31
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 4 = 176
-x+i: 32
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 5 = 177
-x+i: 33
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 6 = 178
-x+i: 34
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 7 = 179
-x+i: 35
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 8 = 180
-x+i: 36
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 9 = 181
-x+i: 37
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 10 = 182
-x+i: 38
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 11 = 183
-x+i: 39
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 12 = 184
-x+i: 40
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 13 = 185
-x+i: 41
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 14 = 186
-x+i: 42
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 15 = 187
-x+i: 43
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 16 = 188
-x+i: 44
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 17 = 189
-x+i: 45
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 18 = 190
-x+i: 46
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 19 = 191
-x+i: 47
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 20 = 192
-x+i: 0
-
-		y 0: 0				y-1: 47				y+1: 1
-		(int)(game->fov->wall_witch[224][0]): 172 + 20 = 192
-		x+i: 0
-		
-				(game->fov->wall_witch[224 + 1][0]):173 - 0 % img_size = 29 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 1 % img_size = 28 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 2 % img_size = 27 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 3 % img_size = 26 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 4 % img_size = 25 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 5 % img_size = 24 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 6 % img_size = 23 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 7 % img_size = 22 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 8 % img_size = 21 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 9 % img_size = 20 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 10 % img_size = 19 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 11 % img_size = 18 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 12 % img_size = 17 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 13 % img_size = 16 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 14 % img_size = 15 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 15 % img_size = 14 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 16 % img_size = 13 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 17 % img_size = 12 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 18 % img_size = 11 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 19 % img_size = 10 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 20 % img_size = 9 
-				 Sud || hrz 
-------------------------------
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 0 = 146
-x+i: 2
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 1 = 147
-x+i: 3
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 2 = 148
-x+i: 4
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 3 = 149
-x+i: 5
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 4 = 150
-x+i: 6
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 5 = 151
-x+i: 7
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 6 = 152
-x+i: 8
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 7 = 153
-x+i: 9
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 8 = 154
-x+i: 10
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 9 = 155
-x+i: 11
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 10 = 156
-x+i: 12
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 11 = 157
-x+i: 13
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 12 = 158
-x+i: 14
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 13 = 159
-x+i: 15
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 14 = 160
-x+i: 16
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 15 = 161
-x+i: 17
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 16 = 162
-x+i: 18
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 17 = 163
-x+i: 19
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 18 = 164
-x+i: 20
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 19 = 165
-x+i: 21
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[208][0]): 146 + 20 = 166
-x+i: 22
-
-------------------------------
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 0 = 148
-x+i: 4
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 1 = 149
-x+i: 5
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 2 = 150
-x+i: 6
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 3 = 151
-x+i: 7
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 4 = 152
-x+i: 8
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 5 = 153
-x+i: 9
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 6 = 154
-x+i: 10
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 7 = 155
-x+i: 11
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 8 = 156
-x+i: 12
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 9 = 157
-x+i: 13
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 10 = 158
-x+i: 14
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 11 = 159
-x+i: 15
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 12 = 160
-x+i: 16
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 13 = 161
-x+i: 17
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 14 = 162
-x+i: 18
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 15 = 163
-x+i: 19
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 16 = 164
-x+i: 20
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 17 = 165
-x+i: 21
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 18 = 166
-x+i: 22
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 19 = 167
-x+i: 23
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[209][0]): 148 + 20 = 168
-x+i: 24
-
-------------------------------
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 0 = 150
-x+i: 6
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 1 = 151
-x+i: 7
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 2 = 152
-x+i: 8
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 3 = 153
-x+i: 9
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 4 = 154
-x+i: 10
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 5 = 155
-x+i: 11
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 6 = 156
-x+i: 12
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 7 = 157
-x+i: 13
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 8 = 158
-x+i: 14
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 9 = 159
-x+i: 15
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 10 = 160
-x+i: 16
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 11 = 161
-x+i: 17
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 12 = 162
-x+i: 18
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 13 = 163
-x+i: 19
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 14 = 164
-x+i: 20
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 15 = 165
-x+i: 21
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 16 = 166
-x+i: 22
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 17 = 167
-x+i: 23
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 18 = 168
-x+i: 24
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 19 = 169
-x+i: 25
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[210][0]): 150 + 20 = 170
-x+i: 26
-
-------------------------------
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 0 = 152
-x+i: 8
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 1 = 153
-x+i: 9
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 2 = 154
-x+i: 10
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 3 = 155
-x+i: 11
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 4 = 156
-x+i: 12
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 5 = 157
-x+i: 13
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 6 = 158
-x+i: 14
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 7 = 159
-x+i: 15
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 8 = 160
-x+i: 16
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 9 = 161
-x+i: 17
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 10 = 162
-x+i: 18
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 11 = 163
-x+i: 19
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 12 = 164
-x+i: 20
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 13 = 165
-x+i: 21
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 14 = 166
-x+i: 22
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 15 = 167
-x+i: 23
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 16 = 168
-x+i: 24
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 17 = 169
-x+i: 25
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 18 = 170
-x+i: 26
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 19 = 171
-x+i: 27
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[211][0]): 152 + 20 = 172
-x+i: 28
-
-------------------------------
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 0 = 154
-x+i: 10
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 1 = 155
-x+i: 11
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 2 = 156
-x+i: 12
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 3 = 157
-x+i: 13
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 4 = 158
-x+i: 14
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 5 = 159
-x+i: 15
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 6 = 160
-x+i: 16
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 7 = 161
-x+i: 17
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 8 = 162
-x+i: 18
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 9 = 163
-x+i: 19
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 10 = 164
-x+i: 20
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 11 = 165
-x+i: 21
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 12 = 166
-x+i: 22
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 13 = 167
-x+i: 23
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 14 = 168
-x+i: 24
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 15 = 169
-x+i: 25
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 16 = 170
-x+i: 26
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 17 = 171
-x+i: 27
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 18 = 172
-x+i: 28
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 19 = 173
-x+i: 29
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[212][0]): 154 + 20 = 174
-x+i: 30
-
-------------------------------
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 0 = 156
-x+i: 12
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 1 = 157
-x+i: 13
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 2 = 158
-x+i: 14
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 3 = 159
-x+i: 15
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 4 = 160
-x+i: 16
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 5 = 161
-x+i: 17
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 6 = 162
-x+i: 18
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 7 = 163
-x+i: 19
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 8 = 164
-x+i: 20
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 9 = 165
-x+i: 21
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 10 = 166
-x+i: 22
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 11 = 167
-x+i: 23
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 12 = 168
-x+i: 24
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 13 = 169
-x+i: 25
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 14 = 170
-x+i: 26
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 15 = 171
-x+i: 27
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 16 = 172
-x+i: 28
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 17 = 173
-x+i: 29
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 18 = 174
-x+i: 30
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 19 = 175
-x+i: 31
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[214][0]): 156 + 20 = 176
-x+i: 32
-
-------------------------------
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 0 = 158
-x+i: 14
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 1 = 159
-x+i: 15
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 2 = 160
-x+i: 16
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 3 = 161
-x+i: 17
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 4 = 162
-x+i: 18
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 5 = 163
-x+i: 19
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 6 = 164
-x+i: 20
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 7 = 165
-x+i: 21
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 8 = 166
-x+i: 22
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 9 = 167
-x+i: 23
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 10 = 168
-x+i: 24
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 11 = 169
-x+i: 25
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 12 = 170
-x+i: 26
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 13 = 171
-x+i: 27
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 14 = 172
-x+i: 28
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 15 = 173
-x+i: 29
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 16 = 174
-x+i: 30
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 17 = 175
-x+i: 31
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 18 = 176
-x+i: 32
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 19 = 177
-x+i: 33
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[215][0]): 158 + 20 = 178
-x+i: 34
-
-------------------------------
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 0 = 160
-x+i: 16
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 1 = 161
-x+i: 17
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 2 = 162
-x+i: 18
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 3 = 163
-x+i: 19
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 4 = 164
-x+i: 20
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 5 = 165
-x+i: 21
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 6 = 166
-x+i: 22
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 7 = 167
-x+i: 23
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 8 = 168
-x+i: 24
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 9 = 169
-x+i: 25
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 10 = 170
-x+i: 26
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 11 = 171
-x+i: 27
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 12 = 172
-x+i: 28
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 13 = 173
-x+i: 29
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 14 = 174
-x+i: 30
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 15 = 175
-x+i: 31
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 16 = 176
-x+i: 32
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 17 = 177
-x+i: 33
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 18 = 178
-x+i: 34
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 19 = 179
-x+i: 35
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[216][0]): 160 + 20 = 180
-x+i: 36
-
-------------------------------
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 0 = 161
-x+i: 17
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 1 = 162
-x+i: 18
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 2 = 163
-x+i: 19
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 3 = 164
-x+i: 20
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 4 = 165
-x+i: 21
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 5 = 166
-x+i: 22
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 6 = 167
-x+i: 23
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 7 = 168
-x+i: 24
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 8 = 169
-x+i: 25
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 9 = 170
-x+i: 26
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 10 = 171
-x+i: 27
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 11 = 172
-x+i: 28
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 12 = 173
-x+i: 29
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 13 = 174
-x+i: 30
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 14 = 175
-x+i: 31
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 15 = 176
-x+i: 32
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 16 = 177
-x+i: 33
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 17 = 178
-x+i: 34
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 18 = 179
-x+i: 35
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 19 = 180
-x+i: 36
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[217][0]): 161 + 20 = 181
-x+i: 37
-
-------------------------------
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 0 = 163
-x+i: 19
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 1 = 164
-x+i: 20
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 2 = 165
-x+i: 21
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 3 = 166
-x+i: 22
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 4 = 167
-x+i: 23
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 5 = 168
-x+i: 24
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 6 = 169
-x+i: 25
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 7 = 170
-x+i: 26
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 8 = 171
-x+i: 27
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 9 = 172
-x+i: 28
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 10 = 173
-x+i: 29
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 11 = 174
-x+i: 30
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 12 = 175
-x+i: 31
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 13 = 176
-x+i: 32
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 14 = 177
-x+i: 33
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 15 = 178
-x+i: 34
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 16 = 179
-x+i: 35
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 17 = 180
-x+i: 36
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 18 = 181
-x+i: 37
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 19 = 182
-x+i: 38
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[218][0]): 163 + 20 = 183
-x+i: 39
-
-------------------------------
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 0 = 165
-x+i: 21
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 1 = 166
-x+i: 22
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 2 = 167
-x+i: 23
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 3 = 168
-x+i: 24
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 4 = 169
-x+i: 25
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 5 = 170
-x+i: 26
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 6 = 171
-x+i: 27
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 7 = 172
-x+i: 28
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 8 = 173
-x+i: 29
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 9 = 174
-x+i: 30
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 10 = 175
-x+i: 31
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 11 = 176
-x+i: 32
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 12 = 177
-x+i: 33
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 13 = 178
-x+i: 34
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 14 = 179
-x+i: 35
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 15 = 180
-x+i: 36
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 16 = 181
-x+i: 37
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 17 = 182
-x+i: 38
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 18 = 183
-x+i: 39
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 19 = 184
-x+i: 40
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[219][0]): 165 + 20 = 185
-x+i: 41
-
-------------------------------
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 0 = 166
-x+i: 22
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 1 = 167
-x+i: 23
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 2 = 168
-x+i: 24
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 3 = 169
-x+i: 25
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 4 = 170
-x+i: 26
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 5 = 171
-x+i: 27
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 6 = 172
-x+i: 28
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 7 = 173
-x+i: 29
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 8 = 174
-x+i: 30
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 9 = 175
-x+i: 31
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 10 = 176
-x+i: 32
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 11 = 177
-x+i: 33
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 12 = 178
-x+i: 34
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 13 = 179
-x+i: 35
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 14 = 180
-x+i: 36
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 15 = 181
-x+i: 37
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 16 = 182
-x+i: 38
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 17 = 183
-x+i: 39
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 18 = 184
-x+i: 40
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 19 = 185
-x+i: 41
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[220][0]): 166 + 20 = 186
-x+i: 42
-
-------------------------------
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 0 = 168
-x+i: 24
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 1 = 169
-x+i: 25
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 2 = 170
-x+i: 26
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 3 = 171
-x+i: 27
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 4 = 172
-x+i: 28
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 5 = 173
-x+i: 29
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 6 = 174
-x+i: 30
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 7 = 175
-x+i: 31
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 8 = 176
-x+i: 32
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 9 = 177
-x+i: 33
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 10 = 178
-x+i: 34
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 11 = 179
-x+i: 35
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 12 = 180
-x+i: 36
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 13 = 181
-x+i: 37
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 14 = 182
-x+i: 38
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 15 = 183
-x+i: 39
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 16 = 184
-x+i: 40
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 17 = 185
-x+i: 41
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 18 = 186
-x+i: 42
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 19 = 187
-x+i: 43
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[221][0]): 168 + 20 = 188
-x+i: 44
-
-------------------------------
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 0 = 169
-x+i: 25
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 1 = 170
-x+i: 26
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 2 = 171
-x+i: 27
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 3 = 172
-x+i: 28
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 4 = 173
-x+i: 29
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 5 = 174
-x+i: 30
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 6 = 175
-x+i: 31
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 7 = 176
-x+i: 32
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 8 = 177
-x+i: 33
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 9 = 178
-x+i: 34
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 10 = 179
-x+i: 35
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 11 = 180
-x+i: 36
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 12 = 181
-x+i: 37
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 13 = 182
-x+i: 38
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 14 = 183
-x+i: 39
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 15 = 184
-x+i: 40
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 16 = 185
-x+i: 41
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 17 = 186
-x+i: 42
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 18 = 187
-x+i: 43
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 19 = 188
-x+i: 44
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[222][0]): 169 + 20 = 189
-x+i: 45
-
-------------------------------
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 0 = 170
-x+i: 26
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 1 = 171
-x+i: 27
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 2 = 172
-x+i: 28
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 3 = 173
-x+i: 29
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 4 = 174
-x+i: 30
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 5 = 175
-x+i: 31
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 6 = 176
-x+i: 32
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 7 = 177
-x+i: 33
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 8 = 178
-x+i: 34
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 9 = 179
-x+i: 35
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 10 = 180
-x+i: 36
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 11 = 181
-x+i: 37
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 12 = 182
-x+i: 38
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 13 = 183
-x+i: 39
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 14 = 184
-x+i: 40
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 15 = 185
-x+i: 41
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 16 = 186
-x+i: 42
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 17 = 187
-x+i: 43
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 18 = 188
-x+i: 44
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 19 = 189
-x+i: 45
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[223][0]): 170 + 20 = 190
-x+i: 46
-
-------------------------------
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 0 = 172
-x+i: 28
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 1 = 173
-x+i: 29
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 2 = 174
-x+i: 30
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 3 = 175
-x+i: 31
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 4 = 176
-x+i: 32
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 5 = 177
-x+i: 33
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 6 = 178
-x+i: 34
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 7 = 179
-x+i: 35
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 8 = 180
-x+i: 36
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 9 = 181
-x+i: 37
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 10 = 182
-x+i: 38
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 11 = 183
-x+i: 39
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 12 = 184
-x+i: 40
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 13 = 185
-x+i: 41
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 14 = 186
-x+i: 42
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 15 = 187
-x+i: 43
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 16 = 188
-x+i: 44
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 17 = 189
-x+i: 45
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 18 = 190
-x+i: 46
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 19 = 191
-x+i: 47
-
-y 0: 0		y-1: 47		y+1: 1
-(int)(game->fov->wall_witch[224][0]): 172 + 20 = 192
-x+i: 0
-
-		y 0: 0				y-1: 47				y+1: 1
-		(int)(game->fov->wall_witch[224][0]): 172 + 20 = 192
-		x+i: 0
-		
-				(game->fov->wall_witch[224 + 1][0]):173 - 0 % img_size = 29 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 1 % img_size = 28 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 2 % img_size = 27 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 3 % img_size = 26 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 4 % img_size = 25 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 5 % img_size = 24 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 6 % img_size = 23 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 7 % img_size = 22 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 8 % img_size = 21 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 9 % img_size = 20 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 10 % img_size = 19 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 11 % img_size = 18 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 12 % img_size = 17 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 13 % img_size = 16 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 14 % img_size = 15 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 15 % img_size = 14 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 16 % img_size = 13 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 17 % img_size = 12 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 18 % img_size = 11 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 19 % img_size = 10 
-				 Sud || hrz 
-				(game->fov->wall_witch[224 + 1][0]):173 - 20 % img_size = 9 
-				 Sud || hrz 
-------------------------------
+game->fov->toggle: W
+(0, 72)
+game->fov->angle: 290
+
+m(0, 72)
+
+corr x: 95.000000	y:107.000000
+src x: 264	y:168
+len: 180.000000
+
+corr x: 95.000000	y:107.000000
+src x: 264	y:168
+len: 180.000000
+game->fov->lines_vision[0]: 180
+
+corr x: 95.000000	y:106.000000
+src x: 264	y:168
+len: 180.000000
+game->fov->lines_vision[1]: 179
+
+corr x: 95.000000	y:105.000000
+src x: 264	y:168
+len: 180.000000
+game->fov->lines_vision[2]: 179
+
+corr x: 95.000000	y:105.000000
+src x: 264	y:168
+len: 180.000000
+game->fov->lines_vision[3]: 179
+
+corr x: 95.000000	y:104.000000
+src x: 264	y:168
+len: 181.000000
+game->fov->lines_vision[4]: 180
+
+corr x: 95.000000	y:103.000000
+src x: 264	y:168
+len: 181.000000
+game->fov->lines_vision[5]: 180
+
+corr x: 95.000000	y:103.000000
+src x: 264	y:168
+len: 181.000000
+game->fov->lines_vision[6]: 180
+
+corr x: 95.000000	y:102.000000
+src x: 264	y:168
+len: 181.000000
+game->fov->lines_vision[7]: 180
+
+corr x: 95.000000	y:101.000000
+src x: 264	y:168
+len: 182.000000
+game->fov->lines_vision[8]: 181
+
+corr x: 95.000000	y:101.000000
+src x: 264	y:168
+len: 182.000000
+game->fov->lines_vision[9]: 181
+
+corr x: 95.000000	y:100.000000
+src x: 264	y:168
+len: 182.000000
+game->fov->lines_vision[10]: 181
+
+corr x: 95.000000	y:100.000000
+src x: 264	y:168
+len: 182.000000
+game->fov->lines_vision[11]: 181
+
+corr x: 95.000000	y:99.000000
+src x: 264	y:168
+len: 183.000000
+game->fov->lines_vision[12]: 182
+
+corr x: 95.000000	y:98.000000
+src x: 264	y:168
+len: 183.000000
+game->fov->lines_vision[13]: 182
+
+corr x: 95.000000	y:98.000000
+src x: 264	y:168
+len: 183.000000
+game->fov->lines_vision[14]: 182
+
+corr x: 95.000000	y:96.000000
+src x: 264	y:168
+len: 184.000000
+game->fov->lines_vision[15]: 183
+
+corr x: 95.000000	y:96.000000
+src x: 264	y:168
+len: 184.000000
+game->fov->lines_vision[16]: 183
+
+corr x: 97.000000	y:96.000000
+src x: 264	y:168
+len: 182.000000
+game->fov->lines_vision[17]: 181
+
+corr x: 98.000000	y:96.000000
+src x: 264	y:168
+len: 181.000000
+game->fov->lines_vision[18]: 180
+
+corr x: 100.000000	y:96.000000
+src x: 264	y:168
+len: 179.000000
+game->fov->lines_vision[19]: 178
+
+corr x: 101.000000	y:96.000000
+src x: 264	y:168
+len: 178.000000
+game->fov->lines_vision[20]: 177
+
+corr x: 102.000000	y:96.000000
+src x: 264	y:168
+len: 177.000000
+game->fov->lines_vision[21]: 176
+
+corr x: 104.000000	y:96.000000
+src x: 264	y:168
+len: 175.000000
+game->fov->lines_vision[22]: 174
+
+corr x: 105.000000	y:96.000000
+src x: 264	y:168
+len: 175.000000
+game->fov->lines_vision[23]: 174
+
+corr x: 106.000000	y:96.000000
+src x: 264	y:168
+len: 174.000000
+game->fov->lines_vision[24]: 173
+
+corr x: 109.000000	y:96.000000
+src x: 264	y:168
+len: 171.000000
+game->fov->lines_vision[25]: 170
+
+corr x: 110.000000	y:96.000000
+src x: 264	y:168
+len: 170.000000
+game->fov->lines_vision[26]: 169
+
+corr x: 111.000000	y:96.000000
+src x: 264	y:168
+len: 169.000000
+game->fov->lines_vision[27]: 168
+
+corr x: 113.000000	y:96.000000
+src x: 264	y:168
+len: 167.000000
+game->fov->lines_vision[28]: 166
+
+corr x: 114.000000	y:96.000000
+src x: 264	y:168
+len: 166.000000
+game->fov->lines_vision[29]: 165
+
+corr x: 115.000000	y:96.000000
+src x: 264	y:168
+len: 165.000000
+game->fov->lines_vision[30]: 164
+
+corr x: 116.000000	y:96.000000
+src x: 264	y:168
+len: 165.000000
+game->fov->lines_vision[31]: 164
+
+corr x: 118.000000	y:96.000000
+src x: 264	y:168
+len: 163.000000
+game->fov->lines_vision[32]: 161
+
+corr x: 119.000000	y:96.000000
+src x: 264	y:168
+len: 162.000000
+game->fov->lines_vision[33]: 160
+
+corr x: 121.000000	y:96.000000
+src x: 264	y:168
+len: 160.000000
+game->fov->lines_vision[34]: 158
+
+corr x: 122.000000	y:96.000000
+src x: 264	y:168
+len: 159.000000
+game->fov->lines_vision[35]: 157
+
+corr x: 123.000000	y:96.000000
+src x: 264	y:168
+len: 158.000000
+game->fov->lines_vision[36]: 156
+
+corr x: 124.000000	y:96.000000
+src x: 264	y:168
+len: 157.000000
+game->fov->lines_vision[37]: 155
+
+corr x: 126.000000	y:96.000000
+src x: 264	y:168
+len: 156.000000
+game->fov->lines_vision[38]: 154
+
+corr x: 127.000000	y:96.000000
+src x: 264	y:168
+len: 155.000000
+game->fov->lines_vision[39]: 153
+
+corr x: 128.000000	y:96.000000
+src x: 264	y:168
+len: 154.000000
+game->fov->lines_vision[40]: 152
+
+corr x: 129.000000	y:96.000000
+src x: 264	y:168
+len: 153.000000
+game->fov->lines_vision[41]: 151
+
+corr x: 130.000000	y:96.000000
+src x: 264	y:168
+len: 152.000000
+game->fov->lines_vision[42]: 150
+
+corr x: 131.000000	y:96.000000
+src x: 264	y:168
+len: 151.000000
+game->fov->lines_vision[43]: 149
+
+corr x: 132.000000	y:96.000000
+src x: 264	y:168
+len: 150.000000
+game->fov->lines_vision[44]: 148
+
+corr x: 133.000000	y:96.000000
+src x: 264	y:168
+len: 149.000000
+game->fov->lines_vision[45]: 147
+
+corr x: 134.000000	y:96.000000
+src x: 264	y:168
+len: 149.000000
+game->fov->lines_vision[46]: 147
+
+corr x: 135.000000	y:96.000000
+src x: 264	y:168
+len: 148.000000
+game->fov->lines_vision[47]: 146
+
+corr x: 136.000000	y:96.000000
+src x: 264	y:168
+len: 147.000000
+game->fov->lines_vision[48]: 144
+
+corr x: 138.000000	y:96.000000
+src x: 264	y:168
+len: 145.000000
+game->fov->lines_vision[49]: 142
+
+corr x: 138.000000	y:95.000000
+src x: 264	y:168
+len: 146.000000
+game->fov->lines_vision[50]: 143
+
+corr x: 139.000000	y:96.000000
+src x: 264	y:168
+len: 144.000000
+game->fov->lines_vision[51]: 141
+
+corr x: 140.000000	y:96.000000
+src x: 264	y:168
+len: 143.000000
+game->fov->lines_vision[52]: 140
+
+corr x: 142.000000	y:96.000000
+src x: 264	y:168
+len: 142.000000
+game->fov->lines_vision[53]: 139
+
+corr x: 142.000000	y:95.000000
+src x: 264	y:168
+len: 142.000000
+game->fov->lines_vision[54]: 139
+
+corr x: 143.000000	y:96.000000
+src x: 264	y:168
+len: 141.000000
+game->fov->lines_vision[55]: 138
+
+corr x: 144.000000	y:96.000000
+src x: 264	y:168
+len: 140.000000
+game->fov->lines_vision[56]: 137
+
+corr x: 145.000000	y:95.000000
+src x: 264	y:168
+len: 140.000000
+game->fov->lines_vision[57]: 137
+
+corr x: 146.000000	y:96.000000
+src x: 264	y:168
+len: 138.000000
+game->fov->lines_vision[58]: 135
+
+corr x: 147.000000	y:96.000000
+src x: 264	y:168
+len: 137.000000
+game->fov->lines_vision[59]: 134
+
+corr x: 148.000000	y:96.000000
+src x: 264	y:168
+len: 137.000000
+game->fov->lines_vision[60]: 134
+
+corr x: 149.000000	y:96.000000
+src x: 264	y:168
+len: 136.000000
+game->fov->lines_vision[61]: 132
+
+corr x: 150.000000	y:96.000000
+src x: 264	y:168
+len: 135.000000
+game->fov->lines_vision[62]: 131
+
+corr x: 150.000000	y:95.000000
+src x: 264	y:168
+len: 135.000000
+game->fov->lines_vision[63]: 131
+
+corr x: 152.000000	y:96.000000
+src x: 264	y:168
+len: 133.000000
+game->fov->lines_vision[64]: 129
+
+corr x: 152.000000	y:95.000000
+src x: 264	y:168
+len: 134.000000
+game->fov->lines_vision[65]: 130
+
+corr x: 153.000000	y:96.000000
+src x: 264	y:168
+len: 132.000000
+game->fov->lines_vision[66]: 128
+
+corr x: 154.000000	y:96.000000
+src x: 264	y:168
+len: 131.000000
+game->fov->lines_vision[67]: 127
+
+corr x: 155.000000	y:96.000000
+src x: 264	y:168
+len: 131.000000
+game->fov->lines_vision[68]: 127
+
+corr x: 155.000000	y:95.000000
+src x: 264	y:168
+len: 131.000000
+game->fov->lines_vision[69]: 127
+
+corr x: 157.000000	y:96.000000
+src x: 264	y:168
+len: 129.000000
+game->fov->lines_vision[70]: 125
+
+corr x: 157.000000	y:95.000000
+src x: 264	y:168
+len: 130.000000
+game->fov->lines_vision[71]: 126
+
+corr x: 158.000000	y:96.000000
+src x: 264	y:168
+len: 128.000000
+game->fov->lines_vision[72]: 123
+
+corr x: 159.000000	y:96.000000
+src x: 264	y:168
+len: 127.000000
+game->fov->lines_vision[73]: 122
+
+corr x: 160.000000	y:96.000000
+src x: 264	y:168
+len: 126.000000
+game->fov->lines_vision[74]: 121
+
+corr x: 160.000000	y:96.000000
+src x: 264	y:168
+len: 126.000000
+game->fov->lines_vision[75]: 121
+
+corr x: 161.000000	y:95.000000
+src x: 264	y:168
+len: 126.000000
+game->fov->lines_vision[76]: 121
+
+corr x: 162.000000	y:96.000000
+src x: 264	y:168
+len: 125.000000
+game->fov->lines_vision[77]: 120
+
+corr x: 163.000000	y:96.000000
+src x: 264	y:168
+len: 124.000000
+game->fov->lines_vision[78]: 119
+
+corr x: 163.000000	y:95.000000
+src x: 264	y:168
+len: 125.000000
+game->fov->lines_vision[79]: 120
+
+corr x: 164.000000	y:96.000000
+src x: 264	y:168
+len: 123.000000
+game->fov->lines_vision[80]: 118
+
+corr x: 165.000000	y:96.000000
+src x: 264	y:168
+len: 122.000000
+game->fov->lines_vision[81]: 117
+
+corr x: 166.000000	y:96.000000
+src x: 264	y:168
+len: 122.000000
+game->fov->lines_vision[82]: 117
+
+corr x: 167.000000	y:96.000000
+src x: 264	y:168
+len: 121.000000
+game->fov->lines_vision[83]: 115
+
+corr x: 167.000000	y:96.000000
+src x: 264	y:168
+len: 121.000000
+game->fov->lines_vision[84]: 115
+
+corr x: 167.000000	y:95.000000
+src x: 264	y:168
+len: 121.000000
+game->fov->lines_vision[85]: 115
+
+corr x: 168.000000	y:95.000000
+src x: 264	y:168
+len: 121.000000
+game->fov->lines_vision[86]: 115
+
+corr x: 169.000000	y:96.000000
+src x: 264	y:168
+len: 119.000000
+game->fov->lines_vision[87]: 113
+
+corr x: 170.000000	y:96.000000
+src x: 264	y:168
+len: 118.000000
+game->fov->lines_vision[88]: 112
+
+corr x: 170.000000	y:95.000000
+src x: 264	y:168
+len: 119.000000
+game->fov->lines_vision[89]: 113
+
+corr x: 171.000000	y:95.000000
+src x: 264	y:168
+len: 118.000000
+game->fov->lines_vision[90]: 112
+
+corr x: 172.000000	y:96.000000
+src x: 264	y:168
+len: 117.000000
+game->fov->lines_vision[91]: 111
+
+corr x: 173.000000	y:96.000000
+src x: 264	y:168
+len: 116.000000
+game->fov->lines_vision[92]: 110
+
+corr x: 173.000000	y:96.000000
+src x: 264	y:168
+len: 116.000000
+game->fov->lines_vision[93]: 109
+
+corr x: 174.000000	y:96.000000
+src x: 264	y:168
+len: 115.000000
+game->fov->lines_vision[94]: 108
+
+corr x: 174.000000	y:95.000000
+src x: 264	y:168
+len: 116.000000
+game->fov->lines_vision[95]: 109
+
+corr x: 175.000000	y:96.000000
+src x: 264	y:168
+len: 114.000000
+game->fov->lines_vision[96]: 107
+
+corr x: 175.000000	y:95.000000
+src x: 264	y:168
+len: 115.000000
+game->fov->lines_vision[97]: 108
+
+corr x: 176.000000	y:95.000000
+src x: 264	y:168
+len: 114.000000
+game->fov->lines_vision[98]: 107
+
+corr x: 177.000000	y:96.000000
+src x: 264	y:168
+len: 113.000000
+game->fov->lines_vision[99]: 106
+
+corr x: 177.000000	y:95.000000
+src x: 264	y:168
+len: 114.000000
+game->fov->lines_vision[100]: 107
+
+corr x: 178.000000	y:95.000000
+src x: 264	y:168
+len: 113.000000
+game->fov->lines_vision[101]: 106
+
+corr x: 179.000000	y:96.000000
+src x: 264	y:168
+len: 111.000000
+game->fov->lines_vision[102]: 104
+
+corr x: 179.000000	y:95.000000
+src x: 264	y:168
+len: 112.000000
+game->fov->lines_vision[103]: 104
+
+corr x: 180.000000	y:96.000000
+src x: 264	y:168
+len: 111.000000
+game->fov->lines_vision[104]: 103
+
+corr x: 180.000000	y:95.000000
+src x: 264	y:168
+len: 111.000000
+game->fov->lines_vision[105]: 103
+
+corr x: 181.000000	y:95.000000
+src x: 264	y:168
+len: 111.000000
+game->fov->lines_vision[106]: 103
+
+corr x: 182.000000	y:96.000000
+src x: 264	y:168
+len: 109.000000
+game->fov->lines_vision[107]: 101
+
+corr x: 182.000000	y:95.000000
+src x: 264	y:168
+len: 110.000000
+game->fov->lines_vision[108]: 102
+
+corr x: 183.000000	y:96.000000
+src x: 264	y:168
+len: 108.000000
+game->fov->lines_vision[109]: 100
+
+corr x: 183.000000	y:95.000000
+src x: 264	y:168
+len: 109.000000
+game->fov->lines_vision[110]: 101
+
+corr x: 184.000000	y:96.000000
+src x: 264	y:168
+len: 108.000000
+game->fov->lines_vision[111]: 99
+
+corr x: 185.000000	y:96.000000
+src x: 264	y:168
+len: 107.000000
+game->fov->lines_vision[112]: 98
+
+corr x: 185.000000	y:96.000000
+src x: 264	y:168
+len: 107.000000
+game->fov->lines_vision[113]: 98
+
+corr x: 186.000000	y:96.000000
+src x: 264	y:168
+len: 106.000000
+game->fov->lines_vision[114]: 97
+
+corr x: 186.000000	y:95.000000
+src x: 264	y:168
+len: 107.000000
+game->fov->lines_vision[115]: 98
+
+corr x: 187.000000	y:96.000000
+src x: 264	y:168
+len: 105.000000
+game->fov->lines_vision[116]: 96
+
+corr x: 187.000000	y:95.000000
+src x: 264	y:168
+len: 106.000000
+game->fov->lines_vision[117]: 97
+
+corr x: 188.000000	y:96.000000
+src x: 264	y:168
+len: 105.000000
+game->fov->lines_vision[118]: 96
+
+corr x: 188.000000	y:95.000000
+src x: 264	y:168
+len: 105.000000
+game->fov->lines_vision[119]: 96
+
+corr x: 189.000000	y:96.000000
+src x: 264	y:168
+len: 104.000000
+game->fov->lines_vision[120]: 95
+
+corr x: 189.000000	y:95.000000
+src x: 264	y:168
+len: 105.000000
+game->fov->lines_vision[121]: 95
+
+corr x: 190.000000	y:96.000000
+src x: 264	y:168
+len: 103.000000
+game->fov->lines_vision[122]: 93
+
+corr x: 190.000000	y:95.000000
+src x: 264	y:168
+len: 104.000000
+game->fov->lines_vision[123]: 94
+
+corr x: 191.000000	y:96.000000
+src x: 264	y:168
+len: 103.000000
+game->fov->lines_vision[124]: 93
+
+corr x: 191.000000	y:95.000000
+src x: 264	y:168
+len: 103.000000
+game->fov->lines_vision[125]: 93
+
+corr x: 191.000000	y:95.000000
+src x: 264	y:168
+len: 103.000000
+game->fov->lines_vision[126]: 93
+
+corr x: 192.000000	y:95.000000
+src x: 264	y:168
+len: 103.000000
+game->fov->lines_vision[127]: 93
+
+corr x: 191.000000	y:94.000000
+src x: 264	y:168
+len: 104.000000
+game->fov->lines_vision[128]: 93
+
+corr x: 192.000000	y:94.000000
+src x: 264	y:168
+len: 103.000000
+game->fov->lines_vision[129]: 92
+
+corr x: 191.000000	y:93.000000
+src x: 264	y:168
+len: 105.000000
+game->fov->lines_vision[130]: 94
+
+corr x: 192.000000	y:93.000000
+src x: 264	y:168
+len: 104.000000
+game->fov->lines_vision[131]: 93
+
+corr x: 192.000000	y:92.000000
+src x: 264	y:168
+len: 105.000000
+game->fov->lines_vision[132]: 94
+
+corr x: 191.000000	y:91.000000
+src x: 264	y:168
+len: 106.000000
+game->fov->lines_vision[133]: 94
+
+corr x: 192.000000	y:91.000000
+src x: 264	y:168
+len: 105.000000
+game->fov->lines_vision[134]: 93
+
+corr x: 191.000000	y:90.000000
+src x: 264	y:168
+len: 107.000000
+game->fov->lines_vision[135]: 95
+
+corr x: 192.000000	y:90.000000
+src x: 264	y:168
+len: 106.000000
+game->fov->lines_vision[136]: 94
+
+corr x: 191.000000	y:89.000000
+src x: 264	y:168
+len: 108.000000
+game->fov->lines_vision[137]: 95
+
+corr x: 192.000000	y:89.000000
+src x: 264	y:168
+len: 107.000000
+game->fov->lines_vision[138]: 94
+
+corr x: 191.000000	y:88.000000
+src x: 264	y:168
+len: 108.000000
+game->fov->lines_vision[139]: 95
+
+corr x: 192.000000	y:88.000000
+src x: 264	y:168
+len: 108.000000
+game->fov->lines_vision[140]: 95
+
+corr x: 192.000000	y:87.000000
+src x: 264	y:168
+len: 108.000000
+game->fov->lines_vision[141]: 95
+
+corr x: 191.000000	y:86.000000
+src x: 264	y:168
+len: 110.000000
+game->fov->lines_vision[142]: 96
+
+corr x: 192.000000	y:86.000000
+src x: 264	y:168
+len: 109.000000
+game->fov->lines_vision[143]: 95
+
+corr x: 191.000000	y:85.000000
+src x: 264	y:168
+len: 111.000000
+game->fov->lines_vision[144]: 97
+
+corr x: 192.000000	y:85.000000
+src x: 264	y:168
+len: 110.000000
+game->fov->lines_vision[145]: 96
+
+corr x: 191.000000	y:84.000000
+src x: 264	y:168
+len: 111.000000
+game->fov->lines_vision[146]: 96
+
+corr x: 192.000000	y:84.000000
+src x: 264	y:168
+len: 111.000000
+game->fov->lines_vision[147]: 96
+
+corr x: 192.000000	y:83.000000
+src x: 264	y:168
+len: 111.000000
+game->fov->lines_vision[148]: 96
+
+corr x: 191.000000	y:82.000000
+src x: 264	y:168
+len: 113.000000
+game->fov->lines_vision[149]: 98
+
+corr x: 95.000000	y:107.000000
+src x: 264	y:168
+len: 180.000000
+game->fov->lines_vision[151]: 179
+
+corr x: 95.000000	y:108.000000
+src x: 264	y:168
+len: 179.000000
+game->fov->lines_vision[152]: 178
+
+corr x: 95.000000	y:109.000000
+src x: 264	y:168
+len: 179.000000
+game->fov->lines_vision[153]: 178
+
+corr x: 95.000000	y:110.000000
+src x: 264	y:168
+len: 179.000000
+game->fov->lines_vision[154]: 178
+
+corr x: 95.000000	y:110.000000
+src x: 264	y:168
+len: 179.000000
+game->fov->lines_vision[155]: 178
+
+corr x: 95.000000	y:111.000000
+src x: 264	y:168
+len: 178.000000
+game->fov->lines_vision[156]: 177
+
+corr x: 95.000000	y:112.000000
+src x: 264	y:168
+len: 178.000000
+game->fov->lines_vision[157]: 177
+
+corr x: 95.000000	y:112.000000
+src x: 264	y:168
+len: 178.000000
+game->fov->lines_vision[158]: 177
+
+corr x: 95.000000	y:113.000000
+src x: 264	y:168
+len: 178.000000
+game->fov->lines_vision[159]: 177
+
+corr x: 95.000000	y:114.000000
+src x: 264	y:168
+len: 177.000000
+game->fov->lines_vision[160]: 176
+
+corr x: 95.000000	y:114.000000
+src x: 264	y:168
+len: 177.000000
+game->fov->lines_vision[161]: 176
+
+corr x: 95.000000	y:115.000000
+src x: 264	y:168
+len: 177.000000
+game->fov->lines_vision[162]: 176
+
+corr x: 95.000000	y:116.000000
+src x: 264	y:168
+len: 177.000000
+game->fov->lines_vision[163]: 176
+
+corr x: 95.000000	y:116.000000
+src x: 264	y:168
+len: 177.000000
+game->fov->lines_vision[164]: 176
+
+corr x: 95.000000	y:117.000000
+src x: 264	y:168
+len: 177.000000
+game->fov->lines_vision[165]: 176
+
+corr x: 95.000000	y:117.000000
+src x: 264	y:168
+len: 177.000000
+game->fov->lines_vision[166]: 176
+
+corr x: 95.000000	y:118.000000
+src x: 264	y:168
+len: 176.000000
+game->fov->lines_vision[167]: 175
+
+corr x: 95.000000	y:119.000000
+src x: 264	y:168
+len: 176.000000
+game->fov->lines_vision[168]: 175
+
+corr x: 95.000000	y:119.000000
+src x: 264	y:168
+len: 176.000000
+game->fov->lines_vision[169]: 175
+
+corr x: 95.000000	y:120.000000
+src x: 264	y:168
+len: 176.000000
+game->fov->lines_vision[170]: 175
+
+corr x: 95.000000	y:121.000000
+src x: 264	y:168
+len: 175.000000
+game->fov->lines_vision[171]: 174
+
+corr x: 95.000000	y:121.000000
+src x: 264	y:168
+len: 175.000000
+game->fov->lines_vision[172]: 174
+
+corr x: 95.000000	y:122.000000
+src x: 264	y:168
+len: 175.000000
+game->fov->lines_vision[173]: 174
+
+corr x: 95.000000	y:123.000000
+src x: 264	y:168
+len: 175.000000
+game->fov->lines_vision[174]: 174
+
+corr x: 95.000000	y:123.000000
+src x: 264	y:168
+len: 175.000000
+game->fov->lines_vision[175]: 174
+
+corr x: 95.000000	y:124.000000
+src x: 264	y:168
+len: 175.000000
+game->fov->lines_vision[176]: 174
+
+corr x: 95.000000	y:124.000000
+src x: 264	y:168
+len: 175.000000
+game->fov->lines_vision[177]: 174
+
+corr x: 95.000000	y:125.000000
+src x: 264	y:168
+len: 174.000000
+game->fov->lines_vision[178]: 173
+
+corr x: 95.000000	y:126.000000
+src x: 264	y:168
+len: 174.000000
+game->fov->lines_vision[179]: 173
+
+corr x: 95.000000	y:126.000000
+src x: 264	y:168
+len: 174.000000
+game->fov->lines_vision[180]: 173
+
+corr x: 95.000000	y:127.000000
+src x: 264	y:168
+len: 174.000000
+game->fov->lines_vision[181]: 172
+
+corr x: 95.000000	y:128.000000
+src x: 264	y:168
+len: 174.000000
+game->fov->lines_vision[182]: 172
+
+corr x: 95.000000	y:128.000000
+src x: 264	y:168
+len: 174.000000
+game->fov->lines_vision[183]: 172
+
+corr x: 95.000000	y:129.000000
+src x: 264	y:168
+len: 173.000000
+game->fov->lines_vision[184]: 171
+
+corr x: 95.000000	y:130.000000
+src x: 264	y:168
+len: 173.000000
+game->fov->lines_vision[185]: 171
+
+corr x: 95.000000	y:130.000000
+src x: 264	y:168
+len: 173.000000
+game->fov->lines_vision[186]: 171
+
+corr x: 95.000000	y:130.000000
+src x: 264	y:168
+len: 173.000000
+game->fov->lines_vision[187]: 171
+
+corr x: 95.000000	y:131.000000
+src x: 264	y:168
+len: 173.000000
+game->fov->lines_vision[188]: 171
+
+corr x: 95.000000	y:132.000000
+src x: 264	y:168
+len: 173.000000
+game->fov->lines_vision[189]: 171
+
+corr x: 95.000000	y:132.000000
+src x: 264	y:168
+len: 173.000000
+game->fov->lines_vision[190]: 171
+
+corr x: 95.000000	y:133.000000
+src x: 264	y:168
+len: 173.000000
+game->fov->lines_vision[191]: 171
+
+corr x: 95.000000	y:133.000000
+src x: 264	y:168
+len: 173.000000
+game->fov->lines_vision[192]: 171
+
+corr x: 95.000000	y:134.000000
+src x: 264	y:168
+len: 172.000000
+game->fov->lines_vision[193]: 170
+
+corr x: 95.000000	y:135.000000
+src x: 264	y:168
+len: 172.000000
+game->fov->lines_vision[194]: 169
+
+corr x: 95.000000	y:135.000000
+src x: 264	y:168
+len: 172.000000
+game->fov->lines_vision[195]: 169
+
+corr x: 95.000000	y:136.000000
+src x: 264	y:168
+len: 172.000000
+game->fov->lines_vision[196]: 169
+
+corr x: 95.000000	y:137.000000
+src x: 264	y:168
+len: 172.000000
+game->fov->lines_vision[197]: 169
+
+corr x: 95.000000	y:137.000000
+src x: 264	y:168
+len: 172.000000
+game->fov->lines_vision[198]: 169
+
+corr x: 95.000000	y:138.000000
+src x: 264	y:168
+len: 172.000000
+game->fov->lines_vision[199]: 169
+
+corr x: 95.000000	y:139.000000
+src x: 264	y:168
+len: 171.000000
+game->fov->lines_vision[200]: 168
+
+corr x: 95.000000	y:139.000000
+src x: 264	y:168
+len: 171.000000
+game->fov->lines_vision[201]: 168
+
+corr x: 95.000000	y:140.000000
+src x: 264	y:168
+len: 171.000000
+game->fov->lines_vision[202]: 168
+
+corr x: 95.000000	y:140.000000
+src x: 264	y:168
+len: 171.000000
+game->fov->lines_vision[203]: 168
+
+corr x: 95.000000	y:141.000000
+src x: 264	y:168
+len: 171.000000
+game->fov->lines_vision[204]: 167
+
+corr x: 95.000000	y:142.000000
+src x: 264	y:168
+len: 171.000000
+game->fov->lines_vision[205]: 167
+
+corr x: 95.000000	y:142.000000
+src x: 264	y:168
+len: 171.000000
+game->fov->lines_vision[206]: 167
+
+corr x: 95.000000	y:143.000000
+src x: 264	y:168
+len: 171.000000
+game->fov->lines_vision[207]: 167
+
+corr x: 95.000000	y:144.000000
+src x: 264	y:168
+len: 171.000000
+game->fov->lines_vision[208]: 167
+
+corr x: 95.000000	y:144.000000
+src x: 264	y:168
+len: 171.000000
+game->fov->lines_vision[209]: 167
+
+corr x: 92.000000	y:144.000000
+src x: 264	y:168
+len: 174.000000
+game->fov->lines_vision[210]: 170
+
+corr x: 87.000000	y:144.000000
+src x: 264	y:168
+len: 179.000000
+game->fov->lines_vision[211]: 174
+
+corr x: 82.000000	y:144.000000
+src x: 264	y:168
+len: 184.000000
+game->fov->lines_vision[212]: 179
+
+corr x: 77.000000	y:144.000000
+src x: 264	y:168
+len: 189.000000
+game->fov->lines_vision[213]: 184
+
+corr x: 71.000000	y:144.000000
+src x: 264	y:168
+len: 194.000000
+game->fov->lines_vision[214]: 189
+
+corr x: 66.000000	y:144.000000
+src x: 264	y:168
+len: 199.000000
+game->fov->lines_vision[215]: 193
+
+corr x: 59.000000	y:144.000000
+src x: 264	y:168
+len: 206.000000
+game->fov->lines_vision[216]: 200
+
+corr x: 52.000000	y:144.000000
+src x: 264	y:168
+len: 213.000000
+game->fov->lines_vision[217]: 207
+
+corr x: 47.000000	y:144.000000
+src x: 264	y:168
+len: 218.000000
+game->fov->lines_vision[218]: 211
+
+corr x: 47.000000	y:145.000000
+src x: 264	y:168
+len: 218.000000
+game->fov->lines_vision[219]: 211
+
+corr x: 47.000000	y:146.000000
+src x: 264	y:168
+len: 218.000000
+game->fov->lines_vision[220]: 211
+
+corr x: 47.000000	y:147.000000
+src x: 264	y:168
+len: 218.000000
+game->fov->lines_vision[221]: 211
+
+corr x: 47.000000	y:147.000000
+src x: 264	y:168
+len: 218.000000
+game->fov->lines_vision[222]: 211
+
+corr x: 47.000000	y:148.000000
+src x: 264	y:168
+len: 218.000000
+game->fov->lines_vision[223]: 210
+
+corr x: 47.000000	y:148.000000
+src x: 264	y:168
+len: 218.000000
+game->fov->lines_vision[224]: 210
+
+corr x: 47.000000	y:149.000000
+src x: 264	y:168
+len: 218.000000
+game->fov->lines_vision[225]: 210
+
+corr x: 47.000000	y:150.000000
+src x: 264	y:168
+len: 218.000000
+game->fov->lines_vision[226]: 210
+
+corr x: 47.000000	y:151.000000
+src x: 264	y:168
+len: 218.000000
+game->fov->lines_vision[227]: 210
+
+corr x: 47.000000	y:152.000000
+src x: 264	y:168
+len: 218.000000
+game->fov->lines_vision[228]: 209
+
+corr x: 47.000000	y:152.000000
+src x: 264	y:168
+len: 218.000000
+game->fov->lines_vision[229]: 209
+
+corr x: 47.000000	y:153.000000
+src x: 264	y:168
+len: 218.000000
+game->fov->lines_vision[230]: 209
+
+corr x: 47.000000	y:154.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[231]: 208
+
+corr x: 47.000000	y:155.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[232]: 208
+
+corr x: 47.000000	y:156.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[233]: 207
+
+corr x: 47.000000	y:156.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[234]: 207
+
+corr x: 47.000000	y:157.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[235]: 207
+
+corr x: 47.000000	y:158.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[236]: 207
+
+corr x: 47.000000	y:159.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[237]: 207
+
+corr x: 47.000000	y:159.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[238]: 206
+
+corr x: 47.000000	y:160.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[239]: 206
+
+corr x: 47.000000	y:161.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[240]: 206
+
+corr x: 47.000000	y:161.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[241]: 206
+
+corr x: 47.000000	y:162.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[242]: 205
+
+corr x: 47.000000	y:163.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[243]: 205
+
+corr x: 47.000000	y:164.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[244]: 205
+
+corr x: 47.000000	y:165.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[245]: 205
+
+corr x: 47.000000	y:166.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[246]: 204
+
+corr x: 47.000000	y:166.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[247]: 204
+
+corr x: 47.000000	y:167.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[248]: 204
+
+corr x: 47.000000	y:168.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[249]: 204
+
+corr x: 47.000000	y:168.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[250]: 203
+
+corr x: 47.000000	y:168.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[251]: 203
+
+corr x: 47.000000	y:169.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[252]: 203
+
+corr x: 47.000000	y:170.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[253]: 203
+
+corr x: 47.000000	y:170.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[254]: 202
+
+corr x: 47.000000	y:171.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[255]: 202
+
+corr x: 47.000000	y:172.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[256]: 202
+
+corr x: 47.000000	y:173.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[257]: 202
+
+corr x: 47.000000	y:174.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[258]: 201
+
+corr x: 47.000000	y:175.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[259]: 201
+
+corr x: 47.000000	y:175.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[260]: 201
+
+corr x: 47.000000	y:176.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[261]: 200
+
+corr x: 47.000000	y:177.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[262]: 200
+
+corr x: 47.000000	y:177.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[263]: 200
+
+corr x: 47.000000	y:178.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[264]: 200
+
+corr x: 47.000000	y:179.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[265]: 199
+
+corr x: 47.000000	y:180.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[266]: 199
+
+corr x: 47.000000	y:180.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[267]: 199
+
+corr x: 47.000000	y:181.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[268]: 198
+
+corr x: 47.000000	y:182.000000
+src x: 264	y:168
+len: 217.000000
+game->fov->lines_vision[269]: 198
+
+corr x: 47.000000	y:183.000000
+src x: 264	y:168
+len: 218.000000
+game->fov->lines_vision[270]: 199
+
+corr x: 47.000000	y:184.000000
+src x: 264	y:168
+len: 218.000000
+game->fov->lines_vision[271]: 198
+
+corr x: 47.000000	y:184.000000
+src x: 264	y:168
+len: 218.000000
+game->fov->lines_vision[272]: 198
+
+corr x: 47.000000	y:185.000000
+src x: 264	y:168
+len: 218.000000
+game->fov->lines_vision[273]: 198
+
+corr x: 47.000000	y:186.000000
+src x: 264	y:168
+len: 218.000000
+game->fov->lines_vision[274]: 197
+
+corr x: 47.000000	y:187.000000
+src x: 264	y:168
+len: 218.000000
+game->fov->lines_vision[275]: 197
+
+corr x: 47.000000	y:188.000000
+src x: 264	y:168
+len: 218.000000
+game->fov->lines_vision[276]: 197
+
+corr x: 47.000000	y:188.000000
+src x: 264	y:168
+len: 218.000000
+game->fov->lines_vision[277]: 196
+
+corr x: 47.000000	y:189.000000
+src x: 264	y:168
+len: 218.000000
+game->fov->lines_vision[278]: 196
+
+corr x: 47.000000	y:189.000000
+src x: 264	y:168
+len: 218.000000
+game->fov->lines_vision[279]: 196
+
+corr x: 47.000000	y:190.000000
+src x: 264	y:168
+len: 218.000000
+game->fov->lines_vision[280]: 195
+
+corr x: 47.000000	y:191.000000
+src x: 264	y:168
+len: 218.000000
+game->fov->lines_vision[281]: 195
+
+corr x: 47.000000	y:192.000000
+src x: 264	y:168
+len: 218.000000
+game->fov->lines_vision[282]: 195
+
+corr x: 52.000000	y:192.000000
+src x: 264	y:168
+len: 213.000000
+game->fov->lines_vision[283]: 190
+
+corr x: 59.000000	y:192.000000
+src x: 264	y:168
+len: 206.000000
+game->fov->lines_vision[284]: 183
+
+corr x: 66.000000	y:192.000000
+src x: 264	y:168
+len: 199.000000
+game->fov->lines_vision[285]: 177
+
+corr x: 72.000000	y:192.000000
+src x: 264	y:168
+len: 193.000000
+game->fov->lines_vision[286]: 171
+
+corr x: 77.000000	y:192.000000
+src x: 264	y:168
+len: 189.000000
+game->fov->lines_vision[287]: 167
+
+corr x: 82.000000	y:192.000000
+src x: 264	y:168
+len: 184.000000
+game->fov->lines_vision[288]: 163
+
+corr x: 87.000000	y:192.000000
+src x: 264	y:168
+len: 179.000000
+game->fov->lines_vision[289]: 158
+
+corr x: 92.000000	y:192.000000
+src x: 264	y:168
+len: 174.000000
+game->fov->lines_vision[290]: 153
+
+corr x: 97.000000	y:192.000000
+src x: 264	y:168
+len: 169.000000
+game->fov->lines_vision[291]: 148
+
+corr x: 97.000000	y:192.000000
+src x: 264	y:168
+len: 169.000000
+game->fov->lines_vision[292]: 148
+
+corr x: 101.000000	y:192.000000
+src x: 264	y:168
+len: 165.000000
+game->fov->lines_vision[293]: 144
+
+corr x: 105.000000	y:192.000000
+src x: 264	y:168
+len: 161.000000
+game->fov->lines_vision[294]: 141
+
+corr x: 109.000000	y:192.000000
+src x: 264	y:168
+len: 157.000000
+game->fov->lines_vision[295]: 137
+
+corr x: 113.000000	y:192.000000
+src x: 264	y:168
+len: 153.000000
+game->fov->lines_vision[296]: 133
+
+corr x: 116.000000	y:192.000000
+src x: 264	y:168
+len: 150.000000
+game->fov->lines_vision[297]: 130
+
+corr x: 119.000000	y:192.000000
+src x: 264	y:168
+len: 147.000000
+game->fov->lines_vision[298]: 127
+
+corr x: 123.000000	y:192.000000
+src x: 264	y:168
+len: 143.000000
+game->fov->lines_vision[299]: 124
+
+corr x: 126.000000	y:192.000000
+src x: 264	y:168
+len: 140.000000
+game->fov->lines_vision[300]: 121
 
 .....................................
 
