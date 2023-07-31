@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3D.h                                            :+:      :+:    :+:   */
+/*   incs/cub3D.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:45:40 by ggosse            #+#    #+#             */
-/*   Updated: 2023/07/31 00:59:26 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/31 12:57:14 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -266,6 +266,9 @@ int		check_letters_map(t_game *game);
 int		check_perso(t_game *game);
 int		hole_in_wall(t_game *game);
 int		is_fault(t_game *game, int row, int col);
+//srcs/draw_xpm_ea.c
+void	draw_xpm_ea(t_game *game, int i_midline);
+int		draw_xpm_ea_color(t_game *game, int x, int y);
 //srcs/convert.c
 double	deg_to_radian(double deg);
 int		hex_to_dec(char *hexa);
@@ -284,8 +287,12 @@ int		ft_read_file(t_game *game, char *filename);
 int		display_3d_down(t_game *game);
 void	draw_line_temp(t_game *game, int flag_1, int flag_2, int flag_3, int flag_4);
 int		init_temp(t_game *game);
+//srcs/draw_xpm_we.c
+void	draw_xpm_we(t_game *game, int i_midline);
+int		draw_xpm_we_color(t_game *game, int x, int y);
 //srcs/draw_xpm.c
 int		draw_xpm_down_blue(t_game *game, int i_midline);
+int		draw_xpm_down_red(t_game *game, int i_midline);
 //srcs/fov.c
 int		calcul_opposite_side(t_game *game, double angle);
 int		first_calcul(t_game *game, double angle);
@@ -347,6 +354,9 @@ void	xpm_so_hex_to_dec(t_game *g, int i_color, int i_tab_file);
 char	*xpm_so_keep_metadata(char **tmp, int i_tmp);
 int		xpm_so_letter_color(t_game *game, int i_color, int i_tab_file);
 int		xpm_so_set_color(t_game *game, int i_color, char *tmp);
+//srcs/draw_xpm_no.c
+void	draw_xpm_no(t_game *game, int i_midline);
+int		draw_xpm_no_color(t_game *game, int x, int y);
 //srcs/xpm_no_parse.c
 int		xpm_no_get_content_xpm(t_game *game, int fd, int ret, char *buf);
 int		xpm_no_parse(t_game *game);
@@ -367,7 +377,7 @@ void	move_s(t_game *game);
 void	move_w(t_game *game);
 //srcs/draw_xpm_so.c
 void	draw_xpm_so(t_game *game, int i_midline);
-void	draw_xpm_so_color(t_game *game, int x, int y);
+int		draw_xpm_so_color(t_game *game, int x, int y);
 //srcs/floor_ceil_part.c
 int		check_ceil(t_game *game, char *line);
 int		check_ceil_content(t_game *game, char **color);

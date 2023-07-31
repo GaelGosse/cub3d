@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 10:03:27 by gael              #+#    #+#             */
-/*   Updated: 2023/07/31 00:59:12 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/31 11:19:12 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,13 +113,13 @@ int	xpm_so_set_len_n_color(t_game *g, char **line)
 	int	i_tab_file;
 
 	i_tab_file = 1;
-	i_color = 0;
+	i_color = -1;
 	if (ft_atoi(line[2]) > 96)
 		return (printf("Too much colors\n"), FAIL);
 	g->xpm->so_colors = malloc(sizeof(int *) * (ft_atoi(line[2]) + 1));
 	if (!g->xpm->so_colors)
 		return (printf("xpm colors failed\n"), FAIL);
-	while (i_color < ft_atoi(line[2]))
+	while (++i_color < ft_atoi(line[2]))
 	{
 		if (g->xpm->so_tab_file[i_tab_file][1] != ' '
 		&& g->xpm->so_tab_file[i_tab_file][2] != 'c'
@@ -134,7 +134,6 @@ int	xpm_so_set_len_n_color(t_game *g, char **line)
 		else if (xpm_so_letter_color(g, i_color, i_tab_file) == FAIL)
 			return (FAIL);
 		i_tab_file++;
-		i_color++;
 	}
 	return (SUCCESS);
 }

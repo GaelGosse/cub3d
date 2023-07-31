@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 11:04:13 by gael              #+#    #+#             */
-/*   Updated: 2023/07/28 20:49:33 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/31 12:13:22 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -334,6 +334,7 @@ int	display_all(t_game *game, int key)
 	// printf(BACK_BLUE"(%i, %i)"RST"\n", game->line->x_dest, game->line->y_dest);
 	display_3d_up(game);
 	display_3d_down(game);
+	// print_map(game->xpm->so_tab_file);
 	game->line->x_dest = save_x;
 	game->line->y_dest = save_y;
 	game->line->x_src = save_src_x;

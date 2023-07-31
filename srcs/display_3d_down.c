@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 15:15:57 by gael              #+#    #+#             */
-/*   Updated: 2023/07/31 00:54:06 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/31 12:57:07 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	display_3d_down(t_game *game)
 			game->line_3d->corr_x = game->line_3d->x_src;
 			game->line_3d->corr_y = game->line_3d->y_src;
 			i_draw = 0;
-			printf("------------------------------\n");
+			// printf("------------------------------\n");
 			while (i_draw <= game->line_3d->steps)
 			{
 				if (draw_xpm_down_blue(game, i_midline) == FAIL)
@@ -76,9 +76,9 @@ int	display_3d_down(t_game *game)
 			i_ratio++;
 			i_main++;
 		}
-		printf(BOLD_PURPLE"game->line_3d->steps: %i"RESET"\n", game->line_3d->steps);
+		// printf(BOLD_PURPLE"game->line_3d->steps: %i"RESET"\n", game->line_3d->steps);
 		// printf("------------------------------\n");
-		break ;
+		// break ;
 		// printf(PURPLE"game->fov->lines_vision[%i]: %i"RESET"\n", i_midline, game->fov->lines_vision[i_midline]);
 		// printf(BACK_PURPLE"game->line_3d->corr_y: %f"RST"\n", game->line_3d->corr_y);
 		// printf(BACK_PURPLE"game->line_3d->corr_x: %f"RST"\n", game->line_3d->corr_x);
@@ -118,33 +118,34 @@ int	display_3d_down(t_game *game)
 			i_draw = 0;
 			while (i_draw <= game->line_3d->steps)
 			{
-				if (game->line_3d->corr_y < game->map->height * game->img_size || game->line_3d->corr_y > game->win_height + game->map->height * game->img_size)
+				if (draw_xpm_down_red(game, i_midline) == FAIL)
 					break ;
-				// img_pix_put(game, roundf(game->line_3d->corr_x),
-				// roundf(game->line_3d->corr_y), get_color(255, 0, 0));
-				if (game->fov->toggle_vision[i_midline] == 'E')
-				{
-					img_pix_put(game, roundf(game->line_3d->corr_x),
-					roundf(game->line_3d->corr_y), get_color(255, 0, 0));
-				}
-				else if (game->fov->toggle_vision[i_midline] == 'N')
-				{
-					img_pix_put(game, roundf(game->line_3d->corr_x),
-					roundf(game->line_3d->corr_y), get_color(255, 255, 0));
-				}
-				else if (game->fov->toggle_vision[i_midline] == 'S')
-				{
-					img_pix_put(game, roundf(game->line_3d->corr_x),
-					roundf(game->line_3d->corr_y), get_color(0, 0, 255));
-				}
-				else if (game->fov->toggle_vision[i_midline] == 'W')
-				{
-
-					img_pix_put(game, roundf(game->line_3d->corr_x),
-					roundf(game->line_3d->corr_y), get_color(0, 255, 0));
-				}
-				game->line_3d->corr_x = game->line_3d->corr_x + game->line_3d->xite;
-				game->line_3d->corr_y = game->line_3d->corr_y + game->line_3d->yite;
+				// if (game->line_3d->corr_y < game->map->height * game->img_size || game->line_3d->corr_y > game->win_height + game->map->height * game->img_size)
+				// 	break ;
+				// // img_pix_put(game, roundf(game->line_3d->corr_x),
+				// // roundf(game->line_3d->corr_y), get_color(255, 0, 0));
+				// if (game->fov->toggle_vision[i_midline] == 'E')
+				// {
+				// 	img_pix_put(game, roundf(game->line_3d->corr_x),
+				// 	roundf(game->line_3d->corr_y), get_color(255, 0, 0));
+				// }
+				// else if (game->fov->toggle_vision[i_midline] == 'N')
+				// {
+				// 	img_pix_put(game, roundf(game->line_3d->corr_x),
+				// 	roundf(game->line_3d->corr_y), get_color(255, 255, 0));
+				// }
+				// else if (game->fov->toggle_vision[i_midline] == 'S')
+				// {
+				// 	img_pix_put(game, roundf(game->line_3d->corr_x),
+				// 	roundf(game->line_3d->corr_y), get_color(0, 0, 255));
+				// }
+				// else if (game->fov->toggle_vision[i_midline] == 'W')
+				// {
+				// 	img_pix_put(game, roundf(game->line_3d->corr_x),
+				// 	roundf(game->line_3d->corr_y), get_color(0, 255, 0));
+				// }
+				// game->line_3d->corr_x = game->line_3d->corr_x + game->line_3d->xite;
+				// game->line_3d->corr_y = game->line_3d->corr_y + game->line_3d->yite;
 				i_draw++;
 			}
 

@@ -56,7 +56,10 @@ _SRCS	=	buffer.c \
 			display_all_utils.c \
 			draw_line.c \
 			draw_xpm.c \
+			draw_xpm_ea.c \
+			draw_xpm_no.c \
 			draw_xpm_so.c \
+			draw_xpm_we.c \
 			fitter.c \
 			flooding.c \
 			floor_ceil_part.c \
@@ -78,6 +81,7 @@ _SRCS	=	buffer.c \
 			xpm_ea_correction.c \
 			xpm_ea_open.c \
 			xpm_ea_parse.c \
+			xpm_first.c \
 			xpm_no_correction.c \
 			xpm_no_open.c \
 			xpm_no_parse.c \
