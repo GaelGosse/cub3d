@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 16:47:24 by mael              #+#    #+#             */
-/*   Updated: 2023/07/28 16:38:14 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/31 17:27:08 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ int	init_fov(t_game *game)
 	game->fov->deg = 0.2; //60 / game->fov->nbr_ray;
 	// game->fov->proj_plane = (game->win_height / 2) / tan(deg_to_radian(30));
 	game->fov->proj_plane = 300;
-	game->fov->lines_vision = malloc(sizeof(int) * game->fov->nbr_ray + 1);
+	game->fov->lines_vision = malloc(sizeof(int) * (game->fov->nbr_ray + 1));
 	if (!game->fov->lines_vision)
 		return (printf("lines_visions failed\n"), FAIL);
-	game->fov->toggle_vision = malloc(sizeof(int) * game->fov->nbr_ray + 1);
+	game->fov->toggle_vision = malloc(sizeof(int) * (game->fov->nbr_ray + 1));
 	if (!game->fov->toggle_vision)
 		return (printf("toggle_visions failed\n"), FAIL);
-	while (i < game->fov->nbr_ray + 1)
+	while (i < game->fov->nbr_ray)
 	{
 		game->fov->lines_vision[i] = 0;
 		game->fov->toggle_vision[i] = 0;
@@ -50,7 +50,7 @@ int	init_fov_wall(t_game *game)
 	int i;
 
 	i = 0;
-	game->fov->wall = malloc(sizeof(int *) * game->fov->nbr_ray);
+	game->fov->wall = malloc(sizeof(int *) * (game->fov->nbr_ray + 1));
 	if (!game->fov->wall)
 		return (printf("init_wall double failed\n"), FAIL);
 	while (i <= game->fov->nbr_ray)
@@ -70,7 +70,7 @@ int	init_fov_wall_witch(t_game *game)
 	int i;
 
 	i = 0;
-	game->fov->wall_witch = malloc(sizeof(double *) * game->fov->nbr_ray);
+	game->fov->wall_witch = malloc(sizeof(double *) * (game->fov->nbr_ray + 1));
 	if (!game->fov->wall_witch)
 		return (printf("init witch double failed\n"), FAIL);
 	while (i <= game->fov->nbr_ray)

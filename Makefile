@@ -55,16 +55,23 @@ _SRCS	=	buffer.c \
 			display_all_reverse.c \
 			display_all_utils.c \
 			draw_line.c \
-			draw_xpm.c \
-			draw_xpm_ea.c \
-			draw_xpm_no.c \
-			draw_xpm_so.c \
-			draw_xpm_we.c \
+			draw_xpm_down_ea.c \
+			draw_xpm_down_no.c \
+			draw_xpm_down_so.c \
+			draw_xpm_down_we.c \
+			draw_xpm_ud.c \
+			draw_xpm_up_ea.c \
+			draw_xpm_up_no.c \
+			draw_xpm_up_so.c \
+			draw_xpm_up_we.c \
+			fitter_2.c \
 			fitter.c \
 			flooding.c \
 			floor_ceil_part.c \
 			fov.c \
+			free_all.c \
 			free_parsing.c \
+			free_xpm_no.c \
 			init_img.c \
 			main.c \
 			move_w_s.c \

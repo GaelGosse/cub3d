@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_parsing.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:27:05 by ggosse            #+#    #+#             */
-/*   Updated: 2023/07/14 12:22:54 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/30 18:29:42 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,24 @@ int	destroy_and_free(t_game *game, char *err)
 {
 	if (err)
 		ft_putstr_fd(err, 2);
+	if (game->img->mlx_img)
+		mlx_destroy_image(game->mlibx, game->img->mlx_img);
 	if (game->window)
 		mlx_destroy_window(game->mlibx, game->window);
 	if (game->window)
 		mlx_destroy_display(game->mlibx);
 	free(game->mlibx);
-	free_tab_str(game->map->map_tmp);
-	free_tab_str(game->map->tab_file);
-	free(game->map);
+	// free_tab_str(game->map->map_tmp);
+	// free_tab_str(game->map->tab_file);
+	// free(game->map);
+	free_all(game);
 	exit (1);
 }
 
 int	destroy_and_free2(t_game *game)
 {
+	if (game->img->mlx_img)
+		mlx_destroy_image(game->mlibx, game->img->mlx_img);
 	if (game->window)
 		mlx_destroy_window(game->mlibx, game->window);
 	if (game->window)
@@ -93,6 +98,10 @@ void	free_parsing(t_game *game, char *err)
 	free_img(game);
 	if (game->map->tab_file)
 		free_tab_str(game->map->tab_file);
+	if(game->map->map_org)
+		free_tab_str(game->map->map_org);// 28/07
+	if (game->map->map_tmp)
+		free_tab_str(game->map->map_tmp);
 	if (game->map)
 	{
 		free(game->map);

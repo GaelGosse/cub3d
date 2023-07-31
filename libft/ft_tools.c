@@ -6,13 +6,13 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 01:14:19 by gael              #+#    #+#             */
-/*   Updated: 2023/07/25 08:48:44 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/31 16:37:01 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	num_hexa_len(unsigned long long int nbr)
+static int	num_hexa_len(unsigned long long int nbr)
 {
 	long int	len;
 

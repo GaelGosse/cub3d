@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:15:08 by ggosse            #+#    #+#             */
-/*   Updated: 2023/07/31 11:22:36 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/31 17:11:00 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,9 +87,9 @@ int	ft_parsing(t_game *game, char **argv)
 		return (FAIL);
 	if (xpm_parse(game) == FAIL)
 		return (FAIL);
-	if (check_perso(game) == FAIL)
-		return (FAIL);
 	if (check_letters_map(game) == FAIL)
+		return (FAIL);
+	if (check_perso(game) == FAIL)
 		return (FAIL);
 	while (is_propa_finished(game) == FAIL)
 	{
@@ -102,6 +102,19 @@ int	ft_parsing(t_game *game, char **argv)
 	return (SUCCESS);
 }
 
+void	init_main(t_game *game)
+{
+	game->mlibx = NULL;
+	game->window = NULL;
+	game->map = NULL;
+	game->img = NULL;
+	game->xpm = NULL;
+	game->line = NULL;
+	game->fov = NULL;
+	game->line_3d = NULL;
+	game->temp = NULL;
+}
+
 int	main(int argc, char **argv, char **envp)
 {
 	t_game	game;
@@ -110,16 +123,16 @@ int	main(int argc, char **argv, char **envp)
 		return (ft_putstr_fd("Error\nyou must have env. variables\n", 2), 1);
 	if (argc != 2)
 		return (ft_putstr_fd("Error\nyou must called one arg\n", 2), 1);
+	init_main(&game);
 	game.map = malloc(sizeof(t_map));
 	if (!game.map)
 		return (printf("game map alloc failed\n"), FAIL);
 	init_struct(&game);
 	if (ft_parsing(&game, argv) == FAIL)
-		return (FAIL);
+		return (free_all(&game), FAIL);
 	if (start_3D(&game) == FAIL)
-		return (FAIL);
-	free_parsing(&game, NULL);
-	(void)argc;
+		return ( FAIL);
+	free_all(&game);
 	(void)argv;
 	(void)envp;
 	return (0);

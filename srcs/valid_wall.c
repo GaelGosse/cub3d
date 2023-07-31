@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 18:01:41 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/25 20:09:52 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/31 17:03:52 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ int	check_perso(t_game *game)
 			}
 		}
 	}
+	if (game->perso == '\0')
+		return (printf("need one player\n"), FAIL);
 	return (SUCCESS);
 }
 

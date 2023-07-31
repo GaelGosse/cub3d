@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 15:55:59 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/21 11:46:18 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/31 16:35:02 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char	*ft_strdup_pad(char *src, int len, char pad)
 	int		i;
 
 	i = 0;
-	result = (char *)malloc(len * sizeof(char));
+	result = (char *)malloc((len + 1) * sizeof(char));
 	if (!result)
 		return (NULL);
 	while (src[i])

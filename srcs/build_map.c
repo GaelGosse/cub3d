@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 09:38:48 by gael              #+#    #+#             */
-/*   Updated: 2023/07/28 23:43:43 by gael             ###   ########.fr       */
+/*   Updated: 2023/07/31 17:12:22 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,33 @@ void	skip_empty_line(char **line, int fd)
 	}
 }
 
+// vo<id	build_content(t_game *game, char **line, int fd)
+// {
+// 	char *temp;
+
+// 	temp = NULL; // rajoute pour valgrind le 28/07, a tester
+// 	if (game->map->file_map == NULL)
+// 		game->map->file_map = ft_strdup((*line));
+// 	else
+// 	{
+// 		temp = ft_strdup(game->map->file_map);// rajoute pour valgrind le 28/07, a tester
+// 		free(game->map->file_map);// rajoute pour valgrind le 28/07, a tester
+// 		game->map->file_map = ft_strjoin(temp, (*line));
+// 		free(temp);// rajoute pour valgrind le 28/07, a tester
+// 	}
+// 	free((*line));
+// 	(*line) = gnl(fd);
+// 	game->map->height++;
+// }
+
 void	build_content(t_game *game, char **line, int fd)
 {
 	if (game->map->file_map == NULL)
 		game->map->file_map = ft_strdup((*line));
 	else
-		game->map->file_map = ft_strjoin(game->map->file_map, (*line));
-	free((*line));
+		game->map->file_map = ft_strjoin_lfree(game->map->file_map, (*line));
+	free(*line);
+	(*line) = NULL;
 	(*line) = gnl(fd);
 	game->map->height++;
 }
@@ -53,34 +73,34 @@ void	realloc_lines(t_game *game)
 			ft_strdup_pad(str_tmp, game->map->width, ' ');
 			game->map->map_tmp[i_realloc] = \
 			ft_strdup_pad(str_tmp, game->map->width, ' ');
+			free(str_tmp);
 		}
 	}
 }
 
 int	create_map(t_game *game, char *line, int fd)
 {
-	int	i_init_map;
-
 	game->map->height = 0;
-	i_init_map = -1;
 	skip_empty_line(&line, fd);
 	while (line && line[0] != '\0' && is_empty_line(line) == FAIL)
 		build_content(game, &line, fd);
 	skip_empty_line(&line, fd);
 	if (line && line[0] == '\0')
 	{
-		game->map->map_org = malloc((sizeof(char *)) * (game->map->height + 1));
-		if (!game->map->map_org)
-			return (printf("malloc map_org failed\n"), FAIL);
-		while (++i_init_map < game->map->height)
-			game->map->map_org[i_init_map] = NULL;
 		game->map->map_org = ft_split(game->map->file_map, '\n');
 		game->map->map_tmp = ft_split(game->map->file_map, '\n');
+		free(game->map->file_map);
+		game->map->file_map = NULL;
 		set_width(game);
 		realloc_lines(game);
+		free(line);
 		return (close(fd), SUCCESS);
 	}
-	return (FAIL);
+	free(game->map->file_map);
+	game->map->file_map = NULL;
+	free(line);
+	line = NULL;
+	return (printf("something wrong with map\n"), FAIL);
 }
 
 int	build_map(t_game *game, char **argv)
@@ -99,13 +119,13 @@ int	build_map(t_game *game, char **argv)
 		if (is_empty_line(line) == FAIL && count < 4)
 		{
 			if (texture_part(game, line) == FAIL)
-				return (FAIL);
+				return (free(line), FAIL);
 			count++;
 		}
 		else if (is_empty_line(line) == FAIL && count < 6)
 		{
 			if (floor_ceil_part(game, line) == FAIL)
-				return (FAIL);
+				return (free(line), FAIL);
 			count++;
 		}
 		else if (count >= 6 && game->map->map_org == NULL)
