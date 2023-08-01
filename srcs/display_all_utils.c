@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_all_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 11:54:00 by gael              #+#    #+#             */
-/*   Updated: 2023/07/19 19:46:00 by mael             ###   ########.fr       */
+/*   Updated: 2023/08/01 16:55:20 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,17 @@
 
 int	init_display_all(t_game *game, int key, int *len_side)
 {
-	if (init_img(game) == FAIL)
-		return (printf(BACK_RED"init img"RST"\n"), FAIL);
-	if (create_image_and_get_adrr(game) == FAIL)
-		return (printf(BACK_RED"crt img"RST"\n"), FAIL);
+	if (!game->img)
+	{
+		if (init_img(game) == FAIL)
+			return (printf(BACK_RED"init img"RST"\n"), FAIL);
+		if (create_image_and_get_adrr(game) == FAIL)
+			return (printf(BACK_RED"crt img"RST"\n"), FAIL);
+	}
 	color_image(game);
 	draw_player(game);
 	game->line->x_src = game->map->pos_x;
 	game->line->y_src = game->map->pos_y;
-	// if (key == 65363)
-	// 	change_toggle_d(game);
-	// else if (key == 65361)
-	// 	change_toggle_a(game);
-	// *len_side = calcul_opposite_side(game, game->fov->angle);
-	// game->line->x_dest_prev = game->line->x_dest;
-	// game->line->y_dest_prev = game->line->y_dest;
-	// if (display_all_reverse_d(game, key, *len_side) == FAIL)
-	// 	return (FAIL);
-	// if (display_all_reverse_a(game, key, *len_side) == FAIL)
-	// 	return (FAIL);
 	(void)len_side;
 	(void)key;
 	return (SUCCESS);

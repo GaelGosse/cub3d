@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 15:17:16 by gael              #+#    #+#             */
-/*   Updated: 2023/07/31 13:33:57 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/01 16:34:47 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int	init_3d_line(t_game *game)
 	game->line_3d->x_dest_prev = 0;
 	game->line_3d->y_dest_prev = 0;
 	return (SUCCESS);
-
 }
 
 int	display_3d_up(t_game *game)
@@ -47,8 +46,6 @@ int	display_3d_up(t_game *game)
 	i_ratio = 0;
 	y = (game->win_height / 2) + (game->map->height * game->img_size);
 	i_midline = game->fov->nbr_ray;
-	if (init_3d_line(game) == FAIL)
-		return (FAIL);
 	fill_ceil_floor(game);
 	while (i_midline > game->fov->nbr_ray / 2)
 	{
@@ -123,12 +120,18 @@ int	display_3d_up(t_game *game)
 			game->line_3d->yite = game->line_3d->dy / (double)game->line_3d->steps;
 			game->line_3d->corr_x = game->line_3d->x_src;
 			game->line_3d->corr_y = game->line_3d->y_src;
+
 			i_draw = 0;
 			while (i_draw <= game->line_3d->steps)
 			{
 				if (draw_xpm_up_red(game, i_midline) == FAIL)
 					break ;
 				i_draw++;
+			}
+			if (game->line_3d->corr_x >= 410 && game->line_3d->corr_x <= 415)
+			{
+				img_pix_put(game, roundf(game->line_3d->corr_x),
+				roundf(game->line_3d->corr_y), get_color(255, 0, 0));
 			}
 
 			i_ratio++;

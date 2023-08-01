@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 11:49:54 by gael              #+#    #+#             */
-/*   Updated: 2023/07/31 14:56:27 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/01 15:46:33 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	xpm_so_split_buf(int fd, t_game *game)
 			return (free_parsing(game, "Something wrong with args"), FAIL);
 		buf[ret] = '\0';
 		buf[1] = '\0';
-		if (buf[0] == '{')
+		if (buf[0] == '{')// }
 			break ;
 	}
 	xpm_so_get_content_xpm(game, fd, ret, buf);
@@ -72,8 +72,6 @@ int	xpm_so_get_content_xpm(t_game *game, int fd, int ret, char *buf)
 			return (free_parsing(game, "Something wrong with args"), FAIL);
 		buf[ret] = '\0';
 		buf[1] = '\0';
-		if (buf[0] == '}')
-			break ;
 		if (!game->xpm->so_file_content)
 			game->xpm->so_file_content = ft_strdup(buf);
 		else

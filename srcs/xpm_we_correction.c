@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 10:03:27 by gael              #+#    #+#             */
-/*   Updated: 2023/07/31 12:10:52 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/01 15:44:41 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,17 @@ void	xpm_we_wo_comm(t_game *g, int n_comm)
 	j = 0;
 	while (g->xpm->we_tab_file[i])
 	{
-		if (g->xpm->we_tab_file[i][0] != '/' \
-		&& g->xpm->we_tab_file[i][1] != '*' \
-		&& g->xpm->we_tab_file[i][ft_strlen(g->xpm->we_tab_file[i]) - 2] != '*' \
-		&& g->xpm->we_tab_file[i][ft_strlen(g->xpm->we_tab_file[i]) - 1] != '/')
+		if (g->xpm->we_tab_file[i][0] == '/' \
+		&& g->xpm->we_tab_file[i][1] == '*' \
+		&& g->xpm->we_tab_file[i][ft_strlen(g->xpm->we_tab_file[i]) - 2] == '*' \
+		&& g->xpm->we_tab_file[i][ft_strlen(g->xpm->we_tab_file[i]) - 1] == '/')
+			i++;
+		else
 		{
 			tab_tmp[j] = ft_strdup(g->xpm->we_tab_file[i]);
 			j++;
+			i++;
 		}
-		i++;
 	}
 	tab_tmp[j] = NULL;
 	xpm_we_copy_tab(g, tab_tmp);
@@ -114,13 +116,13 @@ int	xpm_we_set_len_n_color(t_game *g, char **line)
 	int	i_tab_file;
 
 	i_tab_file = 1;
-	i_color = 0;
+	i_color = -1;
 	if (ft_atoi(line[2]) > 96)
 		return (printf("Too much colors\n"), FAIL);
 	g->xpm->we_colors = malloc(sizeof(int *) * (ft_atoi(line[2]) + 1));
 	if (!g->xpm->we_colors)
 		return (printf("xpm colors failed\n"), FAIL);
-	while (i_color < ft_atoi(line[2]))
+	while (++i_color < ft_atoi(line[2]))
 	{
 		if (g->xpm->we_tab_file[i_tab_file][1] != ' '
 		&& g->xpm->we_tab_file[i_tab_file][2] != 'c'
@@ -135,7 +137,6 @@ int	xpm_we_set_len_n_color(t_game *g, char **line)
 		else if (xpm_we_letter_color(g, i_color, i_tab_file) == FAIL)
 			return (FAIL);
 		i_tab_file++;
-		i_color++;
 	}
 	return (SUCCESS);
 }

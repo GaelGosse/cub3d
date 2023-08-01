@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 10:03:27 by gael              #+#    #+#             */
-/*   Updated: 2023/07/31 15:29:21 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/01 16:10:19 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,17 @@ void	xpm_so_wo_comm(t_game *g, int n_comm)
 	j = 0;
 	while (g->xpm->so_tab_file[i])
 	{
-		if (g->xpm->so_tab_file[i][0] != '/' \
-		&& g->xpm->so_tab_file[i][1] != '*' \
-		&& g->xpm->so_tab_file[i][ft_strlen(g->xpm->so_tab_file[i]) - 2] != '*' \
-		&& g->xpm->so_tab_file[i][ft_strlen(g->xpm->so_tab_file[i]) - 1] != '/')
+		if (g->xpm->so_tab_file[i][0] == '/' \
+		&& g->xpm->so_tab_file[i][1] == '*' \
+		&& g->xpm->so_tab_file[i][ft_strlen(g->xpm->so_tab_file[i]) - 2] == '*' \
+		&& g->xpm->so_tab_file[i][ft_strlen(g->xpm->so_tab_file[i]) - 1] == '/')
+			i++;
+		else
 		{
 			tab_tmp[j] = ft_strdup(g->xpm->so_tab_file[i]);
 			j++;
+			i++;
 		}
-		i++;
 	}
 	tab_tmp[j] = NULL;
 	xpm_so_copy_tab(g, tab_tmp);
@@ -71,6 +73,7 @@ int	xpm_so_copy_tab(t_game *game, char **tmp)
 		return (printf("game->xpm_tab copy_tab failed\n"), FAIL);
 	while (tmp[i])
 	{
+	// printf(BOLD_RED"%p: "BACK_RED"%s"RESET"\n", tmp[i], tmp[i]);
 		game->xpm->so_tab_file[i] = xpm_so_keep_metadata(tmp, i);
 		i++;
 	}
@@ -112,7 +115,6 @@ int	xpm_so_set_len_n_color(t_game *g, char **line)
 {
 	int	i_color;
 	int	i_tab_file;
-	// int i = 0;
 
 	i_tab_file = 1;
 	i_color = -1;
@@ -128,11 +130,6 @@ int	xpm_so_set_len_n_color(t_game *g, char **line)
 		&& g->xpm->so_tab_file[i_tab_file][2] != 'c'
 		&& g->xpm->so_tab_file[i_tab_file][3] != ' ')
 			return (FAIL);
-		// while (g->xpm->ea_tab_file[i_tab_file] && g->xpm->ea_tab_file[i_tab_file][i] && g->xpm->ea_tab_file[i_tab_file][i] != '#')
-		// {
-		// 	printf(BACK_YELLOW"g->xpm->ea_tab_file[%i][%i] = %c"RESET, i_tab_file, i, g->xpm->ea_tab_file[i_tab_file][i]);
-		// 	i++;
-		// }
 		g->xpm->so_colors[i_color] = malloc(sizeof(int) * (4));
 		if (!g->xpm->so_colors[i_color])
 			return (FAIL);

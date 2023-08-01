@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 21:57:47 by gael              #+#    #+#             */
-/*   Updated: 2023/07/31 17:46:06 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/01 14:57:50 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,11 @@ void	draw_xpm_up_we(t_game *game, int i_midline)
 	act_y = game->line_3d->corr_y - ((game->win_height / 2) + \
 	(game->map->height * game->img_size));
 	perc_y = (game->line_3d->steps + act_y) / (game->line_3d->steps * 2);
-	perc_x = (int)roundf(perc_x * 32);
-	perc_y = (int)roundf(perc_y * 32);
-	img_pix_put(game, roundf(game->line_3d->corr_x),
-	roundf(game->line_3d->corr_y), draw_xpm_up_we_color(game, perc_x, perc_y));
+	perc_x = (int)roundf(perc_x * game->xpm->no_width_height);
+	perc_y = (int)roundf(perc_y * game->xpm->no_width_height);
+	if (perc_y != 0 && perc_y < game->xpm->no_width_height)
+		img_pix_put(game, roundf(game->line_3d->corr_x),
+		roundf(game->line_3d->corr_y), draw_xpm_up_we_color(game, perc_x, perc_y));
 }
 
 int		draw_xpm_up_we_color(t_game *game, int x, int y)
@@ -39,11 +40,11 @@ int		draw_xpm_up_we_color(t_game *game, int x, int y)
 	while (i_find_c < game->xpm->we_tab_start)
 	{
 
-		if (x >= 32 || x < 0)
-			printf(BOLD_PURPLE"y + game->xpm->we_tab_start: %i    x %i"RESET"\n", y + game->xpm->we_tab_start, x);
-		if (y + game->xpm->we_tab_start >= 32 || y < 0)
-			printf(BOLD_CYAN"y + game->xpm->we_tab_start: %i    x %i"RESET"\n", y + game->xpm->we_tab_start, x);
-		if (game->xpm->we_colors[i_find_c][0] \
+		// if (x >= 31 || x < 0)
+		// 	printf(BOLD_PURPLE"y + game->xpm->we_tab_start: %i    x %i"RESET"\n", y + game->xpm->we_tab_start, x);
+		// if (y + game->xpm->we_tab_start == 4)
+			// printf(BOLD_CYAN"y + game->xpm->we_tab_start: %i    x %i"RESET"\n", y + game->xpm->we_tab_start, x);
+		if (y + game->xpm->we_tab_start < game->xpm->no_width_height && game->xpm->we_colors[i_find_c][0] \
 		== game->xpm->we_tab_file[y + game->xpm->we_tab_start][x])
 			color = get_color(game->xpm->we_colors[i_find_c][1],
 								game->xpm->we_colors[i_find_c][2],

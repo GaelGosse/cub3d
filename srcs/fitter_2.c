@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 13:09:00 by mael              #+#    #+#             */
-/*   Updated: 2023/07/31 17:28:33 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/01 13:43:57 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,23 @@ int	fitter_2_blue(t_game *game)
 			&& ((int)(game->fov->wall_witch[i + 1][1]) % game->img_size != 0)))
 			{
 				game->fov->toggle_vision[i] = 'W';
-				if (game->fov->toggle_vision[i - 1] != game->fov->toggle_vision[i]
-				&& game->fov->toggle_vision[i + 1] != game->fov->toggle_vision[i])
+				if (i > 0 && game->fov->toggle_vision[i - 1] != game->fov->toggle_vision[i]
+				&& game->fov->toggle_vision[i + 1] != game->fov->toggle_vision[i]
+				&& game->fov->toggle_vision[i - 1] == game->fov->toggle_vision[i + 1])
 				{
 					// printf("here blue WEST\n");
 					// printf(BACK_BLUE"game->fov->toggle[%i]: %c"RST"\n", i, game->fov->toggle_vision[i]);
 					game->fov->toggle_vision[i] = game->fov->toggle_vision[i + 1];
 				}
-				if (game->fov->toggle_vision[i - 1] != game->fov->toggle_vision[i]
-				&& game->fov->toggle_vision[i + 1] != game->fov->toggle_vision[i])
-				{
-					// printf(BACK_YELLOW"toggle_vision[i - 1]: %c"RST"\n", game->fov->toggle_vision[i - 1]);
-					// printf(BACK_YELLOW"toggle_vision[i]: %c"RST"\n", game->fov->toggle_vision[i]);
-					// printf(BACK_YELLOW"toggle_vision[i + 1]: %c"RST"\n", game->fov->toggle_vision[i + 1]);
-					// printf("\n\n");
-				}
-				// if (game->fov->toggle_vision[i - 1] != game->fov->toggle_vision[i]
+				// if (i > 0 && game->fov->toggle_vision[i - 1] != game->fov->toggle_vision[i]
+				// && game->fov->toggle_vision[i + 1] != game->fov->toggle_vision[i])
+				// {
+				// 	printf(BACK_YELLOW"toggle_vision[i - 1]: %c"RST"\n", game->fov->toggle_vision[i - 1]);
+				// 	printf(BACK_YELLOW"toggle_vision[i]: %c"RST"\n", game->fov->toggle_vision[i]);
+				// 	printf(BACK_YELLOW"toggle_vision[i + 1]: %c"RST"\n", game->fov->toggle_vision[i + 1]);
+				// 	printf("\n\n");
+				// }
+				// if (i > 0 && game->fov->toggle_vision[i - 1] != game->fov->toggle_vision[i]
 				// && game->fov->toggle_vision[i + 1] != game->fov->toggle_vision[i])
 				// {
 					// printf(BACK_YELLOW"toggle_vision[i_midline - 1]: %c"RST"\n", game->fov->toggle_vision[i_midline - 1]);
@@ -71,8 +72,9 @@ int	fitter_2_blue(t_game *game)
 			&& ((int)(game->fov->wall_witch[i + 1][1]) % game->img_size == 0)))
 			{
 				game->fov->toggle_vision[i] = 'S';
-				if (game->fov->toggle_vision[i - 1] != game->fov->toggle_vision[i]
-				&& game->fov->toggle_vision[i + 1] != game->fov->toggle_vision[i])
+				if (i > 0 && game->fov->toggle_vision[i - 1] != game->fov->toggle_vision[i]
+				&& game->fov->toggle_vision[i + 1] != game->fov->toggle_vision[i]
+				&& game->fov->toggle_vision[i - 1] == game->fov->toggle_vision[i + 1])
 				{
 					// printf("here SOUTH\n");
 					game->fov->toggle_vision[i] = game->fov->toggle_vision[i + 1];
@@ -98,12 +100,10 @@ int	fitter_2_blue(t_game *game)
 			&& ((int)(game->fov->wall_witch[i + 1][1]) % game->img_size != 0)))
 			{
 				game->fov->toggle_vision[i] = 'E';
-				if (game->fov->toggle_vision[i - 1] != game->fov->toggle_vision[i]
-				&& game->fov->toggle_vision[i + 1] != game->fov->toggle_vision[i])
-				{
-					// printf("here EAST\n");
+				if (i > 0 && game->fov->toggle_vision[i - 1] != game->fov->toggle_vision[i]
+				&& game->fov->toggle_vision[i + 1] != game->fov->toggle_vision[i]
+				&& game->fov->toggle_vision[i - 1] == game->fov->toggle_vision[i + 1])
 					game->fov->toggle_vision[i] = game->fov->toggle_vision[i + 1];
-				}
 					// printf(BACK_YELLOW"toggle_vision[i - 1]: %c"RST"\n", game->fov->toggle_vision[i - 1]);
 					// printf(BACK_YELLOW"toggle_vision[i]: %c"RST"\n", game->fov->toggle_vision[i]);
 					// printf(BACK_YELLOW"toggle_vision[i + 1]: %c"RST"\n", game->fov->toggle_vision[i + 1]);
@@ -129,12 +129,10 @@ int	fitter_2_blue(t_game *game)
 			&& ((int)(game->fov->wall_witch[i + 1][1]) % game->img_size == 0)))
 			{
 				game->fov->toggle_vision[i] = 'N';
-				if (game->fov->toggle_vision[i - 1] != game->fov->toggle_vision[i]
-				&& game->fov->toggle_vision[i + 1] != game->fov->toggle_vision[i])
-				{
-					// printf("here NORTH\n");
+				if (i > 0 && game->fov->toggle_vision[i - 1] != game->fov->toggle_vision[i]
+				&& game->fov->toggle_vision[i + 1] != game->fov->toggle_vision[i]
+				&& game->fov->toggle_vision[i - 1] == game->fov->toggle_vision[i + 1])
 					game->fov->toggle_vision[i] = game->fov->toggle_vision[i + 1];
-				}
 				// if (game->fov->toggle_vision[i] != 'W')
 				// {
 					// printf("[i][0]: %d\t", (int)(game->fov->wall_witch[i][0]));
@@ -175,23 +173,10 @@ int	fitter_2_red(t_game *game)
 			{
 				game->fov->toggle_vision[i] = 'W';
 				if (i > 0 && game->fov->toggle_vision[i - 1] != game->fov->toggle_vision[i]
-				&& game->fov->toggle_vision[i + 1] != game->fov->toggle_vision[i])
-				{
-					// printf("here red WEST\n");
-					// printf(BACK_RED"game->fov->toggle[%i]: %c"RST"\n", i, game->fov->toggle_vision[i]);
-					// printf(BACK_RED"game->fov->toggle[%i + %i]: %c"RST"\n", i, 1, game->fov->toggle_vision[i + 1]);
+				&& game->fov->toggle_vision[i + 1] != game->fov->toggle_vision[i]
+				&& game->fov->toggle_vision[i - 1] == game->fov->toggle_vision[i + 1])
 					game->fov->toggle_vision[i] = game->fov->toggle_vision[i + 1];
-					// printf(BACK_RED"game->fov->toggle[%i] apres verif: %c"RST"\n", i, game->fov->toggle_vision[i]);
-				}
-				if (i > 0 && game->fov->toggle_vision[i - 1] != game->fov->toggle_vision[i]
-				&& game->fov->toggle_vision[i + 1] != game->fov->toggle_vision[i])
-				{
-					// printf(BACK_YELLOW"toggle_vision[i - 1]: %c"RST"\n", game->fov->toggle_vision[i - 1]);
-					// printf(BACK_YELLOW"toggle_vision[i]: %c"RST"\n", game->fov->toggle_vision[i]);
-					// printf(BACK_YELLOW"toggle_vision[i + 1]: %c"RST"\n", game->fov->toggle_vision[i + 1]);
-					// printf("\n\n");
-				}
-				// if (game->fov->toggle_vision[i - 1] != game->fov->toggle_vision[i]
+				// if (i > 0 && game->fov->toggle_vision[i - 1] != game->fov->toggle_vision[i]
 				// && game->fov->toggle_vision[i + 1] != game->fov->toggle_vision[i])
 				// {
 					// printf(BACK_YELLOW"toggle_vision[i_midline - 1]: %c"RST"\n", game->fov->toggle_vision[i_midline - 1]);
@@ -220,12 +205,10 @@ int	fitter_2_red(t_game *game)
 			&& ((int)(game->fov->wall_witch[i + 1][1]) % game->img_size == 0)))
 			{
 				game->fov->toggle_vision[i] = 'S';
-				if (game->fov->toggle_vision[i - 1] != game->fov->toggle_vision[i]
-				&& game->fov->toggle_vision[i + 1] != game->fov->toggle_vision[i])
-				{
-					// printf("here SOUTH\n");
+				if (i > 0 && game->fov->toggle_vision[i - 1] != game->fov->toggle_vision[i]
+				&& game->fov->toggle_vision[i + 1] != game->fov->toggle_vision[i]
+				&& game->fov->toggle_vision[i - 1] == game->fov->toggle_vision[i + 1])
 					game->fov->toggle_vision[i] = game->fov->toggle_vision[i + 1];
-				}
 				// if (game->fov->toggle_vision[i] != 'W')
 				// {
 					// printf("[i][0]: %d\t", (int)(game->fov->wall_witch[i][0]));
@@ -247,12 +230,10 @@ int	fitter_2_red(t_game *game)
 			&& ((int)(game->fov->wall_witch[i + 1][1]) % game->img_size != 0)))
 			{
 				game->fov->toggle_vision[i] = 'E';
-				if (game->fov->toggle_vision[i - 1] != game->fov->toggle_vision[i]
-				&& game->fov->toggle_vision[i + 1] != game->fov->toggle_vision[i])
-				{
-					// printf("here EAST\n");
+				if (i > 0 && game->fov->toggle_vision[i - 1] != game->fov->toggle_vision[i]
+				&& game->fov->toggle_vision[i + 1] != game->fov->toggle_vision[i]
+				&& game->fov->toggle_vision[i - 1] == game->fov->toggle_vision[i + 1])
 					game->fov->toggle_vision[i] = game->fov->toggle_vision[i + 1];
-				}
 					// printf(BACK_YELLOW"toggle_vision[i - 1]: %c"RST"\n", game->fov->toggle_vision[i - 1]);
 					// printf(BACK_YELLOW"toggle_vision[i]: %c"RST"\n", game->fov->toggle_vision[i]);
 					// printf(BACK_YELLOW"toggle_vision[i + 1]: %c"RST"\n", game->fov->toggle_vision[i + 1]);
@@ -278,12 +259,10 @@ int	fitter_2_red(t_game *game)
 			&& ((int)(game->fov->wall_witch[i + 1][1]) % game->img_size == 0)))
 			{
 				game->fov->toggle_vision[i] = 'N';
-				if (game->fov->toggle_vision[i - 1] != game->fov->toggle_vision[i]
-				&& game->fov->toggle_vision[i + 1] != game->fov->toggle_vision[i])
-				{
-					// printf("here NORTH\n");
+				if (i > 0 && game->fov->toggle_vision[i - 1] != game->fov->toggle_vision[i]
+				&& game->fov->toggle_vision[i + 1] != game->fov->toggle_vision[i]
+				&& game->fov->toggle_vision[i - 1] == game->fov->toggle_vision[i + 1])
 					game->fov->toggle_vision[i] = game->fov->toggle_vision[i + 1];
-				}
 				// if (game->fov->toggle_vision[i] != 'W')
 				// {
 					// printf("[i][0]: %d\t", (int)(game->fov->wall_witch[i][0]));

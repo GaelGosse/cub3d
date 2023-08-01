@@ -12,6 +12,28 @@
 
 #include "cub3D.h"
 
+void	last_correct_toggle(t_game *game)
+{
+	int	w;
+
+	w = -1;
+	while (++w < game->fov->nbr_ray)
+	{
+		if (game->fov->toggle_vision[w] != 'N' && \
+		game->fov->toggle_vision[w] != 'E' && \
+		game->fov->toggle_vision[w] != 'W' && \
+		game->fov->toggle_vision[w] != 'S' && \
+		w > 0)
+			game->fov->toggle_vision[w] = game->fov->toggle_vision[w - 1];
+		else if (game->fov->toggle_vision[w] != 'N' && \
+		game->fov->toggle_vision[w] != 'E' && \
+		game->fov->toggle_vision[w] != 'W' && \
+		game->fov->toggle_vision[w] != 'S' && \
+		w == 0)
+			game->fov->toggle_vision[w] = game->fov->toggle_vision[w + 1];
+	}
+}
+
 void	print_tab_wall(t_game *game)
 {
 	int i;

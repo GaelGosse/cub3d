@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:52:12 by mael              #+#    #+#             */
-/*   Updated: 2023/07/26 15:33:28 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/01 14:03:55 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	reset_img(t_game *game)
 {
 	mlx_destroy_image(game->mlibx, game->img->mlx_img);
 	free(game->img);
+	game->img = NULL;
 }
 
 int	first_time(t_game *game)
@@ -31,6 +32,8 @@ int	first_time(t_game *game)
 	game->line->x_src = game->map->pos_x;
 	game->line->y_src = game->map->pos_y;
 	if (init_fov(game) == FAIL)
+		return (FAIL);
+	if (init_3d_line(game) == FAIL)
 		return (FAIL);
 	init_position(game);
 	// draw_line_vision(game);

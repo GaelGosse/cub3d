@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:45:40 by ggosse            #+#    #+#             */
-/*   Updated: 2023/07/31 17:08:17 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/01 16:55:24 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -251,9 +251,9 @@ int		init_line(t_game *game);
 //srcs/free_parsing.c
 int		destroy_and_free(t_game *game, char *err);
 int		destroy_and_free2(t_game *game);
-void	free_img(t_game *game);
 void	free_parsing(t_game *game, char *err);
 void	free_tab_str(char **tab_str);
+void	free_wall(t_game *game);
 //srcs/display_3d_up.c
 int		display_3d_up(t_game *game);
 void	fill_ceil_floor(t_game *game);
@@ -334,11 +334,6 @@ void	draw_xpm_up_ea(t_game *game, int i_midline);
 int		draw_xpm_up_ea_color(t_game *game, int x, int y);
 //srcs/display_all.c
 int		display_all(t_game *game, int key);
-int		is_impur(t_game *game);
-void	set_dest_e(t_game *game, int key, int len_side);
-void	set_dest_n(t_game *game, int key, int len_side);
-void	set_dest_s(t_game *game, int key, int len_side);
-void	set_dest_w(t_game *game, int key, int len_side);
 //srcs/display_all_utils.c
 int		init_display_all(t_game *game, int key, int *len_side);
 void	move_straight(t_game *game);
@@ -376,7 +371,6 @@ int		draw_xpm_no_color(t_game *game, int x, int y);
 //srcs/fitter_2.c
 int		fitter_2_blue(t_game *game);
 int		fitter_2_red(t_game *game);
-void	fitter_of_fitter_blue(t_game *game);
 //srcs/xpm_so_open.c
 void	xpm_so_hex_to_dec(t_game *g, int i_color, int i_tab_file);
 char	*xpm_so_keep_metadata(char **tmp, int i_tmp);
@@ -436,6 +430,7 @@ void	fitter_blue(t_game *game);
 void	fitter_red(t_game *game);
 int		is_increase_blue(t_game *game, int i_fit);
 int		is_increase_red(t_game *game, int i_fit);
+void	last_correct_toggle(t_game *game);
 void	print_tab_wall(t_game *game);
 //test.c
 float rounded(float flt);

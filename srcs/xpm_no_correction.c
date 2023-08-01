@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 10:03:27 by gael              #+#    #+#             */
-/*   Updated: 2023/07/30 23:45:02 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/01 14:47:22 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ void	xpm_no_correct(t_game *g)
 		&& g->xpm->no_tab_file[i][1] == '*' \
 		&& g->xpm->no_tab_file[i][ft_strlen(g->xpm->no_tab_file[i]) - 2] == '*' \
 		&& g->xpm->no_tab_file[i][ft_strlen(g->xpm->no_tab_file[i]) - 1] == '/')
+		{
 			n_comm++;
+		}
 		i++;
 	}
 	printf(PURPLE"n_comm: %i"RESET"\n", n_comm);
@@ -47,15 +49,17 @@ void	xpm_no_wo_comm(t_game *g, int n_comm)
 	j = 0;
 	while (g->xpm->no_tab_file[i])
 	{
-		if (g->xpm->no_tab_file[i][0] != '/' \
-		&& g->xpm->no_tab_file[i][1] != '*' \
-		&& g->xpm->no_tab_file[i][ft_strlen(g->xpm->no_tab_file[i]) - 2] != '*' \
-		&& g->xpm->no_tab_file[i][ft_strlen(g->xpm->no_tab_file[i]) - 1] != '/')
+		if (g->xpm->no_tab_file[i][0] == '/' \
+		&& g->xpm->no_tab_file[i][1] == '*' \
+		&& g->xpm->no_tab_file[i][ft_strlen(g->xpm->no_tab_file[i]) - 2] == '*' \
+		&& g->xpm->no_tab_file[i][ft_strlen(g->xpm->no_tab_file[i]) - 1] == '/')
+			i++;
+		else
 		{
 			tab_tmp[j] = ft_strdup(g->xpm->no_tab_file[i]);
 			j++;
+			i++;
 		}
-		i++;
 	}
 	tab_tmp[j] = NULL;
 	xpm_no_copy_tab(g, tab_tmp);
@@ -121,6 +125,7 @@ int	xpm_no_set_len_n_color(t_game *g, char **line)
 	g->xpm->no_colors = malloc(sizeof(int *) * (ft_atoi(line[2]) + 1));
 	if (!g->xpm->no_colors)
 		return (printf("xpm colors failed\n"), FAIL);
+
 	while (i_color < ft_atoi(line[2]))
 	{
 		if (g->xpm->no_tab_file[i_tab_file][1] != ' '
@@ -130,6 +135,7 @@ int	xpm_no_set_len_n_color(t_game *g, char **line)
 		g->xpm->no_colors[i_color] = malloc(sizeof(int) * (4));
 		if (!g->xpm->no_colors[i_color])
 			return (FAIL);
+		printf(BOLD_GREEN"%i: "BACK_GREEN"%c"RESET"\n", i_color,  g->xpm->no_tab_file[i_tab_file][0]);
 		g->xpm->no_colors[i_color][0] = g->xpm->no_tab_file[i_tab_file][0];
 		if (g->xpm->no_tab_file[i_tab_file][4] == '#')
 			xpm_no_hex_to_dec(g, i_color, i_tab_file);

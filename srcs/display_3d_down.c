@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 15:15:57 by gael              #+#    #+#             */
-/*   Updated: 2023/07/31 12:57:07 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/01 13:59:40 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int	display_3d_down(t_game *game)
 	i_ratio = 0;
 	y = (game->win_height / 2) + (game->map->height * game->img_size);
 	i_midline = game->fov->nbr_ray;
-	if (init_temp(game) == FAIL)
-		return (FAIL);
+	// if (init_temp(game) == FAIL)
+	// 	return (FAIL);
 	while (i_midline > game->fov->nbr_ray / 2)
 	{
 		i_ratio = 0;

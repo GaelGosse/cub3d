@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 16:47:24 by mael              #+#    #+#             */
-/*   Updated: 2023/07/31 17:27:08 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/01 14:02:36 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@ int	init_fov(t_game *game)
 	if (!game->fov)
 		return (printf("Init fov failed \n"), FAIL);
 	game->fov->nbr_ray = 60 * 5;
-	// game->fov->angle_view = 60;
-	game->fov->deg = 0.2; //60 / game->fov->nbr_ray;
-	// game->fov->proj_plane = (game->win_height / 2) / tan(deg_to_radian(30));
+	game->fov->deg = 0.2;
 	game->fov->proj_plane = 300;
 	game->fov->lines_vision = malloc(sizeof(int) * (game->fov->nbr_ray + 1));
 	if (!game->fov->lines_vision)
@@ -38,9 +36,7 @@ int	init_fov(t_game *game)
 		i++;
 	}
 	game->fov->toggle = game->perso;
-	if (init_fov_wall(game) == FAIL)
-		return (FAIL);
-	if (init_fov_wall_witch(game) == FAIL)
+	if (init_fov_wall(game) == FAIL || init_fov_wall_witch(game) == FAIL)
 		return (FAIL);
 	return (SUCCESS);
 }

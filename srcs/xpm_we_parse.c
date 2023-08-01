@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 11:49:54 by gael              #+#    #+#             */
-/*   Updated: 2023/07/30 21:48:29 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/01 15:11:47 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,10 @@ int	xpm_we_split_buf(int fd, t_game *game)
 	}
 	xpm_we_get_content_xpm(game, fd, ret, buf);
 	game->xpm->we_tab_file = ft_split(game->xpm->we_file_content, '\n');
+	// int i = -1;
+	// while (game->xpm->we_tab_file[++i])
+	// 	printf(BOLD_CYAN"%p [%i]: "BACK_CYAN"%s"RESET"\n", game->xpm->we_tab_file[i], i, game->xpm->we_tab_file[i]);
+	// printf(BOLD_CYAN"%p [%i]: "BACK_CYAN"%s"RESET"\n", game->xpm->we_tab_file[i], i, game->xpm->we_tab_file[i]);
 	return (SUCCESS);
 }
 
@@ -71,8 +75,6 @@ int	xpm_we_get_content_xpm(t_game *game, int fd, int ret, char *buf)
 			return (free_parsing(game, "Something wrong with args"), FAIL);
 		buf[ret] = '\0';
 		buf[1] = '\0';
-		if (buf[0] == '}')
-			break ;
 		if (!game->xpm->we_file_content)
 			game->xpm->we_file_content = ft_strdup(buf);
 		else

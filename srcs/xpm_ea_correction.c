@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 10:03:27 by gael              #+#    #+#             */
-/*   Updated: 2023/07/31 16:02:32 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/01 15:08:46 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,19 @@ void	xpm_ea_wo_comm(t_game *g, int n_comm)
 	j = 0;
 	while (g->xpm->ea_tab_file[i])
 	{
-		if (g->xpm->ea_tab_file[i][0] != '/' \
-		&& g->xpm->ea_tab_file[i][1] != '*' \
-		&& g->xpm->ea_tab_file[i][ft_strlen(g->xpm->ea_tab_file[i]) - 2] != '*' \
-		&& g->xpm->ea_tab_file[i][ft_strlen(g->xpm->ea_tab_file[i]) - 1] != '/')
+		if (g->xpm->ea_tab_file[i][0] == '/' \
+		&& g->xpm->ea_tab_file[i][1] == '*' \
+		&& g->xpm->ea_tab_file[i][ft_strlen(g->xpm->ea_tab_file[i]) - 2] == '*' \
+		&& g->xpm->ea_tab_file[i][ft_strlen(g->xpm->ea_tab_file[i]) - 1] == '/')
+		{
+			i++;
+		}
+		else
 		{
 			tab_tmp[j] = ft_strdup(g->xpm->ea_tab_file[i]);
 			j++;
+			i++;
 		}
-		i++;
 	}
 	tab_tmp[j] = NULL;
 	xpm_ea_copy_tab(g, tab_tmp);
@@ -128,17 +132,10 @@ int	xpm_ea_set_len_n_color(t_game *g, char **line)
 		&& g->xpm->ea_tab_file[i_tab_file][2] != 'c'
 		&& g->xpm->ea_tab_file[i_tab_file][3] != ' ')
 			return (FAIL);
-		// while (g->xpm->ea_tab_file[i_tab_file] && g->xpm->ea_tab_file[i_tab_file][i] && g->xpm->ea_tab_file[i_tab_file][i] != '#')
-		// {
-		// 	printf(BACK_YELLOW"g->xpm->ea_tab_file[%i][%i] = %c"RESET, i_tab_file, i, g->xpm->ea_tab_file[i_tab_file][i]);
-		// 	i++;
-		// }
 		g->xpm->ea_colors[i_color] = malloc(sizeof(int) * (4));
 		if (!g->xpm->ea_colors[i_color])
 			return (FAIL);
 		g->xpm->ea_colors[i_color][0] = g->xpm->ea_tab_file[i_tab_file][0];
-		// printf(BACK_YELLOW"%c"RESET, g->xpm->ea_colors[i_color][0]);
-		// printf("abc\n");
 		if (g->xpm->ea_tab_file[i_tab_file][4] == '#')
 			xpm_ea_hex_to_dec(g, i_color, i_tab_file);
 		else if (xpm_ea_letter_color(g, i_color, i_tab_file) == FAIL)

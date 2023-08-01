@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 15:05:22 by mael              #+#    #+#             */
-/*   Updated: 2023/07/31 16:45:55 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/01 14:06:23 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	free_fov(t_game *game)
 	int i;
 
 	i = 0;
-	while (i < game->fov->nbr_ray)
+	while (i <= game->fov->nbr_ray)
 	{
 		free(game->fov->wall[i]);
 		free(game->fov->wall_witch[i]);
@@ -45,16 +45,18 @@ void	free_fov(t_game *game)
 	free(game->fov->lines_vision);
 	free(game->fov->toggle_vision);
 	free(game->fov);
-	(void)i;
+	free(game->line_3d);
+	game->line_3d = NULL;
+	free(game->line);
+	game->line = NULL;
 }
 
 int	free_all(t_game *game)
 {
-	//printf(BOLD_BLUE"Je rentre dans free all avec echap"RST"\n");
 	free_ceil_floor(game);
 	free_xpm(game);
-	// free_fov(game);
-	// free(game->img);
+	free_fov(game);
+	free(game->img);
 	free_parsing(game, NULL);
 	return (SUCCESS);
 }

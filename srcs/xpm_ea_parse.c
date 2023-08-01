@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 11:49:54 by gael              #+#    #+#             */
-/*   Updated: 2023/07/30 21:44:39 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/01 15:11:20 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,6 @@ int	xpm_ea_get_content_xpm(t_game *game, int fd, int ret, char *buf)
 			return (free_parsing(game, "Something wrong with args"), FAIL);
 		buf[ret] = '\0';
 		buf[1] = '\0';
-		if (buf[0] == '}')
-			break ;
 		if (!game->xpm->ea_file_content)
 			game->xpm->ea_file_content = ft_strdup(buf);
 		else
