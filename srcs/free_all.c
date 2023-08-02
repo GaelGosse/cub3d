@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 15:05:22 by mael              #+#    #+#             */
-/*   Updated: 2023/08/01 14:06:23 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/02 11:25:52 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ int	free_all(t_game *game)
 {
 	free_ceil_floor(game);
 	free_xpm(game);
-	free_fov(game);
+	if (game->fov)
+		free_fov(game);
 	free(game->img);
 	free_parsing(game, NULL);
 	return (SUCCESS);

@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 10:03:27 by gael              #+#    #+#             */
-/*   Updated: 2023/08/02 10:45:46 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/02 11:21:50 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,10 +121,8 @@ int	xpm_no_set_len_n_color(t_game *g, char **line)
 	i_color = 0;
 	if (ft_atoi(line[2]) > 96)
 		return (printf("Too much colors\n"), FAIL);
-	g->xpm->no_colors = malloc(sizeof(int *) * (ft_atoi(line[2]) + 1));
-	if (!g->xpm->no_colors)
-		return (printf("xpm colors failed\n"), FAIL);
-
+	if (xpm_no_init_color(g, line) == FAIL)
+		return (FAIL);
 	while (i_color < ft_atoi(line[2]))
 	{
 		if (g->xpm->no_tab_file[i_tab_file][1] != ' '

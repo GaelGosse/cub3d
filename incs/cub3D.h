@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:45:40 by ggosse            #+#    #+#             */
-/*   Updated: 2023/08/02 10:41:52 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/02 11:22:23 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,11 +194,6 @@ typedef struct s_game
 }			t_game;
 // ---------------------------- end struct ---------------------------------- //
 
-//srcs/xpm_no_open.c
-void	xpm_no_hex_to_dec(t_game *g, int i_color, int i_tab_file);
-char	*xpm_no_keep_metadata(char **tmp, int i_tmp);
-int		xpm_no_letter_color(t_game *game, int i_color, int i_tab_file);
-int		xpm_no_set_color(t_game *game, int i_color, char *tmp);
 //srcs/xpm_so_parse.c
 int		xpm_so_get_content_xpm(t_game *game, int fd, int ret, char *buf);
 int		xpm_so_parse(t_game *game);
@@ -209,12 +204,6 @@ int		draw_xpm_down_blue(t_game *game, int i_midline);
 int		draw_xpm_down_red(t_game *game, int i_midline);
 int		draw_xpm_up_blue(t_game *game, int i_midline);
 int		draw_xpm_up_red(t_game *game, int i_midline);
-//srcs/free_xpm_no.c
-void	free_xpm(t_game *game);
-void	free_xpm_ea(t_game *game);
-void	free_xpm_no(t_game *game);
-void	free_xpm_so(t_game *game);
-void	free_xpm_we(t_game *game);
 //srcs/main.c
 int		ft_parsing(t_game *game, char **argv);
 void	init_struct(t_game *game);
@@ -226,10 +215,12 @@ void	img_pix_put(t_game *game, int x, int y, int color);
 void	img_pix_put_2(t_game *game, int x, int y, int color);
 //srcs/xpm_we_correction.c
 int		xpm_we_copy_tab(t_game *game, char **tmp);
-void	xpm_we_correct(t_game *g);
+int		xpm_we_correct(t_game *g);
 int		xpm_we_read_1line(t_game *game);
 int		xpm_we_set_len_n_color(t_game *g, char **line);
-void	xpm_we_wo_comm(t_game *g, int n_comm);
+int		xpm_we_wo_comm(t_game *g, int n_comm);
+//srcs/xpm_no_utils.c
+int		xpm_no_init_color(t_game *game, char **line);
 //srcs/start_3D.c
 void	color_image(t_game *game);
 void	do_quad(t_game *game, int i, int j);
@@ -241,6 +232,16 @@ int		start_3D(t_game *game);
 //srcs/draw_xpm_down_ea.c
 void	draw_xpm_down_ea(t_game *game, int i_midline);
 int		draw_xpm_ea_color(t_game *game, int x, int y);
+//srcs/xpm_no_colors.c
+void	xpm_no_hex_to_dec(t_game *g, int i_color, int i_tab_file);
+char	*xpm_no_keep_metadata(char **tmp, int i_tmp);
+int		xpm_no_letter_color(t_game *game, int i_color, int i_tab_file);
+int		xpm_no_set_color(t_game *game, int i_color, char *tmp);
+//srcs/xpm_we_colors.c
+void	xpm_we_hex_to_dec(t_game *g, int i_color, int i_tab_file);
+char	*xpm_we_keep_metadata(char **tmp, int i_tmp);
+int		xpm_we_letter_color(t_game *game, int i_color, int i_tab_file);
+int		xpm_we_set_color(t_game *game, int i_color, char *tmp);
 //srcs/draw_line.c
 double	abs_dble(double nb);
 double	abs_flt(double nb);
@@ -258,16 +259,24 @@ void	free_wall(t_game *game);
 int		display_3d_up(t_game *game);
 void	fill_ceil_floor(t_game *game);
 int		init_3d_line(t_game *game);
+//srcs/xpm_so_utils.c
+int		xpm_so_init_color(t_game *game, char **line);
 //srcs/free_all.c
 int		free_all(t_game *game);
 int		free_ceil_floor(t_game *game);
 void	free_fov(t_game *game);
+//srcs/free_xpm.c
+void	free_xpm(t_game *game);
+void	free_xpm_ea(t_game *game);
+void	free_xpm_no(t_game *game);
+void	free_xpm_so(t_game *game);
+void	free_xpm_we(t_game *game);
 //srcs/xpm_so_correction.c
 int		xpm_so_copy_tab(t_game *game, char **tmp);
-void	xpm_so_correct(t_game *g);
+int		xpm_so_correct(t_game *g);
 int		xpm_so_read_1line(t_game *game);
 int		xpm_so_set_len_n_color(t_game *g, char **line);
-void	xpm_so_wo_comm(t_game *g, int n_comm);
+int		xpm_so_wo_comm(t_game *g, int n_comm);
 //srcs/display_all_reverse.c
 int		display_all_reverse_a(t_game *game, int key, int len_side);
 int		display_all_reverse_d(t_game *g, int k, int l);
@@ -298,6 +307,8 @@ void	skip_empty_line(char **line, int fd);
 //srcs/read_file.c
 int		ft_buf_read(int fd, t_game *game);
 int		ft_read_file(t_game *game, char *filename);
+//srcs/xpm_we_utils.c
+int		xpm_we_init_color(t_game *game, char **line);
 //srcs/display_3d_down.c
 int		display_3d_down(t_game *game);
 void	draw_line_temp(t_game *game, int flag_1, int flag_2, int flag_3, int flag_4);
@@ -313,11 +324,6 @@ int		second_calcul(t_game *game, double angle);
 //srcs/draw_xpm_down_we.c
 void	draw_xpm_down_we(t_game *game, int i_midline);
 int		draw_xpm_we_color(t_game *game, int x, int y);
-//srcs/xpm_we_open.c
-void	xpm_we_hex_to_dec(t_game *g, int i_color, int i_tab_file);
-char	*xpm_we_keep_metadata(char **tmp, int i_tmp);
-int		xpm_we_letter_color(t_game *game, int i_color, int i_tab_file);
-int		xpm_we_set_color(t_game *game, int i_color, char *tmp);
 //srcs/build_map_utils.c
 int		check_nbr(char *str);
 int		is_empty_line(char *line);
@@ -332,6 +338,8 @@ int		texture_part(t_game *game, char *line);
 //srcs/draw_xpm_up_ea.c
 void	draw_xpm_up_ea(t_game *game, int i_midline);
 int		draw_xpm_up_ea_color(t_game *game, int x, int y);
+//srcs/xpm_ea_utils.c
+int		xpm_ea_init_color(t_game *game, char **line);
 //srcs/display_all.c
 int		display_all(t_game *game, int key);
 //srcs/display_all_utils.c
@@ -362,21 +370,16 @@ void	draw_xpm_down_so(t_game *game, int i_midline);
 int		draw_xpm_so_color(t_game *game, int x, int y);
 //srcs/xpm_no_correction.c
 int		xpm_no_copy_tab(t_game *game, char **tmp);
-void	xpm_no_correct(t_game *g);
+int		xpm_no_correct(t_game *g);
 int		xpm_no_read_1line(t_game *game);
 int		xpm_no_set_len_n_color(t_game *g, char **line);
-void	xpm_no_wo_comm(t_game *g, int n_comm);
+int		xpm_no_wo_comm(t_game *g, int n_comm);
 //srcs/draw_xpm_down_no.c
 void	draw_xpm_down_no(t_game *game, int i_midline);
 int		draw_xpm_no_color(t_game *game, int x, int y);
 //srcs/fitter_2.c
 int		fitter_2_blue(t_game *game);
 int		fitter_2_red(t_game *game);
-//srcs/xpm_so_open.c
-void	xpm_so_hex_to_dec(t_game *g, int i_color, int i_tab_file);
-char	*xpm_so_keep_metadata(char **tmp, int i_tmp);
-int		xpm_so_letter_color(t_game *game, int i_color, int i_tab_file);
-int		xpm_so_set_color(t_game *game, int i_color, char *tmp);
 //srcs/draw_xpm_up_no.c
 void	draw_xpm_up_no(t_game *game, int i_midline);
 int		draw_xpm_up_no_color(t_game *game, int x, int y);
@@ -409,23 +412,28 @@ int		xpm_we_get_content_xpm(t_game *game, int fd, int ret, char *buf);
 int		xpm_we_parse(t_game *game);
 int		xpm_we_read(t_game *game, char *filename);
 int		xpm_we_split_buf(int fd, t_game *game);
+//srcs/xpm_so_colors.c
+void	xpm_so_hex_to_dec(t_game *g, int i_color, int i_tab_file);
+char	*xpm_so_keep_metadata(char **tmp, int i_tmp);
+int		xpm_so_letter_color(t_game *game, int i_color, int i_tab_file);
+int		xpm_so_set_color(t_game *game, int i_color, char *tmp);
 //srcs/check_format.c
 void	check_corner(t_game *game);
 //srcs/draw_xpm_up_so.c
 void	draw_xpm_up_so(t_game *game, int i_midline);
 int		draw_xpm_up_so_color(t_game *game, int x, int y);
-//srcs/xpm_ea_open.c
+//srcs/xpm_ea_correction.c
+int		xpm_ea_check_line_color(t_game *g, int *i_chr, int i_tab_file);
+int		xpm_ea_copy_tab(t_game *game, char **tmp);
+int		xpm_ea_correct(t_game *g);
+int		xpm_ea_read_1line(t_game *game);
+int		xpm_ea_set_len_n_color(t_game *g, char **line);
+int		xpm_ea_wo_comm(t_game *g, int n_comm);
+//srcs/xpm_ea_colors.c
 void	xpm_ea_hex_to_dec(t_game *g, int i_color, int i_tab_file, int i_chr);
 char	*xpm_ea_keep_metadata(char **tmp, int i_tmp);
 int		xpm_ea_letter_color(t_game *game, int i_color, int i_tab_file);
 int		xpm_ea_set_color(t_game *game, int i_color, char *tmp);
-//srcs/xpm_ea_correction.c
-int		xpm_ea_check_line_color(t_game *g, int *i_chr, int i_tab_file);
-int		xpm_ea_copy_tab(t_game *game, char **tmp);
-void	xpm_ea_correct(t_game *g);
-int		xpm_ea_read_1line(t_game *game);
-int		xpm_ea_set_len_n_color(t_game *g, char **line);
-void	xpm_ea_wo_comm(t_game *g, int n_comm);
 //srcs/fitter.c
 void	cross(t_game *game, int i_fit, int x_plus, int y_plus);
 void	fitter_blue(t_game *game);

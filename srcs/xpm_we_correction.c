@@ -6,13 +6,13 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 10:03:27 by gael              #+#    #+#             */
-/*   Updated: 2023/08/01 15:44:41 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/02 11:22:10 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-void	xpm_we_correct(t_game *g)
+int	xpm_we_correct(t_game *g)
 {
 	int		i;
 	int		n_comm;
@@ -28,10 +28,10 @@ void	xpm_we_correct(t_game *g)
 			n_comm++;
 		i++;
 	}
-	xpm_we_wo_comm(g, n_comm);
+	return (xpm_we_wo_comm(g, n_comm));
 }
 
-void	xpm_we_wo_comm(t_game *g, int n_comm)
+int	xpm_we_wo_comm(t_game *g, int n_comm)
 {
 	char	**tab_tmp;
 	int		len;
@@ -59,7 +59,7 @@ void	xpm_we_wo_comm(t_game *g, int n_comm)
 		}
 	}
 	tab_tmp[j] = NULL;
-	xpm_we_copy_tab(g, tab_tmp);
+	return (xpm_we_copy_tab(g, tab_tmp));
 }
 
 int	xpm_we_copy_tab(t_game *game, char **tmp)
@@ -119,9 +119,8 @@ int	xpm_we_set_len_n_color(t_game *g, char **line)
 	i_color = -1;
 	if (ft_atoi(line[2]) > 96)
 		return (printf("Too much colors\n"), FAIL);
-	g->xpm->we_colors = malloc(sizeof(int *) * (ft_atoi(line[2]) + 1));
-	if (!g->xpm->we_colors)
-		return (printf("xpm colors failed\n"), FAIL);
+	if (xpm_we_init_color(g, line) == FAIL)
+		return (FAIL);
 	while (++i_color < ft_atoi(line[2]))
 	{
 		if (g->xpm->we_tab_file[i_tab_file][1] != ' '

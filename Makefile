@@ -43,8 +43,7 @@ LIBDIR	= libft
 
 
 # ----------------------------------- srcs ----------------------------------- #
-_SRCS	=	buffer.c \
-			build_map.c \
+_SRCS	=	build_map.c \
 			build_map_utils.c \
 			check_file.c \
 			check_format.c \
@@ -71,7 +70,7 @@ _SRCS	=	buffer.c \
 			fov.c \
 			free_all.c \
 			free_parsing.c \
-			free_xpm_no.c \
+			free_xpm.c \
 			init_img.c \
 			main.c \
 			move_w_s.c \
@@ -85,19 +84,23 @@ _SRCS	=	buffer.c \
 			toggle.c \
 			valid_wall.c \
 			xpm_common.c \
+			xpm_ea_colors.c \
 			xpm_ea_correction.c \
-			xpm_ea_open.c \
 			xpm_ea_parse.c \
+			xpm_ea_utils.c \
 			xpm_first.c \
+			xpm_no_colors.c \
 			xpm_no_correction.c \
-			xpm_no_open.c \
 			xpm_no_parse.c \
+			xpm_no_utils.c \
+			xpm_so_colors.c \
 			xpm_so_correction.c \
-			xpm_so_open.c \
 			xpm_so_parse.c \
+			xpm_so_utils.c \
+			xpm_we_colors.c \
 			xpm_we_correction.c \
-			xpm_we_open.c \
-			xpm_we_parse.c
+			xpm_we_parse.c \
+			xpm_we_utils.c
 # --------------------------------- end srcs --------------------------------- #
 
 
