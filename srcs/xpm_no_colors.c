@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 12:30:48 by gael              #+#    #+#             */
-/*   Updated: 2023/08/02 13:28:16 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/02 15:45:39 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,73 +62,62 @@ int	xpm_no_set_color(t_game *game, int i_color, char *tmp)
 	return (SUCCESS);
 }
 
-void	xpm_no_hex_to_dec(t_game *g, int i_color, int i_tab_file)
+void	xpm_no_hex_to_dec(t_game *g, int i_color, int i_tab_file, int i_chr)
 {
 	g->xpm->no_colors[i_color][1] = \
-	hex_to_dec(ft_strdup_len(g->xpm->no_tab_file[i_tab_file], 5, 7));
+	hex_to_dec(ft_strdup_len(g->xpm->no_tab_file[i_tab_file], \
+	i_chr + 1, i_chr + 3));
 	g->xpm->no_colors[i_color][2] = \
-	hex_to_dec(ft_strdup_len(g->xpm->no_tab_file[i_tab_file], 7, 9));
+	hex_to_dec(ft_strdup_len(g->xpm->no_tab_file[i_tab_file], \
+	i_chr + 3, i_chr + 5));
 	g->xpm->no_colors[i_color][3] = \
-	hex_to_dec(ft_strdup_len(g->xpm->no_tab_file[i_tab_file], 9, 11));
-}
-
-int	xpm_no_read_1line(t_game *game)
-{
-	char	**line;
-	int		i;
-	int		j;
-
-	i = 0;
-	line = ft_split(game->xpm->no_tab_file[i], ' ');
-	if (!line)
-		return (printf("split line failed\n"), FAIL);
-	if (tab_len(line) != 4)
-		return (free_tab_str(line), printf("expect 4 metadata in xpm\n"), FAIL);
-	while (line[i])
-	{
-		j = 0;
-		while (line[i][j])
-		{
-			if (ft_isdigit(line[i][j]) == 0)
-				return (free_tab_str(line), printf("Not a digit in xpm"), FAIL);
-			j++;
-		}
-		i++;
-	}
-	game->xpm->no_tab_start = ft_atoi(line[2]);
-	xpm_no_set_len_n_color(game, line);
-	game->xpm->no_width_height = ft_atoi(line[1]);
-	return (free_tab_str(line), SUCCESS);
+	hex_to_dec(ft_strdup_len(g->xpm->no_tab_file[i_tab_file], \
+	i_chr + 5, i_chr + 7));
 }
 
 int	xpm_no_set_len_n_color(t_game *g, char **line)
 {
 	int	i_color;
 	int	i_tab_file;
+	int	i_chr;
 
+	i_chr = 1;
 	i_tab_file = 1;
-	i_color = 0;
-	if (ft_atoi(line[2]) > 96)
+	i_color = -1;
+	if (ft_atoi(line[2]) > 92)
 		return (printf("Too much colors\n"), FAIL);
 	if (xpm_no_init_color(g, line) == FAIL)
 		return (FAIL);
-	while (i_color < ft_atoi(line[2]))
+	while (++i_color < ft_atoi(line[2]))
 	{
-		if (g->xpm->no_tab_file[i_tab_file][1] != ' '
-		&& g->xpm->no_tab_file[i_tab_file][2] != 'c'
-		&& g->xpm->no_tab_file[i_tab_file][3] != ' ')
+		i_chr = 1;
+		if (xpm_no_check_line_color(g, &i_chr, i_tab_file, i_color) == FAIL)
 			return (FAIL);
-		g->xpm->no_colors[i_color] = malloc(sizeof(int) * (4));
-		if (!g->xpm->no_colors[i_color])
-			return (FAIL);
-		printf(BOLD_GREEN"%i: "BACK_GREEN"%c"RESET"\n", i_color,  g->xpm->no_tab_file[i_tab_file][0]);
-		g->xpm->no_colors[i_color][0] = g->xpm->no_tab_file[i_tab_file][0];
-		if (g->xpm->no_tab_file[i_tab_file][4] == '#')
-			xpm_no_hex_to_dec(g, i_color, i_tab_file);
+		if (g->xpm->no_tab_file[i_tab_file][i_chr] == '#')
+			xpm_no_hex_to_dec(g, i_color, i_tab_file, i_chr);
 		else if (xpm_no_letter_color(g, i_color, i_tab_file) == FAIL)
 			return (FAIL);
 		i_tab_file++;
-		i_color++;
 	}
+	return (SUCCESS);
+}
+
+int	xpm_no_check_line_color(t_game *g, int *i_chr, int i_tab_file, int i_color)
+{
+	if (is_space(g->xpm->no_tab_file[i_tab_file][(*i_chr)]) == FAIL)
+		return (printf("something wrong xpm files\n"), FAIL);
+	while (is_space(g->xpm->no_tab_file[i_tab_file][(*i_chr)]) == SUCCESS)
+		(*i_chr)++;
+	if (g->xpm->no_tab_file[i_tab_file][(*i_chr)] != 'c')
+		return (printf("something wrong xpm files\n"), FAIL);
+	(*i_chr)++;
+	if (is_space(g->xpm->no_tab_file[i_tab_file][(*i_chr)]) == FAIL)
+		return (printf("something wrong xpm files\n"), FAIL);
+	while (is_space(g->xpm->no_tab_file[i_tab_file][(*i_chr)]) == SUCCESS)
+		(*i_chr)++;
+	g->xpm->no_colors[i_color] = malloc(sizeof(int) * (4));
+	if (!g->xpm->no_colors[i_color])
+		return (FAIL);
+	g->xpm->no_colors[i_color][0] = g->xpm->no_tab_file[i_tab_file][0];
 	return (SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 11:49:54 by gael              #+#    #+#             */
-/*   Updated: 2023/08/02 10:39:15 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/02 14:15:27 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	xpm_so_split_buf(int fd, t_game *game)
 			return (free_parsing(game, "Something wrong with args"), FAIL);
 		buf[ret] = '\0';
 		buf[1] = '\0';
-		if (buf[0] == '{')// }
+		if (buf[0] == '{')
 			break ;
 	}
 	xpm_so_get_content_xpm(game, fd, ret, buf);

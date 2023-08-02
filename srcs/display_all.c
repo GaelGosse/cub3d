@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 11:04:13 by gael              #+#    #+#             */
-/*   Updated: 2023/08/02 13:20:31 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/02 15:16:21 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,6 @@ int	display_all(t_game *game, int key)
 
 	move_straight(game);
 	rotate_new(game);
-	printf(BACK_YELLOW"game->fov->toggle: %c"RST"\n", game->fov->toggle);
-	printf(YELLOW"(%i, %i)"RST"\n", game->line->x_dest, game->line->y_dest);
-	printf(BOLD_YELLOW"game->fov->angle: %i"RST"\n", game->fov->angle);
-	printf("\n");
-	printf(BLUE"(%i, %i)"RST"\n", game->line->x_dest, game->line->y_dest);
 	game->fov->lines_vision[game->fov->nbr_ray / 2] = draw_line_vision(game, get_color(0, 255, 0));
 	game->fov->wall_witch[game->fov->nbr_ray / 2][0] = game->line->corr_x;
 	game->fov->wall_witch[game->fov->nbr_ray / 2][1] = game->line->corr_y;

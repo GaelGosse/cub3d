@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 10:03:27 by gael              #+#    #+#             */
-/*   Updated: 2023/08/02 13:28:53 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/02 14:22:49 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,7 @@ int	xpm_we_wo_comm(t_game *g, int n_comm)
 		&& g->xpm->we_tab_file[i][ft_strlen(g->xpm->we_tab_file[i]) - 1] == '/')
 			i++;
 		else
-		{
-			tab_tmp[j] = ft_strdup(g->xpm->we_tab_file[i]);
-			j++;
-			i++;
-		}
+			tab_tmp[j++] = ft_strdup(g->xpm->we_tab_file[i++]);
 	}
 	tab_tmp[j] = NULL;
 	return (xpm_we_copy_tab(g, tab_tmp));
@@ -79,4 +75,33 @@ int	xpm_we_copy_tab(t_game *game, char **tmp)
 	game->xpm->we_tab_file[i] = NULL;
 	free_tab_str(tmp);
 	return (SUCCESS);
+}
+
+int	xpm_we_read_1line(t_game *game)
+{
+	char	**line;
+	int		i;
+	int		j;
+
+	i = 0;
+	line = ft_split(game->xpm->we_tab_file[i], ' ');
+	if (!line)
+		return (printf("split line failed\n"), FAIL);
+	if (tab_len(line) != 4)
+		return (free_tab_str(line), printf("expect 4 metadata in xpm\n"), FAIL);
+	while (line[i])
+	{
+		j = -1;
+		while (line[i][++j])
+		{
+			if (ft_isdigit(line[i][j]) == 0)
+				return (free_tab_str(line), printf("Not a digit in xpm"), FAIL);
+		}
+		i++;
+	}
+	game->xpm->we_tab_start = ft_atoi(line[2]);
+	game->xpm->we_width_height = ft_atoi(line[1]);
+	if (xpm_we_set_len_n_color(game, line) == FAIL)
+		return (free_tab_str(line), FAIL);
+	return (free_tab_str(line), SUCCESS);
 }

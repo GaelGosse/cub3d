@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 11:49:54 by gael              #+#    #+#             */
-/*   Updated: 2023/08/02 10:39:33 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/02 14:29:24 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,6 @@ int	xpm_we_split_buf(int fd, t_game *game)
 	}
 	xpm_we_get_content_xpm(game, fd, ret, buf);
 	game->xpm->we_tab_file = ft_split(game->xpm->we_file_content, '\n');
-	// int i = -1;
-	// while (game->xpm->we_tab_file[++i])
-	// 	printf(BOLD_CYAN"%p [%i]: "BACK_CYAN"%s"RESET"\n", game->xpm->we_tab_file[i], i, game->xpm->we_tab_file[i]);
-	// printf(BOLD_CYAN"%p [%i]: "BACK_CYAN"%s"RESET"\n", game->xpm->we_tab_file[i], i, game->xpm->we_tab_file[i]);
 	return (SUCCESS);
 }
 

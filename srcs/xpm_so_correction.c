@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 10:03:27 by gael              #+#    #+#             */
-/*   Updated: 2023/08/02 13:31:51 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/02 14:23:19 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,7 @@ int	xpm_so_wo_comm(t_game *g, int n_comm)
 		&& g->xpm->so_tab_file[i][ft_strlen(g->xpm->so_tab_file[i]) - 1] == '/')
 			i++;
 		else
-		{
-			tab_tmp[j] = ft_strdup(g->xpm->so_tab_file[i]);
-			j++;
-			i++;
-		}
+			tab_tmp[j++] = ft_strdup(g->xpm->so_tab_file[i++]);
 	}
 	tab_tmp[j] = NULL;
 	return (xpm_so_copy_tab(g, tab_tmp));
@@ -104,8 +100,8 @@ int	xpm_so_read_1line(t_game *game)
 		i++;
 	}
 	game->xpm->so_tab_start = ft_atoi(line[2]);
+	game->xpm->so_width_height = ft_atoi(line[1]);
 	if (xpm_so_set_len_n_color(game, line) == FAIL)
 		return (FAIL);
-	game->xpm->so_width_height = ft_atoi(line[1]);
 	return (free_tab_str(line), SUCCESS);
 }
