@@ -6,13 +6,13 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 10:03:27 by gael              #+#    #+#             */
-/*   Updated: 2023/08/01 14:47:22 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/02 10:45:46 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-void	xpm_no_correct(t_game *g)
+int	xpm_no_correct(t_game *g)
 {
 	int		i;
 	int		n_comm;
@@ -30,11 +30,10 @@ void	xpm_no_correct(t_game *g)
 		}
 		i++;
 	}
-	printf(PURPLE"n_comm: %i"RESET"\n", n_comm);
-	xpm_no_wo_comm(g, n_comm);
+	return (xpm_no_wo_comm(g, n_comm));
 }
 
-void	xpm_no_wo_comm(t_game *g, int n_comm)
+int	xpm_no_wo_comm(t_game *g, int n_comm)
 {
 	char	**tab_tmp;
 	int		len;
@@ -62,7 +61,7 @@ void	xpm_no_wo_comm(t_game *g, int n_comm)
 		}
 	}
 	tab_tmp[j] = NULL;
-	xpm_no_copy_tab(g, tab_tmp);
+	return (xpm_no_copy_tab(g, tab_tmp));
 }
 
 int	xpm_no_copy_tab(t_game *game, char **tmp)

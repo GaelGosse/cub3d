@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 10:03:27 by gael              #+#    #+#             */
-/*   Updated: 2023/08/01 16:10:19 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/02 10:45:55 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ int	xpm_so_copy_tab(t_game *game, char **tmp)
 		return (printf("game->xpm_tab copy_tab failed\n"), FAIL);
 	while (tmp[i])
 	{
-	// printf(BOLD_RED"%p: "BACK_RED"%s"RESET"\n", tmp[i], tmp[i]);
 		game->xpm->so_tab_file[i] = xpm_so_keep_metadata(tmp, i);
 		i++;
 	}

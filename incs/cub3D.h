@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:45:40 by ggosse            #+#    #+#             */
-/*   Updated: 2023/08/01 16:55:24 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/02 10:41:52 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -347,6 +347,7 @@ void	change_toggle_a(t_game *game);
 void	change_toggle_d(t_game *game);
 //srcs/xpm_common.c
 int		init_xpm(t_game *game);
+int		is_space(char chr);
 int		xpm_parse(t_game *game);
 //srcs/xpm_ea_parse.c
 int		xpm_ea_get_content_xpm(t_game *game, int fd, int ret, char *buf);
@@ -414,11 +415,12 @@ void	check_corner(t_game *game);
 void	draw_xpm_up_so(t_game *game, int i_midline);
 int		draw_xpm_up_so_color(t_game *game, int x, int y);
 //srcs/xpm_ea_open.c
-void	xpm_ea_hex_to_dec(t_game *g, int i_color, int i_tab_file);
+void	xpm_ea_hex_to_dec(t_game *g, int i_color, int i_tab_file, int i_chr);
 char	*xpm_ea_keep_metadata(char **tmp, int i_tmp);
 int		xpm_ea_letter_color(t_game *game, int i_color, int i_tab_file);
 int		xpm_ea_set_color(t_game *game, int i_color, char *tmp);
 //srcs/xpm_ea_correction.c
+int		xpm_ea_check_line_color(t_game *g, int *i_chr, int i_tab_file);
 int		xpm_ea_copy_tab(t_game *game, char **tmp);
 void	xpm_ea_correct(t_game *g);
 int		xpm_ea_read_1line(t_game *game);

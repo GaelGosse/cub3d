@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 12:30:48 by gael              #+#    #+#             */
-/*   Updated: 2023/08/01 16:08:05 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/02 10:22:33 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,17 +71,20 @@ char	*xpm_ea_keep_metadata(char **tmp, int i_tmp)
 	end = FAIL;
 	if (tmp[i_tmp][len_line] == ',' && tmp[i_tmp][len_line - 1] == '"')
 		end = len_line - 1;
-	else 
+	else
 		end = len_line;
 	return (ft_strdup_len(tmp[i_tmp], 1, end));
 }
 
-void	xpm_ea_hex_to_dec(t_game *g, int i_color, int i_tab_file)
+void	xpm_ea_hex_to_dec(t_game *g, int i_color, int i_tab_file, int i_chr)
 {
 	g->xpm->ea_colors[i_color][1] = \
-	hex_to_dec(ft_strdup_len(g->xpm->ea_tab_file[i_tab_file], 5, 7));
+	hex_to_dec(ft_strdup_len(g->xpm->ea_tab_file[i_tab_file], \
+	i_chr + 1, i_chr + 3));
 	g->xpm->ea_colors[i_color][2] = \
-	hex_to_dec(ft_strdup_len(g->xpm->ea_tab_file[i_tab_file], 7, 9));
+	hex_to_dec(ft_strdup_len(g->xpm->ea_tab_file[i_tab_file], \
+	i_chr + 3, i_chr + 5));
 	g->xpm->ea_colors[i_color][3] = \
-	hex_to_dec(ft_strdup_len(g->xpm->ea_tab_file[i_tab_file], 9, 11));
+	hex_to_dec(ft_strdup_len(g->xpm->ea_tab_file[i_tab_file], \
+	i_chr + 5, i_chr + 7));
 }

@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 11:49:54 by gael              #+#    #+#             */
-/*   Updated: 2023/08/01 15:11:47 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/02 10:39:33 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@ int	xpm_we_parse(t_game *game)
 {
 	printf(BACK_GREEN"%s"RESET"\n", game->map->wall_we);
 	xpm_we_read(game, game->map->wall_we);
-	xpm_we_correct(game);
-	xpm_we_read_1line(game);
+	if (xpm_we_correct(game) == FAIL)
+		return (FAIL);
+	if (xpm_we_read_1line(game) == FAIL)
+		return (FAIL);
 	return (SUCCESS);
 }
 

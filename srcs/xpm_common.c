@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 20:22:47 by gael              #+#    #+#             */
-/*   Updated: 2023/07/30 21:33:04 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/02 09:29:11 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,11 @@ int	xpm_parse(t_game *game)
 	if (xpm_so_parse(game) == FAIL)
 		return (FAIL);
 	return (SUCCESS);
+}
+
+int	is_space(char chr)
+{
+	if (chr == 32 || chr == 9)
+		return (SUCCESS);
+	return (FAIL);
 }
