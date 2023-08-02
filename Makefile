@@ -51,7 +51,6 @@ _SRCS	=	build_map.c \
 			display_3d_down.c \
 			display_3d_up.c \
 			display_all.c \
-			display_all_reverse.c \
 			display_all_utils.c \
 			draw_line.c \
 			draw_xpm_down_ea.c \
@@ -63,8 +62,6 @@ _SRCS	=	build_map.c \
 			draw_xpm_up_no.c \
 			draw_xpm_up_so.c \
 			draw_xpm_up_we.c \
-			fitter_2.c \
-			fitter.c \
 			flooding.c \
 			floor_ceil_part.c \
 			fov.c \
@@ -81,7 +78,6 @@ _SRCS	=	build_map.c \
 			start_3D.c \
 			texture_part.c \
 			texture_part_utils.c \
-			toggle.c \
 			valid_wall.c \
 			xpm_common.c \
 			xpm_ea_colors.c \

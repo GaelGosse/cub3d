@@ -6,24 +6,11 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 21:21:53 by ggosse            #+#    #+#             */
-/*   Updated: 2023/06/19 08:31:46 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/02 12:58:39 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
-
-void	print_word(char *new_w)
-{
-	int	x;
-
-	x = 0;
-	while (new_w[x])
-	{
-		printf(BACK_CYAN"%c"RST"", new_w[x]);
-		x++;
-	}
-	printf(BACK_RED"%i"RST"\n", new_w[x]);
-}
 
 int	check_tx(t_game *game)
 {

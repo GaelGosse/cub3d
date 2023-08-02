@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 11:04:13 by gael              #+#    #+#             */
-/*   Updated: 2023/08/01 16:55:08 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/02 13:08:24 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -246,7 +246,27 @@ int	display_all(t_game *game, int key)
 	(void)i_rotate;
 	(void)save;
 	(void)save_2;
-	(void)save_src_x;
-	(void)save_src_y;
 	return (SUCCESS);
+}
+
+void	last_correct_toggle(t_game *game)
+{
+	int	w;
+
+	w = -1;
+	while (++w < game->fov->nbr_ray)
+	{
+		if (game->fov->toggle_vision[w] != 'N' && \
+		game->fov->toggle_vision[w] != 'E' && \
+		game->fov->toggle_vision[w] != 'W' && \
+		game->fov->toggle_vision[w] != 'S' && \
+		w > 0)
+			game->fov->toggle_vision[w] = game->fov->toggle_vision[w - 1];
+		else if (game->fov->toggle_vision[w] != 'N' && \
+		game->fov->toggle_vision[w] != 'E' && \
+		game->fov->toggle_vision[w] != 'W' && \
+		game->fov->toggle_vision[w] != 'S' && \
+		w == 0)
+			game->fov->toggle_vision[w] = game->fov->toggle_vision[w + 1];
+	}
 }

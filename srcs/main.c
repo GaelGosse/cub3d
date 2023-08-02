@@ -6,40 +6,11 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:15:08 by ggosse            #+#    #+#             */
-/*   Updated: 2023/08/01 11:15:21 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/02 13:00:11 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/cub3D.h"
-
-void	print_map(char **arr)
-{
-	int	i_big;
-	int	i_lil;
-
-	i_big = -1;
-	i_lil = -1;
-	while (arr[++i_big])
-	{
-		i_lil = -1;
-		while (arr[i_big][++i_lil])
-		{
-			// if (arr[i_big][i_lil] == ' ')
-			// 	printf(BACK_BLACK"--"RESET);
-			// else if (arr[i_big][i_lil] == '0')
-			// 	printf(BACK_WHITE"  "RESET);
-			// else if (arr[i_big][i_lil] == '1')
-			// 	printf(BACK_YELLOW"  "RESET);
-			// else if (arr[i_big][i_lil] == 'N' || arr[i_big][i_lil] == 'E'
-			// 	|| arr[i_big][i_lil] == 'S' || arr[i_big][i_lil] == 'W')
-			// 	printf(BACK_RED"  "RESET);
-			printf(BACK_YELLOW"%c"RESET, arr[i_big][i_lil]);
-		}
-		printf("\n");
-	}
-	printf(PURPLE"i_big: %i"RESET"\n", i_big);
-	printf(PURPLE"i_lil: %i"RESET"\n", i_lil);
-}
 
 void	init_struct(t_game *game)
 {

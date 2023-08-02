@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:45:40 by ggosse            #+#    #+#             */
-/*   Updated: 2023/08/02 11:22:23 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/02 13:00:43 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -208,11 +208,9 @@ int		draw_xpm_up_red(t_game *game, int i_midline);
 int		ft_parsing(t_game *game, char **argv);
 void	init_struct(t_game *game);
 int		open_fd(t_game *game, int *fd, char **argv);
-void	print_map(char **arr);
 //srcs/pixel_and_color.c
 int		get_color(int red, int green, int blue);
 void	img_pix_put(t_game *game, int x, int y, int color);
-void	img_pix_put_2(t_game *game, int x, int y, int color);
 //srcs/xpm_we_correction.c
 int		xpm_we_copy_tab(t_game *game, char **tmp);
 int		xpm_we_correct(t_game *g);
@@ -277,17 +275,12 @@ int		xpm_so_correct(t_game *g);
 int		xpm_so_read_1line(t_game *game);
 int		xpm_so_set_len_n_color(t_game *g, char **line);
 int		xpm_so_wo_comm(t_game *g, int n_comm);
-//srcs/display_all_reverse.c
-int		display_all_reverse_a(t_game *game, int key, int len_side);
-int		display_all_reverse_d(t_game *g, int k, int l);
 //srcs/flooding.c
-int		end_propa(t_game *game, int i_row, int i_col);
 int		flooding(t_game *game);
 int		is_propa_finished(t_game *game);
 int		propagation(t_game *game, int row, int col, int count);
 //srcs/texture_part_utils.c
 int		check_tx(t_game *game);
-void	print_word(char *new_w);
 //srcs/valid_wall.c
 int		check_letters_map(t_game *game);
 int		check_perso(t_game *game);
@@ -350,9 +343,6 @@ void	rotate_new(t_game *game);
 void	draw_player(t_game *game);
 int		ft_event_listen(int key, t_game *game);
 void	set_pos_character(t_game *game);
-//srcs/toggle.c
-void	change_toggle_a(t_game *game);
-void	change_toggle_d(t_game *game);
 //srcs/xpm_common.c
 int		init_xpm(t_game *game);
 int		is_space(char chr);
@@ -377,9 +367,6 @@ int		xpm_no_wo_comm(t_game *g, int n_comm);
 //srcs/draw_xpm_down_no.c
 void	draw_xpm_down_no(t_game *game, int i_midline);
 int		draw_xpm_no_color(t_game *game, int x, int y);
-//srcs/fitter_2.c
-int		fitter_2_blue(t_game *game);
-int		fitter_2_red(t_game *game);
 //srcs/draw_xpm_up_no.c
 void	draw_xpm_up_no(t_game *game, int i_midline);
 int		draw_xpm_up_no_color(t_game *game, int x, int y);
@@ -434,14 +421,6 @@ void	xpm_ea_hex_to_dec(t_game *g, int i_color, int i_tab_file, int i_chr);
 char	*xpm_ea_keep_metadata(char **tmp, int i_tmp);
 int		xpm_ea_letter_color(t_game *game, int i_color, int i_tab_file);
 int		xpm_ea_set_color(t_game *game, int i_color, char *tmp);
-//srcs/fitter.c
-void	cross(t_game *game, int i_fit, int x_plus, int y_plus);
-void	fitter_blue(t_game *game);
-void	fitter_red(t_game *game);
-int		is_increase_blue(t_game *game, int i_fit);
-int		is_increase_red(t_game *game, int i_fit);
-void	last_correct_toggle(t_game *game);
-void	print_tab_wall(t_game *game);
 //test.c
 float rounded(float flt);
 

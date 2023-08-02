@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flooding.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 09:19:32 by gael              #+#    #+#             */
-/*   Updated: 2023/07/06 16:36:17 by mael             ###   ########.fr       */
+/*   Updated: 2023/08/02 12:56:25 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,29 +88,4 @@ int	propagation(t_game *game, int row, int col, int count)
 	if (count > 0)
 		return (SUCCESS);
 	return (FAIL);
-}
-
-int	end_propa(t_game *game, int i_row, int i_col)
-{
-	if (i_row + 1 < game->map->height && \
-	game->map->map_tmp[i_row + 1][i_col] != '1' && \
-	game->map->map_tmp[i_row + 1][i_col] != '0' && \
-	game->map->map_tmp[i_row + 1][i_col] != game->perso)
-		return (FAIL);
-	if (i_row - 1 >= 0 && \
-	game->map->map_tmp[i_row - 1][i_col] != '1' && \
-	game->map->map_tmp[i_row - 1][i_col] != '0' && \
-	game->map->map_tmp[i_row - 1][i_col] != game->perso)
-		return (FAIL);
-	if (i_col + 1 <= game->map->width && \
-	game->map->map_tmp[i_row][i_col + 1] != '1' && \
-	game->map->map_tmp[i_row][i_col + 1] != '0' && \
-	game->map->map_tmp[i_row][i_col + 1] != game->perso)
-		return (FAIL);
-	if (i_col - 1 >= 0 && \
-	game->map->map_tmp[i_row][i_col - 1] != '1' && \
-	game->map->map_tmp[i_row][i_col - 1] != '0' && \
-	game->map->map_tmp[i_row][i_col - 1] != game->perso)
-		return (FAIL);
-	return (SUCCESS);
 }
