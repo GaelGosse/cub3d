@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 10:03:27 by gael              #+#    #+#             */
-/*   Updated: 2023/08/02 11:21:33 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/02 13:27:41 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,52 +113,4 @@ int	xpm_ea_read_1line(t_game *game)
 		return (free_tab_str(line), FAIL);
 	game->xpm->ea_width_height = ft_atoi(line[1]);
 	return (free_tab_str(line), SUCCESS);
-}
-
-int	xpm_ea_set_len_n_color(t_game *g, char **line)
-{
-	int	i_color;
-	int	i_tab_file;
-	int	i_chr;
-
-	i_chr = 1;
-	i_tab_file = 1;
-	i_color = 0;
-	if (ft_atoi(line[2]) > 96)
-		return (printf("Too much colors\n"), FAIL);
-	if (xpm_ea_init_color(g, line) == FAIL)
-		return (FAIL);
-	while (i_color < ft_atoi(line[2]))
-	{
-		i_chr = 1;
-		if (xpm_ea_check_line_color(g, &i_chr, i_tab_file) == FAIL)
-			return (FAIL);
-		g->xpm->ea_colors[i_color] = malloc(sizeof(int) * (4));
-		if (!g->xpm->ea_colors[i_color])
-			return (FAIL);
-		g->xpm->ea_colors[i_color][0] = g->xpm->ea_tab_file[i_tab_file][0];
-		if (g->xpm->ea_tab_file[i_tab_file][i_chr] == '#')
-			xpm_ea_hex_to_dec(g, i_color, i_tab_file, i_chr);
-		else if (xpm_ea_letter_color(g, i_color, i_tab_file) == FAIL)
-			return (FAIL);
-		i_tab_file++;
-		i_color++;
-	}
-	return (SUCCESS);
-}
-
-int	xpm_ea_check_line_color(t_game *g, int *i_chr, int i_tab_file)
-{
-	if (is_space(g->xpm->ea_tab_file[i_tab_file][(*i_chr)]) == FAIL)
-		return (printf("something wrong xpm files\n"), FAIL);
-	while (is_space(g->xpm->ea_tab_file[i_tab_file][(*i_chr)]) == SUCCESS)
-		(*i_chr)++;
-	if (g->xpm->ea_tab_file[i_tab_file][(*i_chr)] != 'c')
-		return (printf("something wrong xpm files\n"), FAIL);
-	(*i_chr)++;
-	if (is_space(g->xpm->ea_tab_file[i_tab_file][(*i_chr)]) == FAIL)
-		return (printf("something wrong xpm files\n"), FAIL);
-	while (is_space(g->xpm->ea_tab_file[i_tab_file][(*i_chr)]) == SUCCESS)
-		(*i_chr)++;
-	return (SUCCESS);
 }

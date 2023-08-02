@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 10:03:27 by gael              #+#    #+#             */
-/*   Updated: 2023/08/02 11:21:44 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/02 13:31:51 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,35 +108,4 @@ int	xpm_so_read_1line(t_game *game)
 		return (FAIL);
 	game->xpm->so_width_height = ft_atoi(line[1]);
 	return (free_tab_str(line), SUCCESS);
-}
-
-int	xpm_so_set_len_n_color(t_game *g, char **line)
-{
-	int	i_color;
-	int	i_tab_file;
-
-	i_tab_file = 1;
-	i_color = -1;
-	printf(PURPLE"ft_atoi(line[2]): %i"RESET"\n", ft_atoi(line[2]));
-	if (ft_atoi(line[2]) > 96)
-		return (printf("Too much colors\n"), FAIL);
-	if (xpm_so_init_color(g, line) == FAIL)
-		return (FAIL);
-	while (++i_color < ft_atoi(line[2]))
-	{
-		if (g->xpm->so_tab_file[i_tab_file][1] != ' '
-		&& g->xpm->so_tab_file[i_tab_file][2] != 'c'
-		&& g->xpm->so_tab_file[i_tab_file][3] != ' ')
-			return (FAIL);
-		g->xpm->so_colors[i_color] = malloc(sizeof(int) * (4));
-		if (!g->xpm->so_colors[i_color])
-			return (FAIL);
-		g->xpm->so_colors[i_color][0] = g->xpm->so_tab_file[i_tab_file][0];
-		if (g->xpm->so_tab_file[i_tab_file][4] == '#')
-			xpm_so_hex_to_dec(g, i_color, i_tab_file);
-		else if (xpm_so_letter_color(g, i_color, i_tab_file) == FAIL)
-			return (FAIL);
-		i_tab_file++;
-	}
-	return (SUCCESS);
 }

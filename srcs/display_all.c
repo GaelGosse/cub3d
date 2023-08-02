@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 11:04:13 by gael              #+#    #+#             */
-/*   Updated: 2023/08/02 13:08:24 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/02 13:20:31 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -256,17 +256,17 @@ void	last_correct_toggle(t_game *game)
 	w = -1;
 	while (++w < game->fov->nbr_ray)
 	{
-		if (game->fov->toggle_vision[w] != 'N' && \
+		if (w > 0 && \
+		game->fov->toggle_vision[w] != 'N' && \
 		game->fov->toggle_vision[w] != 'E' && \
 		game->fov->toggle_vision[w] != 'W' && \
-		game->fov->toggle_vision[w] != 'S' && \
-		w > 0)
+		game->fov->toggle_vision[w] != 'S')
 			game->fov->toggle_vision[w] = game->fov->toggle_vision[w - 1];
-		else if (game->fov->toggle_vision[w] != 'N' && \
+		else if (w == 0 && \
+		game->fov->toggle_vision[w] != 'N' && \
 		game->fov->toggle_vision[w] != 'E' && \
 		game->fov->toggle_vision[w] != 'W' && \
-		game->fov->toggle_vision[w] != 'S' && \
-		w == 0)
+		game->fov->toggle_vision[w] != 'S')
 			game->fov->toggle_vision[w] = game->fov->toggle_vision[w + 1];
 	}
 }

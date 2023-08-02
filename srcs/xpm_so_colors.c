@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   xpm_so_open.c                                      :+:      :+:    :+:   */
+/*   xpm_so_colors.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 12:30:48 by gael              #+#    #+#             */
-/*   Updated: 2023/08/01 15:53:35 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/02 13:32:36 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,20 +62,6 @@ int	xpm_so_set_color(t_game *game, int i_color, char *tmp)
 	return (SUCCESS);
 }
 
-char	*xpm_so_keep_metadata(char **tmp, int i_tmp)
-{
-	int	end;
-	int	len_line;
-
-	len_line = ft_strlen(tmp[i_tmp]) - 1;
-	end = FAIL;
-	if (tmp[i_tmp][len_line] == ',' && tmp[i_tmp][len_line - 1] == '"')
-		end = len_line - 1;
-	else
-		end = len_line;
-	return (ft_strdup_len(tmp[i_tmp], 1, end));
-}
-
 void	xpm_so_hex_to_dec(t_game *g, int i_color, int i_tab_file)
 {
 	g->xpm->so_colors[i_color][1] = \
@@ -84,4 +70,35 @@ void	xpm_so_hex_to_dec(t_game *g, int i_color, int i_tab_file)
 	hex_to_dec(ft_strdup_len(g->xpm->so_tab_file[i_tab_file], 7, 9));
 	g->xpm->so_colors[i_color][3] = \
 	hex_to_dec(ft_strdup_len(g->xpm->so_tab_file[i_tab_file], 9, 11));
+}
+
+int	xpm_so_set_len_n_color(t_game *g, char **line)
+{
+	int	i_color;
+	int	i_tab_file;
+
+	i_tab_file = 1;
+	i_color = -1;
+	printf(PURPLE"ft_atoi(line[2]): %i"RESET"\n", ft_atoi(line[2]));
+	if (ft_atoi(line[2]) > 96)
+		return (printf("Too much colors\n"), FAIL);
+	if (xpm_so_init_color(g, line) == FAIL)
+		return (FAIL);
+	while (++i_color < ft_atoi(line[2]))
+	{
+		if (g->xpm->so_tab_file[i_tab_file][1] != ' '
+		&& g->xpm->so_tab_file[i_tab_file][2] != 'c'
+		&& g->xpm->so_tab_file[i_tab_file][3] != ' ')
+			return (FAIL);
+		g->xpm->so_colors[i_color] = malloc(sizeof(int) * (4));
+		if (!g->xpm->so_colors[i_color])
+			return (FAIL);
+		g->xpm->so_colors[i_color][0] = g->xpm->so_tab_file[i_tab_file][0];
+		if (g->xpm->so_tab_file[i_tab_file][4] == '#')
+			xpm_so_hex_to_dec(g, i_color, i_tab_file);
+		else if (xpm_so_letter_color(g, i_color, i_tab_file) == FAIL)
+			return (FAIL);
+		i_tab_file++;
+	}
+	return (SUCCESS);
 }

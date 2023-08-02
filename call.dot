@@ -6,8 +6,6 @@ digraph callgraph {
 "build_map" [];
 "calcul_corr_for_step" [];
 "calcul_opposite_side" [];
-"change_toggle_a" [];
-"change_toggle_d" [];
 "check_ceil" [];
 "check_ceil_content" [];
 "check_corner" [];
@@ -26,7 +24,6 @@ digraph callgraph {
 "color_image" [];
 "create_image_and_get_adrr" [];
 "create_map" [];
-"cross" [];
 "deg_to_radian" [];
 "destroy_and_free" [];
 "destroy_and_free2" [];
@@ -63,8 +60,6 @@ digraph callgraph {
 "fill_wall" [];
 "first_calcul" [];
 "first_time" [];
-"fitter_blue" [];
-"fitter_red" [];
 "flooding" [];
 "floor_ceil_part" [];
 "free_all" [];
@@ -102,8 +97,6 @@ digraph callgraph {
 "init_xpm" [ style=filled fontcolor=black fillcolor=lightblue];
 "is_empty_line" [];
 "is_fault" [];
-"is_increase_blue" [];
-"is_increase_red" [];
 "is_propa_finished" [];
 "is_space" [];
 "last_correct_toggle" [];
@@ -172,9 +165,6 @@ digraph callgraph {
 "move_straight" [];
 "move_w" [];
 "open_fd" [];
-"print_map" [];
-"print_tab_wall" [];
-"print_word" [];
 "propagation" [];
 "realloc_lines" [];
 "reset_img" [];
@@ -272,8 +262,6 @@ digraph callgraph {
 "create_map" -> "realloc_lines" [style=solid];
 "create_map" -> "set_width" [style=solid];
 "create_map" -> "skip_empty_line" [style=solid];
-"cross" -> "get_color" [style=solid];
-"cross" -> "img_pix_put" [style=solid];
 "destroy_and_free" -> "free_all" [style=solid];
 "destroy_and_free" -> "mlx_destroy_display" [style=solid style=filled fontcolor=black fillcolor=gray];
 "destroy_and_free" -> "mlx_destroy_image" [style=solid style=filled fontcolor=black fillcolor=gray];
@@ -370,10 +358,6 @@ digraph callgraph {
 "first_time" -> "init_line" [style=solid style=filled fontcolor=black fillcolor=lightblue];
 "first_time" -> "init_position" [style=solid style=filled fontcolor=black fillcolor=lightblue];
 "first_time" -> "set_pos_character" [style=solid];
-"fitter_blue" -> "is_increase_blue" [style=solid];
-"fitter_red" -> "get_color" [style=solid];
-"fitter_red" -> "img_pix_put" [style=solid];
-"fitter_red" -> "is_increase_red" [style=solid];
 "flooding" -> "propagation" [style=solid];
 "floor_ceil_part" -> "check_ceil" [style=solid];
 "floor_ceil_part" -> "check_floor" [style=solid];
@@ -419,9 +403,6 @@ digraph callgraph {
 "init_display_all" -> "init_img" [style=solid style=filled fontcolor=black fillcolor=lightblue];
 "init_fov" -> "init_fov_wall" [style=solid style=filled fontcolor=black fillcolor=lightblue];
 "init_fov" -> "init_fov_wall_witch" [style=solid style=filled fontcolor=black fillcolor=lightblue];
-"is_increase_blue" -> "cross" [style=solid];
-"is_increase_blue" -> "get_color" [style=solid];
-"is_increase_blue" -> "img_pix_put" [style=solid];
 "main" -> "check_env" [style=solid];
 "main" -> "free_all" [style=solid];
 "main" -> "ft_parsing" [style=solid];

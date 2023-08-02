@@ -84,7 +84,6 @@ _SRCS	=	build_map.c \
 			xpm_ea_correction.c \
 			xpm_ea_parse.c \
 			xpm_ea_utils.c \
-			xpm_first.c \
 			xpm_no_colors.c \
 			xpm_no_correction.c \
 			xpm_no_parse.c \
