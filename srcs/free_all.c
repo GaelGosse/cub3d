@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_all.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 15:05:22 by mael              #+#    #+#             */
-/*   Updated: 2023/08/02 20:40:44 by mael             ###   ########.fr       */
+/*   Updated: 2023/08/03 11:21:16 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	free_fov(t_game *game)
 int	free_all(t_game *game)
 {
 	free_ceil_floor(game);
-	free_xpm(game);
+	// free_xpm(game);
 	if (game->fov)
 		free_fov(game);
 	free(game->img);

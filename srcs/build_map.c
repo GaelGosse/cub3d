@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   build_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 09:38:48 by gael              #+#    #+#             */
-/*   Updated: 2023/08/02 13:46:04 by mael             ###   ########.fr       */
+/*   Updated: 2023/08/03 12:14:05 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ void	realloc_lines(t_game *game)
 
 int	create_map(t_game *game, char *line, int fd)
 {
+	if (game->map->ceil == NULL || game->map->floor == NULL)
+		return (printf("wrong ceil floor\n"), FAIL);
 	game->map->height = 0;
 	skip_empty_line(&line, fd);
 	while (line && line[0] != '\0' && is_empty_line(line) == FAIL)

@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 20:22:47 by gael              #+#    #+#             */
-/*   Updated: 2023/08/03 10:03:57 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/03 11:44:08 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ int	xpm_parse(t_game *game)
 		return (FAIL);
 	if (xpm_so_parse(game) == FAIL)
 		return (FAIL);
+	if (xpm_check_width(game) == FAIL)
+		return (FAIL);
 	return (SUCCESS);
 }
 
@@ -73,4 +75,23 @@ int	is_space(char chr)
 	if (chr == 32 || chr == 9)
 		return (SUCCESS);
 	return (FAIL);
+}
+
+int	xpm_check_width(t_game *game)
+{
+	if (game->xpm->we_metadata[0] != game->xpm->we_metadata[1])
+		return (printf("sprites different size\n"), FAIL);
+	if (game->xpm->ea_metadata[0] != game->xpm->ea_metadata[1])
+		return (printf("sprites different size\n"), FAIL);
+	if (game->xpm->no_metadata[0] != game->xpm->no_metadata[1])
+		return (printf("sprites different size\n"), FAIL);
+	if (game->xpm->so_metadata[0] != game->xpm->so_metadata[1])
+		return (printf("sprites different size\n"), FAIL);
+	if (game->xpm->we_metadata[0] != game->xpm->ea_metadata[0])
+		return (printf("sprites different size\n"), FAIL);
+	if (game->xpm->no_metadata[0] != game->xpm->ea_metadata[0])
+		return (printf("sprites different size\n"), FAIL);
+	if (game->xpm->no_metadata[0] != game->xpm->so_metadata[0])
+		return (printf("sprites different size\n"), FAIL);
+	return (SUCCESS);
 }

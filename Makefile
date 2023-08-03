@@ -86,22 +86,18 @@ _SRCS	=	build_map.c \
 			xpm_common.c \
 			xpm_ea_colors.c \
 			xpm_ea_correction.c \
-			xpm_ea_dual.c \
 			xpm_ea_parse.c \
 			xpm_ea_utils.c \
 			xpm_no_colors.c \
 			xpm_no_correction.c \
-			xpm_no_dual.c \
 			xpm_no_parse.c \
 			xpm_no_utils.c \
 			xpm_so_colors.c \
 			xpm_so_correction.c \
-			xpm_so_dual.c \
 			xpm_so_parse.c \
 			xpm_so_utils.c \
 			xpm_we_colors.c \
 			xpm_we_correction.c \
-			xpm_we_dual.c \
 			xpm_we_parse.c \
 			xpm_we_utils.c
 # --------------------------------- end srcs --------------------------------- #

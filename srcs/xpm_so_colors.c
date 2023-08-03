@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 12:30:48 by gael              #+#    #+#             */
-/*   Updated: 2023/08/03 01:56:18 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/03 11:45:00 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ int	xpm_so_set_len_n_color(t_game *g, char **line)
 	i_chr = 1;
 	i_tab_file = 0;
 	i_color = -1;
+	xpm_so_fill_metadata(g, line);
 	if (ft_atoi(line[2]) <= 92)
 	{
 		if (xpm_so_init_color(g, line) == FAIL)
@@ -103,8 +104,8 @@ int	xpm_so_set_len_n_color(t_game *g, char **line)
 				return (FAIL);
 		}
 	}
-	// else if (xpm_so_dual_letters(game) == FAIL)
-	// 	return (FAIL);
+	else
+		return (printf("Must have under 92 colors in xpm\n"), FAIL);
 	return (SUCCESS);
 }
 

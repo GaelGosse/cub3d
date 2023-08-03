@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   floor_ceil_part.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 17:52:47 by ggosse            #+#    #+#             */
-/*   Updated: 2023/08/02 20:36:54 by mael             ###   ########.fr       */
+/*   Updated: 2023/08/03 12:11:08 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,9 +104,7 @@ int	check_ceil(t_game *game, char *line, char *color)
 	}
 	if (color != NULL)
 	{
-		printf(BOLD_GREEN"%p: "BACK_GREEN"%s"RESET"\n", color, color);
 		free(color);
-		printf(RED" x "RESET"\n");
 		color = NULL;
 	}
 	return (SUCCESS);

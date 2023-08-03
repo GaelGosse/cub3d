@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 11:49:54 by gael              #+#    #+#             */
-/*   Updated: 2023/08/02 14:29:24 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/03 11:51:45 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	xpm_we_parse(t_game *game)
 	if (xpm_we_correct(game) == FAIL)
 		return (FAIL);
 	if (xpm_we_read_1line(game) == FAIL)
+		return (FAIL);
+	if (xpm_we_check_wh(game) == FAIL)
 		return (FAIL);
 	return (SUCCESS);
 }
