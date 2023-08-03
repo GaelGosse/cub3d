@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 12:30:48 by gael              #+#    #+#             */
-/*   Updated: 2023/08/03 10:05:09 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/03 11:03:02 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,12 +90,12 @@ int	xpm_we_set_len_n_color(t_game *g, char **line)
 	i_chr = 1;
 	i_tab_file = 0;
 	i_color = -1;
-	// xpm_we_fill_metadata(game, line);
+	xpm_we_fill_metadata(g, line);
 	if (ft_atoi(line[2]) <= 92)
 	{
-		if (xpm_we_init_color(g, line) == FAIL)
+		if (xpm_we_init_color(g) == FAIL)
 			return (FAIL);
-		while (++i_color < ft_atoi(line[2]))
+		while (++i_color < g->xpm->we_metadata[2])
 		{
 			i_chr = 1;
 			if (xpm_we_check_line_color(g, &i_chr, ++i_tab_file, i_color) == FAIL)
@@ -104,7 +104,7 @@ int	xpm_we_set_len_n_color(t_game *g, char **line)
 				return (FAIL);
 		}
 	}
-	else if (xpm_we_dual_letters(g, i_chr, i_tab_file, i_color, line) == FAIL)
+	else if (xpm_we_dual_letters(g, i_chr, i_tab_file, i_color) == FAIL)
 		return (FAIL);
 	return (SUCCESS);
 }
@@ -130,7 +130,7 @@ int	xpm_we_check_line_color(t_game *g, int *i_chr, int i_tab_file, int i_color)
 }
 
 //                  normal
-// init metadata in struct for all 4
+// free we_metadata
 
 //                  X4
 // fill metadata

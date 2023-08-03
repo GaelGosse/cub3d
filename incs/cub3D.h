@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:45:40 by ggosse            #+#    #+#             */
-/*   Updated: 2023/08/03 10:12:21 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/03 11:04:29 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -316,7 +316,8 @@ void	skip_empty_line(char **line, int fd);
 int		ft_buf_read(int fd, t_game *game);
 int		ft_read_file(t_game *game, char *filename);
 //srcs/xpm_we_utils.c
-int		xpm_we_init_color(t_game *game, char **line);
+void	xpm_we_fill_metadata(t_game *game, char **line);
+int		xpm_we_init_color(t_game *g);
 char	*xpm_we_keep_metadata(char **tmp, int i_tmp);
 //srcs/display_3d_down.c
 void	display_3d(t_game *game);
@@ -443,7 +444,7 @@ void	check_wall_in_map_1(t_game *game, int i_big, int i_lil);
 void	check_wall_in_map_2(t_game *game, int i_big, int i_lil);
 //srcs/xpm_we_dual.c
 int		xpm_we_check_dual_color(t_game *g, int *i_chr, int i_tab_file, int i_color);
-int		xpm_we_dual_letters(t_game *g, int i_chr, int i_tab_file, int i_color, char **line);
+int		xpm_we_dual_letters(t_game *g, int i_chr, int i_tab_file, int i_color);
 //srcs/draw_xpm_up_so.c
 void	draw_xpm_up_so(t_game *game, int i_midline);
 int		draw_xpm_up_so_color(t_game *game, int x, int y);
