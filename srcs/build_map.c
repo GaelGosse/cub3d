@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   build_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 09:38:48 by gael              #+#    #+#             */
-/*   Updated: 2023/07/31 17:12:22 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/02 13:46:04 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,26 +20,6 @@ void	skip_empty_line(char **line, int fd)
 		(*line) = gnl(fd);
 	}
 }
-
-// vo<id	build_content(t_game *game, char **line, int fd)
-// {
-// 	char *temp;
-
-// 	temp = NULL; // rajoute pour valgrind le 28/07, a tester
-// 	if (game->map->file_map == NULL)
-// 		game->map->file_map = ft_strdup((*line));
-// 	else
-// 	{
-// 		temp = ft_strdup(game->map->file_map);// rajoute pour valgrind le 28/07, a tester
-// 		free(game->map->file_map);// rajoute pour valgrind le 28/07, a tester
-// 		game->map->file_map = ft_strjoin(temp, (*line));
-// 		free(temp);// rajoute pour valgrind le 28/07, a tester
-// 	}
-// 	free((*line));
-// 	(*line) = gnl(fd);
-// 	game->map->height++;
-// }
-
 void	build_content(t_game *game, char **line, int fd)
 {
 	if (game->map->file_map == NULL)

@@ -1,4 +1,4 @@
-WE sprites/jull.xpm
+WE sprites/wallw.xpm
 EA sprites/walle.xpm
 NO sprites/walln.xpm
 SO sprites/walls.xpm
@@ -9,7 +9,7 @@ C 255,180,35
 011111110
 111101111
 110000001
-10W000001
+10E000001
 011111110
 
 

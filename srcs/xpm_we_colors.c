@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 12:30:48 by gael              #+#    #+#             */
-/*   Updated: 2023/08/02 17:14:38 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/03 10:05:09 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,17 +62,23 @@ int	xpm_we_set_color(t_game *game, int i_color, char *tmp)
 	return (SUCCESS);
 }
 
-void	xpm_we_hex_to_dec(t_game *g, int i_color, int i_tab_file, int i_chr)
+int	xpm_we_hex_to_dec(t_game *g, int i_color, int i_tab_file, int i_chr)
 {
-	g->xpm->we_colors[i_color][1] = \
-	hex_to_dec(ft_strdup_len(g->xpm->we_tab_file[i_tab_file], \
-	i_chr + 1, i_chr + 3));
-	g->xpm->we_colors[i_color][2] = \
-	hex_to_dec(ft_strdup_len(g->xpm->we_tab_file[i_tab_file], \
-	i_chr + 3, i_chr + 5));
-	g->xpm->we_colors[i_color][3] = \
-	hex_to_dec(ft_strdup_len(g->xpm->we_tab_file[i_tab_file], \
-	i_chr + 5, i_chr + 7));
+	if (g->xpm->we_tab_file[i_tab_file][i_chr] == '#')
+	{
+		g->xpm->we_colors[i_color][1] = \
+		hex_to_dec(ft_strdup_len(g->xpm->we_tab_file[i_tab_file], \
+		i_chr + 1, i_chr + 3));
+		g->xpm->we_colors[i_color][2] = \
+		hex_to_dec(ft_strdup_len(g->xpm->we_tab_file[i_tab_file], \
+		i_chr + 3, i_chr + 5));
+		g->xpm->we_colors[i_color][3] = \
+		hex_to_dec(ft_strdup_len(g->xpm->we_tab_file[i_tab_file], \
+		i_chr + 5, i_chr + 7));
+	}
+	else if (xpm_we_letter_color(g, i_color, i_tab_file) == FAIL)
+		return (FAIL);
+	return (SUCCESS);
 }
 
 int	xpm_we_set_len_n_color(t_game *g, char **line)
@@ -82,8 +88,9 @@ int	xpm_we_set_len_n_color(t_game *g, char **line)
 	int	i_chr;
 
 	i_chr = 1;
-	i_tab_file = 1;
+	i_tab_file = 0;
 	i_color = -1;
+	// xpm_we_fill_metadata(game, line);
 	if (ft_atoi(line[2]) <= 92)
 	{
 		if (xpm_we_init_color(g, line) == FAIL)
@@ -91,17 +98,14 @@ int	xpm_we_set_len_n_color(t_game *g, char **line)
 		while (++i_color < ft_atoi(line[2]))
 		{
 			i_chr = 1;
-			if (xpm_we_check_line_color(g, &i_chr, i_tab_file, i_color) == FAIL)
+			if (xpm_we_check_line_color(g, &i_chr, ++i_tab_file, i_color) == FAIL)
 				return (FAIL);
-			if (g->xpm->we_tab_file[i_tab_file][i_chr] == '#')
-				xpm_we_hex_to_dec(g, i_color, i_tab_file, i_chr);
-			else if (xpm_we_letter_color(g, i_color, i_tab_file) == FAIL)
+			if (xpm_we_hex_to_dec(g, i_color, i_tab_file, i_chr) == FAIL)
 				return (FAIL);
-			i_tab_file++;
 		}
 	}
-	else
-		return (printf("pas encore fait\n"), FAIL);
+	else if (xpm_we_dual_letters(g, i_chr, i_tab_file, i_color, line) == FAIL)
+		return (FAIL);
 	return (SUCCESS);
 }
 
@@ -124,3 +128,10 @@ int	xpm_we_check_line_color(t_game *g, int *i_chr, int i_tab_file, int i_color)
 	g->xpm->we_colors[i_color][0] = g->xpm->we_tab_file[i_tab_file][0];
 	return (SUCCESS);
 }
+
+//                  normal
+// init metadata in struct for all 4
+
+//                  X4
+// fill metadata
+// whole dual file

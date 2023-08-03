@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_all.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 15:05:22 by mael              #+#    #+#             */
-/*   Updated: 2023/08/02 11:25:52 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/02 20:40:44 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,6 @@
 
 int	free_ceil_floor(t_game *game)
 {
-	// int i;
-
-	// i = 0;
-	// while (i < 3)
-	// {
-	// 	printf("game->map->ceil[i]: %i\n", game->map->ceil[i]);
-	// 	i++;
-	// }
 	free(game->map->ceil);
 	free(game->map->floor);
 	return (SUCCESS);
@@ -35,7 +27,9 @@ void	free_fov(t_game *game)
 	while (i <= game->fov->nbr_ray)
 	{
 		free(game->fov->wall[i]);
+		game->fov->wall[i] = NULL;
 		free(game->fov->wall_witch[i]);
+		game->fov->wall_witch[i] = NULL;
 		i++;
 	}
 	if (game->fov->wall)

@@ -1,0 +1,436 @@
+./srcs/xpm_so_parse.c
+    int xpm_so_get_content_xpm(t_game *game, int fd, int ret, char *buf)
+./srcs/xpm_so_parse.c
+    int xpm_so_parse(t_game *game)
+./srcs/xpm_so_parse.c
+    int xpm_so_read(t_game *game, char *filename)
+./srcs/xpm_so_parse.c
+    int xpm_so_split_buf(int fd, t_game *game)
+./srcs/xpm_so_parse.c    4
+./srcs/draw_xpm_ud.c
+    int draw_xpm_down_blue(t_game *game, int i_midline)
+./srcs/draw_xpm_ud.c
+    int draw_xpm_down_red(t_game *game, int i_midline)
+./srcs/draw_xpm_ud.c
+    int draw_xpm_up_blue(t_game *game, int i_midline)
+./srcs/draw_xpm_ud.c
+    int draw_xpm_up_red(t_game *game, int i_midline)
+./srcs/draw_xpm_ud.c    4
+./srcs/main.c
+    int ft_parsing(t_game *game, char **argv)
+./srcs/main.c
+./srcs/main.c
+    void init_struct(t_game *game)
+./srcs/main.c
+./srcs/main.c
+    int open_fd(t_game *game, int *fd, char **argv)
+./srcs/main.c    5
+./srcs/pixel_and_color.c
+    int get_color(int red, int green, int blue)
+./srcs/pixel_and_color.c
+    void img_pix_put(t_game *game, int x, int y, int color)
+./srcs/pixel_and_color.c    2
+./srcs/xpm_we_correction.c
+    int xpm_we_copy_tab(t_game *game, char **tmp)
+./srcs/xpm_we_correction.c
+    int xpm_we_correct(t_game *g)
+./srcs/xpm_we_correction.c
+    int xpm_we_read_1line(t_game *game)
+./srcs/xpm_we_correction.c
+    int xpm_we_wo_comm(t_game *g, int n_comm)
+./srcs/xpm_we_correction.c    4
+./srcs/xpm_no_utils.c
+    int xpm_no_init_color(t_game *game, char **line)
+./srcs/xpm_no_utils.c
+    char *xpm_no_keep_metadata(char **tmp, int i_tmp)
+./srcs/xpm_no_utils.c    2
+./srcs/start_3D.c
+    void color_image(t_game *game)
+./srcs/start_3D.c
+    void do_quad(t_game *game, int i, int j)
+./srcs/start_3D.c
+    void fill_void(t_game *game, int i, int j)
+./srcs/start_3D.c
+    void fill_wall(t_game *game, int i, int j)
+./srcs/start_3D.c
+    int first_time(t_game *game)
+./srcs/start_3D.c
+    void reset_img(t_game *game)
+./srcs/start_3D.c
+    int start_3D(t_game *game)
+./srcs/start_3D.c    7
+./srcs/draw_xpm_down_ea.c
+    void draw_xpm_down_ea(t_game *game, int i_midline)
+./srcs/draw_xpm_down_ea.c
+    int draw_xpm_ea_color(t_game *game, int x, int y)
+./srcs/draw_xpm_down_ea.c    2
+./srcs/xpm_no_colors.c
+    int xpm_no_check_line_color(t_game *g, int *i_chr, int i_tab_file, int i_color)
+./srcs/xpm_no_colors.c
+    int xpm_no_hex_to_dec(t_game *g, int i_color, int i_tab_file, int i_chr)
+./srcs/xpm_no_colors.c
+    int xpm_no_letter_color(t_game *game, int i_color, int i_tab_file)
+./srcs/xpm_no_colors.c
+    int xpm_no_set_color(t_game *game, int i_color, char *tmp)
+./srcs/xpm_no_colors.c
+    int xpm_no_set_len_n_color(t_game *g, char **line)
+./srcs/xpm_no_colors.c    5
+./srcs/xpm_we_colors.c
+    int xpm_we_check_line_color(t_game *g, int *i_chr, int i_tab_file, int i_color)
+./srcs/xpm_we_colors.c
+    int xpm_we_hex_to_dec(t_game *g, int i_color, int i_tab_file, int i_chr)
+./srcs/xpm_we_colors.c
+    int xpm_we_letter_color(t_game *game, int i_color, int i_tab_file)
+./srcs/xpm_we_colors.c
+    int xpm_we_set_color(t_game *game, int i_color, char *tmp)
+./srcs/xpm_we_colors.c
+    int xpm_we_set_len_n_color(t_game *g, char **line)
+./srcs/xpm_we_colors.c    5
+./srcs/draw_line.c
+    int check_lines_hit_wall(t_game *game, int x_check, int y_check, int toggle)
+./srcs/draw_line.c
+    void color_line(t_game *game, int color, int toggle, int x_check, int y_check, int i)
+./srcs/draw_line.c
+    int draw_line_vision(t_game *game, int color)
+./srcs/draw_line.c
+    int draw_pixel(t_game *game, int toggle, int color)
+./srcs/draw_line.c
+    int init_line(t_game *game)
+./srcs/draw_line.c    5
+./srcs/free_parsing.c
+    int destroy_and_free(t_game *game, char *err)
+./srcs/free_parsing.c
+    int destroy_and_free2(t_game *game)
+./srcs/free_parsing.c
+    void free_parsing(t_game *game, char *err)
+./srcs/free_parsing.c
+    void free_tab_str(char **tab_str)
+./srcs/free_parsing.c
+    void free_wall(t_game *game)
+./srcs/free_parsing.c    5
+./srcs/display_3d_up.c
+    void display_3d_up(t_game *game)
+./srcs/display_3d_up.c
+    void display_3d_up_red(t_game *game, int i_main)
+./srcs/display_3d_up.c
+    void fill_ceil_floor(t_game *game)
+./srcs/display_3d_up.c
+    int init_3d_line(t_game *game)
+./srcs/display_3d_up.c    4
+./srcs/xpm_so_utils.c
+    int xpm_so_init_color(t_game *game, char **line)
+./srcs/xpm_so_utils.c
+    char *xpm_so_keep_metadata(char **tmp, int i_tmp)
+./srcs/xpm_so_utils.c    2
+./srcs/free_all.c
+    int free_all(t_game *game)
+./srcs/free_all.c
+    int free_ceil_floor(t_game *game)
+./srcs/free_all.c
+    void free_fov(t_game *game)
+./srcs/free_all.c    3
+./srcs/free_xpm.c
+    void free_xpm(t_game *game)
+./srcs/free_xpm.c
+    void free_xpm_ea(t_game *game)
+./srcs/free_xpm.c
+    void free_xpm_no(t_game *game)
+./srcs/free_xpm.c
+    void free_xpm_so(t_game *game)
+./srcs/free_xpm.c
+    void free_xpm_we(t_game *game)
+./srcs/free_xpm.c    5
+./srcs/xpm_so_correction.c
+    int xpm_so_copy_tab(t_game *game, char **tmp)
+./srcs/xpm_so_correction.c
+    int xpm_so_correct(t_game *g)
+./srcs/xpm_so_correction.c
+    int xpm_so_read_1line(t_game *game)
+./srcs/xpm_so_correction.c
+    int xpm_so_wo_comm(t_game *g, int n_comm)
+./srcs/xpm_so_correction.c    4
+./srcs/flooding.c
+    int flooding(t_game *game)
+./srcs/flooding.c
+    int is_propa_finished(t_game *game)
+./srcs/flooding.c
+    int propagation(t_game *game, int row, int col, int count)
+./srcs/flooding.c    3
+./srcs/texture_part_utils.c
+    int check_tx(t_game *game)
+./srcs/texture_part_utils.c    1
+./srcs/valid_wall.c
+    int check_letters_map(t_game *game)
+./srcs/valid_wall.c
+    int check_perso(t_game *game)
+./srcs/valid_wall.c
+    int hole_in_wall(t_game *game)
+./srcs/valid_wall.c
+    int is_fault(t_game *game, int row, int col)
+./srcs/valid_wall.c    4
+./srcs/build_map.c
+    void build_content(t_game *game, char **line, int fd)
+./srcs/build_map.c
+    int build_map(t_game *game, char **argv)
+./srcs/build_map.c
+    int create_map(t_game *game, char *line, int fd)
+./srcs/build_map.c
+    void realloc_lines(t_game *game)
+./srcs/build_map.c
+    void skip_empty_line(char **line, int fd)
+./srcs/build_map.c    5
+./srcs/read_file.c
+    int ft_buf_read(int fd, t_game *game)
+./srcs/read_file.c
+    int ft_read_file(t_game *game, char *filename)
+./srcs/read_file.c    2
+./srcs/xpm_we_utils.c
+    int xpm_we_init_color(t_game *game, char **line)
+./srcs/xpm_we_utils.c
+    char *xpm_we_keep_metadata(char **tmp, int i_tmp)
+./srcs/xpm_we_utils.c    2
+./srcs/display_3d_down.c
+    void display_3d(t_game *game)
+./srcs/display_3d_down.c
+    void display_3d_down(t_game *game)
+./srcs/display_3d_down.c
+    void display_3d_down_red(t_game *game, int i_main)
+./srcs/display_3d_down.c    3
+./srcs/display_3d_down_utils.c
+    void draw_line_3d_down(t_game *game, int i_main, int i_midline)
+./srcs/display_3d_down_utils.c
+    void i_draw_blue(t_game *game, int i_midline)
+./srcs/display_3d_down_utils.c
+    void i_draw_red(t_game *game, int i_midline)
+./srcs/display_3d_down_utils.c    3
+./srcs/fov.c
+    int calcul_opposite_side(t_game *game, double angle)
+./srcs/fov.c
+    int first_calcul(t_game *game, double angle)
+./srcs/fov.c
+    int init_fov(t_game *game)
+./srcs/fov.c
+    int init_fov_wall(t_game *game)
+./srcs/fov.c
+    int init_fov_wall_witch(t_game *game)
+./srcs/fov.c
+    void init_position(t_game *game)
+./srcs/fov.c
+    int second_calcul(t_game *game, double angle)
+./srcs/fov.c    7
+./srcs/draw_xpm_down_we.c
+    void draw_xpm_down_we(t_game *game, int i_midline)
+./srcs/draw_xpm_down_we.c
+    int draw_xpm_we_color(t_game *game, int x, int y)
+./srcs/draw_xpm_down_we.c    2
+./srcs/build_map_utils.c
+    int check_nbr(char *str)
+./srcs/build_map_utils.c
+    int is_empty_line(char *line)
+./srcs/build_map_utils.c
+    void set_width(t_game *game)
+./srcs/build_map_utils.c
+    int tab_len(char **arr)
+./srcs/build_map_utils.c    4
+./srcs/texture_part.c
+    int check_ea(t_game *game, char *line)
+./srcs/texture_part.c
+    int check_no(t_game *game, char *line)
+./srcs/texture_part.c
+    int check_so(t_game *game, char *line)
+./srcs/texture_part.c
+    int check_we(t_game *game, char *line)
+./srcs/texture_part.c
+    int texture_part(t_game *game, char *line)
+./srcs/texture_part.c    5
+./srcs/draw_xpm_up_ea.c
+    void draw_xpm_up_ea(t_game *game, int i_midline)
+./srcs/draw_xpm_up_ea.c
+    int draw_xpm_up_ea_color(t_game *game, int x, int y)
+./srcs/draw_xpm_up_ea.c    2
+./srcs/xpm_ea_utils.c
+    int xpm_ea_init_color(t_game *game, char **line)
+./srcs/xpm_ea_utils.c
+    char *xpm_ea_keep_metadata(char **tmp, int i_tmp)
+./srcs/xpm_ea_utils.c    2
+./srcs/display_all.c
+    int display_all(t_game *game, int key)
+./srcs/display_all.c
+    void last_correct_toggle(t_game *game)
+./srcs/display_all.c    2
+./srcs/tools.c
+    double abs_dble(double nb)
+./srcs/tools.c
+    double abs_flt(double nb)
+./srcs/tools.c
+    int absolute_value(int nb)
+./srcs/tools.c
+    double deg_to_radian(double deg)
+./srcs/tools.c
+    int hex_to_dec(char *hexa)
+./srcs/tools.c    5
+./srcs/display_all_utils.c
+    int init_display_all(t_game *game, int key, int *len_side)
+./srcs/display_all_utils.c
+    void move_straight(t_game *game)
+./srcs/display_all_utils.c
+    void rotate_new(t_game *game)
+./srcs/display_all_utils.c    3
+./srcs/player.c
+    void draw_player(t_game *game)
+./srcs/player.c
+    int ft_event_listen(int key, t_game *game)
+./srcs/player.c
+    void set_pos_character(t_game *game)
+./srcs/player.c    3
+./srcs/xpm_common.c
+    int init_xpm(t_game *game)
+./srcs/xpm_common.c
+    int is_space(char chr)
+./srcs/xpm_common.c
+    int xpm_parse(t_game *game)
+./srcs/xpm_common.c    3
+./srcs/xpm_ea_parse.c
+    int xpm_ea_get_content_xpm(t_game *game, int fd, int ret, char *buf)
+./srcs/xpm_ea_parse.c
+    int xpm_ea_parse(t_game *game)
+./srcs/xpm_ea_parse.c
+    int xpm_ea_read(t_game *game, char *filename)
+./srcs/xpm_ea_parse.c
+    int xpm_ea_split_buf(int fd, t_game *game)
+./srcs/xpm_ea_parse.c    4
+./srcs/draw_xpm_up_we.c
+    void draw_xpm_up_we(t_game *game, int i_midline)
+./srcs/draw_xpm_up_we.c
+    int draw_xpm_up_we_color(t_game *game, int x, int y)
+./srcs/draw_xpm_up_we.c    2
+./srcs/draw_xpm_down_so.c
+    void draw_xpm_down_so(t_game *game, int i_midline)
+./srcs/draw_xpm_down_so.c
+    int draw_xpm_so_color(t_game *game, int x, int y)
+./srcs/draw_xpm_down_so.c    2
+./srcs/xpm_no_correction.c
+    int xpm_no_copy_tab(t_game *game, char **tmp)
+./srcs/xpm_no_correction.c
+    int xpm_no_correct(t_game *g)
+./srcs/xpm_no_correction.c
+    int xpm_no_read_1line(t_game *game)
+./srcs/xpm_no_correction.c
+    int xpm_no_wo_comm(t_game *g, int n_comm)
+./srcs/xpm_no_correction.c    4
+./srcs/draw_xpm_down_no.c
+    void draw_xpm_down_no(t_game *game, int i_midline)
+./srcs/draw_xpm_down_no.c
+    int draw_xpm_no_color(t_game *game, int x, int y)
+./srcs/draw_xpm_down_no.c    2
+./srcs/draw_xpm_up_no.c
+    void draw_xpm_up_no(t_game *game, int i_midline)
+./srcs/draw_xpm_up_no.c
+    int draw_xpm_up_no_color(t_game *game, int x, int y)
+./srcs/draw_xpm_up_no.c    2
+./srcs/xpm_no_parse.c
+    int xpm_no_get_content_xpm(t_game *game, int fd, int ret, char *buf)
+./srcs/xpm_no_parse.c
+    int xpm_no_parse(t_game *game)
+./srcs/xpm_no_parse.c
+    int xpm_no_read(t_game *game, char *filename)
+./srcs/xpm_no_parse.c
+    int xpm_no_split_buf(int fd, t_game *game)
+./srcs/xpm_no_parse.c    4
+./srcs/check_file.c
+    int check_env(char **envp)
+./srcs/check_file.c
+    int check_ext(char *filename, char one, char two, char three)
+./srcs/check_file.c
+    int wrong_letter_tx(char *line)
+./srcs/check_file.c    3
+./srcs/init_img.c
+    int create_image_and_get_adrr(t_game *game)
+./srcs/init_img.c
+    int init_img(t_game *game)
+./srcs/init_img.c    2
+./srcs/move_w_s.c
+    int calcul_corr_for_step(t_game *game)
+./srcs/move_w_s.c
+    void init_direction_for_s(t_game *game)
+./srcs/move_w_s.c
+    void init_direction_for_s_2(t_game *game)
+./srcs/move_w_s.c
+    void move_s(t_game *game)
+./srcs/move_w_s.c
+    void move_w(t_game *game)
+./srcs/move_w_s.c    5
+./srcs/floor_ceil_part.c
+    int check_ceil(t_game *game, char *line, char *color)
+./srcs/floor_ceil_part.c
+    int check_ceil_content(t_game *game, char **color)
+./srcs/floor_ceil_part.c
+    int check_floor(t_game *game, char *line, char *color)
+./srcs/floor_ceil_part.c
+    int check_floor_content(t_game *game, char **color)
+./srcs/floor_ceil_part.c
+    int floor_ceil_part(t_game *game, char *line)
+./srcs/floor_ceil_part.c    5
+./srcs/xpm_we_parse.c
+    int xpm_we_get_content_xpm(t_game *game, int fd, int ret, char *buf)
+./srcs/xpm_we_parse.c
+    int xpm_we_parse(t_game *game)
+./srcs/xpm_we_parse.c
+    int xpm_we_read(t_game *game, char *filename)
+./srcs/xpm_we_parse.c
+    int xpm_we_split_buf(int fd, t_game *game)
+./srcs/xpm_we_parse.c    4
+./srcs/display_3d_up_utils.c
+    void draw_line_3d_up(t_game *game, int i_main, int i_midline)
+./srcs/display_3d_up_utils.c
+    void i_draw_up_blue(t_game *game, int i_midline)
+./srcs/display_3d_up_utils.c
+    void i_draw_up_red(t_game *game, int i_midline)
+./srcs/display_3d_up_utils.c    3
+./srcs/xpm_so_colors.c
+    int xpm_so_check_line_color(t_game *g, int *i_chr, int i_tab_file, int i_color)
+./srcs/xpm_so_colors.c
+    int xpm_so_hex_to_dec(t_game *g, int i_color, int i_tab_file, int i_chr)
+./srcs/xpm_so_colors.c
+    int xpm_so_letter_color(t_game *game, int i_color, int i_tab_file)
+./srcs/xpm_so_colors.c
+    int xpm_so_set_color(t_game *game, int i_color, char *tmp)
+./srcs/xpm_so_colors.c
+    int xpm_so_set_len_n_color(t_game *g, char **line)
+./srcs/xpm_so_colors.c    5
+./srcs/check_format.c
+    void check_corner(t_game *game)
+./srcs/check_format.c
+    void check_wall_in_map_1(t_game *game, int i_big, int i_lil)
+./srcs/check_format.c
+    void check_wall_in_map_2(t_game *game, int i_big, int i_lil)
+./srcs/check_format.c    3
+./srcs/xpm_we_dual.c
+    int xpm_we_check_dual_color(t_game *g, int *i_chr, int i_tab_file, int i_color)
+./srcs/xpm_we_dual.c
+    int xpm_we_dual_letters(t_game *g, int i_chr, int i_tab_file, int i_color)
+./srcs/xpm_we_dual.c    2
+./srcs/draw_xpm_up_so.c
+    void draw_xpm_up_so(t_game *game, int i_midline)
+./srcs/draw_xpm_up_so.c
+    int draw_xpm_up_so_color(t_game *game, int x, int y)
+./srcs/draw_xpm_up_so.c    2
+./srcs/xpm_ea_correction.c
+    int xpm_ea_copy_tab(t_game *game, char **tmp)
+./srcs/xpm_ea_correction.c
+    int xpm_ea_correct(t_game *g)
+./srcs/xpm_ea_correction.c
+    int xpm_ea_read_1line(t_game *game)
+./srcs/xpm_ea_correction.c
+    int xpm_ea_wo_comm(t_game *g, int n_comm)
+./srcs/xpm_ea_correction.c    4
+./srcs/xpm_ea_colors.c
+    int xpm_ea_check_line_color(t_game *g, int *i_chr, int i_tab_file, int i_color)
+./srcs/xpm_ea_colors.c
+    int xpm_ea_hex_to_dec(t_game *g, int i_color, int i_tab_file, int i_chr)
+./srcs/xpm_ea_colors.c
+    int xpm_ea_letter_color(t_game *game, int i_color, int i_tab_file)
+./srcs/xpm_ea_colors.c
+    int xpm_ea_set_color(t_game *game, int i_color, char *tmp)
+./srcs/xpm_ea_colors.c
+    int xpm_ea_set_len_n_color(t_game *g, char **line)

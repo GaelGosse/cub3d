@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fov.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 16:47:24 by mael              #+#    #+#             */
-/*   Updated: 2023/08/01 14:02:36 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/02 20:38:07 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,57 +107,4 @@ void	init_position(t_game *game)
 		game->line->y_dest = game->map->pos_y;
 		game->fov->angle = 90;
 	}
-}
-
-int	first_calcul(t_game *game, double angle)
-{
-	int	op_side;
-
-	if (game->fov->toggle == 'N' && game->line->y_dest == 0)
-	{
-		game->line->y_dest = 0;
-		if (angle < 360 && angle > 180)
-			op_side = tan(deg_to_radian(360 - angle)) * game->map->pos_y;
-		else
-			op_side = tan(deg_to_radian(angle)) * game->map->pos_y;
-	}
-	if (game->fov->toggle == 'E' && \
-		game->line->x_dest >= game->map->width * game->img_size)
-	{
-		game->line->x_dest = game->map->width * game->img_size;
-		op_side = tan(deg_to_radian(absolute_value(90 - angle))) * \
-			(game->map->width * game->img_size - game->map->pos_x);
-	}
-	return (op_side);
-}
-
-int	second_calcul(t_game *game, double angle)
-{
-	int	op_side;
-
-	if (game->fov->toggle == 'S' && game->line->y_dest >= \
-		game->map->height * game->img_size)
-	{
-		game->line->y_dest = game->map->height * game->img_size;
-		op_side = tan(deg_to_radian(absolute_value(180 - angle))) * \
-			(game->map->height * game->img_size - game->map->pos_y);
-	}
-	if (game->fov->toggle == 'W' && game->line->x_dest <= 0)
-	{
-		game->line->x_dest = 0;
-		op_side = tan(deg_to_radian(absolute_value(270 - angle))) * \
-			(game->map->pos_x);
-	}
-	return (op_side);
-}
-
-int	calcul_opposite_side(t_game *game, double angle)
-{
-	int	op_side;
-
-	if (game->fov->toggle == 'N' || game->fov->toggle == 'E')
-		op_side = first_calcul(game, angle);
-	else if (game->fov->toggle == 'S' || game->fov->toggle == 'W')
-		op_side = second_calcul(game, angle);
-	return (op_side);
 }

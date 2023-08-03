@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   key_rotate.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/27 18:22:19 by mael              #+#    #+#             */
-/*   Updated: 2023/07/06 16:37:57 by mael             ###   ########.fr       */
+/*   Created: 2023/08/02 21:00:02 by mael              #+#    #+#             */
+/*   Updated: 2023/08/02 21:07:17 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-void	t(void)
+void	key_rotate_left(t_game *game, int key)
 {
-	int	t;
-	(void)t;
+	game->fov->angle -= 5;
+	if (game->fov->angle < 0)
+		game->fov->angle = game->fov->angle + 360;
+	reset_img(game);
+	display_all(game, key);
+}
+
+void	key_rotate_right(t_game *game, int key)
+{
+	game->fov->angle += 5;
+	if (game->fov->angle >= 360)
+		game->fov->angle = game->fov->angle % 360;
+	reset_img(game);
+	display_all(game, key);
 }

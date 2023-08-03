@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   floor_ceil_part.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 17:52:47 by ggosse            #+#    #+#             */
-/*   Updated: 2023/07/31 16:21:04 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/02 20:36:54 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	check_floor(t_game *game, char *line, char *color)
 	return (SUCCESS);
 }
 
-int	check_floor_content(t_game *game, char **color)
+int	check_floor_content(t_game *g, char **color)
 {
 	char	*str_tmp;
 	char	**tab_tmp;
@@ -65,12 +65,11 @@ int	check_floor_content(t_game *game, char **color)
 	rgb = -1;
 	str_tmp = ft_strtrim((*color), " \n");
 	tab_tmp = ft_split(str_tmp, ',');
-	if (game->map->floor != NULL)
-		return (printf(RED"Err: floor already set %s\n"RST, \
-		game->map->wall_no), FAIL);
+	if (g->map->floor != NULL)
+		return (printf("Err: floor already set %s\n", g->map->wall_no), FAIL);
 	free(str_tmp);
-	game->map->floor = malloc(sizeof(int) * (3));
-	if (!game->map->floor)
+	g->map->floor = malloc(sizeof(int) * (3));
+	if (!g->map->floor)
 		return (printf("malloc floor failed\n"), FAIL);
 	if (tab_len(tab_tmp) != 3)
 		return (printf("rgb must have 3 int\n"), FAIL);
@@ -78,12 +77,11 @@ int	check_floor_content(t_game *game, char **color)
 	{
 		if (check_nbr(tab_tmp[rgb]) == FAIL)
 			return (printf("Something wrong with floor\n"), FAIL);
-		game->map->floor[rgb] = ft_atoi(tab_tmp[rgb]);
+		g->map->floor[rgb] = ft_atoi(tab_tmp[rgb]);
 		free(tab_tmp[rgb]);
-		if (game->map->floor[rgb] < 0 || game->map->floor[rgb] > 255)
+		if (g->map->floor[rgb] < 0 || g->map->floor[rgb] > 255)
 			return (printf("Err: 0 < color < 255\n"), free(tab_tmp), FAIL);
 	}
-	// free(*color);
 	return (free(tab_tmp), SUCCESS);
 }
 
@@ -124,8 +122,7 @@ int	check_ceil_content(t_game *game, char **color)
 	str_tmp = ft_strtrim((*color), " \n");
 	tab_tmp = ft_split(str_tmp, ',');
 	if (game->map->ceil != NULL)
-		return (printf(RED"Err: ceil already set %s\n"RST, \
-		game->map->wall_ea), FAIL);
+		return (printf("Err: ceil already set %s\n", game->map->wall_ea), FAIL);
 	free(str_tmp);
 	game->map->ceil = malloc(sizeof(int) * (3));
 	if (!game->map->ceil)
@@ -141,6 +138,5 @@ int	check_ceil_content(t_game *game, char **color)
 		if (game->map->ceil[rgb] < 0 || game->map->ceil[rgb] > 255)
 			return (printf("Err: 0 < color < 255\n"), free(tab_tmp), FAIL);
 	}
-	//free(*color);
 	return (free(tab_tmp), SUCCESS);
 }

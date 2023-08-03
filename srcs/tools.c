@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   convert.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 11:55:01 by mael              #+#    #+#             */
-/*   Updated: 2023/07/31 16:20:05 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/02 14:11:15 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,32 @@ int	hex_to_dec(char *hexa)
 		power--;
 	}
 	free(hexa);
-	
 	return (res);
+}
+
+int	absolute_value(int nb)
+{
+	if (nb == 0)
+		return (nb);
+	else if (nb < 0)
+		nb = nb * (-1);
+	return (nb);
+}
+
+double	abs_flt(double nb)
+{
+	if (nb == 0)
+		return (nb);
+	else if (nb < 0)
+		nb = nb * (-1);
+	return (nb);
+}
+
+double	abs_dble(double nb)
+{
+	if (nb == 0)
+		return (nb);
+	else if (nb < 0)
+		nb = nb * (-1);
+	return (nb);
 }

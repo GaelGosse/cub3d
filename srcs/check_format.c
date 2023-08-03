@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_format.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 11:13:20 by gael              #+#    #+#             */
-/*   Updated: 2023/07/11 11:46:30 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/02 11:15:17 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,53 +26,51 @@ void	check_corner(t_game *game)
 		{
 			if (game->map->map_tmp[i_big][i_lil] == game->perso)
 			{
-				if (game->map->map_tmp[i_big - 1][i_lil] == '1' \
-				&& game->map->map_tmp[i_big][i_lil + 1] == '1' \
-				&& (game->map->map_tmp[i_big - 1][i_lil + 1] == ' ' \
-				|| game->map->map_tmp[i_big - 1][i_lil + 1] == '0'))
-				{
-					game->map->map_tmp[i_big - 1][i_lil + 1] = '1';
-					game->map->map_org[i_big - 1][i_lil + 1] = '1';
-					// print_map(game->map->map_org);
-					// usleep(1500000);
-					// printf("\033c\n");
-				}
-				if (game->map->map_tmp[i_big + 1][i_lil] == '1' \
-				&& game->map->map_tmp[i_big][i_lil + 1] == '1' \
-				&& (game->map->map_tmp[i_big + 1][i_lil + 1] == ' ' \
-				|| game->map->map_tmp[i_big + 1][i_lil + 1] == '0'))
-				{
-					game->map->map_tmp[i_big + 1][i_lil + 1] = '1';
-					game->map->map_org[i_big + 1][i_lil + 1] = '1';
-					// print_map(game->map->map_org);
-					// usleep(1500000);
-					// printf("\033c\n");
-				}
-				if (game->map->map_tmp[i_big + 1][i_lil] == '1' \
-				&& game->map->map_tmp[i_big][i_lil - 1] == '1' \
-				&& (game->map->map_tmp[i_big + 1][i_lil - 1] == ' ' \
-				|| game->map->map_tmp[i_big + 1][i_lil - 1] == '0'))
-				{
-					game->map->map_tmp[i_big + 1][i_lil - 1] = '1';
-					game->map->map_org[i_big + 1][i_lil - 1] = '1';
-					// print_map(game->map->map_org);
-					// usleep(1500000);
-					// printf("\033c\n");
-				}
-				if (game->map->map_tmp[i_big - 1][i_lil] == '1' \
-				&& game->map->map_tmp[i_big][i_lil - 1] == '1' \
-				&& (game->map->map_tmp[i_big - 1][i_lil - 1] == ' ' \
-				|| game->map->map_tmp[i_big - 1][i_lil - 1] == '0'))
-				{
-					game->map->map_tmp[i_big - 1][i_lil - 1] = '1';
-					game->map->map_org[i_big - 1][i_lil - 1] = '1';
-					// print_map(game->map->map_org);
-					// usleep(1500000);
-					// printf("\033c\n");
-				}
+				check_wall_in_map_1(game, i_big, i_lil);
+				check_wall_in_map_2(game, i_big, i_lil);
 			}
 			i_lil++;
 		}
 		i_big++;
+	}
+}
+
+void	check_wall_in_map_1(t_game *game, int i_big, int i_lil)
+{
+	if (game->map->map_tmp[i_big - 1][i_lil] == '1' \
+	&& game->map->map_tmp[i_big][i_lil + 1] == '1' \
+	&& (game->map->map_tmp[i_big - 1][i_lil + 1] == ' ' \
+	|| game->map->map_tmp[i_big - 1][i_lil + 1] == '0'))
+	{
+		game->map->map_tmp[i_big - 1][i_lil + 1] = '1';
+		game->map->map_org[i_big - 1][i_lil + 1] = '1';
+	}
+	if (game->map->map_tmp[i_big + 1][i_lil] == '1' \
+	&& game->map->map_tmp[i_big][i_lil + 1] == '1' \
+	&& (game->map->map_tmp[i_big + 1][i_lil + 1] == ' ' \
+	|| game->map->map_tmp[i_big + 1][i_lil + 1] == '0'))
+	{
+		game->map->map_tmp[i_big + 1][i_lil + 1] = '1';
+		game->map->map_org[i_big + 1][i_lil + 1] = '1';
+	}
+}
+
+void	check_wall_in_map_2(t_game *game, int i_big, int i_lil)
+{
+	if (game->map->map_tmp[i_big + 1][i_lil] == '1' \
+	&& game->map->map_tmp[i_big][i_lil - 1] == '1' \
+	&& (game->map->map_tmp[i_big + 1][i_lil - 1] == ' ' \
+	|| game->map->map_tmp[i_big + 1][i_lil - 1] == '0'))
+	{
+		game->map->map_tmp[i_big + 1][i_lil - 1] = '1';
+		game->map->map_org[i_big + 1][i_lil - 1] = '1';
+	}
+	if (game->map->map_tmp[i_big - 1][i_lil] == '1' \
+	&& game->map->map_tmp[i_big][i_lil - 1] == '1' \
+	&& (game->map->map_tmp[i_big - 1][i_lil - 1] == ' ' \
+	|| game->map->map_tmp[i_big - 1][i_lil - 1] == '0'))
+	{
+		game->map->map_tmp[i_big - 1][i_lil - 1] = '1';
+		game->map->map_org[i_big - 1][i_lil - 1] = '1';
 	}
 }
