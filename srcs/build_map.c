@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 09:38:48 by gael              #+#    #+#             */
-/*   Updated: 2023/08/03 12:39:44 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/03 13:38:47 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,14 +86,10 @@ int	create_map(t_game *game, char *line, int fd)
 	return (printf("something wrong with map\n"), FAIL);
 }
 
-int	build_map(t_game *game, char **argv)
+int	build_map(t_game *game, char **argv, int count, int fd)
 {
-	int		count;
-	int		fd;
 	char	*line;
 
-	count = 0;
-	fd = -1;
 	if (open_fd(game, &fd, argv) == FAIL)
 		return (FAIL);
 	line = gnl(fd);

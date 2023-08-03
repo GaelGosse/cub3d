@@ -48,7 +48,6 @@ _SRCS	=	angle_len.c \
 			build_map_utils.c \
 			check_file.c \
 			check_format.c \
-			color_image.c \
 			display_3d_down.c \
 			display_3d_down_utils.c \
 			display_3d_up.c \

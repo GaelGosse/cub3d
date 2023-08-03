@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:45:40 by ggosse            #+#    #+#             */
-/*   Updated: 2023/08/03 13:18:58 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/03 14:14:12 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,6 +184,13 @@ typedef struct s_fov
 
 typedef struct s_game
 {
+	int			display_all_save_src_x;
+	int			display_all_save_src_y;
+	int			display_all_save_x;
+	int			display_all_save_y;
+	double		display_all_angle;
+	double		display_all_angle_2;
+	int			display_all_i_rotate;
 	int			flag;
 	int			view_angle;
 	int			img_size;
@@ -259,9 +266,8 @@ int		xpm_we_set_color(t_game *game, int i_color, char *tmp);
 int		xpm_we_set_len_n_color(t_game *g, char **line);
 //srcs/draw_line.c
 int		check_lines_hit_wall(t_game *game, int x_check, int y_check, int toggle);
-void	color_line(t_game *game, int color, int toggle, int x_check, int y_check, int i);
-int		draw_line_vision(t_game *game, int color);
-int		draw_pixel(t_game *game, int toggle, int color);
+int		draw_line_vision(t_game *game);
+int		draw_pixel(t_game *game, int toggle);
 int		init_line(t_game *game);
 //srcs/free_parsing.c
 int		destroy_and_free(t_game *game, char *err);
@@ -313,7 +319,7 @@ int		hole_in_wall(t_game *game);
 int		is_fault(t_game *game, int row, int col);
 //srcs/build_map.c
 void	build_content(t_game *game, char **line, int fd);
-int		build_map(t_game *game, char **argv);
+int		build_map(t_game *game, char **argv, int count, int fd);
 int		create_map(t_game *game, char *line, int fd);
 void	realloc_lines(t_game *game);
 void	skip_empty_line(char **line, int fd);
@@ -329,11 +335,6 @@ char	*xpm_we_keep_metadata(char **tmp, int i_tmp);
 void	display_3d(t_game *game);
 void	display_3d_down(t_game *game);
 void	display_3d_down_red(t_game *game, int i_main);
-//srcs/color_image.c
-void	color_image(t_game *game);
-void	do_quad(t_game *game, int i, int j);
-void	fill_void(t_game *game, int i, int j);
-void	fill_wall(t_game *game, int i, int j);
 //srcs/key_rotate.c
 void	key_rotate_left(t_game *game, int key);
 void	key_rotate_right(t_game *game, int key);
@@ -370,6 +371,8 @@ int		xpm_ea_init_color(t_game *game, char **line);
 char	*xpm_ea_keep_metadata(char **tmp, int i_tmp);
 //srcs/display_all.c
 int		display_all(t_game *game, int key);
+void	display_all_blue(t_game *game, int i_rotate, int len_vision);
+void	display_all_red(t_game *game, int i_rotate, int len_vision);
 void	last_correct_toggle(t_game *game);
 //srcs/tools.c
 double	abs_dble(double nb);
@@ -382,7 +385,6 @@ int		init_display_all(t_game *game, int key, int *len_side);
 void	move_straight(t_game *game);
 void	rotate_new(t_game *game);
 //srcs/player.c
-void	draw_player(t_game *game);
 int		ft_event_listen(int key, t_game *game);
 void	set_pos_character(t_game *game);
 //srcs/xpm_common.c

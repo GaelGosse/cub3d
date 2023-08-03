@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_all_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 11:54:00 by gael              #+#    #+#             */
-/*   Updated: 2023/08/03 11:06:25 by mael             ###   ########.fr       */
+/*   Updated: 2023/08/03 13:22:52 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ int	init_display_all(t_game *game, int key, int *len_side)
 		if (create_image_and_get_adrr(game) == FAIL)
 			return (printf(BACK_RED"crt img"RST"\n"), FAIL);
 	}
-	color_image(game);
-	draw_player(game);
 	game->line->x_src = game->map->pos_x;
 	game->line->y_src = game->map->pos_y;
 	(void)len_side;

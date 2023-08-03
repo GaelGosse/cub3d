@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_3D.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:52:12 by mael              #+#    #+#             */
-/*   Updated: 2023/08/03 11:35:43 by mael             ###   ########.fr       */
+/*   Updated: 2023/08/03 13:29:30 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ int	first_time(t_game *game)
 		return (FAIL);
 	if (create_image_and_get_adrr(game) == FAIL)
 		return (FAIL);
-	color_image(game);
-	draw_player(game);
 	game->line->x_src = game->map->pos_x;
 	game->line->y_src = game->map->pos_y;
 	if (init_fov(game) == FAIL)
@@ -47,13 +45,10 @@ int	start_3d(t_game *game)
 	game->mlibx = mlx_init();
 	if (!game->mlibx)
 		return (printf("mlx pointer issue\n"), FAIL);
-	if ((game->map->width * game->img_size) < 600)
-		game->win_width = 600;
-	else
-		game->win_width = game->map->width * game->img_size;
+	game->win_width = 600;
 	game->win_height = 700;
 	game->window = mlx_new_window(game->mlibx, game->win_width, \
-	game->win_height + (game->map->height * game->img_size), "cub3D");
+	game->win_height, "cub3D");
 	if (!game->window)
 		return (printf("Window failed\n"), FAIL);
 	if (first_time(game) == FAIL)

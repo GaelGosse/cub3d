@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 22:03:53 by gael              #+#    #+#             */
-/*   Updated: 2023/08/03 13:01:59 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/03 13:33:38 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 int	draw_xpm_down_blue(t_game *game, int i_midline)
 {
-	if (game->line_3d->corr_y < game->map->height * game->img_size || \
-	game->line_3d->corr_y > game->win_height + \
-	game->map->height * game->img_size)
+	if (game->line_3d->corr_y < 0 || \
+	game->line_3d->corr_y > game->win_height)
 		return (FAIL);
 	if (game->fov->toggle_vision[i_midline] == 'E')
 	{
@@ -43,9 +42,8 @@ int	draw_xpm_down_blue(t_game *game, int i_midline)
 
 int	draw_xpm_down_red(t_game *game, int i_midline)
 {
-	if (game->line_3d->corr_y < game->map->height * game->img_size || \
-	game->line_3d->corr_y > game->win_height + \
-	game->map->height * game->img_size)
+	if (game->line_3d->corr_y < 0 || \
+	game->line_3d->corr_y > game->win_height)
 		return (FAIL);
 	if (game->fov->toggle_vision[i_midline] == 'E')
 	{
@@ -72,9 +70,8 @@ int	draw_xpm_down_red(t_game *game, int i_midline)
 
 int	draw_xpm_up_blue(t_game *game, int i_midline)
 {
-	if (game->line_3d->corr_y < game->map->height * game->img_size || \
-	game->line_3d->corr_y > game->win_height + \
-	game->map->height * game->img_size)
+	if (game->line_3d->corr_y < 0 || \
+	game->line_3d->corr_y > game->win_height)
 		return (FAIL);
 	if (game->fov->toggle_vision[i_midline] == 'E')
 	{
@@ -101,9 +98,8 @@ int	draw_xpm_up_blue(t_game *game, int i_midline)
 
 int	draw_xpm_up_red(t_game *game, int i_midline)
 {
-	if (game->line_3d->corr_y < game->map->height * game->img_size || \
-	game->line_3d->corr_y > game->win_height + \
-	game->map->height * game->img_size)
+	if (game->line_3d->corr_y < 0 || \
+	game->line_3d->corr_y > game->win_height)
 		return (FAIL);
 	if (game->fov->toggle_vision[i_midline] == 'E')
 	{

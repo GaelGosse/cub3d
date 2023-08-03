@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 16:34:58 by mael              #+#    #+#             */
-/*   Updated: 2023/08/03 13:18:55 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/03 13:20:03 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	init_line(t_game *game)
 	return (SUCCESS);
 }
 
-int	draw_pixel(t_game *game, int toggle, int color)
+int	draw_pixel(t_game *game, int toggle)
 {
 	int	i;
 	int	x_check;
@@ -47,7 +47,6 @@ int	draw_pixel(t_game *game, int toggle, int color)
 	y_check = FAIL;
 	while (i <= game->line->steps)
 	{
-		color_line(game, color, toggle, x_check, y_check, i);
 		game->line->corr_x = game->line->corr_x + game->line->xite;
 		game->line->corr_y = game->line->corr_y + game->line->yite;
 		y_check = (int)(game->line->corr_y / game->img_size);
@@ -57,19 +56,6 @@ int	draw_pixel(t_game *game, int toggle, int color)
 		i++;
 	}
 	return (SUCCESS);
-}
-
-void	color_line(t_game *game, int color, int toggle, int x_check, int y_check, int i)
-{
-	if (toggle == FAIL && i == 0 && roundf(game->line->corr_x) > 0 && \
-	roundf(game->line->corr_y) > 0)
-		img_pix_put(game, roundf(game->line->corr_x), \
-		roundf(game->line->corr_y), color);
-	else if (toggle == FAIL && i > 0 && roundf(game->line->corr_x) > 0 && \
-	roundf(game->line->corr_y) > 0 && \
-	game->map->map_org[y_check][x_check] != '1')
-		img_pix_put(game, roundf(game->line->corr_x), \
-		roundf(game->line->corr_y), color);
 }
 
 int	check_lines_hit_wall(t_game *game, int x_check, int y_check, int toggle)
@@ -87,7 +73,7 @@ int	check_lines_hit_wall(t_game *game, int x_check, int y_check, int toggle)
 	return (SUCCESS);
 }
 
-int	draw_line_vision(t_game *game, int color)
+int	draw_line_vision(t_game *game)
 {
 	double	len;
 	int		toggle;
@@ -104,7 +90,7 @@ int	draw_line_vision(t_game *game, int color)
 	game->line->yite = game->line->dy / (double)game->line->steps;
 	game->line->corr_x = game->line->x_src;
 	game->line->corr_y = game->line->y_src;
-	draw_pixel(game, toggle, color);
+	draw_pixel(game, toggle);
 	len = sqrt(pow(game->line->corr_x - (double)game->line->x_src, 2) + \
 		pow(game->line->corr_y - (double)game->line->y_src, 2));
 	len = roundf(len);

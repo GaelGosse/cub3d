@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_3d_down_utils.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 11:24:12 by mael              #+#    #+#             */
-/*   Updated: 2023/08/03 10:40:18 by mael             ###   ########.fr       */
+/*   Updated: 2023/08/03 13:27:46 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@ void	draw_line_3d_down(t_game *game, int i_main, int i_midline)
 {
 	game->line_3d->x_dest = i_main;
 	game->line_3d->x_src = i_main;
-	game->line_3d->y_src = (game->win_height / 2) + \
-		(game->map->height * game->img_size);
-	game->line_3d->y_dest = (game->win_height / 2) + \
-		(game->map->height * game->img_size);
+	game->line_3d->y_src = (game->win_height / 2);
+	game->line_3d->y_dest = (game->win_height / 2);
 	if (game->fov->lines_vision[i_midline] == 0)
 		game->fov->lines_vision[i_midline] = 1;
 	game->line_3d->y_dest += ((game->fov->proj_plane * game->img_size) / \

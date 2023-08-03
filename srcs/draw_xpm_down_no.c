@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/30 21:57:47 by gael              #+#    #+#             */
-/*   Updated: 2023/08/03 12:45:14 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/03 13:32:03 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ void	draw_xpm_down_no(t_game *game, int i_midline)
 
 	perc_x = (double)((int)roundf(game->fov->wall_witch[i_midline][0]) % \
 	game->img_size) / (double)game->img_size;
-	act_y = game->line_3d->corr_y - ((game->win_height / 2) + \
-	(game->map->height * game->img_size));
+	act_y = game->line_3d->corr_y - ((game->win_height / 2));
 	perc_y = (game->line_3d->steps + act_y) / (game->line_3d->steps * 2);
 	perc_x = (int)roundf(perc_x * game->xpm->no_width_height);
 	perc_y = (int)roundf(perc_y * game->xpm->no_width_height);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 13:35:04 by mael              #+#    #+#             */
-/*   Updated: 2023/08/03 11:29:24 by mael             ###   ########.fr       */
+/*   Updated: 2023/08/03 13:23:08 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,25 +30,6 @@ void	set_pos_character(t_game *game)
 				game->map->pos_x = (x * game->img_size) + (game->img_size / 2);
 				game->map->pos_y = (y * game->img_size) + (game->img_size / 2);
 			}
-			x++;
-		}
-		y++;
-	}
-}
-
-void	draw_player(t_game *game)
-{
-	int	y;
-	int	x;
-
-	y = game->map->pos_y - 5;
-	x = game->map->pos_x - 5;
-	while (y < game->map->pos_y + 5)
-	{
-		x = game->map->pos_x - 5;
-		while (x < game->map->pos_x + 5)
-		{
-			img_pix_put(game, x, y, get_color(0, 255, 0));
 			x++;
 		}
 		y++;

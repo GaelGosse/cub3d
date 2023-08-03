@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:15:08 by ggosse            #+#    #+#             */
-/*   Updated: 2023/08/03 11:31:27 by mael             ###   ########.fr       */
+/*   Updated: 2023/08/03 14:02:34 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,16 @@ int	open_fd(t_game *game, int *fd, char **argv)
 
 int	ft_parsing(t_game *game, char **argv)
 {
+	int		count;
+	int		fd;
+
+	count = 0;
+	fd = -1;
 	if (check_ext(argv[1], 'c', 'u', 'b') == FAIL)
 		return (free_parsing(game, "wrong filename extension\n"), FAIL);
 	if (ft_read_file(game, argv[1]) == FAIL)
 		return (FAIL);
-	if (build_map(game, argv) == FAIL)
+	if (build_map(game, argv, count, fd) == FAIL)
 		return (FAIL);
 	if (xpm_parse(game) == FAIL)
 		return (FAIL);
@@ -75,8 +80,21 @@ int	ft_parsing(t_game *game, char **argv)
 
 void	init_main(t_game *game)
 {
+	game->display_all_save_src_x = 0;
+	game->display_all_save_src_y = 0;
+	game->display_all_save_x = 0;
+	game->display_all_save_y = 0;
+	game->display_all_angle = 0;
+	game->display_all_angle_2 = 0;
+	game->display_all_i_rotate = 0;
+	game->flag = 0;
+	game->view_angle = 0;
+	game->img_size = 0;
+	game->perso = '\0';
 	game->mlibx = NULL;
 	game->window = NULL;
+	game->win_height = 0;
+	game->win_width = 0;
 	game->map = NULL;
 	game->img = NULL;
 	game->xpm = NULL;
