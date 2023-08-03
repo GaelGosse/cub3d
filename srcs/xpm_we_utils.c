@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   xpm_we_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 11:13:18 by gael              #+#    #+#             */
-/*   Updated: 2023/08/03 12:47:22 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/03 16:12:41 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	xpm_we_init_color(t_game *g)
 	int	i_color;
 
 	i_color = 0;
-	g->xpm->we_colors = malloc(sizeof(int *) * (g->xpm->we_metadata[2] + 1));
+	g->xpm->we_colors = malloc(sizeof(int *) * (g->xpm->we_metadata[2]));
 	if (!g->xpm->we_colors)
 		return (printf("xpm colors failed\n"), FAIL);
 	while (i_color < g->xpm->we_metadata[2])

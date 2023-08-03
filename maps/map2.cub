@@ -1,7 +1,7 @@
-WE sprites/water.xpm
-EA sprites/crystal.xpm
-NO sprites/rock.xpm
-SO sprites/ship_left.xpm
+WE sprites/64/wallw.xpm
+EA sprites/64/walle.xpm
+NO sprites/64/walln.xpm
+SO sprites/64/walls.xpm
 C 255,255,35
 F 255,20,147
 

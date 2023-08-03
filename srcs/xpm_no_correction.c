@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   xpm_no_correction.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 10:03:27 by gael              #+#    #+#             */
-/*   Updated: 2023/08/02 14:23:05 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/03 17:54:17 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ int	xpm_no_wo_comm(t_game *g, int n_comm)
 	int		j;
 
 	tab_tmp = NULL;
-	len = 0;
 	len = tab_len(g->xpm->no_tab_file) - n_comm + 1;
 	tab_tmp = malloc(sizeof(char *) * (len));
 	i = 0;

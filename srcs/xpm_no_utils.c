@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   xpm_no_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 11:13:18 by gael              #+#    #+#             */
-/*   Updated: 2023/08/03 12:41:31 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/03 17:37:28 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	xpm_no_init_color(t_game *game, char **line)
 	int	i_color;
 
 	i_color = 0;
-	game->xpm->no_colors = malloc(sizeof(int *) * (ft_atoi(line[2]) + 1));
+	game->xpm->no_colors = malloc(sizeof(int *) * (ft_atoi(line[2])));
 	if (!game->xpm->no_colors)
 		return (printf("xpm colors failed\n"), FAIL);
 	while (i_color < ft_atoi(line[2]))
@@ -41,6 +41,8 @@ char	*xpm_no_keep_metadata(char **tmp, int i_tmp)
 		end = len_line - 2;
 	else
 		end = len_line;
+	if (end < 0)
+		end = ft_strlen(tmp[i_tmp - 1]) - 2;
 	return (ft_strdup_len(tmp[i_tmp], 1, end));
 }
 

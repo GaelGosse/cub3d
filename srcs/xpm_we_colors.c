@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   xpm_we_colors.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 12:30:48 by gael              #+#    #+#             */
-/*   Updated: 2023/08/03 12:41:14 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/03 16:18:17 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,10 +128,3 @@ int	xpm_we_check_line_color(t_game *g, int *i_chr, int i_tab_file, int i_color)
 	g->xpm->we_colors[i_color][0] = g->xpm->we_tab_file[i_tab_file][0];
 	return (SUCCESS);
 }
-
-//                  normal
-// free we_metadata
-
-//                  X4
-// fill metadata
-// whole dual file

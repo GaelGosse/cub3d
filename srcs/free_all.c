@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 15:05:22 by mael              #+#    #+#             */
-/*   Updated: 2023/08/03 11:08:43 by mael             ###   ########.fr       */
+/*   Updated: 2023/08/03 16:48:57 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,16 @@
 
 int	free_ceil_floor(t_game *game)
 {
-	free(game->map->ceil);
-	free(game->map->floor);
+	if (game->map->ceil)
+	{
+		free(game->map->ceil);
+		game->map->ceil = NULL;
+	}
+	if (game->map->floor)
+	{
+		free(game->map->floor);
+		game->map->floor = NULL;
+	}
 	return (SUCCESS);
 }
 
@@ -47,8 +55,10 @@ void	free_fov(t_game *game)
 
 int	free_all(t_game *game)
 {
-	free_ceil_floor(game);
-	free_xpm(game);
+	if (game->map)
+		free_ceil_floor(game);
+	if (game->xpm)
+		free_xpm(game);
 	if (game->fov)
 		free_fov(game);
 	free(game->img);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:15:08 by ggosse            #+#    #+#             */
-/*   Updated: 2023/08/03 15:44:02 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/03 17:05:43 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ int	main(int argc, char **argv, char **envp)
 	if (ft_parsing(&game, argv) == FAIL)
 		return (free_all(&game), FAIL);
 	if (start_3d(&game) == FAIL)
-		return (FAIL);
+		return (free_all(&game), FAIL);
 	free_all(&game);
 	(void)argv;
 	(void)envp;

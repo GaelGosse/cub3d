@@ -72,6 +72,7 @@ _SRCS	=	angle_len.c \
 			fov.c \
 			free_all.c \
 			free_parsing.c \
+			free_xpm_2.c \
 			free_xpm.c \
 			init_img.c \
 			key_move.c \

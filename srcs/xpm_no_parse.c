@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   xpm_no_parse.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 11:49:54 by gael              #+#    #+#             */
-/*   Updated: 2023/08/03 12:51:06 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/03 17:57:35 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	xpm_no_parse(t_game *game)
 {
-	xpm_no_read(game, game->map->wall_no);
+	if (xpm_no_read(game, game->map->wall_no) == FAIL)
+		return (FAIL);
 	if (xpm_no_correct(game) == FAIL)
 		return (FAIL);
 	if (xpm_no_read_1line(game) == FAIL)
@@ -43,7 +44,8 @@ int	xpm_no_split_buf(int fd, t_game *game)
 		if (buf[0] == '{')
 			break ;
 	}
-	xpm_no_get_content_xpm(game, fd, ret, buf);
+	if (xpm_no_get_content_xpm(game, fd, ret, buf) == FAIL)
+		return (FAIL);
 	game->xpm->no_tab_file = ft_split(game->xpm->no_file_content, '\n');
 	return (SUCCESS);
 }

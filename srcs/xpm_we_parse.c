@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   xpm_we_parse.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 11:49:54 by gael              #+#    #+#             */
-/*   Updated: 2023/08/03 12:51:24 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/03 17:58:11 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	xpm_we_parse(t_game *game)
 {
-	xpm_we_read(game, game->map->wall_we);
+	if (xpm_we_read(game, game->map->wall_we) == FAIL)
+		return (FAIL);
 	if (xpm_we_correct(game) == FAIL)
 		return (FAIL);
 	if (xpm_we_read_1line(game) == FAIL)
