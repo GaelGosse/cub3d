@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 11:49:54 by gael              #+#    #+#             */
-/*   Updated: 2023/08/03 12:06:49 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/03 12:51:16 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	xpm_so_parse(t_game *game)
 {
-	printf(BACK_GREEN"%s"RESET"\n", game->map->wall_so);
 	xpm_so_read(game, game->map->wall_so);
 	if (xpm_so_correct(game) == FAIL)
 		return (FAIL);

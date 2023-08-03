@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_line.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 16:34:58 by mael              #+#    #+#             */
-/*   Updated: 2023/08/02 21:28:02 by mael             ###   ########.fr       */
+/*   Updated: 2023/08/03 13:18:55 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,13 @@ int	init_line(t_game *game)
 	game->line->new_y = 0;
 	return (SUCCESS);
 }
+
 int	draw_pixel(t_game *game, int toggle, int color)
 {
-	int i;
+	int	i;
 	int	x_check;
 	int	y_check;
-	
+
 	i = 0;
 	x_check = FAIL;
 	y_check = FAIL;
@@ -109,4 +110,3 @@ int	draw_line_vision(t_game *game, int color)
 	len = roundf(len);
 	return (len);
 }
-

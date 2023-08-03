@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:45:40 by ggosse            #+#    #+#             */
-/*   Updated: 2023/08/03 12:18:00 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/03 13:18:58 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -219,6 +219,10 @@ int		open_fd(t_game *game, int *fd, char **argv);
 //srcs/pixel_and_color.c
 int		get_color(int red, int green, int blue);
 void	img_pix_put(t_game *game, int x, int y, int color);
+//srcs/draw_xpm_ud_utils.c
+void	adjust_line_3d(t_game *game);
+void	draw_xpm_if_blue(t_game *game, int i);
+void	draw_xpm_if_red(t_game *game, int i);
 //srcs/xpm_we_correction.c
 int		xpm_we_copy_tab(t_game *game, char **tmp);
 int		xpm_we_correct(t_game *g);
@@ -235,13 +239,9 @@ void	xpm_no_fill_metadata(t_game *game, char **line);
 int		xpm_no_init_color(t_game *game, char **line);
 char	*xpm_no_keep_metadata(char **tmp, int i_tmp);
 //srcs/start_3D.c
-void	color_image(t_game *game);
-void	do_quad(t_game *game, int i, int j);
-void	fill_void(t_game *game, int i, int j);
-void	fill_wall(t_game *game, int i, int j);
 int		first_time(t_game *game);
 void	reset_img(t_game *game);
-int		start_3D(t_game *game);
+int		start_3d(t_game *game);
 //srcs/draw_xpm_down_ea.c
 void	draw_xpm_down_ea(t_game *game, int i_midline);
 int		draw_xpm_ea_color(t_game *game, int x, int y);
@@ -291,10 +291,10 @@ int		free_ceil_floor(t_game *game);
 void	free_fov(t_game *game);
 //srcs/free_xpm.c
 void	free_xpm(t_game *game);
-void	free_xpm_ea(t_game *game);
-void	free_xpm_no(t_game *game);
-void	free_xpm_so(t_game *game);
-void	free_xpm_we(t_game *game);
+void	free_xpm_ea(t_game *game, int i);
+void	free_xpm_no(t_game *game, int i);
+void	free_xpm_so(t_game *game, int i);
+void	free_xpm_we(t_game *game, int i);
 //srcs/xpm_so_correction.c
 int		xpm_so_copy_tab(t_game *game, char **tmp);
 int		xpm_so_correct(t_game *g);
@@ -329,6 +329,11 @@ char	*xpm_we_keep_metadata(char **tmp, int i_tmp);
 void	display_3d(t_game *game);
 void	display_3d_down(t_game *game);
 void	display_3d_down_red(t_game *game, int i_main);
+//srcs/color_image.c
+void	color_image(t_game *game);
+void	do_quad(t_game *game, int i, int j);
+void	fill_void(t_game *game, int i, int j);
+void	fill_wall(t_game *game, int i, int j);
 //srcs/key_rotate.c
 void	key_rotate_left(t_game *game, int key);
 void	key_rotate_right(t_game *game, int key);
@@ -392,7 +397,7 @@ int		xpm_ea_parse(t_game *game);
 int		xpm_ea_read(t_game *game, char *filename);
 int		xpm_ea_split_buf(int fd, t_game *game);
 //srcs/draw_xpm_up_we.c
-void	draw_xpm_up_we(t_game *game, int i_midline);
+void	draw_xpm_up_we(t_game *g, int i_midline);
 int		draw_xpm_up_we_color(t_game *game, int x, int y);
 //srcs/draw_xpm_down_so.c
 void	draw_xpm_down_so(t_game *game, int i_midline);
@@ -406,7 +411,7 @@ int		xpm_no_wo_comm(t_game *g, int n_comm);
 void	draw_xpm_down_no(t_game *game, int i_midline);
 int		draw_xpm_no_color(t_game *game, int x, int y);
 //srcs/draw_xpm_up_no.c
-void	draw_xpm_up_no(t_game *game, int i_midline);
+void	draw_xpm_up_no(t_game *g, int i_midline);
 int		draw_xpm_up_no_color(t_game *game, int x, int y);
 //srcs/xpm_no_parse.c
 int		xpm_no_get_content_xpm(t_game *game, int fd, int ret, char *buf);
@@ -447,12 +452,16 @@ int		xpm_so_hex_to_dec(t_game *g, int i_color, int i_tab_file, int i_chr);
 int		xpm_so_letter_color(t_game *game, int i_color, int i_tab_file);
 int		xpm_so_set_color(t_game *game, int i_color, char *tmp);
 int		xpm_so_set_len_n_color(t_game *g, char **line);
+//srcs/angle_len.c
+void	angle_1(t_game *game, double angle_2, int len_vision);
+void	angle_3(t_game *game, double angle_2, int len_vision);
+void	angle_4(t_game *game, double angle_2, int len_vision);
 //srcs/check_format.c
 void	check_corner(t_game *game);
 void	check_wall_in_map_1(t_game *game, int i_big, int i_lil);
 void	check_wall_in_map_2(t_game *game, int i_big, int i_lil);
 //srcs/draw_xpm_up_so.c
-void	draw_xpm_up_so(t_game *game, int i_midline);
+void	draw_xpm_up_so(t_game *g, int i_midline);
 int		draw_xpm_up_so_color(t_game *game, int x, int y);
 //srcs/xpm_ea_correction.c
 int		xpm_ea_copy_tab(t_game *game, char **tmp);

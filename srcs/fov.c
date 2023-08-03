@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 16:47:24 by mael              #+#    #+#             */
-/*   Updated: 2023/08/02 20:38:07 by mael             ###   ########.fr       */
+/*   Updated: 2023/08/03 11:08:15 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	init_fov(t_game *game)
 
 int	init_fov_wall(t_game *game)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	game->fov->wall = malloc(sizeof(int *) * (game->fov->nbr_ray + 1));
@@ -63,7 +63,7 @@ int	init_fov_wall(t_game *game)
 
 int	init_fov_wall_witch(t_game *game)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	game->fov->wall_witch = malloc(sizeof(double *) * (game->fov->nbr_ray + 1));

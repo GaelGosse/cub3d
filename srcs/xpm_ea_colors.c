@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 12:30:48 by gael              #+#    #+#             */
-/*   Updated: 2023/08/03 11:45:11 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/03 12:35:57 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,11 +84,11 @@ int	xpm_ea_hex_to_dec(t_game *g, int i_color, int i_tab_file, int i_chr)
 int	xpm_ea_set_len_n_color(t_game *g, char **line)
 {
 	int	i_color;
-	int	i_tab_file;
+	int	i_tab;
 	int	i_chr;
 
 	i_chr = 1;
-	i_tab_file = 0;
+	i_tab = 0;
 	i_color = -1;
 	xpm_ea_fill_metadata(g, line);
 	if (ft_atoi(line[2]) <= 92)
@@ -98,9 +98,9 @@ int	xpm_ea_set_len_n_color(t_game *g, char **line)
 		while (++i_color < ft_atoi(line[2]))
 		{
 			i_chr = 1;
-			if (xpm_ea_check_line_color(g, &i_chr, ++i_tab_file, i_color) == FAIL)
+			if (xpm_ea_check_line_color(g, &i_chr, ++i_tab, i_color) == FAIL)
 				return (FAIL);
-			if (xpm_ea_hex_to_dec(g, i_color, i_tab_file, i_chr) == FAIL)
+			if (xpm_ea_hex_to_dec(g, i_color, i_tab, i_chr) == FAIL)
 				return (FAIL);
 		}
 	}

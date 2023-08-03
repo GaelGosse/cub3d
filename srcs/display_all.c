@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display_all.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 11:04:13 by gael              #+#    #+#             */
-/*   Updated: 2023/08/02 13:53:20 by mael             ###   ########.fr       */
+/*   Updated: 2023/08/03 13:17:49 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,22 @@
 
 int	display_all(t_game *game, int key)
 {
-	// printf("\033c");
-	int len_side;
-	int i_rotate;
-	int save;
-	int save_2;
+	int	len_side;
+	int	i_rotate;
+	int	save;
+	int	save_2;
 
 	i_rotate = 0;
 	if (init_display_all(game, key, &len_side) == FAIL)
 		return (FAIL);
-
 	move_straight(game);
 	rotate_new(game);
-	printf(BACK_YELLOW"game->fov->toggle: %c"RST"\n", game->fov->toggle);
-	printf(YELLOW"(%i, %i)"RST"\n", game->line->x_dest, game->line->y_dest);
-	printf(BOLD_YELLOW"game->fov->angle: %i"RST"\n", game->fov->angle);
-	printf("\n");
-	printf(BLUE"(%i, %i)"RST"\n", game->line->x_dest, game->line->y_dest);
 	game->fov->lines_vision[game->fov->nbr_ray / 2] = draw_line_vision(game, get_color(0, 255, 0));
 	game->fov->wall_witch[game->fov->nbr_ray / 2][0] = game->line->corr_x;
 	game->fov->wall_witch[game->fov->nbr_ray / 2][1] = game->line->corr_y;
 	game->fov->wall[game->fov->nbr_ray / 2][0] = game->line->corr_x / game->img_size;
 	game->fov->wall[game->fov->nbr_ray / 2][1] = game->line->corr_y / game->img_size;
+
 	double	angle;
 	int		len_vision;
 	int		save_x;
@@ -46,7 +40,6 @@ int	display_all(t_game *game, int key)
 	angle = game->fov->angle;
 	len_vision = 0;
 	i_rotate = 0;
-	// RED
 	while (i_rotate < game->fov->nbr_ray / 2)
 	{
 		double	angle_2;
@@ -242,12 +235,8 @@ int	display_all(t_game *game, int key)
 	game->line->x_src = save_src_x;
 	game->line->y_src = save_src_y;
 	mlx_put_image_to_window(game->mlibx, game->window, game->img->mlx_img, 0, 0);
-	printf("\n.....................................\n\n");
-	(void)i_rotate;
 	(void)save;
 	(void)save_2;
-	(void)save_src_x;
-	(void)save_src_y;
 	return (SUCCESS);
 }
 

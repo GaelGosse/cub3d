@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 09:38:48 by gael              #+#    #+#             */
-/*   Updated: 2023/08/03 12:14:05 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/03 12:39:44 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	skip_empty_line(char **line, int fd)
 		(*line) = gnl(fd);
 	}
 }
+
 void	build_content(t_game *game, char **line, int fd)
 {
 	if (game->map->file_map == NULL)

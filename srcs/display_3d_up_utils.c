@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 13:04:53 by mael              #+#    #+#             */
-/*   Updated: 2023/08/02 13:26:43 by mael             ###   ########.fr       */
+/*   Updated: 2023/08/03 10:39:20 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	draw_line_3d_up(t_game *game, int i_main, int i_midline)
 
 void	i_draw_up_blue(t_game *game, int i_midline)
 {
-	int i_draw;
+	int	i_draw;
 
 	i_draw = 0;
 	while (i_draw <= game->line_3d->steps)
@@ -51,8 +51,8 @@ void	i_draw_up_blue(t_game *game, int i_midline)
 
 void	i_draw_up_red(t_game *game, int i_midline)
 {
-	int i_draw;
-	
+	int	i_draw;
+
 	i_draw = 0;
 	while (i_draw <= game->line_3d->steps)
 	{
@@ -60,5 +60,4 @@ void	i_draw_up_red(t_game *game, int i_midline)
 			break ;
 		i_draw++;
 	}
-
 }

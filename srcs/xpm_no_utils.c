@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 11:13:18 by gael              #+#    #+#             */
-/*   Updated: 2023/08/03 12:09:59 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/03 12:41:31 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,7 @@ int	xpm_no_check_wh(t_game *game)
 		while (game->xpm->no_tab_file[i_big][i_lil])
 			i_lil++;
 		if (i_lil != game->xpm->no_metadata[0])
-			return (printf("wrong xpm file l format\n"),
-			printf(BACK_GREEN"%s"RESET"\n", game->xpm->no_tab_file[i_big])
-			, FAIL);
+			return (printf("wrong xpm file l format\n"), FAIL);
 		i_big++;
 	}
 	i_big--;

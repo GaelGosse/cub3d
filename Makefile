@@ -43,10 +43,12 @@ LIBDIR	= libft
 
 
 # ----------------------------------- srcs ----------------------------------- #
-_SRCS	=	build_map.c \
+_SRCS	=	angle_len.c \
+			build_map.c \
 			build_map_utils.c \
 			check_file.c \
 			check_format.c \
+			color_image.c \
 			display_3d_down.c \
 			display_3d_down_utils.c \
 			display_3d_up.c \
@@ -59,6 +61,7 @@ _SRCS	=	build_map.c \
 			draw_xpm_down_so.c \
 			draw_xpm_down_we.c \
 			draw_xpm_ud.c \
+			draw_xpm_ud_utils.c \
 			draw_xpm_up_ea.c \
 			draw_xpm_up_no.c \
 			draw_xpm_up_so.c \

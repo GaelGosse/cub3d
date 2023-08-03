@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 20:47:15 by mael              #+#    #+#             */
-/*   Updated: 2023/08/03 09:50:24 by mael             ###   ########.fr       */
+/*   Updated: 2023/08/03 11:25:14 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	key_is_w(t_game *g, int key)
 	g->img_size][(g->map->pos_x) / g->img_size] != '1' && g->fov->angle == 0)
 		g->map->pos_y -= 10;
 	else if (g->map->map_org[g->map->pos_y / g->img_size][(g->map->pos_x - 15) \
-	/ g->img_size] != '1' &&  g->fov->angle == 270)
+	/ g->img_size] != '1' && g->fov->angle == 270)
 		g->map->pos_x -= 10;
 	else if (g->map->map_org[(g->map->pos_y + 15) \
 	/ g->img_size][(g->map->pos_x) / \
@@ -45,7 +45,7 @@ void	key_is_s(t_game *game, int key)
 		game->map->pos_y += 10;
 	else if (game->map->map_org[game->map->pos_y / \
 	game->img_size][(game->map->pos_x + 15) / \
-	game->img_size] != '1' &&  game->fov->angle == 270)
+	game->img_size] != '1' && game->fov->angle == 270)
 		game->map->pos_x += 10;
 	else if (game->map->map_org[(game->map->pos_y - 15) / \
 	game->img_size][(game->map->pos_x) / \
@@ -69,7 +69,7 @@ int	key_is_a(t_game *game, int key)
 		game->map->pos_x -= 10;
 	else if (game->map->map_org[(game->map->pos_y + 15) / \
 	game->img_size][(game->map->pos_x) / \
-	game->img_size] != '1' &&  game->fov->angle == 270)
+	game->img_size] != '1' && game->fov->angle == 270)
 		game->map->pos_y += 10;
 	else if (game->map->map_org[(game->map->pos_y) / \
 	game->img_size][(game->map->pos_x + 15) \
@@ -82,18 +82,26 @@ int	key_is_a(t_game *game, int key)
 	}
 	reset_img(game);
 	display_all(game, key);
-	return(SUCCESS);
+	return (SUCCESS);
 }
 
 int	key_is_d(t_game *game, int key)
 {
-	if (game->map->map_org[(game->map->pos_y + 15) / game->img_size][(game->map->pos_x) / game->img_size] != '1' && game->fov->angle == 90)
+	if (game->map->map_org[(game->map->pos_y + 15) / \
+	game->img_size][(game->map->pos_x) / game->img_size] != '1' \
+	&& game->fov->angle == 90)
 		game->map->pos_y += 10;
-	else if (game->map->map_org[(game->map->pos_y) / game->img_size][(game->map->pos_x + 15) / game->img_size] != '1' && game->fov->angle == 0)
+	else if (game->map->map_org[(game->map->pos_y) / \
+	game->img_size][(game->map->pos_x + 15) / game->img_size] != '1' && \
+	game->fov->angle == 0)
 		game->map->pos_x += 10;
-	else if (game->map->map_org[(game->map->pos_y - 15) / game->img_size][(game->map->pos_x) / game->img_size] != '1' &&  game->fov->angle == 270)
+	else if (game->map->map_org[(game->map->pos_y - 15) / \
+	game->img_size][(game->map->pos_x) / game->img_size] != '1' && \
+	game->fov->angle == 270)
 		game->map->pos_y -= 10;
-	else if (game->map->map_org[(game->map->pos_y) / game->img_size][(game->map->pos_x - 15) / game->img_size] != '1' && game->fov->angle == 180)
+	else if (game->map->map_org[(game->map->pos_y) / \
+	game->img_size][(game->map->pos_x - 15) / game->img_size] != '1' && \
+	game->fov->angle == 180)
 		game->map->pos_x -= 10;
 	else
 	{

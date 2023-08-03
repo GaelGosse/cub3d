@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 15:17:16 by gael              #+#    #+#             */
-/*   Updated: 2023/08/03 12:17:06 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/03 12:49:18 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	display_3d_up(t_game *game)
 
 void	display_3d_up_red(t_game *game, int i_main)
 {
-	int i_midline;
+	int	i_midline;
 	int	i_ratio;
 
 	i_ratio = 0;
@@ -90,9 +90,8 @@ void	fill_ceil_floor(t_game *game)
 		x = 0;
 		while (x < game->win_width)
 		{
-			img_pix_put(game, x, y, get_color(
-				game->map->ceil[0],
-				game->map->ceil[1],
+			img_pix_put(game, x, y, get_color(game->map->ceil[0], \
+				game->map->ceil[1], \
 				game->map->ceil[2]));
 			x++;
 		}
@@ -112,9 +111,8 @@ void	fill_ceil_floor_2(t_game *game)
 		x = 0;
 		while (x < game->win_width)
 		{
-			img_pix_put(game, x, y, get_color(
-				game->map->floor[0],
-				game->map->floor[1],
+			img_pix_put(game, x, y, get_color(game->map->floor[0], \
+				game->map->floor[1], \
 				game->map->floor[2]));
 			x++;
 		}

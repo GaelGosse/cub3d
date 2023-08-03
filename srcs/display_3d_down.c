@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 15:15:57 by gael              #+#    #+#             */
-/*   Updated: 2023/08/02 13:27:41 by mael             ###   ########.fr       */
+/*   Updated: 2023/08/03 10:38:33 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ void	display_3d_down(t_game *game)
 
 void	display_3d_down_red(t_game *game, int i_main)
 {
-	int i_ratio;
-	int i_midline;
-	
+	int	i_ratio;
+	int	i_midline;
+
 	i_ratio = 0;
 	i_midline = 0;
 	while (i_midline < game->fov->nbr_ray / 2)
@@ -56,9 +56,9 @@ void	display_3d_down_red(t_game *game, int i_main)
 		i_midline++;
 	}
 }
+
 void	display_3d(t_game *game)
 {
 	display_3d_down(game);
 	display_3d_up(game);
 }
-
