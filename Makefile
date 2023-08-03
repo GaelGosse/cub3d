@@ -52,7 +52,9 @@ _SRCS	=	angle_len.c \
 			display_3d_down_utils.c \
 			display_3d_up.c \
 			display_3d_up_utils.c \
+			display_all_blue.c \
 			display_all.c \
+			display_all_red.c \
 			display_all_utils.c \
 			draw_line.c \
 			draw_xpm_down_ea.c \

@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:45:40 by ggosse            #+#    #+#             */
-/*   Updated: 2023/08/03 14:14:12 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/03 15:42:05 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,6 +167,10 @@ typedef struct s_map
 	int		pos_x;
 	int		count_step;
 	int		fd_map;
+	int		north;
+	int		south;
+	int		east;
+	int		west;
 }			t_map;
 
 typedef struct s_fov
@@ -249,6 +253,10 @@ char	*xpm_no_keep_metadata(char **tmp, int i_tmp);
 int		first_time(t_game *game);
 void	reset_img(t_game *game);
 int		start_3d(t_game *game);
+//srcs/display_all_blue.c
+void	display_all_blue(t_game *g, int i_rotate, int len_vision);
+void	display_all_blue_first(t_game *game, int i_rotate, int len_vision);
+void	display_all_blue_second(t_game *game, int i_rotate, int len_vision);
 //srcs/draw_xpm_down_ea.c
 void	draw_xpm_down_ea(t_game *game, int i_midline);
 int		draw_xpm_ea_color(t_game *game, int x, int y);
@@ -350,6 +358,11 @@ void	init_position(t_game *game);
 //srcs/draw_xpm_down_we.c
 void	draw_xpm_down_we(t_game *game, int i_midline);
 int		draw_xpm_we_color(t_game *game, int x, int y);
+//srcs/display_all_red.c
+void	display_all_red(t_game *game, int i_rotate, int len_vision);
+void	display_all_red_first(t_game *game, int i_rotate, int len_vision);
+void	display_all_red_second(t_game *game, int i_rotate, int len_vision);
+void	display_all_red_third(t_game *game, int i_rotate, int len_vision);
 //srcs/build_map_utils.c
 int		check_nbr(char *str);
 int		is_empty_line(char *line);
@@ -370,10 +383,10 @@ void	xpm_ea_fill_metadata(t_game *game, char **line);
 int		xpm_ea_init_color(t_game *game, char **line);
 char	*xpm_ea_keep_metadata(char **tmp, int i_tmp);
 //srcs/display_all.c
-int		display_all(t_game *game, int key);
-void	display_all_blue(t_game *game, int i_rotate, int len_vision);
-void	display_all_red(t_game *game, int i_rotate, int len_vision);
+int		display_all(t_game *g, int key);
 void	last_correct_toggle(t_game *game);
+void	mid_display_all(t_game *game, int i_rotate, int len_vision);
+void	set_toggle(t_game *g, int i_rotate);
 //srcs/tools.c
 double	abs_dble(double nb);
 double	abs_flt(double nb);

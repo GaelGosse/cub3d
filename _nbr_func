@@ -33,7 +33,7 @@
 ./srcs/texture_part.c                     5 
 ./srcs/draw_xpm_up_ea.c                   2 
 ./srcs/xpm_ea_utils.c                     4 
-./srcs/display_all.c                      2 
+./srcs/display_all.c                      5 
 ./srcs/tools.c                            5 
 ./srcs/display_all_utils.c                3 
 ./srcs/player.c                           2 

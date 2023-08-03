@@ -288,8 +288,14 @@
 ./srcs/display_all.c
     int display_all(t_game *game, int key)
 ./srcs/display_all.c
+    void display_all_blue(t_game *game, int i_rotate, int len_vision)
+./srcs/display_all.c
+    void display_all_red(t_game *game, int i_rotate, int len_vision)
+./srcs/display_all.c
     void last_correct_toggle(t_game *game)
-./srcs/display_all.c    2
+./srcs/display_all.c
+    set_toggle(t_game *g, int i_rotate)
+./srcs/display_all.c    5
 ./srcs/tools.c
     double abs_dble(double nb)
 ./srcs/tools.c

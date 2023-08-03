@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 16:19:59 by gael              #+#    #+#             */
-/*   Updated: 2023/06/09 15:59:26 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/03 15:49:02 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ char	*ft_strjoin_lfree(char *s1, char *s2)
 
 	i = 0;
 	j = 0;
-	// printf(BACK_WHITE"%s"RESET"\n", s1);
 	str = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
 	if (!str)
 		return (NULL);

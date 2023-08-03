@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 17:15:08 by ggosse            #+#    #+#             */
-/*   Updated: 2023/08/03 14:02:34 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/03 15:44:02 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,7 @@ int	ft_parsing(t_game *game, char **argv)
 	}
 	if (hole_in_wall(game) == FAIL)
 		return (FAIL);
-	check_corner(game);
-	return (SUCCESS);
+	return (check_corner(game), SUCCESS);
 }
 
 void	init_main(t_game *game)
