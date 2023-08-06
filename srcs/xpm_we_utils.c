@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   xpm_we_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 11:13:18 by gael              #+#    #+#             */
-/*   Updated: 2023/08/03 16:12:41 by mael             ###   ########.fr       */
+/*   Updated: 2023/08/06 20:53:48 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,12 @@ int	xpm_we_check_wh(t_game *game)
 		i_lil = 0;
 		while (game->xpm->we_tab_file[i_big][i_lil])
 			i_lil++;
-		if (i_lil != game->xpm->we_metadata[0])
-			return (printf("wrong xpm file l format\n"), FAIL);
+		if (game->xpm->we_metadata[2] <= 92 && \
+		i_lil != game->xpm->we_metadata[0])
+			return (printf("we wrong xpm file l format\n"), FAIL);
+		if (game->xpm->we_metadata[2] > 92 && \
+		i_lil != game->xpm->we_metadata[0] * 2)
+			return (printf("we wrong xpm file l format\n"), FAIL);
 		i_big++;
 	}
 	i_big--;

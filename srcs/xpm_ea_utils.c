@@ -3,26 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   xpm_ea_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 11:13:18 by gael              #+#    #+#             */
-/*   Updated: 2023/08/03 16:12:03 by mael             ###   ########.fr       */
+/*   Updated: 2023/08/06 20:53:48 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-int	xpm_ea_init_color(t_game *game, char **line)
+int	xpm_ea_init_color(t_game *g)
 {
 	int	i_color;
 
 	i_color = 0;
-	game->xpm->ea_colors = malloc(sizeof(int *) * (ft_atoi(line[2])));
-	if (!game->xpm->ea_colors)
+	g->xpm->ea_colors = malloc(sizeof(int *) * (g->xpm->ea_metadata[2]));
+	if (!g->xpm->ea_colors)
 		return (printf("xpm colors failed\n"), FAIL);
-	while (i_color < ft_atoi(line[2]))
+	while (i_color < g->xpm->ea_metadata[2])
 	{
-		game->xpm->ea_colors[i_color] = NULL;
+		g->xpm->ea_colors[i_color] = NULL;
 		i_color++;
 	}
 	return (SUCCESS);
@@ -65,8 +65,12 @@ int	xpm_ea_check_wh(t_game *game)
 		i_lil = 0;
 		while (game->xpm->ea_tab_file[i_big][i_lil])
 			i_lil++;
-		if (i_lil != game->xpm->ea_metadata[0])
-			return (printf("wrong xpm file l format\n"), FAIL);
+		if (game->xpm->ea_metadata[2] <= 92 && \
+		i_lil != game->xpm->ea_metadata[0])
+			return (printf("ea wrong xpm file l format\n"), FAIL);
+		if (game->xpm->ea_metadata[2] > 92 && \
+		i_lil != game->xpm->ea_metadata[0] * 2)
+			return (printf("ea wrong xpm file l format\n"), FAIL);
 		i_big++;
 	}
 	i_big--;

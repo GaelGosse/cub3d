@@ -5,8 +5,10 @@
 ./srcs/draw_xpm_ud_utils.c                3 
 ./srcs/xpm_we_correction.c                4 
 ./srcs/key_tools.c                        4 
+./srcs/free_xpm_2.c                       4 
 ./srcs/xpm_no_utils.c                     4 
 ./srcs/start_3D.c                         3 
+./srcs/display_all_blue.c                 3 
 ./srcs/draw_xpm_down_ea.c                 2 
 ./srcs/xpm_no_colors.c                    5 
 ./srcs/xpm_we_colors.c                    5 
@@ -29,11 +31,12 @@
 ./srcs/display_3d_down_utils.c            3 
 ./srcs/fov.c                              4 
 ./srcs/draw_xpm_down_we.c                 2 
+./srcs/display_all_red.c                  4 
 ./srcs/build_map_utils.c                  4 
 ./srcs/texture_part.c                     5 
 ./srcs/draw_xpm_up_ea.c                   2 
 ./srcs/xpm_ea_utils.c                     4 
-./srcs/display_all.c                      5 
+./srcs/display_all.c                      4 
 ./srcs/tools.c                            5 
 ./srcs/display_all_utils.c                3 
 ./srcs/player.c                           2 
@@ -54,5 +57,6 @@
 ./srcs/xpm_so_colors.c                    5 
 ./srcs/angle_len.c                        3 
 ./srcs/check_format.c                     3 
+./srcs/xpm_we_dual.c                      5 
 ./srcs/draw_xpm_up_so.c                   2 
 ./srcs/xpm_ea_correction.c                4 

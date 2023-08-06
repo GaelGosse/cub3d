@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 19:28:51 by ggosse            #+#    #+#             */
-/*   Updated: 2023/08/03 15:50:49 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/07 01:06:14 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ typedef struct s_list
 //ft_bzero.c
 void	ft_bzero(void *str, size_t n);
 //ft_toupper.c
+char	*ft_str_to_up(char *str);
+char	*ft_str_to_upf(char *str);
 int		ft_toupper(int chr);
 //ft_substr.c
 char	*ft_substr(char const *s, unsigned int start, size_t len);
@@ -127,6 +129,8 @@ char	*ft_strrchr(const char *str, int search);
 //ft_memcmp.c
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 //ft_tolower.c
+char	*ft_str_to_low(char *str);
+char	*ft_str_to_lowf(char *str);
 int		ft_tolower(int chr);
 //ft_isprint.c
 int		ft_isprint(int c);

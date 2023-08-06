@@ -3,26 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   xpm_no_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 11:13:18 by gael              #+#    #+#             */
-/*   Updated: 2023/08/03 17:37:28 by mael             ###   ########.fr       */
+/*   Updated: 2023/08/06 20:53:48 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-int	xpm_no_init_color(t_game *game, char **line)
+int	xpm_no_init_color(t_game *g)
 {
 	int	i_color;
 
 	i_color = 0;
-	game->xpm->no_colors = malloc(sizeof(int *) * (ft_atoi(line[2])));
-	if (!game->xpm->no_colors)
+	g->xpm->no_colors = malloc(sizeof(int *) * (g->xpm->no_metadata[2]));
+	if (!g->xpm->no_colors)
 		return (printf("xpm colors failed\n"), FAIL);
-	while (i_color < ft_atoi(line[2]))
+	while (i_color < g->xpm->no_metadata[2])
 	{
-		game->xpm->no_colors[i_color] = NULL;
+		g->xpm->no_colors[i_color] = NULL;
 		i_color++;
 	}
 	return (SUCCESS);
@@ -41,8 +41,6 @@ char	*xpm_no_keep_metadata(char **tmp, int i_tmp)
 		end = len_line - 2;
 	else
 		end = len_line;
-	if (end < 0)
-		end = ft_strlen(tmp[i_tmp - 1]) - 2;
 	return (ft_strdup_len(tmp[i_tmp], 1, end));
 }
 
@@ -67,8 +65,12 @@ int	xpm_no_check_wh(t_game *game)
 		i_lil = 0;
 		while (game->xpm->no_tab_file[i_big][i_lil])
 			i_lil++;
-		if (i_lil != game->xpm->no_metadata[0])
-			return (printf("wrong xpm file l format\n"), FAIL);
+		if (game->xpm->no_metadata[2] <= 92 && \
+		i_lil != game->xpm->no_metadata[0])
+			return (printf("no wrong xpm file l format\n"), FAIL);
+		if (game->xpm->no_metadata[2] > 92 && \
+		i_lil != game->xpm->no_metadata[0] * 2)
+			return (printf("no wrong xpm file l format\n"), FAIL);
 		i_big++;
 	}
 	i_big--;

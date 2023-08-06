@@ -1,9 +1,9 @@
-WE sprites/64/wallw.xpm
-EA sprites/64/walle.xpm
-NO sprites/64/walln.xpm
-SO sprites/64/walls.xpm
-C 130,10,35
-F 20,160,220
+WE sprites/48/jul.xpm
+EA sprites/48/jul.xpm
+NO sprites/48/jul.xpm
+SO sprites/48/jul.xpm
+C 255,255,255
+F 20,220,255
 011111110
 111101111
 110000001

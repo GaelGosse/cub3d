@@ -3,26 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   xpm_so_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 11:13:18 by gael              #+#    #+#             */
-/*   Updated: 2023/08/03 16:12:31 by mael             ###   ########.fr       */
+/*   Updated: 2023/08/06 20:53:48 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-int	xpm_so_init_color(t_game *game, char **line)
+int	xpm_so_init_color(t_game *g)
 {
 	int	i_color;
 
 	i_color = 0;
-	game->xpm->so_colors = malloc(sizeof(int *) * (ft_atoi(line[2])));
-	if (!game->xpm->so_colors)
+	g->xpm->so_colors = malloc(sizeof(int *) * (g->xpm->so_metadata[2]));
+	if (!g->xpm->so_colors)
 		return (printf("xpm colors failed\n"), FAIL);
-	while (i_color < ft_atoi(line[2]))
+	while (i_color < g->xpm->so_metadata[2])
 	{
-		game->xpm->so_colors[i_color] = NULL;
+		g->xpm->so_colors[i_color] = NULL;
 		i_color++;
 	}
 	return (SUCCESS);
@@ -65,8 +65,12 @@ int	xpm_so_check_wh(t_game *game)
 		i_lil = 0;
 		while (game->xpm->so_tab_file[i_big][i_lil])
 			i_lil++;
-		if (i_lil != game->xpm->so_metadata[0])
-			return (printf("wrong xpm file l format\n"), FAIL);
+		if (game->xpm->so_metadata[2] <= 92 && \
+		i_lil != game->xpm->so_metadata[0])
+			return (printf("so wrong xpm file l format\n"), FAIL);
+		if (game->xpm->so_metadata[2] > 92 && \
+		i_lil != game->xpm->so_metadata[0] * 2)
+			return (printf("so wrong xpm file l format\n"), FAIL);
 		i_big++;
 	}
 	i_big--;

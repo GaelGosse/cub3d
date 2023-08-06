@@ -6,18 +6,21 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 12:30:48 by gael              #+#    #+#             */
-/*   Updated: 2023/08/03 12:37:54 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/06 18:05:14 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-int	xpm_so_letter_color(t_game *game, int i_color, int i_tab_file)
+int	xpm_so_letter_color(t_game *game, int i_color, int i_tab_file, int i_chr)
 {
 	char	*tmp;
 
-	tmp = ft_strdup_len(game->xpm->so_tab_file[i_tab_file], 4, \
+	tmp = ft_strdup_len(game->xpm->so_tab_file[i_tab_file], i_chr, \
 	ft_strlen(game->xpm->so_tab_file[i_tab_file]));
+	if (!tmp)
+		return (FAIL);
+	tmp = ft_str_to_lowf(tmp);
 	if (!tmp)
 		return (FAIL);
 	if (ft_strncmp(tmp, "white", ft_strlen(tmp)) == 0)
@@ -26,7 +29,8 @@ int	xpm_so_letter_color(t_game *game, int i_color, int i_tab_file)
 		game->xpm->so_colors[i_color][2] = 255;
 		game->xpm->so_colors[i_color][3] = 255;
 	}
-	else if (ft_strncmp(tmp, "black", ft_strlen(tmp)) == 0)
+	else if ((ft_strncmp(tmp, "black", ft_strlen(tmp)) == 0) \
+	|| (ft_strncmp(tmp, "none", ft_strlen(tmp)) == 0))
 	{
 		game->xpm->so_colors[i_color][1] = 0;
 		game->xpm->so_colors[i_color][2] = 0;
@@ -58,7 +62,7 @@ int	xpm_so_set_color(t_game *game, int i_color, char *tmp)
 		game->xpm->so_colors[i_color][3] = 255;
 	}
 	else
-		return (printf("color not handle\n"), FAIL);
+		return (printf("color so not handle\n"), FAIL);
 	return (SUCCESS);
 }
 
@@ -76,7 +80,7 @@ int	xpm_so_hex_to_dec(t_game *g, int i_color, int i_tab_file, int i_chr)
 		hex_to_dec(ft_strdup_len(g->xpm->so_tab_file[i_tab_file], \
 		i_chr + 5, i_chr + 7));
 	}
-	else if (xpm_so_letter_color(g, i_color, i_tab_file) == FAIL)
+	else if (xpm_so_letter_color(g, i_color, i_tab_file, i_chr) == FAIL)
 		return (FAIL);
 	return (SUCCESS);
 }
@@ -93,9 +97,9 @@ int	xpm_so_set_len_n_color(t_game *g, char **line)
 	xpm_so_fill_metadata(g, line);
 	if (ft_atoi(line[2]) <= 92)
 	{
-		if (xpm_so_init_color(g, line) == FAIL)
+		if (xpm_so_init_color(g) == FAIL)
 			return (FAIL);
-		while (++i_color < ft_atoi(line[2]))
+		while (++i_color < g->xpm->so_metadata[2])
 		{
 			i_chr = 1;
 			if (xpm_so_check_line_color(g, &i_chr, ++i_tab, i_color) == FAIL)
@@ -105,7 +109,8 @@ int	xpm_so_set_len_n_color(t_game *g, char **line)
 		}
 	}
 	else
-		return (printf("Must have under 92 colors in xpm\n"), FAIL);
+		xpm_so_dual(g);
+	// 	return (printf("Must have under 92 colors in xpm\n"), FAIL);
 	return (SUCCESS);
 }
 

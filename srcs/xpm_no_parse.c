@@ -6,7 +6,7 @@
 /*   By: mael <mael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 11:49:54 by gael              #+#    #+#             */
-/*   Updated: 2023/08/03 17:57:35 by mael             ###   ########.fr       */
+/*   Updated: 2023/08/03 17:58:11 by mael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,7 @@ int	xpm_no_split_buf(int fd, t_game *game)
 		if (buf[0] == '{')
 			break ;
 	}
-	if (xpm_no_get_content_xpm(game, fd, ret, buf) == FAIL)
-		return (FAIL);
+	xpm_no_get_content_xpm(game, fd, ret, buf);
 	game->xpm->no_tab_file = ft_split(game->xpm->no_file_content, '\n');
 	return (SUCCESS);
 }

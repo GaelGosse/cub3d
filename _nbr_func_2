@@ -55,6 +55,15 @@
 ./srcs/key_tools.c
     void check_for_wall_d(t_game *game)
 ./srcs/key_tools.c    4
+./srcs/free_xpm_2.c
+    void free_tab_colors_ea(t_game *game, int i)
+./srcs/free_xpm_2.c
+    void free_tab_colors_no(t_game *game, int i)
+./srcs/free_xpm_2.c
+    void free_tab_colors_so(t_game *game, int i)
+./srcs/free_xpm_2.c
+    void free_tab_colors_we(t_game *game, int i)
+./srcs/free_xpm_2.c    4
 ./srcs/xpm_no_utils.c
     int xpm_no_check_wh(t_game *game)
 ./srcs/xpm_no_utils.c
@@ -71,6 +80,13 @@
 ./srcs/start_3D.c
     int start_3d(t_game *game)
 ./srcs/start_3D.c    3
+./srcs/display_all_blue.c
+    void display_all_blue(t_game *g, int i_rotate, int len_vision)
+./srcs/display_all_blue.c
+    void display_all_blue_first(t_game *game, int i_rotate, int len_vision)
+./srcs/display_all_blue.c
+    void display_all_blue_second(t_game *game, int i_rotate, int len_vision)
+./srcs/display_all_blue.c    3
 ./srcs/draw_xpm_down_ea.c
     void draw_xpm_down_ea(t_game *game, int i_midline)
 ./srcs/draw_xpm_down_ea.c
@@ -81,7 +97,7 @@
 ./srcs/xpm_no_colors.c
     int xpm_no_hex_to_dec(t_game *g, int i_color, int i_tab_file, int i_chr)
 ./srcs/xpm_no_colors.c
-    int xpm_no_letter_color(t_game *game, int i_color, int i_tab_file)
+    int xpm_no_letter_color(t_game *game, int i_color, int i_tab_file, int i_chr)
 ./srcs/xpm_no_colors.c
     int xpm_no_set_color(t_game *game, int i_color, char *tmp)
 ./srcs/xpm_no_colors.c
@@ -251,6 +267,15 @@
 ./srcs/draw_xpm_down_we.c
     int draw_xpm_we_color(t_game *game, int x, int y)
 ./srcs/draw_xpm_down_we.c    2
+./srcs/display_all_red.c
+    void display_all_red(t_game *game, int i_rotate, int len_vision)
+./srcs/display_all_red.c
+    void display_all_red_first(t_game *game, int i_rotate, int len_vision)
+./srcs/display_all_red.c
+    void display_all_red_second(t_game *game, int i_rotate, int len_vision)
+./srcs/display_all_red.c
+    void display_all_red_third(t_game *game, int i_rotate, int len_vision)
+./srcs/display_all_red.c    4
 ./srcs/build_map_utils.c
     int check_nbr(char *str)
 ./srcs/build_map_utils.c
@@ -286,16 +311,14 @@
     char *xpm_ea_keep_metadata(char **tmp, int i_tmp)
 ./srcs/xpm_ea_utils.c    4
 ./srcs/display_all.c
-    int display_all(t_game *game, int key)
-./srcs/display_all.c
-    void display_all_blue(t_game *game, int i_rotate, int len_vision)
-./srcs/display_all.c
-    void display_all_red(t_game *game, int i_rotate, int len_vision)
+    int display_all(t_game *g, int key)
 ./srcs/display_all.c
     void last_correct_toggle(t_game *game)
 ./srcs/display_all.c
-    set_toggle(t_game *g, int i_rotate)
-./srcs/display_all.c    5
+    void mid_display_all(t_game *game, int i_rotate, int len_vision)
+./srcs/display_all.c
+    void set_toggle(t_game *g, int i_rotate)
+./srcs/display_all.c    4
 ./srcs/tools.c
     double abs_dble(double nb)
 ./srcs/tools.c
@@ -403,7 +426,7 @@
 ./srcs/floor_ceil_part.c
     int check_ceil(t_game *game, char *line, char *color)
 ./srcs/floor_ceil_part.c
-    int check_ceil_content(t_game *game, char **color)
+    int check_ceil_content(t_game *g, char **color)
 ./srcs/floor_ceil_part.c
     int check_floor(t_game *game, char *line, char *color)
 ./srcs/floor_ceil_part.c
@@ -432,7 +455,7 @@
 ./srcs/xpm_so_colors.c
     int xpm_so_hex_to_dec(t_game *g, int i_color, int i_tab_file, int i_chr)
 ./srcs/xpm_so_colors.c
-    int xpm_so_letter_color(t_game *game, int i_color, int i_tab_file)
+    int xpm_so_letter_color(t_game *game, int i_color, int i_tab_file, int i_chr)
 ./srcs/xpm_so_colors.c
     int xpm_so_set_color(t_game *game, int i_color, char *tmp)
 ./srcs/xpm_so_colors.c
@@ -452,6 +475,17 @@
 ./srcs/check_format.c
     void check_wall_in_map_2(t_game *game, int i_big, int i_lil)
 ./srcs/check_format.c    3
+./srcs/xpm_we_dual.c
+    int xpm_we_check_dual_colors(t_game *g, int *i_chr, int i_tab_file, int i_color)
+./srcs/xpm_we_dual.c
+    int xpm_we_dual(t_game *game)
+./srcs/xpm_we_dual.c
+    int xpm_we_dual_letter(t_game *game, int i_color, int i_tab_file, int i_chr)
+./srcs/xpm_we_dual.c
+    int xpm_we_hex_to_dec_dual(t_game *g, int i_color, int i_tab_file, int i_chr)
+./srcs/xpm_we_dual.c
+    int xpm_we_set_dual_color(t_game *game, int i_color, char *tmp)
+./srcs/xpm_we_dual.c    5
 ./srcs/draw_xpm_up_so.c
     void draw_xpm_up_so(t_game *g, int i_midline)
 ./srcs/draw_xpm_up_so.c
@@ -471,7 +505,7 @@
 ./srcs/xpm_ea_colors.c
     int xpm_ea_hex_to_dec(t_game *g, int i_color, int i_tab_file, int i_chr)
 ./srcs/xpm_ea_colors.c
-    int xpm_ea_letter_color(t_game *game, int i_color, int i_tab_file)
+    int xpm_ea_letter_color(t_game *game, int i_color, int i_tab_file, int i_chr)
 ./srcs/xpm_ea_colors.c
     int xpm_ea_set_color(t_game *game, int i_color, char *tmp)
 ./srcs/xpm_ea_colors.c

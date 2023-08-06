@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 10:03:27 by gael              #+#    #+#             */
-/*   Updated: 2023/08/02 14:22:13 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/02 14:22:49 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,7 @@ int	xpm_ea_correct(t_game *g)
 			n_comm++;
 		i++;
 	}
-	if (xpm_ea_wo_comm(g, n_comm) == FAIL)
-		return (FAIL);
-	return (SUCCESS);
+	return (xpm_ea_wo_comm(g, n_comm));
 }
 
 int	xpm_ea_wo_comm(t_game *g, int n_comm)
@@ -44,8 +42,6 @@ int	xpm_ea_wo_comm(t_game *g, int n_comm)
 	len = 0;
 	len = tab_len(g->xpm->ea_tab_file) - n_comm + 1;
 	tab_tmp = malloc(sizeof(char *) * (len));
-	if (!tab_tmp)
-		return (FAIL);
 	i = 0;
 	j = 0;
 	while (g->xpm->ea_tab_file[i])
