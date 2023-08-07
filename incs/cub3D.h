@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   incs/cub3D.h                                       :+:      :+:    :+:   */
+/*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 15:45:40 by ggosse            #+#    #+#             */
-/*   Updated: 2023/08/06 22:23:49 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/07 12:56:57 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@
 # include <readline/history.h>
 
 // ------------------------------ include ----------------------------------- //
-#include "../libft/libft.h"
-#include "color.h"
-#include <math.h>
-#include "../minilibx/mlx.h"
-#include <X11/keysym.h>
-#include <X11/X.h>
+# include "../libft/libft.h"
+# include "color.h"
+# include <math.h>
+# include "../minilibx/mlx.h"
+# include <X11/keysym.h>
+# include <X11/X.h>
 // ---------------------------- end include --------------------------------- //
 
 // ------------------------------ define ------------------------------------ //
@@ -266,19 +266,24 @@ void	display_all_blue_second(t_game *game, int i_rotate, int len_vision);
 void	draw_xpm_down_ea(t_game *game, int i_midline);
 int		draw_xpm_ea_color(t_game *game, int x, int y);
 //srcs/xpm_no_colors.c
-int		xpm_no_check_line_color(t_game *g, int *i_chr, int i_tab_file, int i_color);
+int		xpm_no_check_line_color(t_game *g, int *i_chr, int i_tab_file, \
+int i_color);
 int		xpm_no_hex_to_dec(t_game *g, int i_color, int i_tab_file, int i_chr);
-int		xpm_no_letter_color(t_game *game, int i_color, int i_tab_file, int i_chr);
+int		xpm_no_letter_color(t_game *game, int i_color, int i_tab_file, \
+int i_chr);
 int		xpm_no_set_color(t_game *game, int i_color, char *tmp);
 int		xpm_no_set_len_n_color(t_game *g, char **line);
 //srcs/xpm_we_colors.c
-int		xpm_we_check_line_color(t_game *g, int *i_chr, int i_tab_file, int i_color);
+int		xpm_we_check_line_color(t_game *g, int *i_chr, \
+int i_tab_file, int i_color);
 int		xpm_we_hex_to_dec(t_game *g, int i_color, int i_tab_file, int i_chr);
-int		xpm_we_letter_color(t_game *game, int i_color, int i_tab_file, int i_chr);
+int		xpm_we_letter_color(t_game *game, int i_color, \
+int i_tab_file, int i_chr);
 int		xpm_we_set_color(t_game *game, int i_color, char *tmp);
 int		xpm_we_set_len_n_color(t_game *g, char **line);
 //srcs/draw_line.c
-int		check_lines_hit_wall(t_game *game, int x_check, int y_check, int toggle);
+int		check_lines_hit_wall(t_game *game, int x_check, \
+int y_check, int toggle);
 int		draw_line_vision(t_game *game);
 int		draw_pixel(t_game *game, int toggle);
 int		init_line(t_game *game);
@@ -364,10 +369,13 @@ void	init_position(t_game *game);
 void	draw_xpm_down_we(t_game *game, int i_midline);
 int		draw_xpm_we_color(t_game *game, int x, int y);
 //srcs/xpm_so_dual.c
-int		xpm_so_check_dual_colors(t_game *g, int *i_chr, int i_tab_file, int i_color);
+int		xpm_so_check_dual_colors(t_game *g, int *i_chr, int i_tab_file, \
+int i_color);
 int		xpm_so_dual(t_game *game);
-int		xpm_so_dual_letter(t_game *game, int i_color, int i_tab_file, int i_chr);
-int		xpm_so_hex_to_dec_dual(t_game *g, int i_color, int i_tab_file, int i_chr);
+int		xpm_so_dual_letter(t_game *game, int i_color, int i_tab_file, \
+int i_chr);
+int		xpm_so_hex_to_dec_dual(t_game *g, int i_color, int i_tab_file, \
+int i_chr);
 int		xpm_so_set_dual_color(t_game *game, int i_color, char *tmp);
 //srcs/display_all_red.c
 void	display_all_red(t_game *game, int i_rotate, int len_vision);
@@ -437,10 +445,13 @@ int		xpm_no_wo_comm(t_game *g, int n_comm);
 void	draw_xpm_down_no(t_game *game, int i_midline);
 int		draw_xpm_no_color(t_game *game, int x, int y);
 //srcs/xpm_no_dual.c
-int		xpm_no_check_dual_colors(t_game *g, int *i_chr, int i_tab_file, int i_color);
+int		xpm_no_check_dual_colors(t_game *g, int *i_chr, int i_tab_file, \
+int i_color);
 int		xpm_no_dual(t_game *game);
-int		xpm_no_dual_letter(t_game *game, int i_color, int i_tab_file, int i_chr);
-int		xpm_no_hex_to_dec_dual(t_game *g, int i_color, int i_tab_file, int i_chr);
+int		xpm_no_dual_letter(t_game *game, int i_color, int i_tab_file, \
+int i_chr);
+int		xpm_no_hex_to_dec_dual(t_game *g, int i_color, int i_tab_file, \
+int i_chr);
 int		xpm_no_set_dual_color(t_game *game, int i_color, char *tmp);
 //srcs/draw_xpm_up_no.c
 void	draw_xpm_up_no(t_game *g, int i_midline);
@@ -479,9 +490,12 @@ void	draw_line_3d_up(t_game *game, int i_main, int i_midline);
 void	i_draw_up_blue(t_game *game, int i_midline);
 void	i_draw_up_red(t_game *game, int i_midline);
 //srcs/xpm_so_colors.c
-int		xpm_so_check_line_color(t_game *g, int *i_chr, int i_tab_file, int i_color);
-int		xpm_so_hex_to_dec(t_game *g, int i_color, int i_tab_file, int i_chr);
-int		xpm_so_letter_color(t_game *game, int i_color, int i_tab_file, int i_chr);
+int		xpm_so_check_line_color(t_game *g, int *i_chr, int i_tab_file, \
+int i_color);
+int		xpm_so_hex_to_dec(t_game *g, int i_color, int i_tab_file, \
+int i_chr);
+int		xpm_so_letter_color(t_game *game, int i_color, int i_tab_file, \
+int i_chr);
 int		xpm_so_set_color(t_game *game, int i_color, char *tmp);
 int		xpm_so_set_len_n_color(t_game *g, char **line);
 //srcs/angle_len.c
@@ -493,16 +507,22 @@ void	check_corner(t_game *game);
 void	check_wall_in_map_1(t_game *game, int i_big, int i_lil);
 void	check_wall_in_map_2(t_game *game, int i_big, int i_lil);
 //srcs/xpm_ea_dual.c
-int		xpm_ea_check_dual_colors(t_game *g, int *i_chr, int i_tab_file, int i_color);
+int		xpm_ea_check_dual_colors(t_game *g, int *i_chr, int i_tab_file, \
+int i_color);
 int		xpm_ea_dual(t_game *game);
-int		xpm_ea_dual_letter(t_game *game, int i_color, int i_tab_file, int i_chr);
-int		xpm_ea_hex_to_dec_dual(t_game *g, int i_color, int i_tab_file, int i_chr);
+int		xpm_ea_dual_letter(t_game *game, int i_color, int i_tab_file, \
+int i_chr);
+int		xpm_ea_hex_to_dec_dual(t_game *g, int i_color, int i_tab_file, \
+int i_chr);
 int		xpm_ea_set_dual_color(t_game *game, int i_color, char *tmp);
 //srcs/xpm_we_dual.c
-int		xpm_we_check_dual_colors(t_game *g, int *i_chr, int i_tab_file, int i_color);
+int		xpm_we_check_dual_colors(t_game *g, int *i_chr, int i_tab_file, \
+int i_color);
 int		xpm_we_dual(t_game *game);
-int		xpm_we_dual_letter(t_game *game, int i_color, int i_tab_file, int i_chr);
-int		xpm_we_hex_to_dec_dual(t_game *g, int i_color, int i_tab_file, int i_chr);
+int		xpm_we_dual_letter(t_game *game, int i_color, int i_tab_file, \
+int i_chr);
+int		xpm_we_hex_to_dec_dual(t_game *g, int i_color, int i_tab_file, \
+int i_chr);
 int		xpm_we_set_dual_color(t_game *game, int i_color, char *tmp);
 //srcs/draw_xpm_up_so.c
 void	draw_xpm_up_so(t_game *g, int i_midline);
@@ -513,9 +533,11 @@ int		xpm_ea_correct(t_game *g);
 int		xpm_ea_read_1line(t_game *game);
 int		xpm_ea_wo_comm(t_game *g, int n_comm);
 //srcs/xpm_ea_colors.c
-int		xpm_ea_check_line_color(t_game *g, int *i_chr, int i_tab_file, int i_color);
+int		xpm_ea_check_line_color(t_game *g, int *i_chr, int i_tab_file, \
+int i_color);
 int		xpm_ea_hex_to_dec(t_game *g, int i_color, int i_tab_file, int i_chr);
-int		xpm_ea_letter_color(t_game *game, int i_color, int i_tab_file, int i_chr);
+int		xpm_ea_letter_color(t_game *game, int i_color, int i_tab_file, \
+int i_chr);
 int		xpm_ea_set_color(t_game *game, int i_color, char *tmp);
 int		xpm_ea_set_len_n_color(t_game *g, char **line);
 
