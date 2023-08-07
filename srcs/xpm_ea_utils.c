@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   xpm_ea_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ggosse <ggosse@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 11:13:18 by gael              #+#    #+#             */
-/*   Updated: 2023/08/06 20:53:48 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/07 12:39:28 by ggosse           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ char	*xpm_ea_keep_metadata(char **tmp, int i_tmp)
 		end = len_line - 2;
 	else
 		end = len_line;
+	if (end < 0)
+		end = ft_strlen(tmp[i_tmp - 1]) - 2;
 	return (ft_strdup_len(tmp[i_tmp], 1, end));
 }
 
