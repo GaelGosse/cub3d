@@ -6,7 +6,7 @@
 /*   By: gael <gael@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/29 12:30:48 by gael              #+#    #+#             */
-/*   Updated: 2023/08/06 18:05:14 by gael             ###   ########.fr       */
+/*   Updated: 2023/08/07 11:29:43 by gael             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,6 @@ int	xpm_ea_set_len_n_color(t_game *g, char **line)
 	}
 	else
 		xpm_ea_dual(g);
-	// 	return (printf("Must have under 92 colors in xpm\n"), FAIL);
 	return (SUCCESS);
 }
 
